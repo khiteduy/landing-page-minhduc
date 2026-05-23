@@ -202,7 +202,7 @@ body {
 /* Story Step hoạt động */
 .story-step {
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  @apply border border-slate-200/80 bg-white/50;
+  @apply border border-slate-200/80 bg-white;
 }
 
 .story-step.is-active {
@@ -222,6 +222,10 @@ body {
 
 .story-pill {
   @apply border border-slate-200/80 bg-slate-50/50;
+}
+
+.story-grid {
+  display: grid;
 }
 
 .story-focus {

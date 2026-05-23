@@ -262,7 +262,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F8FAF9] text-[#0A0F1C] font-sansSelection">
+    <div className="min-h-screen bg-[#F8FAF9] text-[#0A0F1C] font-sans">
       <div className="mesh-bg" aria-hidden="true" />
       
       {/* Top bar - Phẳng tối giản */}
@@ -427,7 +427,7 @@ export default function App() {
                   <article
                     key={phase.title}
                     data-story-index={i}
-                    className="story-node story-step reveal-on-scroll rounded-2xl border p-6 backdrop-blur-sm"
+                    className="story-node story-step reveal-on-scroll rounded-2xl p-6"
                     style={{ transitionDelay: `${i * 120}ms` }}
                   >
                     <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-slate-400">Chặng {i + 1}</p>
