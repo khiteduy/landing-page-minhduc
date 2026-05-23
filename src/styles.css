@@ -264,3 +264,49 @@ body {
     opacity: 1 !important;
   }
 }
+
+/* Performance Optimizations */
+.reveal-on-scroll {
+  will-change: opacity, transform;
+}
+
+#services,
+#cases,
+#courses,
+#feedback,
+#toolkit {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+

@@ -196,6 +196,10 @@ export default function App() {
     const elements = document.querySelectorAll(".reveal-on-scroll");
     const storySteps = document.querySelectorAll(".story-step");
 
+    const isMobile = window.innerWidth < 768;
+    const revealThreshold = isMobile ? 0.05 : 0.15;
+    const stepThreshold = isMobile ? 0.25 : 0.55;
+
     const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -204,7 +208,7 @@ export default function App() {
           }
         });
       },
-      { threshold: 0.18, rootMargin: "0px 0px -8% 0px" }
+      { threshold: revealThreshold, rootMargin: isMobile ? "0px 0px -5% 0px" : "0px 0px -8% 0px" }
     );
 
     const stepObserver = new IntersectionObserver(
@@ -218,7 +222,7 @@ export default function App() {
           }
         });
       },
-      { threshold: 0.62, rootMargin: "0px 0px -12% 0px" }
+      { threshold: stepThreshold, rootMargin: isMobile ? "0px 0px -10% 0px" : "0px 0px -12% 0px" }
     );
 
     elements.forEach((el) => revealObserver.observe(el));
@@ -263,7 +267,7 @@ export default function App() {
             </a>
             <button
               type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-brand-800 lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 text-brand-800 lg:hidden"
               onClick={() => setMobileMenuOpen((v) => !v)}
               aria-label="Mở menu"
               aria-expanded={mobileMenuOpen}
@@ -273,8 +277,8 @@ export default function App() {
           </div>
         </div>
         {mobileMenuOpen && (
-          <nav className="section-container pb-4 lg:hidden">
-            <div className="rounded-2xl border border-slate-200 bg-white p-3">
+          <nav className="section-container pb-4 lg:hidden animate-slide-down">
+            <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-lg">
               {nav.map((item) => (
                 <a
                   key={item.id}
