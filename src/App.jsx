@@ -491,7 +491,7 @@ export default function App() {
                       <button 
                         key={p} 
                         onClick={() => setLightbox(p)} 
-                        className="group relative overflow-hidden rounded-xl border border-slate-100 text-left transition-all duration-300 hover:border-brand-400 hover:shadow-md h-32 w-full"
+                        className="group relative overflow-hidden rounded-xl border border-slate-100 text-left transition-all duration-300 hover:border-sky-400 hover:shadow-md h-32 w-full"
                       >
                         <img src={p} alt={`Proof ${c.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
                         <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -504,7 +504,7 @@ export default function App() {
                         </div>
                       </button>
                     ) : (
-                      <a key={p} href={p} target="_blank" rel="noreferrer" className="flex items-center justify-center rounded-xl border border-dashed border-brand-200 p-4 text-xs font-bold text-brand-700 hover:bg-brand-50 hover:border-brand-300 transition-colors text-center h-32">
+                      <a key={p} href={p} target="_blank" rel="noreferrer" className="flex items-center justify-center rounded-xl border border-dashed border-sky-200 p-4 text-xs font-bold text-sky-700 hover:bg-sky-50/50 hover:border-sky-300 transition-colors text-center h-32">
                         Xem nguồn Meta Business
                       </a>
                     )
@@ -521,7 +521,7 @@ export default function App() {
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {courses.map((c) => (
             <article key={c.title} className="card card-3d p-6">
-              <h3 className="text-xl font-bold text-brand-800">{c.title}</h3>
+              <h3 className="text-xl font-bold text-sky-950">{c.title}</h3>
               <p className="mt-3 text-slate-600">{c.desc}</p>
               <ul className="mt-4 space-y-2 text-sm text-slate-700">
                 {c.points.map((p) => (
@@ -549,7 +549,7 @@ export default function App() {
                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
               />
             </div>
-            <a className="mt-4 inline-block text-sm font-semibold text-brand-700 hover:underline" href="https://www.facebook.com/share/v/18izSvaN8g/" target="_blank" rel="noreferrer">Xem trên Facebook</a>
+            <a className="mt-4 inline-block text-sm font-semibold text-sky-600 hover:underline" href="https://www.facebook.com/share/v/18izSvaN8g/" target="_blank" rel="noreferrer">Xem trên Facebook</a>
           </article>
 
           <article className="card card-3d p-6">
@@ -558,19 +558,19 @@ export default function App() {
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
               <div className="glass rounded-xl p-4">
                 <p className="text-xs uppercase tracking-wide text-slate-500">Mô hình vận hành</p>
-                <p className="mt-2 text-lg font-bold text-brand-800">Ads + Content + Data</p>
+                <p className="mt-2 text-lg font-bold text-sky-700">Ads + Content + Data</p>
               </div>
               <div className="glass rounded-xl p-4">
                 <p className="text-xs uppercase tracking-wide text-slate-500">Triển khai</p>
-                <p className="mt-2 text-lg font-bold text-brand-800">Funnel theo mục tiêu</p>
+                <p className="mt-2 text-lg font-bold text-sky-700">Funnel theo mục tiêu</p>
               </div>
               <div className="glass rounded-xl p-4">
                 <p className="text-xs uppercase tracking-wide text-slate-500">Theo dõi</p>
-                <p className="mt-2 text-lg font-bold text-brand-800">Báo cáo theo doanh thu</p>
+                <p className="mt-2 text-lg font-bold text-sky-700">Báo cáo theo doanh thu</p>
               </div>
               <div className="glass rounded-xl p-4">
                 <p className="text-xs uppercase tracking-wide text-slate-500">Tối ưu</p>
-                <p className="mt-2 text-lg font-bold text-brand-800">CPA, ROAS, Lead Quality</p>
+                <p className="mt-2 text-lg font-bold text-sky-700">CPA, ROAS, Lead Quality</p>
               </div>
             </div>
           </article>
@@ -674,7 +674,7 @@ export default function App() {
                 <button
                   type="submit"
                   disabled={contactForm.loading}
-                  className="btn-3d md:col-span-2 rounded-xl bg-brand-700 px-6 py-3 font-semibold text-white hover:bg-brand-800 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="btn-3d md:col-span-2 px-6 py-3.5 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {contactForm.loading ? (
                     <>
@@ -785,7 +785,7 @@ export default function App() {
                 <button
                   type="submit"
                   disabled={toolkitForm.loading}
-                  className="btn-3d md:col-span-2 rounded-xl bg-amber-400 px-6 py-3 font-bold text-slate-900 hover:bg-amber-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                  className="btn-3d-accent md:col-span-2 px-6 py-3.5 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {toolkitForm.loading ? (
                     <>
@@ -815,7 +815,7 @@ export default function App() {
       <a
         href="#contact"
         onClick={() => { if (window.trackCTA) window.trackCTA("Floating - Tư vấn ngay"); }}
-        className="fixed bottom-5 right-5 rounded-full bg-brand-700 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:bg-brand-800"
+        className="fixed bottom-5 right-5 btn-3d px-5 py-3 text-sm rounded-full z-40"
       >
         Tư vấn ngay
       </a>
