@@ -422,7 +422,7 @@ export default function App() {
 
       <section id="cases" className="section-container pb-20 lg:pb-32">
         <div className="cases-hero card-3d reveal-on-scroll mb-8 rounded-3xl p-6 sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-200">Achievement Highlights</p>
+          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-sky-200">Achievement Highlights</p>
           <h2 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">Case Study thực chiến</h2>
           <p className="mt-3 max-w-3xl text-blue-50/95">
             Mỗi case đều được tối ưu theo mục tiêu kinh doanh thực tế: giảm chi phí, tăng lead chất lượng và đẩy doanh thu.
@@ -456,7 +456,7 @@ export default function App() {
           {visibleCases.map((c) => (
             <article key={c.name} className="case-card card card-3d reveal-on-scroll p-6 relative">
               <div className="mb-4 flex items-center justify-between gap-3">
-                <p className="rounded-full bg-brand-50 border border-brand-100 px-3 py-1 text-xs font-semibold text-brand-800">{c.category}</p>
+                <p className="rounded-full bg-sky-50 border border-sky-100 px-3 py-1 text-xs font-semibold text-sky-800">{c.category}</p>
                 <p className="rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-xs font-bold text-amber-700">{c.result}</p>
               </div>
               <h3 className="text-xl font-bold text-slate-900">{c.name}</h3>
@@ -472,7 +472,7 @@ export default function App() {
                     return (
                       <div key={m} className={`glass rounded-xl p-3.5 transition-all duration-300 hover:shadow-sm ${i === 2 ? "metric-strong" : ""}`}>
                         <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">{label}</p>
-                        <p className={`text-base font-extrabold mt-1 leading-none ${i === 2 ? "text-brand-800" : "text-slate-800"}`}>{value}</p>
+                        <p className={`text-base font-extrabold mt-1 leading-none ${i === 2 ? "text-sky-800" : "text-slate-800"}`}>{value}</p>
                       </div>
                     );
                   }

@@ -149,7 +149,7 @@ body {
   top: 12px;
   bottom: 12px;
   width: 2px;
-  background: linear-gradient(180deg, rgba(226, 232, 240, 0.4) 0%, #3b82f6 20%, #6366f1 70%, rgba(99, 102, 241, 0.3) 100%);
+  background: linear-gradient(180deg, rgba(56, 189, 248, 0.2) 0%, #0ea5e9 20%, #38bdf8 75%, rgba(56, 189, 248, 0.1) 100%);
 }
 
 .story-node {
@@ -165,9 +165,9 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 999px;
-  background: #cbd5e1;
+  background: #e2e8f0;
   border: 2px solid #ffffff;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
+  box-shadow: 0 1px 3px rgba(14, 165, 233, 0.15);
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 10;
 }
@@ -176,9 +176,9 @@ body {
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background:
-    radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.15) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.12) 0%, transparent 45%),
-    linear-gradient(145deg, #091e3a 0%, #051329 100%);
+    radial-gradient(circle at 10% 10%, rgba(56, 189, 248, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(14, 165, 233, 0.12) 0%, transparent 45%),
+    linear-gradient(145deg, #0c2540 0%, #031427 100%);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
@@ -200,7 +200,7 @@ body {
 }
 
 .story-manifesto {
-  border-left: 3px solid rgba(56, 189, 248, 0.6);
+  border-left: 3px solid rgba(56, 189, 248, 0.7);
   padding-left: 14px;
 }
 
@@ -223,24 +223,30 @@ body {
 
 .cases-hero {
   background:
-    radial-gradient(circle at 10% 20%, rgba(59, 130, 246, 0.25) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.18) 0%, transparent 40%),
-    linear-gradient(145deg, #0b1a30 0%, #030a17 100%);
-  border: 1px solid rgba(59, 130, 246, 0.15);
+    radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.25) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(56, 189, 248, 0.15) 0%, transparent 40%),
+    linear-gradient(145deg, #0c2540 0%, #031427 100%);
+  border: 1px solid rgba(14, 165, 233, 0.25);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 
 .case-kpi {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-bottom: 3px solid rgba(56, 189, 248, 0.25);
   backdrop-filter: blur(8px);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.02);
-  transition: transform 0.3s ease, border-color 0.3s ease;
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .case-kpi:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.15);
+  border-color: rgba(56, 189, 248, 0.3);
+  box-shadow: 
+    0 8px 16px rgba(14, 165, 233, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .case-card {
@@ -255,12 +261,13 @@ body {
   left: 0;
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  background: linear-gradient(90deg, #38bdf8, #0ea5e9);
 }
 
 .metric-strong {
-  background: linear-gradient(145deg, rgba(239, 246, 255, 0.9), rgba(219, 234, 254, 0.8));
-  border-color: rgba(59, 130, 246, 0.2);
+  background: linear-gradient(145deg, rgba(224, 242, 254, 0.9), rgba(186, 230, 253, 0.8));
+  border-color: rgba(14, 165, 233, 0.25);
+  border-bottom: 2px solid rgba(14, 165, 233, 0.35);
 }
 
 .reveal-on-scroll {
@@ -280,15 +287,15 @@ body {
 
 .story-step.is-active {
   transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.25);
   background: rgba(255, 255, 255, 0.08);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
 }
 
 .story-step.is-active::before {
-  background: #3b82f6;
+  background: #0ea5e9;
   border-color: #ffffff;
-  box-shadow: 0 0 0 6px rgba(59, 130, 246, 0.25), 0 0 15px rgba(59, 130, 246, 0.45);
+  box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.25), 0 0 15px rgba(14, 165, 233, 0.45);
 }
 
 .case-card.reveal-on-scroll {
