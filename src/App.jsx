@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import useForm from "./hooks/useForm";
 
 const nav = [
   { id: "story", label: "Câu chuyện" },
@@ -150,6 +151,41 @@ export default function App() {
   const [lightbox, setLightbox] = useState("");
   const [activeStory, setActiveStory] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const contactWebhook = import.meta.env.VITE_CONTACT_WEBHOOK_URL || "";
+  const toolkitWebhook = import.meta.env.VITE_TOOLKIT_WEBHOOK_URL || "";
+
+  const contactForm = useForm(
+    {
+      needGroup: "Tôi là doanh nghiệp",
+      name: "",
+      phone: "",
+      mainNeed: "",
+      description: "",
+    },
+    contactWebhook,
+    null,
+    (data) => {
+      if (window.trackFormSubmit) {
+        window.trackFormSubmit("contact", data);
+      }
+    }
+  );
+
+  const toolkitForm = useForm(
+    {
+      name: "",
+      phone: "",
+      requestedTool: "",
+    },
+    toolkitWebhook,
+    null,
+    (data) => {
+      if (window.trackFormSubmit) {
+        window.trackFormSubmit("toolkit", data);
+      }
+    }
+  );
 
   const visibleCases = useMemo(() => {
     if (caseFilter === "all") return cases;
@@ -490,62 +526,223 @@ export default function App() {
 
       <section id="contact" className="section-container pb-24">
         <div className="card card-3d p-8">
-          <h2 className="text-2xl font-bold sm:text-3xl">Nhận tư vấn phù hợp mục tiêu của bạn</h2>
-          <p className="mt-3 max-w-3xl text-slate-600">Điền form để đội ngũ Minh Duc Global liên hệ nhanh, phân luồng đúng theo nhu cầu doanh nghiệp hoặc học viên.</p>
-          <form className="mt-6 grid gap-4 md:grid-cols-2">
-            <label className="text-sm font-medium">Nhóm nhu cầu
-              <select className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3">
-                <option>Tôi là doanh nghiệp</option>
-                <option>Tôi là học viên</option>
-              </select>
-            </label>
-            <label className="text-sm font-medium">Họ và tên
-              <input type="text" placeholder="Nhập họ tên" className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3" required />
-            </label>
-            <label className="text-sm font-medium">Số điện thoại / Zalo
-              <input type="tel" placeholder="Nhập số điện thoại" className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3" required />
-            </label>
-            <label className="text-sm font-medium">Nhu cầu chính
-              <input type="text" placeholder="Ví dụ: Facebook Ads, Google Ads, Khóa học..." className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3" required />
-            </label>
-            <label className="text-sm font-medium md:col-span-2">Mô tả ngắn mục tiêu
-              <textarea rows="4" placeholder="Mục tiêu 30-90 ngày của bạn" className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3" required />
-            </label>
-            <button type="button" className="btn-3d md:col-span-2 rounded-xl bg-brand-700 px-6 py-3 font-semibold text-white hover:bg-brand-800">Gửi thông tin tư vấn</button>
-          </form>
+          {contactForm.success ? (
+            <div className="flex flex-col items-center justify-center py-12 text-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 shadow-md animate-pulse">
+                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="mt-6 text-2xl font-bold text-slate-900 animate-fade-in">Gửi thông tin thành công!</h3>
+              <p className="mt-3 max-w-md text-slate-600">
+                Cảm ơn bạn đã quan tâm. Đội ngũ Minh Duc Global sẽ liên hệ tư vấn cho bạn sớm nhất có thể qua số điện thoại hoặc Zalo.
+              </p>
+              <button
+                type="button"
+                onClick={contactForm.resetForm}
+                className="mt-8 rounded-xl border border-slate-200 bg-white px-6 py-2.5 text-sm font-semibold text-slate-700 shadow-sm hover:bg-slate-50 transition-colors"
+              >
+                Gửi form mới
+              </button>
+            </div>
+          ) : (
+            <>
+              <h2 className="text-2xl font-bold sm:text-3xl">Nhận tư vấn phù hợp mục tiêu của bạn</h2>
+              <p className="mt-3 max-w-3xl text-slate-600">Điền form để đội ngũ Minh Duc Global liên hệ nhanh, phân luồng đúng theo nhu cầu doanh nghiệp hoặc học viên.</p>
+              <form onSubmit={contactForm.handleSubmit} className="mt-6 grid gap-4 md:grid-cols-2">
+                <label className="text-sm font-medium">Nhóm nhu cầu
+                  <select
+                    name="needGroup"
+                    value={contactForm.values.needGroup}
+                    onChange={contactForm.handleChange}
+                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-brand-500 focus:ring-2 focus:ring-brand-100 transition-all bg-white"
+                  >
+                    <option>Tôi là doanh nghiệp</option>
+                    <option>Tôi là học viên</option>
+                  </select>
+                </label>
+                <label className="text-sm font-medium">Họ và tên
+                  <input
+                    type="text"
+                    name="name"
+                    value={contactForm.values.name}
+                    onChange={contactForm.handleChange}
+                    placeholder="Nhập họ tên"
+                    className={`mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-brand-100 transition-all ${
+                      contactForm.errors.name ? "border-red-500 bg-red-50/10 focus:ring-red-100" : "border-slate-200 focus:border-brand-500"
+                    }`}
+                  />
+                  {contactForm.errors.name && <span className="mt-1 block text-xs text-red-500 font-medium">{contactForm.errors.name}</span>}
+                </label>
+                <label className="text-sm font-medium">Số điện thoại / Zalo
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={contactForm.values.phone}
+                    onChange={contactForm.handleChange}
+                    placeholder="Nhập số điện thoại"
+                    className={`mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-brand-100 transition-all ${
+                      contactForm.errors.phone ? "border-red-500 bg-red-50/10 focus:ring-red-100" : "border-slate-200 focus:border-brand-500"
+                    }`}
+                  />
+                  {contactForm.errors.phone && <span className="mt-1 block text-xs text-red-500 font-medium">{contactForm.errors.phone}</span>}
+                </label>
+                <label className="text-sm font-medium">Nhu cầu chính
+                  <input
+                    type="text"
+                    name="mainNeed"
+                    value={contactForm.values.mainNeed}
+                    onChange={contactForm.handleChange}
+                    placeholder="Ví dụ: Facebook Ads, Google Ads, Khóa học..."
+                    className={`mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-brand-100 transition-all ${
+                      contactForm.errors.mainNeed ? "border-red-500 bg-red-50/10 focus:ring-red-100" : "border-slate-200 focus:border-brand-500"
+                    }`}
+                  />
+                  {contactForm.errors.mainNeed && <span className="mt-1 block text-xs text-red-500 font-medium">{contactForm.errors.mainNeed}</span>}
+                </label>
+                <label className="text-sm font-medium md:col-span-2">Mô tả ngắn mục tiêu
+                  <textarea
+                    name="description"
+                    value={contactForm.values.description}
+                    onChange={contactForm.handleChange}
+                    rows="4"
+                    placeholder="Mục tiêu 30-90 ngày của bạn"
+                    className={`mt-2 w-full rounded-xl border px-4 py-3 outline-none focus:ring-2 focus:ring-brand-100 transition-all ${
+                      contactForm.errors.description ? "border-red-500 bg-red-50/10 focus:ring-red-100" : "border-slate-200 focus:border-brand-500"
+                    }`}
+                  />
+                  {contactForm.errors.description && <span className="mt-1 block text-xs text-red-500 font-medium">{contactForm.errors.description}</span>}
+                </label>
+                {contactForm.submitError && (
+                  <div className="md:col-span-2 rounded-xl bg-red-50 border border-red-200 p-4 text-sm text-red-700">
+                    {contactForm.submitError}
+                  </div>
+                )}
+                <button
+                  type="submit"
+                  disabled={contactForm.loading}
+                  className="btn-3d md:col-span-2 rounded-xl bg-brand-700 px-6 py-3 font-semibold text-white hover:bg-brand-800 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {contactForm.loading ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Đang gửi thông tin...
+                    </>
+                  ) : (
+                    "Gửi thông tin tư vấn"
+                  )}
+                </button>
+              </form>
+            </>
+          )}
         </div>
       </section>
 
       <section id="toolkit" className="section-container pb-24">
         <div className="toolkit-hero card-3d reveal-on-scroll rounded-3xl p-8 sm:p-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-100">Lead Magnet</p>
-          <h2 className="mt-3 text-3xl font-extrabold leading-tight text-white sm:text-4xl">
-            Nhận miễn phí bộ công cụ Marketing All-in-One
-          </h2>
-          <p className="mt-4 max-w-4xl text-blue-50/95">
-            Sau khi gửi form, bạn sẽ được tặng bộ tài nguyên thực chiến gồm: khung làm kịch bản, mẫu plan content, checklist phân tích chỉ số quảng cáo,
-            template viết bài SEO chuẩn và quy trình tối ưu chiến dịch theo dữ liệu.
-          </p>
-          <div className="mt-6 grid gap-3 text-sm text-white sm:grid-cols-2 lg:grid-cols-4">
-            <div className="toolkit-pill rounded-xl px-4 py-3">Kịch bản content chuyển đổi</div>
-            <div className="toolkit-pill rounded-xl px-4 py-3">Plan content theo tuần/tháng</div>
-            <div className="toolkit-pill rounded-xl px-4 py-3">Bảng phân tích chỉ số Ads</div>
-            <div className="toolkit-pill rounded-xl px-4 py-3">Template bài SEO chuẩn</div>
-          </div>
-          <form className="mt-8 grid gap-4 rounded-2xl bg-white/10 p-5 backdrop-blur md:grid-cols-2">
-            <label className="text-sm font-semibold text-white">Họ và tên
-              <input type="text" required placeholder="Nhập họ tên" className="mt-2 w-full rounded-xl border border-white/30 bg-white/90 px-4 py-3 text-slate-900 placeholder:text-slate-500" />
-            </label>
-            <label className="text-sm font-semibold text-white">Số điện thoại / Zalo
-              <input type="tel" required placeholder="Nhập số điện thoại" className="mt-2 w-full rounded-xl border border-white/30 bg-white/90 px-4 py-3 text-slate-900 placeholder:text-slate-500" />
-            </label>
-            <label className="text-sm font-semibold text-white md:col-span-2">Bạn đang cần nhất công cụ nào?
-              <input type="text" required placeholder="Ví dụ: Phân tích chỉ số ads, làm kịch bản video, plan content..." className="mt-2 w-full rounded-xl border border-white/30 bg-white/90 px-4 py-3 text-slate-900 placeholder:text-slate-500" />
-            </label>
-            <button type="button" className="btn-3d md:col-span-2 rounded-xl bg-amber-400 px-6 py-3 font-bold text-slate-900 hover:bg-amber-300">
-              Gửi thông tin để nhận bộ công cụ
-            </button>
-          </form>
+          {toolkitForm.success ? (
+            <div className="flex flex-col items-center justify-center py-12 text-center">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-400 text-slate-900 shadow-md animate-pulse">
+                <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="mt-6 text-2xl font-bold text-white animate-fade-in">Đăng ký thành công!</h3>
+              <p className="mt-3 max-w-md text-blue-50/95">
+                Cảm ơn bạn. Bộ tài nguyên Marketing All-in-One đã được chuẩn bị và sẽ được gửi trực tiếp tới bạn qua số điện thoại/Zalo trong ít phút.
+              </p>
+              <button
+                type="button"
+                onClick={toolkitForm.resetForm}
+                className="mt-8 rounded-xl border border-white/20 bg-white/10 px-6 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-white/20 transition-colors"
+              >
+                Gửi form mới
+              </button>
+            </div>
+          ) : (
+            <>
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-blue-100">Lead Magnet</p>
+              <h2 className="mt-3 text-3xl font-extrabold leading-tight text-white sm:text-4xl">
+                Nhận miễn phí bộ công cụ Marketing All-in-One
+              </h2>
+              <p className="mt-4 max-w-4xl text-blue-50/95">
+                Sau khi gửi form, bạn sẽ được tặng bộ tài nguyên thực chiến gồm: khung làm kịch bản, mẫu plan content, checklist phân tích chỉ số quảng cáo,
+                template viết bài SEO chuẩn và quy trình tối ưu chiến dịch theo dữ liệu.
+              </p>
+              <div className="mt-6 grid gap-3 text-sm text-white sm:grid-cols-2 lg:grid-cols-4">
+                <div className="toolkit-pill rounded-xl px-4 py-3">Kịch bản content chuyển đổi</div>
+                <div className="toolkit-pill rounded-xl px-4 py-3">Plan content theo tuần/tháng</div>
+                <div className="toolkit-pill rounded-xl px-4 py-3">Bảng phân tích chỉ số Ads</div>
+                <div className="toolkit-pill rounded-xl px-4 py-3">Template bài SEO chuẩn</div>
+              </div>
+              <form onSubmit={toolkitForm.handleSubmit} className="mt-8 grid gap-4 rounded-2xl bg-white/10 p-5 backdrop-blur md:grid-cols-2">
+                <label className="text-sm font-semibold text-white">Họ và tên
+                  <input
+                    type="text"
+                    name="name"
+                    value={toolkitForm.values.name}
+                    onChange={toolkitForm.handleChange}
+                    placeholder="Nhập họ tên"
+                    className={`mt-2 w-full rounded-xl border bg-white/90 px-4 py-3 text-slate-900 placeholder:text-slate-500 outline-none focus:ring-2 focus:ring-white/50 transition-all ${
+                      toolkitForm.errors.name ? "border-red-500 bg-red-900/10 focus:ring-red-100" : "border-white/30 focus:border-white"
+                    }`}
+                  />
+                  {toolkitForm.errors.name && <span className="mt-1 block text-xs text-red-200 font-medium">{toolkitForm.errors.name}</span>}
+                </label>
+                <label className="text-sm font-semibold text-white">Số điện thoại / Zalo
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={toolkitForm.values.phone}
+                    onChange={toolkitForm.handleChange}
+                    placeholder="Nhập số điện thoại"
+                    className={`mt-2 w-full rounded-xl border bg-white/90 px-4 py-3 text-slate-900 placeholder:text-slate-500 outline-none focus:ring-2 focus:ring-white/50 transition-all ${
+                      toolkitForm.errors.phone ? "border-red-500 bg-red-900/10 focus:ring-red-100" : "border-white/30 focus:border-white"
+                    }`}
+                  />
+                  {toolkitForm.errors.phone && <span className="mt-1 block text-xs text-red-200 font-medium">{toolkitForm.errors.phone}</span>}
+                </label>
+                <label className="text-sm font-semibold text-white md:col-span-2">Bạn đang cần nhất công cụ nào?
+                  <input
+                    type="text"
+                    name="requestedTool"
+                    value={toolkitForm.values.requestedTool}
+                    onChange={toolkitForm.handleChange}
+                    placeholder="Ví dụ: Phân tích chỉ số ads, làm kịch bản video, plan content..."
+                    className={`mt-2 w-full rounded-xl border bg-white/90 px-4 py-3 text-slate-900 placeholder:text-slate-500 outline-none focus:ring-2 focus:ring-white/50 transition-all ${
+                      toolkitForm.errors.requestedTool ? "border-red-500 bg-red-900/10 focus:ring-red-100" : "border-white/30 focus:border-white"
+                    }`}
+                  />
+                  {toolkitForm.errors.requestedTool && <span className="mt-1 block text-xs text-red-200 font-medium">{toolkitForm.errors.requestedTool}</span>}
+                </label>
+                {toolkitForm.submitError && (
+                  <div className="md:col-span-2 rounded-xl bg-red-900/40 border border-red-500/50 p-4 text-sm text-red-200">
+                    {toolkitForm.submitError}
+                  </div>
+                )}
+                <button
+                  type="submit"
+                  disabled={toolkitForm.loading}
+                  className="btn-3d md:col-span-2 rounded-xl bg-amber-400 px-6 py-3 font-bold text-slate-900 hover:bg-amber-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {toolkitForm.loading ? (
+                    <>
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-slate-900" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Đang xử lý...
+                    </>
+                  ) : (
+                    "Gửi thông tin để nhận bộ công cụ"
+                  )}
+                </button>
+              </form>
+            </>
+          )}
         </div>
       </section>
 
