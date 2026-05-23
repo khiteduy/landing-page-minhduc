@@ -304,7 +304,7 @@ export default function App() {
         )}
       </header>
 
-      <section className="section-container py-16 lg:py-24">
+      <section className="section-container py-20 lg:py-32">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <p className="mb-3 inline-block rounded-full border border-white/80 bg-white/80 px-4 py-2 text-sm font-semibold text-brand-800 shadow-sm backdrop-blur">Performance Marketing • AI Automation • Đào tạo thực chiến</p>
@@ -343,7 +343,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="story" className="section-container pb-16 lg:pb-24">
+      <section id="story" className="section-container pb-20 lg:pb-32">
         <div className="story-hero card-3d reveal-on-scroll p-6 sm:p-8 lg:p-10">
           <div className="story-grid gap-8 lg:gap-12">
             <aside className="story-sticky">
@@ -403,7 +403,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="services" className="section-container pb-16 lg:pb-24">
+      <section id="services" className="section-container pb-20 lg:pb-32">
         <h2 className="text-2xl font-bold sm:text-3xl">Dịch vụ chính của Minh Duc Global</h2>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {services.map((s) => (
@@ -420,7 +420,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="cases" className="section-container pb-16 lg:pb-24">
+      <section id="cases" className="section-container pb-20 lg:pb-32">
         <div className="cases-hero card-3d reveal-on-scroll mb-8 rounded-3xl p-6 sm:p-8">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-brand-200">Achievement Highlights</p>
           <h2 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl">Case Study thực chiến</h2>
@@ -488,7 +488,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="courses" className="section-container pb-16 lg:pb-24">
+      <section id="courses" className="section-container pb-20 lg:pb-32">
         <h2 className="text-2xl font-bold sm:text-3xl">Khóa học marketing thực chiến</h2>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {courses.map((c) => (
@@ -505,7 +505,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="feedback" className="section-container pb-16 lg:pb-24">
+      <section id="feedback" className="section-container pb-20 lg:pb-32">
         <div className="grid gap-6 lg:grid-cols-2">
           <article className="card card-3d p-6">
             <h2 className="text-2xl font-bold">Feedback học viên</h2>
@@ -549,7 +549,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="contact" className="section-container pb-24">
+      <section id="contact" className="section-container pb-32">
         <div className="card card-3d p-8">
           {contactForm.success ? (
             <div className="flex flex-col items-center justify-center py-12 text-center">
@@ -666,7 +666,7 @@ export default function App() {
         </div>
       </section>
 
-      <section id="toolkit" className="section-container pb-24">
+      <section id="toolkit" className="section-container pb-32">
         <div className="toolkit-hero card-3d reveal-on-scroll rounded-3xl p-8 sm:p-10">
           {toolkitForm.success ? (
             <div className="flex flex-col items-center justify-center py-12 text-center">
