@@ -454,31 +454,59 @@ export default function App() {
         </div>
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
           {visibleCases.map((c) => (
-            <article key={c.name} className="case-card card card-3d reveal-on-scroll p-6">
+            <article key={c.name} className="case-card card card-3d reveal-on-scroll p-6 relative">
               <div className="mb-4 flex items-center justify-between gap-3">
-                <p className="rounded-full bg-brand-100 px-3 py-1 text-xs font-semibold text-brand-800">{c.category}</p>
-                <p className="rounded-full bg-amber-100 px-3 py-1 text-xs font-extrabold text-amber-700">{c.result}</p>
+                <p className="rounded-full bg-brand-50 border border-brand-100 px-3 py-1 text-xs font-semibold text-brand-800">{c.category}</p>
+                <p className="rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-xs font-bold text-amber-700">{c.result}</p>
               </div>
-              <h3 className="text-xl font-bold">{c.name}</h3>
-              <p className="mt-2 text-sm text-slate-500">{c.industry} • {c.role}</p>
-              <p className="mt-3 text-slate-600">{c.short}</p>
+              <h3 className="text-xl font-bold text-slate-900">{c.name}</h3>
+              <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-slate-400">{c.industry} • {c.role}</p>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{c.short}</p>
               <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
-                {c.metrics.map((m, i) => (
-                  <div key={m} className={`glass rounded-lg p-3 ${i === 2 ? "metric-strong" : ""}`}>
-                    <p className={`text-xs font-semibold ${i === 2 ? "text-brand-800" : "text-slate-700"}`}>{m}</p>
-                  </div>
-                ))}
+                {c.metrics.map((m, i) => {
+                  const parts = m.split(':');
+                  const label = parts[0]?.trim();
+                  const value = parts[1]?.trim();
+                  
+                  if (value) {
+                    return (
+                      <div key={m} className={`glass rounded-xl p-3.5 transition-all duration-300 hover:shadow-sm ${i === 2 ? "metric-strong" : ""}`}>
+                        <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">{label}</p>
+                        <p className={`text-base font-extrabold mt-1 leading-none ${i === 2 ? "text-brand-800" : "text-slate-800"}`}>{value}</p>
+                      </div>
+                    );
+                  }
+                  return (
+                    <div key={m} className={`glass rounded-xl p-3.5 transition-all duration-300 hover:shadow-sm ${i === 2 ? "metric-strong" : ""}`}>
+                      <p className="text-xs font-semibold text-slate-700">{m}</p>
+                    </div>
+                  );
+                })}
               </div>
 
               {c.proof.length > 0 && (
-                <div className="mt-4 grid gap-3 sm:grid-cols-2">
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
                   {c.proof.map((p) => (
                     p.startsWith("http") && !p.includes("facebook.com/business") ? (
-                      <button key={p} onClick={() => setLightbox(p)} className="overflow-hidden rounded-xl border border-slate-100 text-left">
-                        <img src={p} alt={`Proof ${c.name}`} className="h-32 w-full object-cover" loading="lazy" />
+                      <button 
+                        key={p} 
+                        onClick={() => setLightbox(p)} 
+                        className="group relative overflow-hidden rounded-xl border border-slate-100 text-left transition-all duration-300 hover:border-brand-400 hover:shadow-md h-32 w-full"
+                      >
+                        <img src={p} alt={`Proof ${c.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                        <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                          <span className="rounded-lg bg-white/90 px-3 py-1.5 text-[11px] font-bold text-slate-800 flex items-center gap-1.5 shadow-sm transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                            <svg className="h-3.5 w-3.5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                            Xem ảnh minh chứng
+                          </span>
+                        </div>
                       </button>
                     ) : (
-                      <a key={p} href={p} target="_blank" rel="noreferrer" className="rounded-xl border border-dashed border-brand-300 p-4 text-sm font-semibold text-brand-700 hover:bg-brand-50">Xem nguồn minh chứng</a>
+                      <a key={p} href={p} target="_blank" rel="noreferrer" className="flex items-center justify-center rounded-xl border border-dashed border-brand-200 p-4 text-xs font-bold text-brand-700 hover:bg-brand-50 hover:border-brand-300 transition-colors text-center h-32">
+                        Xem nguồn Meta Business
+                      </a>
                     )
                   ))}
                 </div>
@@ -787,12 +815,21 @@ export default function App() {
       </a>
 
       {lightbox && (
-        <button
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 p-4"
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 animate-fade-in cursor-zoom-out"
           onClick={() => setLightbox("")}
         >
-          <img src={lightbox} alt="Proof large" className="max-h-[90vh] max-w-[90vw] rounded-xl" />
-        </button>
+          <div className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl bg-white shadow-2xl border border-white/10 flex items-center justify-center">
+            <img src={lightbox} alt="Proof large" className="max-h-[85vh] max-w-[95vw] object-contain animate-scale-in" />
+            <button
+              onClick={() => setLightbox("")}
+              className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/65 text-white hover:bg-slate-900/80 transition-colors"
+              aria-label="Đóng"
+            >
+              <span className="text-xl leading-none">×</span>
+            </button>
+          </div>
+        </div>
       )}
     </div>
   );
