@@ -3,6 +3,10 @@ export default {
   content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ["Space Grotesque", "Be Vietnam Pro", "sans-serif"],
+        syne: ["Syne", "sans-serif"]
+      },
       colors: {
         brand: {
           50: "#f8fafc",
@@ -11,18 +15,19 @@ export default {
           300: "#cbd5e1",
           400: "#94a3b8",
           500: "#475569",
-          600: "#1D4ED8", // Màu nhấn chính (Royal Blue)
-          700: "#1e40af",
+          600: "#2563EB", // Màu nhấn chính (Electric Blue)
+          700: "#1d4ed8",
           800: "#1e3a8a",
-          900: "#0F172A"  // Text chính và màu nền sẫm
+          900: "#0A0F1C"  // Chữ chính (Navy cực sẫm)
         }
       },
       boxShadow: {
-        soft: "0 10px 30px rgba(15, 23, 42, 0.08)"
+        soft: "0 10px 30px rgba(10, 15, 28, 0.05)"
       }
     },
   },
   plugins: [],
 };
+
 
 

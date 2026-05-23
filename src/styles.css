@@ -3,8 +3,9 @@
 @tailwind utilities;
 
 :root {
-  --bg: #FBFCF7;
-  --text: #0F172A;
+  --bg: #F8FAF9;
+  --text: #0A0F1C;
+  --accent: #2563EB;
 }
 
 html {
@@ -13,12 +14,9 @@ html {
 
 body {
   margin: 0;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(29, 78, 216, 0.04) 0%, transparent 40%),
-    radial-gradient(circle at 90% 60%, rgba(29, 78, 216, 0.02) 0%, transparent 35%),
-    #FBFCF7;
+  background-color: var(--bg);
   color: var(--text);
-  font-family: "Be Vietnam Pro", "Segoe UI", sans-serif;
+  font-family: "Space Grotesque", "Be Vietnam Pro", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -28,121 +26,146 @@ body {
   @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
 }
 
-.card {
-  @apply rounded-2xl bg-white border border-slate-100;
-  box-shadow: 
-    0 4px 20px -2px rgba(15, 23, 42, 0.04),
-    0 2px 6px -1px rgba(15, 23, 42, 0.02);
+/* Lưới bento phẳng không bóng đổ, sử dụng border phân tách chuẩn Awwwards */
+.bento-card {
+  @apply bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.mesh-bg {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-  background-image:
-    linear-gradient(rgba(15, 23, 42, 0.006) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 23, 42, 0.006) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: radial-gradient(circle at center, black 40%, transparent 90%);
+.bento-card:hover {
+  @apply border-brand-600;
+  transform: translateY(-2px);
 }
 
-/* Refactor từ Card 3D sang Thẻ phẳng cao cấp theo chuẩn Corporate Agency */
-.card-3d {
-  @apply border border-slate-100 rounded-2xl bg-white;
+/* Marquee vô tận mượt mà */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  @apply py-6 border-y border-slate-200/80 bg-white;
+}
+
+.marquee-track {
+  display: flex;
+  animation: marquee 20s linear infinite;
+  min-width: 200%;
+}
+
+.marquee-item {
+  @apply text-sm sm:text-base font-extrabold uppercase tracking-[0.2em] px-8 text-[#0A0F1C] flex items-center gap-4;
+}
+
+/* Nút bấm dạng viên thuốc phẳng tối giản và đổi màu từ dưới lên */
+.btn-awwwards {
   position: relative;
-  box-shadow: 
-    0 4px 20px -2px rgba(15, 23, 42, 0.04),
-    0 2px 6px -1px rgba(15, 23, 42, 0.02);
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
-}
-
-.card-3d:hover {
-  transform: translateY(-4px);
-  box-shadow: 
-    0 20px 25px -5px rgba(15, 23, 42, 0.08), 
-    0 10px 10px -5px rgba(15, 23, 42, 0.04);
-  border-color: rgba(29, 78, 216, 0.15);
-}
-
-.glass {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  box-shadow: 
-    0 4px 20px -5px rgba(15, 23, 42, 0.03),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
-}
-
-/* Nút bấm Solid chuẩn Corporate */
-.btn-3d {
-  position: relative;
-  font-weight: 600;
-  border-radius: 12px;
-  background-color: #1D4ED8;
-  color: #ffffff;
-  border: 1px solid #1D4ED8;
-  box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-3d:hover {
-  background-color: #1e40af;
-  border-color: #1e40af;
-  transform: translateY(-1.5px) scale(1.02);
-  box-shadow: 0 6px 18px rgba(29, 78, 216, 0.25);
-}
-
-.btn-3d:active {
-  transform: translateY(0.5px) scale(0.99);
-  box-shadow: 0 2px 6px rgba(29, 78, 216, 0.15);
-}
-
-/* Nút bấm Outline chuẩn Corporate */
-.btn-3d-secondary {
-  position: relative;
-  font-weight: 600;
-  border-radius: 12px;
-  border: 2px solid #1D4ED8;
-  background-color: transparent;
-  color: #1D4ED8;
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-3d-secondary:hover {
-  background-color: rgba(29, 78, 216, 0.05);
-  transform: translateY(-1.5px) scale(1.02);
-}
-
-.btn-3d-secondary:active {
-  transform: translateY(0.5px) scale(0.99);
-}
-
-/* Nút bấm Accent hổ phách phẳng */
-.btn-3d-accent {
-  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2.25rem;
+  border-radius: 9999px;
   font-weight: 700;
-  border-radius: 12px;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-awwwards-solid {
+  background-color: #2563EB;
+  color: #ffffff;
+  border: 1px solid #2563EB;
+}
+
+.btn-awwwards-solid::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #0A0F1C;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+.btn-awwwards-solid:hover {
+  border-color: #0A0F1C;
+  color: #ffffff;
+}
+
+.btn-awwwards-solid:hover::before {
+  height: 100%;
+}
+
+.btn-awwwards-outline {
+  border: 1px solid #0A0F1C;
+  color: #0A0F1C;
+  background-color: transparent;
+}
+
+.btn-awwwards-outline::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #0A0F1C;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+.btn-awwwards-outline:hover {
+  color: #ffffff;
+  border-color: #0A0F1C;
+}
+
+.btn-awwwards-outline:hover::before {
+  height: 100%;
+}
+
+.btn-awwwards-accent {
   background-color: #fbbf24;
-  color: #0F172A;
+  color: #0A0F1C;
   border: 1px solid #fbbf24;
-  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.2);
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.btn-3d-accent:hover {
-  background-color: #f59e0b;
-  border-color: #f59e0b;
-  transform: translateY(-1.5px) scale(1.02);
-  box-shadow: 0 6px 18px rgba(251, 191, 36, 0.3);
+.btn-awwwards-accent::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #0A0F1C;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
 }
 
-.btn-3d-accent:active {
-  transform: translateY(0.5px) scale(0.99);
-  box-shadow: 0 2px 6px rgba(251, 191, 36, 0.15);
+.btn-awwwards-accent:hover {
+  color: #ffffff;
+  border-color: #0A0F1C;
 }
 
-/* Story Timeline tinh tế */
+.btn-awwwards-accent:hover::before {
+  height: 100%;
+}
+
+/* Glassmorphism Awwwards tối giản */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(10, 15, 28, 0.08);
+  backdrop-filter: blur(12px);
+}
+
+/* Timeline dạng tối giản tinh tế */
 .story-line {
   position: relative;
 }
@@ -153,8 +176,8 @@ body {
   left: 26px;
   top: 12px;
   bottom: 12px;
-  width: 2px;
-  background-color: #e2e8f0;
+  width: 1px;
+  background-color: #cbd5e1;
 }
 
 .story-node {
@@ -167,50 +190,51 @@ body {
   position: absolute;
   left: -30px;
   top: 18px;
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
   border-radius: 999px;
-  background: #ffffff;
-  border: 3px solid #cbd5e1;
-  transition: all 0.3s ease;
+  background: #f8fafc;
+  border: 2px solid #cbd5e1;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 10;
 }
 
-/* Story Hero sẫm */
+/* Story Step hoạt động */
+.story-step {
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  @apply border border-slate-200/80 bg-white/50;
+}
+
+.story-step.is-active {
+  @apply border-brand-600 bg-white;
+}
+
+.story-step.is-active::before {
+  background: #2563EB;
+  border-color: #2563EB;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
 .story-hero {
   border-radius: 24px;
-  background: linear-gradient(145deg, #0f172a 0%, #020617 100%);
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+  @apply border border-slate-200 bg-white;
 }
 
 .story-pill {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(4px);
-}
-
-.story-grid {
-  display: grid;
+  @apply border border-slate-200/80 bg-slate-50/50;
 }
 
 .story-focus {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
+  @apply border border-slate-200/80 bg-white;
 }
 
 .story-manifesto {
-  border-left: 3px solid #1D4ED8;
+  border-left: 2px solid #2563EB;
   padding-left: 14px;
 }
 
 .story-quote {
-  background: rgba(251, 191, 36, 0.04);
-  border-left: 3px solid #fbbf24;
-  border-top: 1px solid rgba(251, 191, 36, 0.08);
-  border-right: 1px solid rgba(251, 191, 36, 0.03);
-  border-bottom: 1px solid rgba(251, 191, 36, 0.03);
-  color: #fef08a;
+  @apply bg-amber-50/30 border-l-2 border-amber-500 border-y border-r border-amber-500/10 text-amber-900;
   font-size: 1rem;
   line-height: 1.65;
   font-style: italic;
@@ -222,20 +246,19 @@ body {
 
 /* Cases Hero sẫm */
 .cases-hero {
-  background: linear-gradient(145deg, #0f172a 0%, #020617 100%);
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
+  background: #0A0F1C;
+  @apply border border-slate-900;
 }
 
 .case-kpi {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  @apply border border-slate-800 bg-white/5;
   backdrop-filter: blur(8px);
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
 .case-kpi:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.15);
+  @apply border-slate-600;
 }
 
 .case-card {
@@ -249,57 +272,23 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  height: 4px;
-  background: #1D4ED8;
+  height: 3px;
+  background: #2563EB;
 }
 
 .metric-strong {
-  background: #f1f5f9;
-  border-color: #e2e8f0;
+  @apply bg-brand-50 border-brand-200;
 }
 
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(24px) scale(0.99);
+  transform: translateY(20px);
   transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-on-scroll.is-visible {
   opacity: 1;
-  transform: translateY(0) scale(1);
-}
-
-.story-step {
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.6s ease, background-color 0.6s ease;
-}
-
-.story-step.is-active {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.15);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.story-step.is-active::before {
-  background: #1D4ED8;
-  border-color: #1D4ED8;
-  box-shadow: 0 0 0 5px rgba(29, 78, 216, 0.25);
-}
-
-.case-card.reveal-on-scroll {
-  transition-duration: 1s;
-}
-
-/* Toolkit Hero sẫm */
-.toolkit-hero {
-  background: linear-gradient(140deg, #0f172a 0%, #030712 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.15);
-}
-
-.toolkit-pill {
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(4px);
+  transform: translateY(0);
 }
 
 @media (min-width: 1024px) {
@@ -317,7 +306,7 @@ body {
     left: 26px;
     top: 10px;
     bottom: 10px;
-    width: 2px;
+    width: 1px;
     height: auto;
     right: auto;
   }
@@ -336,26 +325,12 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .reveal-on-scroll,
   .story-step,
-  .card-3d,
-  .btn-3d {
+  .bento-card,
+  .btn-awwwards {
     transition: none !important;
     transform: none !important;
     opacity: 1 !important;
   }
-}
-
-/* Performance Optimizations */
-.reveal-on-scroll {
-  will-change: opacity, transform;
-}
-
-#services,
-#cases,
-#courses,
-#feedback,
-#toolkit {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 800px;
 }
 
 /* Animations */
@@ -392,7 +367,7 @@ body {
 @keyframes scaleIn {
   from {
     opacity: 0;
-    transform: scale(0.96);
+    transform: scale(0.97);
   }
   to {
     opacity: 1;
@@ -408,16 +383,14 @@ input[type="text"],
 input[type="tel"],
 select,
 textarea {
-  box-shadow: none;
-  transition: all 0.2s ease;
-  border: 1px solid #cbd5e1;
+  @apply bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none transition-all;
+  color: #0A0F1C;
 }
 
 input[type="text"]:focus,
 input[type="tel"]:focus,
 select:focus,
 textarea:focus {
-  border-color: #1D4ED8 !important;
-  box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.15) !important;
-  background-color: #ffffff;
+  border-color: #2563EB !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15) !important;
 }
