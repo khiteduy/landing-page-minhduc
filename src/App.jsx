@@ -254,7 +254,13 @@ export default function App() {
             ))}
           </nav>
           <div className="flex items-center gap-2">
-            <a href="#contact" className="hidden rounded-xl bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 sm:inline-block">Đặt lịch tư vấn</a>
+            <a
+              href="#contact"
+              onClick={() => { if (window.trackCTA) window.trackCTA("Header - Đặt lịch tư vấn (Desktop)"); }}
+              className="hidden rounded-xl bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 sm:inline-block"
+            >
+              Đặt lịch tư vấn
+            </a>
             <button
               type="button"
               className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 text-brand-800 lg:hidden"
@@ -282,7 +288,10 @@ export default function App() {
               <a
                 href="#contact"
                 className="mt-2 block rounded-lg bg-brand-700 px-3 py-2 text-center text-sm font-semibold text-white"
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  if (window.trackCTA) window.trackCTA("Header - Đặt lịch tư vấn (Mobile)");
+                }}
               >
                 Đặt lịch tư vấn
               </a>
@@ -302,8 +311,20 @@ export default function App() {
               và chương trình đào tạo làm được việc thật.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="#services" className="btn-3d rounded-xl bg-brand-700 px-6 py-3 text-center font-semibold text-white hover:bg-brand-800">Tôi là doanh nghiệp cần tăng trưởng</a>
-              <a href="#courses" className="btn-3d rounded-xl border border-brand-700 bg-white px-6 py-3 text-center font-semibold text-brand-700 hover:bg-brand-50">Tôi muốn học marketing thực chiến</a>
+              <a
+                href="#services"
+                onClick={() => { if (window.trackCTA) window.trackCTA("Hero - Doanh nghiệp cần tăng trưởng"); }}
+                className="btn-3d rounded-xl bg-brand-700 px-6 py-3 text-center font-semibold text-white hover:bg-brand-800"
+              >
+                Tôi là doanh nghiệp cần tăng trưởng
+              </a>
+              <a
+                href="#courses"
+                onClick={() => { if (window.trackCTA) window.trackCTA("Hero - Học marketing thực chiến"); }}
+                className="btn-3d rounded-xl border border-brand-700 bg-white px-6 py-3 text-center font-semibold text-brand-700 hover:bg-brand-50"
+              >
+                Tôi muốn học marketing thực chiến
+              </a>
             </div>
           </div>
           <div className="card card-3d p-6">
@@ -753,7 +774,13 @@ export default function App() {
         </div>
       </footer>
 
-      <a href="#contact" className="fixed bottom-5 right-5 rounded-full bg-brand-700 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:bg-brand-800">Tư vấn ngay</a>
+      <a
+        href="#contact"
+        onClick={() => { if (window.trackCTA) window.trackCTA("Floating - Tư vấn ngay"); }}
+        className="fixed bottom-5 right-5 rounded-full bg-brand-700 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:bg-brand-800"
+      >
+        Tư vấn ngay
+      </a>
 
       {lightbox && (
         <button
