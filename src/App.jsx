@@ -235,7 +235,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen text-slate-900">
+    <div className="min-h-screen text-[#0F172A]">
       <div className="mesh-bg" aria-hidden="true" />
       <div className="bg-brand-900 text-white text-sm">
         <div className="section-container flex flex-col gap-2 py-2.5 sm:flex-row sm:items-center sm:justify-between">
@@ -260,7 +260,7 @@ export default function App() {
               <a 
                 key={item.id} 
                 href={`#${item.id}`} 
-                className="text-sm font-semibold text-slate-600 hover:text-brand-600 transition-colors"
+                className="text-sm font-semibold text-[#0F172A]/80 hover:text-brand-600 transition-colors"
               >
                 {item.label}
               </a>
@@ -270,7 +270,7 @@ export default function App() {
             <a
               href="#contact"
               onClick={() => { if (window.trackCTA) window.trackCTA("Header - Đặt lịch tư vấn (Desktop)"); }}
-              className="hidden btn-3d px-5 py-2.5 text-sm sm:inline-block"
+              className="hidden btn-3d px-5 py-2.5 text-sm sm:inline-block font-semibold"
             >
               Đặt lịch tư vấn
             </a>
@@ -300,7 +300,7 @@ export default function App() {
               ))}
               <a
                 href="#contact"
-                className="mt-2 block btn-3d px-3 py-2.5 text-center text-sm"
+                className="mt-2 block btn-3d px-3 py-2.5 text-center text-sm font-semibold"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   if (window.trackCTA) window.trackCTA("Header - Đặt lịch tư vấn (Mobile)");
@@ -313,14 +313,15 @@ export default function App() {
         )}
       </header>
 
-      <section className="section-container py-20 lg:py-32">
+      {/* Hero Section - Nền sáng #FBFCF7 */}
+      <section className="section-container py-24 lg:py-36">
         <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
-            <p className="mb-4 inline-block rounded-full border border-brand-100 bg-brand-50/80 px-4 py-2 text-xs font-bold uppercase tracking-wider text-brand-700 shadow-sm backdrop-blur">
+            <p className="mb-5 inline-block rounded-full border border-brand-100 bg-[#1D4ED8]/5 px-4 py-2 text-xs font-bold uppercase tracking-wider text-brand-600 shadow-sm backdrop-blur">
               Performance Marketing • AI Automation • Đào tạo thực chiến
             </p>
-            <h1 className="text-3xl font-extrabold leading-tight text-slate-900 sm:text-5xl tracking-tight">
-              Hệ thống tăng trưởng doanh thu bằng <span className="text-brand-600">Quảng cáo</span>, dữ liệu và <span className="text-brand-600">AI Automation</span>
+            <h1 className="text-4xl font-black leading-tight text-[#0F172A] sm:text-6xl tracking-tight">
+              Từ đam mê công nghệ đến <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-600 to-indigo-600">hệ thống tăng trưởng</span> bằng <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-600 to-blue-800">quảng cáo</span>, dữ liệu và <span className="bg-clip-text text-transparent bg-gradient-to-r from-brand-600 to-indigo-700">AI</span>
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
               Tôi là Đinh Minh Đức, bắt đầu từ niềm đam mê công nghệ và mạng xã hội, phát triển thành người làm dịch vụ Facebook,
@@ -331,21 +332,21 @@ export default function App() {
               <a
                 href="#services"
                 onClick={() => { if (window.trackCTA) window.trackCTA("Hero - Doanh nghiệp cần tăng trưởng"); }}
-                className="btn-3d px-6 py-3.5 text-center text-sm"
+                className="btn-3d px-6 py-3.5 text-center text-sm font-semibold hover:scale-[1.02] transition-transform"
               >
                 Tôi là doanh nghiệp cần tăng trưởng
               </a>
               <a
                 href="#courses"
                 onClick={() => { if (window.trackCTA) window.trackCTA("Hero - Học marketing thực chiến"); }}
-                className="btn-3d-secondary px-6 py-3.5 text-center text-sm text-brand-700 border-brand-200"
+                className="btn-3d-secondary px-6 py-3.5 text-center text-sm font-semibold hover:scale-[1.02] transition-transform"
               >
                 Tôi muốn học marketing thực chiến
               </a>
             </div>
           </div>
           <div className="card card-3d p-6 sm:p-8">
-            <h3 className="text-lg font-extrabold text-slate-900 uppercase tracking-wider border-b border-slate-100 pb-3">Minh Duc Global Snapshot</h3>
+            <h3 className="text-lg font-extrabold text-[#0F172A] uppercase tracking-wider border-b border-slate-100 pb-3">Minh Duc Global Snapshot</h3>
             <div className="mt-6 grid grid-cols-2 gap-4">
               <div className="glass rounded-2xl p-4.5 transition-all duration-300 hover:shadow-md"><p className="text-3xl font-extrabold text-brand-600">5+</p><p className="text-xs font-semibold text-slate-500 mt-1">Năm thực chiến bán hàng</p></div>
               <div className="glass rounded-2xl p-4.5 transition-all duration-300 hover:shadow-md"><p className="text-3xl font-extrabold text-brand-600">27X</p><p className="text-xs font-semibold text-slate-500 mt-1">Case hiệu suất cao nhất</p></div>
@@ -356,78 +357,82 @@ export default function App() {
         </div>
       </section>
 
-      <section id="story" className="section-container pb-20 lg:pb-32">
-        <div className="story-hero card-3d reveal-on-scroll p-6 sm:p-8 lg:p-12">
-          <div className="story-grid gap-8 lg:gap-16">
-            <aside className="story-sticky">
-              <p className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-brand-100">
-                Hành Trình Đột Phá
-              </p>
-              <h2 className="mt-4 max-w-3xl text-3xl font-extrabold leading-tight text-white sm:text-4xl">
-                Từ một GenZ tự học công nghệ ở Hải Dương đến người xây hệ thống tăng trưởng tạo doanh thu thật cho doanh nghiệp.
-              </h2>
-              <p className="story-manifesto mt-5 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg">
-                Đinh Minh Đức bắt đầu bằng việc mày mò cách Facebook và các nền tảng số vận hành. Từ những hỗ trợ nhỏ về fanpage, livestream, nội dung,
-                hành trình dần chuyển thành tư duy performance: mọi chiến dịch phải quy về lead, đơn hàng, chi phí và dòng tiền.
-              </p>
-              <blockquote className="story-quote mt-6 rounded-2xl p-5">
-                “Làm marketing không chỉ để đẹp số tương tác, mà để tạo chuyển đổi thật, doanh thu thật và năng lực vận hành thật cho doanh nghiệp.”
-              </blockquote>
-              <div className="story-focus mt-6 rounded-2xl p-5">
-                <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-200">Điểm nhấn hiện tại</p>
-                <h3 className="mt-2 text-lg font-extrabold text-white">{storyPhases[activeStory].title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-200">{storyPhases[activeStory].keyline}</p>
-                <p className="mt-3 text-sm leading-relaxed text-brand-100">{storyPhases[activeStory].impact}</p>
-              </div>
-              <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                <div className="story-pill reveal-on-scroll rounded-2xl px-4 py-3.5">
-                  <p className="text-xs font-bold uppercase tracking-wider text-brand-200">Nền tảng</p>
-                  <p className="mt-1 text-xs sm:text-sm font-bold text-white">Đam mê công nghệ + tự học</p>
+      {/* Story Section - Nền xám cực nhạt #F8FAFC */}
+      <section id="story" className="w-full bg-[#F8FAFC] py-24 lg:py-36 border-y border-slate-100">
+        <div className="section-container">
+          <div className="story-hero p-6 sm:p-8 lg:p-12">
+            <div className="story-grid gap-8 lg:gap-16">
+              <aside className="story-sticky">
+                <p className="inline-block rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs font-bold uppercase tracking-[0.16em] text-brand-200">
+                  Hành Trình Đột Phá
+                </p>
+                <h2 className="mt-4 max-w-3xl text-3xl font-extrabold leading-tight text-white sm:text-4xl">
+                  Từ một GenZ tự học công nghệ ở Hải Dương đến người xây hệ thống tăng trưởng tạo doanh thu thật cho doanh nghiệp.
+                </h2>
+                <p className="story-manifesto mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+                  Đinh Minh Đức bắt đầu bằng việc mày mò cách Facebook và các nền tảng số vận hành. Từ những hỗ trợ nhỏ về fanpage, livestream, nội dung,
+                  hành trình dần chuyển thành tư duy performance: mọi chiến dịch phải quy về lead, đơn hàng, chi phí và dòng tiền.
+                </p>
+                <blockquote className="story-quote mt-6 rounded-2xl p-5">
+                  “Làm marketing không chỉ để đẹp số tương tác, mà để tạo chuyển đổi thật, doanh thu thật và năng lực vận hành thật cho doanh nghiệp.”
+                </blockquote>
+                <div className="story-focus mt-6 rounded-2xl p-5">
+                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-brand-200">Điểm nhấn hiện tại</p>
+                  <h3 className="mt-2 text-lg font-extrabold text-white">{storyPhases[activeStory].title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-200">{storyPhases[activeStory].keyline}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-brand-100">{storyPhases[activeStory].impact}</p>
                 </div>
-                <div className="story-pill reveal-on-scroll rounded-2xl px-4 py-3.5">
-                  <p className="text-xs font-bold uppercase tracking-wider text-brand-200">Chuyển hóa</p>
-                  <p className="mt-1 text-xs sm:text-sm font-bold text-white">Từ tương tác sang hiệu suất</p>
+                <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                  <div className="story-pill reveal-on-scroll rounded-2xl px-4 py-3.5">
+                    <p className="text-xs font-bold uppercase tracking-wider text-brand-200">Nền tảng</p>
+                    <p className="mt-1 text-xs sm:text-sm font-bold text-white">Đam mê công nghệ + tự học</p>
+                  </div>
+                  <div className="story-pill reveal-on-scroll rounded-2xl px-4 py-3.5">
+                    <p className="text-xs font-bold uppercase tracking-wider text-brand-200">Chuyển hóa</p>
+                    <p className="mt-1 text-xs sm:text-sm font-bold text-white">Từ tương tác sang hiệu suất</p>
+                  </div>
+                  <div className="story-pill reveal-on-scroll rounded-2xl px-4 py-3.5">
+                    <p className="text-xs font-bold uppercase tracking-wider text-brand-200">Cam kết</p>
+                    <p className="mt-1 text-xs sm:text-sm font-bold text-white">Dữ liệu thật, kết quả thật</p>
+                  </div>
                 </div>
-                <div className="story-pill reveal-on-scroll rounded-2xl px-4 py-3.5">
-                  <p className="text-xs font-bold uppercase tracking-wider text-brand-200">Cam kết</p>
-                  <p className="mt-1 text-xs sm:text-sm font-bold text-white">Dữ liệu thật, kết quả thật</p>
+                <div className="mt-6 flex flex-wrap gap-4 border-t border-white/10 pt-5">
+                  <a className="text-xs font-semibold text-brand-100 underline decoration-brand-200/40 underline-offset-4 hover:text-white hover:decoration-white transition-colors" href="https://nguoinoitieng.tv/nghe-nghiep/ho-tro-facebook/dinh-minh-duc/bgnj" target="_blank" rel="noreferrer">Nguồn tham khảo hồ sơ cá nhân</a>
+                  <a className="text-xs font-semibold text-brand-100 underline decoration-brand-200/40 underline-offset-4 hover:text-white hover:decoration-white transition-colors" href="https://www.facebook.com/business/success/bee-english-community" target="_blank" rel="noreferrer">Nguồn tham khảo case Bee (Meta)</a>
                 </div>
+              </aside>
+              <div className="story-line story-scroll space-y-6">
+                {storyPhases.map((phase, i) => (
+                  <article
+                    key={phase.title}
+                    data-story-index={i}
+                    className="story-node story-step reveal-on-scroll rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur"
+                    style={{ transitionDelay: `${i * 120}ms` }}
+                  >
+                    <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-brand-200">Chặng {i + 1}</p>
+                    <h3 className="mt-2 text-xl font-extrabold text-white">{phase.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-200">{phase.desc}</p>
+                  </article>
+                ))}
               </div>
-              <div className="mt-6 flex flex-wrap gap-4 border-t border-white/10 pt-5">
-                <a className="text-xs font-semibold text-brand-100 underline decoration-brand-200/40 underline-offset-4 hover:text-white hover:decoration-white transition-colors" href="https://nguoinoitieng.tv/nghe-nghiep/ho-tro-facebook/dinh-minh-duc/bgnj" target="_blank" rel="noreferrer">Nguồn tham khảo hồ sơ cá nhân</a>
-                <a className="text-xs font-semibold text-brand-100 underline decoration-brand-200/40 underline-offset-4 hover:text-white hover:decoration-white transition-colors" href="https://www.facebook.com/business/success/bee-english-community" target="_blank" rel="noreferrer">Nguồn tham khảo case Bee (Meta)</a>
-              </div>
-            </aside>
-            <div className="story-line story-scroll space-y-6">
-              {storyPhases.map((phase, i) => (
-                <article
-                  key={phase.title}
-                  data-story-index={i}
-                  className="story-node story-step reveal-on-scroll rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur"
-                  style={{ transitionDelay: `${i * 120}ms` }}
-                >
-                  <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-brand-200">Chặng {i + 1}</p>
-                  <h3 className="mt-2 text-xl font-extrabold text-white">{phase.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-200">{phase.desc}</p>
-                </article>
-              ))}
             </div>
           </div>
         </div>
       </section>
 
-      <section id="services" className="section-container pb-20 lg:pb-32">
-        <h2 className="text-2xl font-bold sm:text-3xl tracking-tight text-slate-900">Dịch vụ chính của Minh Duc Global</h2>
+      {/* Services Section - Nền sáng #FBFCF7 */}
+      <section id="services" className="section-container py-24 lg:py-36">
+        <h2 className="text-2xl font-bold sm:text-3xl tracking-tight text-[#0F172A]">Dịch vụ chính của Minh Duc Global</h2>
         <p className="mt-3 text-slate-500 max-w-2xl">Các giải pháp tăng trưởng chuyên sâu giúp tối ưu hóa chuyển đổi số và phát triển kinh doanh thực tế.</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {services.map((s) => (
-            <article key={s.title} className="card card-3d p-6 sm:p-8 hover:border-brand-300/40 transition-colors">
+            <article key={s.title} className="card-3d p-6 sm:p-8">
               <h3 className="text-xl font-bold text-brand-600 tracking-tight">{s.title}</h3>
               <p className="mt-3 text-slate-600 text-sm leading-relaxed">{s.desc}</p>
               <ul className="mt-5 space-y-2 text-sm text-slate-700 font-medium">
                 {s.points.map((p) => (
                   <li key={p} className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-brand-600" />
                     {p}
                   </li>
                 ))}
@@ -437,124 +442,128 @@ export default function App() {
         </div>
       </section>
 
-      <section id="cases" className="section-container pb-20 lg:pb-32">
-        <div className="cases-hero card-3d reveal-on-scroll mb-8 rounded-3xl p-6 sm:p-8 lg:p-10">
-          <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-200">Báo Cáo Hiệu Quả</p>
-          <h2 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl tracking-tight">Case Study thực chiến</h2>
-          <p className="mt-3 max-w-3xl text-slate-200 text-sm sm:text-base">
-            Mỗi case đều được tối ưu theo mục tiêu kinh doanh thực tế: giảm chi phí, tăng lead chất lượng và đẩy doanh thu.
-            Kết quả dưới đây thể hiện năng lực triển khai đa nền tảng của Đinh Minh Đức và Minh Duc Global.
-          </p>
-          <div className="mt-6 grid gap-4 sm:grid-cols-3">
-            <div className="case-kpi rounded-2xl p-5 text-center">
-              <p className="text-[10px] uppercase tracking-wider font-bold text-brand-200">Doanh thu nổi bật</p>
-              <p className="mt-2 text-3xl font-extrabold text-white">624.6M</p>
-            </div>
-            <div className="case-kpi rounded-2xl p-5 text-center">
-              <p className="text-[10px] uppercase tracking-wider font-bold text-brand-200">Hiệu suất cao nhất</p>
-              <p className="mt-2 text-3xl font-extrabold text-white">27X</p>
-            </div>
-            <div className="case-kpi rounded-2xl p-5 text-center">
-              <p className="text-[10px] uppercase tracking-wider font-bold text-brand-200">Lead/tháng</p>
-              <p className="mt-2 text-3xl font-extrabold text-white">350</p>
-            </div>
-          </div>
-        </div>
-        
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <h3 className="text-xl font-bold text-slate-900 sm:text-2xl tracking-tight">Danh sách dự án theo nhóm mục tiêu</h3>
-            <p className="text-slate-500 text-xs sm:text-sm mt-1">Lọc các dự án theo từng loại hình quảng cáo và phát triển.</p>
-          </div>
-          <select 
-            className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 outline-none focus:ring-4 focus:ring-brand-500/10 focus:border-brand-500 shadow-sm" 
-            value={caseFilter} 
-            onChange={(e) => setCaseFilter(e.target.value)}
-          >
-            <option value="all">Tất cả case</option>
-            {[...new Set(cases.map((c) => c.category))].map((cat) => (
-              <option key={cat} value={cat}>{cat}</option>
-            ))}
-          </select>
-        </div>
-
-        <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          {visibleCases.map((c) => (
-            <article key={c.name} className="case-card card card-3d reveal-on-scroll p-6 sm:p-8 relative hover:border-brand-300/40 transition-colors">
-              <div className="mb-5 flex items-center justify-between gap-3">
-                <p className="rounded-full bg-brand-50 border border-brand-100 px-3 py-1 text-xs font-bold text-brand-700">{c.category}</p>
-                <p className="rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-xs font-extrabold text-amber-700">{c.result}</p>
+      {/* Cases Section - Nền xám cực nhạt #F8FAFC */}
+      <section id="cases" className="w-full bg-[#F8FAFC] py-24 lg:py-36 border-y border-slate-100">
+        <div className="section-container">
+          <div className="cases-hero mb-8 rounded-3xl p-6 sm:p-8 lg:p-10">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-200">Báo Cáo Hiệu Quả</p>
+            <h2 className="mt-2 text-3xl font-extrabold text-white sm:text-4xl tracking-tight">Case Study thực chiến</h2>
+            <p className="mt-3 max-w-3xl text-slate-200 text-sm sm:text-base">
+              Mỗi case đều được tối ưu theo mục tiêu kinh doanh thực tế: giảm chi phí, tăng lead chất lượng và đẩy doanh thu.
+              Kết quả dưới đây thể hiện năng lực triển khai đa nền tảng của Đinh Minh Đức và Minh Duc Global.
+            </p>
+            <div className="mt-6 grid gap-4 sm:grid-cols-3">
+              <div className="case-kpi rounded-2xl p-5 text-center">
+                <p className="text-[10px] uppercase tracking-wider font-bold text-brand-200">Doanh thu nổi bật</p>
+                <p className="mt-2 text-3xl font-extrabold text-white">624.6M</p>
               </div>
-              <h3 className="text-xl font-bold text-slate-900 tracking-tight">{c.name}</h3>
-              <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-slate-400">{c.industry} • {c.role}</p>
-              <p className="mt-3.5 text-sm leading-relaxed text-slate-600">{c.short}</p>
-              
-              <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
-                {c.metrics.map((m, i) => {
-                  const parts = m.split(':');
-                  const label = parts[0]?.trim();
-                  const value = parts[1]?.trim();
-                  
-                  if (value) {
+              <div className="case-kpi rounded-2xl p-5 text-center">
+                <p className="text-[10px] uppercase tracking-wider font-bold text-brand-200">Hiệu suất cao nhất</p>
+                <p className="mt-2 text-3xl font-extrabold text-white">27X</p>
+              </div>
+              <div className="case-kpi rounded-2xl p-5 text-center">
+                <p className="text-[10px] uppercase tracking-wider font-bold text-brand-200">Lead/tháng</p>
+                <p className="mt-2 text-3xl font-extrabold text-white">350</p>
+              </div>
+            </div>
+          </div>
+          
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <h3 className="text-xl font-bold text-[#0F172A] sm:text-2xl tracking-tight">Danh sách dự án theo nhóm mục tiêu</h3>
+              <p className="text-slate-500 text-xs sm:text-sm mt-1">Lọc các dự án theo từng loại hình quảng cáo và phát triển.</p>
+            </div>
+            <select 
+              className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 outline-none focus:ring-4 focus:ring-brand-600/10 focus:border-brand-600 shadow-sm" 
+              value={caseFilter} 
+              onChange={(e) => setCaseFilter(e.target.value)}
+            >
+              <option value="all">Tất cả case</option>
+              {[...new Set(cases.map((c) => c.category))].map((cat) => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            {visibleCases.map((c) => (
+              <article key={c.name} className="case-card card-3d reveal-on-scroll p-6 sm:p-8 relative">
+                <div className="mb-5 flex items-center justify-between gap-3">
+                  <p className="rounded-full bg-brand-50 border border-brand-200/50 px-3 py-1 text-xs font-bold text-brand-600">{c.category}</p>
+                  <p className="rounded-full bg-amber-50 border border-amber-200 px-3 py-1 text-xs font-extrabold text-amber-700">{c.result}</p>
+                </div>
+                <h3 className="text-xl font-bold text-[#0F172A] tracking-tight">{c.name}</h3>
+                <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-slate-400">{c.industry} • {c.role}</p>
+                <p className="mt-3.5 text-sm leading-relaxed text-slate-600">{c.short}</p>
+                
+                <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+                  {c.metrics.map((m, i) => {
+                    const parts = m.split(':');
+                    const label = parts[0]?.trim();
+                    const value = parts[1]?.trim();
+                    
+                    if (value) {
+                      return (
+                        <div key={m} className={`glass rounded-2xl p-4 transition-all duration-300 hover:shadow-sm ${i === 2 ? "metric-strong" : ""}`}>
+                          <p className="text-[9px] font-extrabold uppercase tracking-wider text-slate-400">{label}</p>
+                          <p className={`text-base font-extrabold mt-1 leading-none ${i === 2 ? "text-brand-600" : "text-slate-800"}`}>{value}</p>
+                        </div>
+                      );
+                    }
                     return (
                       <div key={m} className={`glass rounded-2xl p-4 transition-all duration-300 hover:shadow-sm ${i === 2 ? "metric-strong" : ""}`}>
-                        <p className="text-[9px] font-extrabold uppercase tracking-wider text-slate-400">{label}</p>
-                        <p className={`text-base font-extrabold mt-1 leading-none ${i === 2 ? "text-brand-700" : "text-slate-800"}`}>{value}</p>
+                        <p className="text-xs font-bold text-slate-700">{m}</p>
                       </div>
                     );
-                  }
-                  return (
-                    <div key={m} className={`glass rounded-2xl p-4 transition-all duration-300 hover:shadow-sm ${i === 2 ? "metric-strong" : ""}`}>
-                      <p className="text-xs font-bold text-slate-700">{m}</p>
-                    </div>
-                  );
-                })}
-              </div>
-
-              {c.proof.length > 0 && (
-                <div className="mt-6 grid gap-3 sm:grid-cols-2">
-                  {c.proof.map((p) => (
-                    p.startsWith("http") && !p.includes("facebook.com/business") ? (
-                      <button 
-                        key={p} 
-                        onClick={() => setLightbox(p)} 
-                        className="group relative overflow-hidden rounded-2xl border border-slate-100 text-left transition-all duration-300 hover:border-brand-400 hover:shadow-md h-32 w-full"
-                      >
-                        <img src={p} alt={`Proof ${c.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-                        <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                          <span className="rounded-lg bg-white/90 px-3 py-1.5 text-[11px] font-bold text-slate-800 flex items-center gap-1.5 shadow-sm transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                            <svg className="h-3.5 w-3.5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                            </svg>
-                            Xem ảnh minh chứng
-                          </span>
-                        </div>
-                      </button>
-                    ) : (
-                      <a key={p} href={p} target="_blank" rel="noreferrer" className="flex items-center justify-center rounded-2xl border border-dashed border-brand-200 p-4 text-xs font-bold text-brand-600 hover:bg-brand-50/50 hover:border-brand-300 transition-colors text-center h-32">
-                        Xem nguồn Meta Business
-                      </a>
-                    )
-                  ))}
+                  })}
                 </div>
-              )}
-            </article>
-          ))}
+
+                {c.proof.length > 0 && (
+                  <div className="mt-6 grid gap-3 sm:grid-cols-2">
+                    {c.proof.map((p) => (
+                      p.startsWith("http") && !p.includes("facebook.com/business") ? (
+                        <button 
+                          key={p} 
+                          onClick={() => setLightbox(p)} 
+                          className="group relative overflow-hidden rounded-2xl border border-slate-100 text-left transition-all duration-300 hover:border-brand-600 hover:shadow-md h-32 w-full"
+                        >
+                          <img src={p} alt={`Proof ${c.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                          <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                            <span className="rounded-lg bg-white/90 px-3 py-1.5 text-[11px] font-bold text-slate-800 flex items-center gap-1.5 shadow-sm transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                              <svg className="h-3.5 w-3.5 text-slate-700" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                              </svg>
+                              Xem ảnh minh chứng
+                            </span>
+                          </div>
+                        </button>
+                      ) : (
+                        <a key={p} href={p} target="_blank" rel="noreferrer" className="flex items-center justify-center rounded-2xl border border-dashed border-brand-200 p-4 text-xs font-bold text-brand-600 hover:bg-brand-50/50 hover:border-brand-300 transition-colors text-center h-32">
+                          Xem nguồn Meta Business
+                        </a>
+                      )
+                    ))}
+                  </div>
+                )}
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      <section id="courses" className="section-container pb-20 lg:pb-32">
-        <h2 className="text-2xl font-bold sm:text-3xl tracking-tight text-slate-900">Khóa học marketing thực chiến</h2>
+      {/* Courses Section - Nền sáng #FBFCF7 */}
+      <section id="courses" className="section-container py-24 lg:py-36">
+        <h2 className="text-2xl font-bold sm:text-3xl tracking-tight text-[#0F172A]">Khóa học marketing thực chiến</h2>
         <p className="mt-3 text-slate-500 max-w-2xl">Chương trình đào tạo thực tế, học đi đôi với hành để tối ưu chuyển đổi số bán hàng.</p>
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {courses.map((c) => (
-            <article key={c.title} className="card card-3d p-6 sm:p-8 hover:border-brand-300/40 transition-colors">
+            <article key={c.title} className="card-3d p-6 sm:p-8">
               <h3 className="text-xl font-bold text-brand-900 tracking-tight">{c.title}</h3>
               <p className="mt-3 text-slate-600 text-sm leading-relaxed">{c.desc}</p>
               <ul className="mt-5 space-y-2 text-sm text-slate-700 font-medium">
                 {c.points.map((p) => (
                   <li key={p} className="flex items-center gap-2">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
+                    <span className="h-1.5 w-1.5 rounded-full bg-brand-600" />
                     {p}
                   </li>
                 ))}
@@ -564,55 +573,59 @@ export default function App() {
         </div>
       </section>
 
-      <section id="feedback" className="section-container pb-20 lg:pb-32">
-        <div className="grid gap-6 lg:grid-cols-2">
-          <article className="card card-3d p-6 sm:p-8">
-            <h2 className="text-2xl font-bold tracking-tight">Feedback học viên</h2>
-            <p className="mt-4 text-slate-700 text-sm leading-relaxed">
-              Học viên <b>Quyên</b> (kinh doanh xe điện) bắt đầu từ con số 0 về quảng cáo. Sau quá trình học,
-              Quyên đã tự chạy Facebook Ads ra đơn với chi phí tin nhắn khoảng <b>3.000-5.000đ/mess</b>.
-            </p>
-            <div className="mt-6 aspect-video overflow-hidden rounded-2xl border border-slate-200">
-              <iframe
-                title="Feedback Quyên"
-                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F18izSvaN8g%2F&show_text=false"
-                className="h-full w-full"
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              />
-            </div>
-            <a className="mt-4 inline-block text-sm font-bold text-brand-600 hover:underline" href="https://www.facebook.com/share/v/18izSvaN8g/" target="_blank" rel="noreferrer">Xem trên Facebook</a>
-          </article>
+      {/* Feedback Section - Nền xám cực nhạt #F8FAFC */}
+      <section id="feedback" className="w-full bg-[#F8FAFC] py-24 lg:py-36 border-y border-slate-100">
+        <div className="section-container">
+          <div className="grid gap-6 lg:grid-cols-2">
+            <article className="card-3d p-6 sm:p-8">
+              <h2 className="text-2xl font-bold tracking-tight">Feedback học viên</h2>
+              <p className="mt-4 text-slate-700 text-sm leading-relaxed">
+                Học viên <b>Quyên</b> (kinh doanh xe điện) bắt đầu từ con số 0 về quảng cáo. Sau quá trình học,
+                Quyên đã tự chạy Facebook Ads ra đơn với chi phí tin nhắn khoảng <b>3.000-5.000đ/mess</b>.
+              </p>
+              <div className="mt-6 aspect-video overflow-hidden rounded-2xl border border-slate-200">
+                <iframe
+                  title="Feedback Quyên"
+                  src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F18izSvaN8g%2F&show_text=false"
+                  className="h-full w-full"
+                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                />
+              </div>
+              <a className="mt-4 inline-block text-sm font-bold text-brand-600 hover:underline" href="https://www.facebook.com/share/v/18izSvaN8g/" target="_blank" rel="noreferrer">Xem trên Facebook</a>
+            </article>
 
-          <article className="card card-3d p-6 sm:p-8">
-            <h2 className="text-2xl font-bold tracking-tight">Năng lực triển khai thực chiến</h2>
-            <p className="mt-3 text-slate-500 text-sm leading-relaxed">Định hướng làm việc tập trung vào kết quả cuối cùng, không dừng ở chỉ số bề mặt.</p>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="glass rounded-2xl p-4.5">
-                <p className="text-[10px] uppercase font-bold tracking-wide text-slate-400">Mô hình vận hành</p>
-                <p className="mt-2 text-base sm:text-lg font-bold text-brand-700">Ads + Content + Data</p>
+            <article className="card-3d p-6 sm:p-8">
+              <h2 className="text-2xl font-bold tracking-tight">Năng lực triển khai thực chiến</h2>
+              <p className="mt-3 text-slate-500 text-sm leading-relaxed">Định hướng làm việc tập trung vào kết quả cuối cùng, không dừng ở chỉ số bề mặt.</p>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                <div className="glass rounded-2xl p-4.5">
+                  <p className="text-[10px] uppercase font-bold tracking-wide text-slate-400">Mô hình vận hành</p>
+                  <p className="mt-2 text-base sm:text-lg font-bold text-brand-700">Ads + Content + Data</p>
+                </div>
+                <div className="glass rounded-2xl p-4.5">
+                  <p className="text-[10px] uppercase font-bold tracking-wide text-slate-400">Triển khai</p>
+                  <p className="mt-2 text-base sm:text-lg font-bold text-brand-700">Funnel theo mục tiêu</p>
+                </div>
+                <div className="glass rounded-2xl p-4.5">
+                  <p className="text-[10px] uppercase font-bold tracking-wide text-slate-400">Theo dõi</p>
+                  <p className="mt-2 text-base sm:text-lg font-bold text-brand-700">Báo cáo theo doanh thu</p>
+                </div>
+                <div className="glass rounded-2xl p-4.5">
+                  <p className="text-[10px] uppercase font-bold tracking-wide text-slate-400">Tối ưu</p>
+                  <p className="mt-2 text-base sm:text-lg font-bold text-brand-700">CPA, ROAS, Lead Quality</p>
+                </div>
               </div>
-              <div className="glass rounded-2xl p-4.5">
-                <p className="text-[10px] uppercase font-bold tracking-wide text-slate-400">Triển khai</p>
-                <p className="mt-2 text-base sm:text-lg font-bold text-brand-700">Funnel theo mục tiêu</p>
-              </div>
-              <div className="glass rounded-2xl p-4.5">
-                <p className="text-[10px] uppercase font-bold tracking-wide text-slate-400">Theo dõi</p>
-                <p className="mt-2 text-base sm:text-lg font-bold text-brand-700">Báo cáo theo doanh thu</p>
-              </div>
-              <div className="glass rounded-2xl p-4.5">
-                <p className="text-[10px] uppercase font-bold tracking-wide text-slate-400">Tối ưu</p>
-                <p className="mt-2 text-base sm:text-lg font-bold text-brand-700">CPA, ROAS, Lead Quality</p>
-              </div>
-            </div>
-          </article>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section id="contact" className="section-container pb-32">
-        <div className="card card-3d p-8 sm:p-10">
+      {/* Contact Section - Nền sáng #FBFCF7 */}
+      <section id="contact" className="section-container py-24 lg:py-36">
+        <div className="card-3d p-8 sm:p-10 lg:p-12">
           {contactForm.success ? (
             <div className="flex flex-col items-center justify-center py-12 text-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 shadow-md animate-pulse">
+              <div className="flex h-16 w-16 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 shadow-sm animate-pulse">
                 <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                 </svg>
@@ -631,81 +644,100 @@ export default function App() {
             </div>
           ) : (
             <>
-              <h2 className="text-2xl font-bold sm:text-3xl tracking-tight text-slate-900">Nhận tư vấn phù hợp mục tiêu của bạn</h2>
+              <h2 className="text-2xl font-bold sm:text-3xl tracking-tight text-[#0F172A]">Nhận tư vấn phù hợp mục tiêu của bạn</h2>
               <p className="mt-3 max-w-3xl text-slate-500 text-sm">Điền form để đội ngũ Minh Duc Global liên hệ nhanh, phân luồng đúng theo nhu cầu doanh nghiệp hoặc học viên.</p>
-              <form onSubmit={contactForm.handleSubmit} className="mt-8 grid gap-5 md:grid-cols-2">
-                <label className="text-xs font-bold text-slate-700 tracking-wide">Nhóm nhu cầu
-                  <select
-                    name="needGroup"
-                    value={contactForm.values.needGroup}
-                    onChange={contactForm.handleChange}
-                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3.5 outline-none focus:border-brand-600 focus:ring-4 focus:ring-brand-600/10 transition-all bg-white text-slate-800 shadow-sm text-sm font-medium"
-                  >
-                    <option>Tôi là doanh nghiệp</option>
-                    <option>Tôi là học viên</option>
-                  </select>
-                </label>
-                <label className="text-xs font-bold text-slate-700 tracking-wide">Họ và tên
-                  <input
-                    type="text"
-                    name="name"
-                    value={contactForm.values.name}
-                    onChange={contactForm.handleChange}
-                    placeholder="Nhập họ tên"
-                    className={`mt-2 w-full rounded-xl border px-4 py-3.5 text-sm outline-none focus:ring-4 focus:bg-white transition-all ${
-                      contactForm.errors.name ? "border-red-300 bg-red-50/10 focus:ring-red-500/10 focus:border-red-500" : "border-slate-200 bg-slate-50/30 focus:border-brand-600 focus:ring-brand-600/10"
-                    }`}
-                  />
-                  {contactForm.errors.name && <span className="mt-1.5 block text-xs text-red-500 font-semibold">{contactForm.errors.name}</span>}
-                </label>
-                <label className="text-xs font-bold text-slate-700 tracking-wide">Số điện thoại / Zalo
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={contactForm.values.phone}
-                    onChange={contactForm.handleChange}
-                    placeholder="Nhập số điện thoại"
-                    className={`mt-2 w-full rounded-xl border px-4 py-3.5 text-sm outline-none focus:ring-4 focus:bg-white transition-all ${
-                      contactForm.errors.phone ? "border-red-300 bg-red-50/10 focus:ring-red-500/10 focus:border-red-500" : "border-slate-200 bg-slate-50/30 focus:border-brand-600 focus:ring-brand-600/10"
-                    }`}
-                  />
-                  {contactForm.errors.phone && <span className="mt-1.5 block text-xs text-red-500 font-semibold">{contactForm.errors.phone}</span>}
-                </label>
-                <label className="text-xs font-bold text-slate-700 tracking-wide">Nhu cầu chính
-                  <input
-                    type="text"
-                    name="mainNeed"
-                    value={contactForm.values.mainNeed}
-                    onChange={contactForm.handleChange}
-                    placeholder="Ví dụ: Facebook Ads, Google Ads, Khóa học..."
-                    className={`mt-2 w-full rounded-xl border px-4 py-3.5 text-sm outline-none focus:ring-4 focus:bg-white transition-all ${
-                      contactForm.errors.mainNeed ? "border-red-300 bg-red-50/10 focus:ring-red-500/10 focus:border-red-500" : "border-slate-200 bg-slate-50/30 focus:border-brand-600 focus:ring-brand-600/10"
-                    }`}
-                  />
-                  {contactForm.errors.mainNeed && <span className="mt-1.5 block text-xs text-red-500 font-semibold">{contactForm.errors.mainNeed}</span>}
-                </label>
-                <label className="text-xs font-bold text-slate-700 tracking-wide md:col-span-2">Mô tả ngắn mục tiêu
-                  <textarea
-                    name="description"
-                    value={contactForm.values.description}
-                    onChange={contactForm.handleChange}
-                    rows="4"
-                    placeholder="Mục tiêu 30-90 ngày của bạn"
-                    className={`mt-2 w-full rounded-xl border px-4 py-3.5 text-sm outline-none focus:ring-4 focus:bg-white transition-all ${
-                      contactForm.errors.description ? "border-red-300 bg-red-50/10 focus:ring-red-500/10 focus:border-red-500" : "border-slate-200 bg-slate-50/30 focus:border-brand-600 focus:ring-brand-600/10"
-                    }`}
-                  />
-                  {contactForm.errors.description && <span className="mt-1.5 block text-xs text-red-500 font-semibold">{contactForm.errors.description}</span>}
-                </label>
+              
+              {/* Refactor Form liên hệ thành 2 cột trên Desktop */}
+              <form onSubmit={contactForm.handleSubmit} className="mt-8 flex flex-col gap-6">
+                <div className="grid gap-6 lg:grid-cols-2">
+                  {/* Cột 1: Thông tin cá nhân */}
+                  <div className="flex flex-col gap-5">
+                    <label className="text-xs font-bold text-slate-700 tracking-wide">Nhóm nhu cầu
+                      <select
+                        name="needGroup"
+                        value={contactForm.values.needGroup}
+                        onChange={contactForm.handleChange}
+                        className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3.5 outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/15 transition-all bg-white text-slate-800 shadow-sm text-sm font-medium"
+                      >
+                        <option>Tôi là doanh nghiệp</option>
+                        <option>Tôi là học viên</option>
+                      </select>
+                    </label>
+                    <label className="text-xs font-bold text-slate-700 tracking-wide">Họ và tên
+                      <input
+                        type="text"
+                        name="name"
+                        value={contactForm.values.name}
+                        onChange={contactForm.handleChange}
+                        placeholder="Nhập họ tên"
+                        className={`mt-2 w-full rounded-xl border px-4 py-3.5 text-sm outline-none focus:ring-2 focus:bg-white transition-all ${
+                          contactForm.errors.name 
+                            ? "border-red-300 bg-red-50/10 focus:ring-red-500/20 focus:border-red-500" 
+                            : "border-slate-200 bg-slate-50/30 focus:border-brand-600 focus:ring-brand-600/15"
+                        }`}
+                      />
+                      {contactForm.errors.name && <span className="mt-1.5 block text-xs text-red-500 font-semibold">{contactForm.errors.name}</span>}
+                    </label>
+                    <label className="text-xs font-bold text-slate-700 tracking-wide">Số điện thoại / Zalo
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={contactForm.values.phone}
+                        onChange={contactForm.handleChange}
+                        placeholder="Nhập số điện thoại"
+                        className={`mt-2 w-full rounded-xl border px-4 py-3.5 text-sm outline-none focus:ring-2 focus:bg-white transition-all ${
+                          contactForm.errors.phone 
+                            ? "border-red-300 bg-red-50/10 focus:ring-red-500/20 focus:border-red-500" 
+                            : "border-slate-200 bg-slate-50/30 focus:border-brand-600 focus:ring-brand-600/15"
+                        }`}
+                      />
+                      {contactForm.errors.phone && <span className="mt-1.5 block text-xs text-red-500 font-semibold">{contactForm.errors.phone}</span>}
+                    </label>
+                  </div>
+
+                  {/* Cột 2: Nhu cầu / Mục tiêu */}
+                  <div className="flex flex-col gap-5">
+                    <label className="text-xs font-bold text-slate-700 tracking-wide">Nhu cầu chính
+                      <input
+                        type="text"
+                        name="mainNeed"
+                        value={contactForm.values.mainNeed}
+                        onChange={contactForm.handleChange}
+                        placeholder="Ví dụ: Facebook Ads, Google Ads, Khóa học..."
+                        className={`mt-2 w-full rounded-xl border px-4 py-3.5 text-sm outline-none focus:ring-2 focus:bg-white transition-all ${
+                          contactForm.errors.mainNeed 
+                            ? "border-red-300 bg-red-50/10 focus:ring-red-500/20 focus:border-red-500" 
+                            : "border-slate-200 bg-slate-50/30 focus:border-brand-600 focus:ring-brand-600/15"
+                        }`}
+                      />
+                      {contactForm.errors.mainNeed && <span className="mt-1.5 block text-xs text-red-500 font-semibold">{contactForm.errors.mainNeed}</span>}
+                    </label>
+                    <label className="text-xs font-bold text-slate-700 tracking-wide flex-grow flex flex-col">Mô tả ngắn mục tiêu
+                      <textarea
+                        name="description"
+                        value={contactForm.values.description}
+                        onChange={contactForm.handleChange}
+                        placeholder="Mục tiêu 30-90 ngày của bạn"
+                        className={`mt-2 w-full flex-grow rounded-xl border px-4 py-3.5 text-sm outline-none focus:ring-2 focus:bg-white transition-all resize-none min-h-[142px] ${
+                          contactForm.errors.description 
+                            ? "border-red-300 bg-red-50/10 focus:ring-red-500/20 focus:border-red-500" 
+                            : "border-slate-200 bg-slate-50/30 focus:border-brand-600 focus:ring-brand-600/15"
+                        }`}
+                      />
+                      {contactForm.errors.description && <span className="mt-1.5 block text-xs text-red-500 font-semibold">{contactForm.errors.description}</span>}
+                    </label>
+                  </div>
+                </div>
+
                 {contactForm.submitError && (
-                  <div className="md:col-span-2 rounded-xl bg-red-50 border border-red-200 p-4 text-sm text-red-700 font-medium">
+                  <div className="rounded-xl bg-red-50 border border-red-200 p-4 text-sm text-red-700 font-medium">
                     {contactForm.submitError}
                   </div>
                 )}
                 <button
                   type="submit"
                   disabled={contactForm.loading}
-                  className="btn-3d md:col-span-2 px-6 py-3.5 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                  className="btn-3d w-full px-6 py-3.5 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed text-sm font-semibold"
                 >
                   {contactForm.loading ? (
                     <>
@@ -725,8 +757,9 @@ export default function App() {
         </div>
       </section>
 
+      {/* Toolkit Section - Nền xám cực nhạt / sẫm */}
       <section id="toolkit" className="section-container pb-32">
-        <div className="toolkit-hero card-3d reveal-on-scroll rounded-3xl p-8 sm:p-10 lg:p-12">
+        <div className="toolkit-hero rounded-3xl p-8 sm:p-10 lg:p-12">
           {toolkitForm.success ? (
             <div className="flex flex-col items-center justify-center py-12 text-center">
               <div className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-400 text-slate-900 shadow-md animate-pulse">
@@ -753,7 +786,7 @@ export default function App() {
                 Nhận miễn phí bộ công cụ Marketing All-in-One
               </h2>
               <p className="mt-4 max-w-4xl text-slate-200 text-sm sm:text-base leading-relaxed">
-                Sau khi gửi form, bạn sẽ được tặng bộ tài nguyên thực chiến gồm: khung làm kịch bản, mẫu plan content, checklist phân tích chỉ số quảng cáo,
+                Sau khi gửi form, bạn sẽ được tặng bộ tài nguyên thực chiến gồm: kịch bản content, mẫu plan content, checklist ads,
                 template viết bài SEO chuẩn và quy trình tối ưu chiến dịch theo dữ liệu.
               </p>
               <div className="mt-6 grid gap-3 text-xs sm:text-sm text-white sm:grid-cols-2 lg:grid-cols-4 font-bold">
@@ -836,34 +869,36 @@ export default function App() {
         </div>
       </section>
 
-      <footer className="border-t border-slate-200 bg-white">
+      <footer className="border-t border-slate-100 bg-white">
         <div className="section-container flex flex-col gap-3 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between font-medium">
           <p>© {new Date().getFullYear()} Minh Duc Global. All rights reserved.</p>
           <p>Đinh Minh Đức • Founder/CEO • Hải Dương</p>
         </div>
       </footer>
 
+      {/* Floating CTA Nút bấm được bọc tracking onClick chuẩn */}
       <a
         href="#contact"
         onClick={() => { if (window.trackCTA) window.trackCTA("Floating - Tư vấn ngay"); }}
-        className="fixed bottom-6 right-6 btn-3d px-6 py-3.5 text-sm rounded-full z-40 shadow-lg shadow-brand-500/20"
+        className="fixed bottom-6 right-6 btn-3d px-6 py-3.5 text-sm rounded-full z-40 shadow-lg shadow-brand-600/20 font-semibold"
       >
         Tư vấn ngay
       </a>
 
+      {/* Lightbox được nâng cấp sang trọng chuẩn Global Corporate */}
       {lightbox && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-md p-4 animate-fade-in cursor-zoom-out"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 backdrop-blur-sm p-4 animate-fade-in cursor-zoom-out"
           onClick={() => setLightbox("")}
         >
-          <div className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl bg-white shadow-2xl border border-white/10 flex items-center justify-center">
+          <div className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl bg-white shadow-2xl border border-slate-100 flex items-center justify-center">
             <img src={lightbox} alt="Proof large" className="max-h-[85vh] max-w-[95vw] object-contain animate-scale-in" />
             <button
               onClick={() => setLightbox("")}
-              className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/65 text-white hover:bg-slate-900/80 transition-colors"
+              className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/60 text-white hover:bg-slate-900/80 transition-colors shadow-md"
               aria-label="Đóng"
             >
-              <span className="text-xl leading-none">×</span>
+              <span className="text-xl leading-none font-bold">×</span>
             </button>
           </div>
         </div>
