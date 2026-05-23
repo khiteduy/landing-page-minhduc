@@ -237,7 +237,7 @@ export default function App() {
   return (
     <div className="min-h-screen text-slate-900">
       <div className="mesh-bg" aria-hidden="true" />
-      <div className="bg-brand-900 text-white text-sm">
+      <div className="bg-sky-950 text-white text-sm">
         <div className="section-container flex flex-col gap-2 py-2 sm:flex-row sm:items-center sm:justify-between">
           <p>Dịch vụ: <a className="font-semibold hover:underline" href="tel:0936643146">0936643146</a></p>
           <p>Đào tạo: <a className="font-semibold hover:underline" href="tel:0936643146">0936643146</a></p>
@@ -247,7 +247,7 @@ export default function App() {
       <header className="sticky top-0 z-30 border-b border-slate-100 bg-white/95 backdrop-blur">
         <div className="section-container flex items-center justify-between py-4">
           <div>
-            <p className="text-lg font-bold text-brand-800">Đinh Minh Đức</p>
+            <p className="text-lg font-bold text-sky-950">Đinh Minh Đức</p>
             <p className="text-xs text-slate-500">Founder/CEO Minh Duc Global</p>
           </div>
           <nav className="hidden items-center gap-6 lg:flex">
@@ -261,7 +261,7 @@ export default function App() {
             <a
               href="#contact"
               onClick={() => { if (window.trackCTA) window.trackCTA("Header - Đặt lịch tư vấn (Desktop)"); }}
-              className="hidden rounded-xl bg-brand-700 px-4 py-2 text-sm font-semibold text-white hover:bg-brand-800 sm:inline-block"
+              className="hidden btn-3d px-4 py-2 text-sm sm:inline-block"
             >
               Đặt lịch tư vấn
             </a>
@@ -291,7 +291,7 @@ export default function App() {
               ))}
               <a
                 href="#contact"
-                className="mt-2 block rounded-lg bg-brand-700 px-3 py-2 text-center text-sm font-semibold text-white"
+                className="mt-2 block btn-3d px-3 py-2 text-center text-sm"
                 onClick={() => {
                   setMobileMenuOpen(false);
                   if (window.trackCTA) window.trackCTA("Header - Đặt lịch tư vấn (Mobile)");
@@ -307,7 +307,7 @@ export default function App() {
       <section className="section-container py-20 lg:py-32">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
-            <p className="mb-3 inline-block rounded-full border border-white/80 bg-white/80 px-4 py-2 text-sm font-semibold text-brand-800 shadow-sm backdrop-blur">Performance Marketing • AI Automation • Đào tạo thực chiến</p>
+            <p className="mb-3 inline-block rounded-full border border-sky-100 bg-sky-50/80 px-4 py-2 text-sm font-semibold text-sky-800 shadow-sm backdrop-blur">Performance Marketing • AI Automation • Đào tạo thực chiến</p>
             <h1 className="text-3xl font-bold leading-tight text-slate-900 sm:text-5xl">Từ đam mê công nghệ đến hệ thống tăng trưởng bằng quảng cáo, dữ liệu và AI</h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-600 sm:text-lg">
               Tôi là Đinh Minh Đức, bắt đầu từ niềm đam mê công nghệ và mạng xã hội, phát triển thành người làm dịch vụ Facebook,
@@ -318,14 +318,14 @@ export default function App() {
               <a
                 href="#services"
                 onClick={() => { if (window.trackCTA) window.trackCTA("Hero - Doanh nghiệp cần tăng trưởng"); }}
-                className="btn-3d rounded-xl bg-brand-700 px-6 py-3 text-center font-semibold text-white hover:bg-brand-800"
+                className="btn-3d px-6 py-3 text-center"
               >
                 Tôi là doanh nghiệp cần tăng trưởng
               </a>
               <a
                 href="#courses"
                 onClick={() => { if (window.trackCTA) window.trackCTA("Hero - Học marketing thực chiến"); }}
-                className="btn-3d rounded-xl border border-brand-700 bg-white px-6 py-3 text-center font-semibold text-brand-700 hover:bg-brand-50"
+                className="btn-3d-secondary px-6 py-3 text-center text-sky-700 border-sky-200"
               >
                 Tôi muốn học marketing thực chiến
               </a>
@@ -334,10 +334,10 @@ export default function App() {
           <div className="card card-3d p-6">
             <h3 className="text-xl font-bold text-slate-900">Minh Duc Global Snapshot</h3>
             <div className="mt-6 grid grid-cols-2 gap-4">
-              <div className="glass rounded-xl p-4"><p className="text-2xl font-bold text-brand-700">5+</p><p className="text-sm text-slate-600">Năm thực chiến bán hàng</p></div>
-              <div className="glass rounded-xl p-4"><p className="text-2xl font-bold text-brand-700">27X</p><p className="text-sm text-slate-600">Case hiệu suất cao nhất</p></div>
-              <div className="glass rounded-xl p-4"><p className="text-2xl font-bold text-brand-700">350</p><p className="text-sm text-slate-600">Lead/tháng (Bee)</p></div>
-              <div className="glass rounded-xl p-4"><p className="text-2xl font-bold text-brand-700">4K+</p><p className="text-sm text-slate-600">Follower TikTok local</p></div>
+              <div className="glass rounded-xl p-4"><p className="text-2xl font-bold text-sky-600">5+</p><p className="text-sm text-slate-600">Năm thực chiến bán hàng</p></div>
+              <div className="glass rounded-xl p-4"><p className="text-2xl font-bold text-sky-600">27X</p><p className="text-sm text-slate-600">Case hiệu suất cao nhất</p></div>
+              <div className="glass rounded-xl p-4"><p className="text-2xl font-bold text-sky-600">350</p><p className="text-sm text-slate-600">Lead/tháng (Bee)</p></div>
+              <div className="glass rounded-xl p-4"><p className="text-2xl font-bold text-sky-600">4K+</p><p className="text-sm text-slate-600">Follower TikTok local</p></div>
             </div>
           </div>
         </div>
