@@ -6,6 +6,7 @@
   --bg: #F8FAF9;
   --text: #0A0F1C;
   --accent: #2563EB;
+  --border: rgba(10, 15, 28, 0.1);
 }
 
 html {
@@ -26,15 +27,14 @@ body {
   @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
 }
 
-/* Lưới bento phẳng không bóng đổ, sử dụng border phân tách chuẩn Awwwards */
+/* Lưới Bento Brutalist phẳng tuyệt đối, không shadow, không bo góc */
 .bento-card {
-  @apply bg-white border border-slate-200/80 rounded-2xl p-6 sm:p-8;
-  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  @apply bg-white border border-[#0A0F1C]/10 rounded-none p-6 sm:p-10;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .bento-card:hover {
-  @apply border-brand-600;
-  transform: translateY(-2px);
+  border-color: #0A0F1C;
 }
 
 /* Marquee vô tận mượt mà */
@@ -47,17 +47,17 @@ body {
   overflow: hidden;
   white-space: nowrap;
   display: flex;
-  @apply py-6 border-y border-slate-200/80 bg-white;
+  @apply py-4 border-y border-[#0A0F1C]/10 bg-[#0A0F1C] text-[#F8FAF9];
 }
 
 .marquee-track {
   display: flex;
-  animation: marquee 20s linear infinite;
+  animation: marquee 22s linear infinite;
   min-width: 200%;
 }
 
 .marquee-item {
-  @apply text-sm sm:text-base font-extrabold uppercase tracking-[0.2em] px-8 text-[#0A0F1C] flex items-center gap-4;
+  @apply text-xs sm:text-xs font-bold uppercase tracking-[0.25em] px-10 flex items-center gap-4;
 }
 
 /* Nút bấm dạng viên thuốc phẳng tối giản và đổi màu từ dưới lên */
@@ -66,11 +66,11 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 2.25rem;
+  padding: 0.9rem 2.25rem;
   border-radius: 9999px;
   font-weight: 700;
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   letter-spacing: 0.08em;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
@@ -158,14 +158,14 @@ body {
   height: 100%;
 }
 
-/* Glassmorphism Awwwards tối giản */
+/* Glassmorphism Brutalist tối giản */
 .glass {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid rgba(10, 15, 28, 0.08);
-  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border);
+  border-radius: 0 !important;
 }
 
-/* Timeline dạng tối giản tinh tế */
+/* Timeline dạng tối giản tinh tế (Brutalist) */
 .story-line {
   position: relative;
 }
@@ -177,7 +177,7 @@ body {
   top: 12px;
   bottom: 12px;
   width: 1px;
-  background-color: #cbd5e1;
+  background-color: var(--border);
 }
 
 .story-node {
@@ -190,46 +190,45 @@ body {
   position: absolute;
   left: -30px;
   top: 18px;
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
+  width: 8px;
+  height: 8px;
+  border-radius: 0px; /* Không bo góc */
   background: #f8fafc;
-  border: 2px solid #cbd5e1;
+  border: 1px solid #0A0F1C;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 10;
 }
 
 /* Story Step hoạt động */
 .story-step {
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  @apply border border-slate-200/80 bg-white;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 0px !important; /* Không bo góc */
+  @apply border border-[#0A0F1C]/10 bg-white/60;
 }
 
 .story-step.is-active {
-  @apply border-brand-600 bg-white;
+  border-color: #0A0F1C;
+  @apply bg-white;
 }
 
 .story-step.is-active::before {
   background: #2563EB;
   border-color: #2563EB;
-  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
 }
 
 .story-hero {
-  border-radius: 24px;
-  @apply border border-slate-200 bg-white;
+  border-radius: 0px !important; /* Không bo góc */
+  @apply border border-[#0A0F1C]/10 bg-white;
 }
 
 .story-pill {
-  @apply border border-slate-200/80 bg-slate-50/50;
-}
-
-.story-grid {
-  display: grid;
+  border-radius: 0px !important;
+  @apply border border-[#0A0F1C]/10 bg-slate-50/50;
 }
 
 .story-focus {
-  @apply border border-slate-200/80 bg-white;
+  border-radius: 0px !important;
+  @apply border border-[#0A0F1C]/10 bg-white;
 }
 
 .story-manifesto {
@@ -238,7 +237,8 @@ body {
 }
 
 .story-quote {
-  @apply bg-amber-50/30 border-l-2 border-amber-500 border-y border-r border-amber-500/10 text-amber-900;
+  border-radius: 0px !important;
+  @apply bg-amber-50/30 border-l-2 border-amber-500 border-y border-r border-amber-500/15 text-amber-900;
   font-size: 1rem;
   line-height: 1.65;
   font-style: italic;
@@ -251,10 +251,12 @@ body {
 /* Cases Hero sẫm */
 .cases-hero {
   background: #0A0F1C;
-  @apply border border-slate-900;
+  border-radius: 0px !important; /* Không bo góc */
+  @apply border border-[#0A0F1C]/10;
 }
 
 .case-kpi {
+  border-radius: 0px !important;
   @apply border border-slate-800 bg-white/5;
   backdrop-filter: blur(8px);
   transition: transform 0.25s ease, border-color 0.25s ease;
@@ -268,6 +270,7 @@ body {
 .case-card {
   position: relative;
   overflow: hidden;
+  border-radius: 0px !important; /* Không bo góc */
 }
 
 .case-card::after {
@@ -282,6 +285,7 @@ body {
 
 .metric-strong {
   @apply bg-brand-50 border-brand-200;
+  border-radius: 0px !important;
 }
 
 .reveal-on-scroll {
@@ -387,8 +391,9 @@ input[type="text"],
 input[type="tel"],
 select,
 textarea {
-  @apply bg-white border border-slate-200 rounded-xl px-4 py-3 text-sm outline-none transition-all;
+  @apply bg-white border border-[#0A0F1C]/15 px-4 py-3.5 text-sm outline-none transition-all;
   color: #0A0F1C;
+  border-radius: 0px !important; /* Không bo góc input */
 }
 
 input[type="text"]:focus,

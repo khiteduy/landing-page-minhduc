@@ -2,13 +2,13 @@ import React, { useEffect, useMemo, useState } from "react";
 import useForm from "./hooks/useForm";
 
 const nav = [
-  { id: "story", label: "Câu chuyện" },
-  { id: "services", label: "Dịch vụ" },
-  { id: "cases", label: "Dự án" },
-  { id: "courses", label: "Đào tạo" },
+  { id: "story", label: "Story" },
+  { id: "services", label: "Expertise" },
+  { id: "cases", label: "Cases" },
+  { id: "courses", label: "Training" },
   { id: "feedback", label: "Feedback" },
-  { id: "contact", label: "Liên hệ" },
-  { id: "toolkit", label: "Quà tặng" },
+  { id: "contact", label: "Contact" },
+  { id: "toolkit", label: "Toolkit" },
 ];
 
 const services = [
@@ -16,25 +16,19 @@ const services = [
     id: "perf",
     title: "Performance Marketing",
     desc: "Triển khai quảng cáo Facebook, TikTok, Google theo mục tiêu lead, đơn hàng, doanh thu và hiệu suất toàn phễu.",
-    points: ["Tư duy phễu", "Tối ưu CPA/ROAS", "Báo cáo theo dữ liệu"],
+    points: ["Tư duy phễu", "Tối ưu CPA/ROAS", "Báo cáo dữ liệu"],
   },
   {
     id: "gg",
-    title: "Google Ads & Local Map",
-    desc: "Tối ưu tìm kiếm, quảng cáo Google và hiện diện địa phương cho doanh nghiệp có điểm bán hoặc nhu cầu khách hàng rõ ràng.",
+    title: "Google Ads & Map",
+    desc: "Tối ưu Local Search, phủ sóng điểm bán và đo lường chuyển đổi thực tế qua tìm kiếm và Google Maps.",
     points: ["Search Ads", "Google Maps", "Local Intent"],
   },
   {
-    id: "content",
-    title: "Content Growth",
-    desc: "Định hướng nội dung, đào tạo team content và xây format video/social phục vụ mục tiêu chuyển đổi thực tế.",
-    points: ["Content plan", "TikTok format", "Creative testing"],
-  },
-  {
-    id: "ai",
-    title: "AI & Automation",
-    desc: "Ứng dụng AI để nghiên cứu khách hàng, lên nội dung, xử lý dữ liệu và tự động hóa các tác vụ marketing lặp lại.",
-    points: ["AI workflow", "Automation", "Data system"],
+    id: "ai-content",
+    title: "AI & Content",
+    desc: "Ứng dụng AI Automation vào hệ thống dữ liệu, tối ưu hóa nội dung đa kênh và tự động hóa quy trình marketing.",
+    points: ["AI workflow", "Content scale", "Automation data"],
   },
 ];
 
@@ -98,22 +92,22 @@ const courses = [
   {
     title: "Facebook Ads",
     desc: "Từ người mới đến người có thể tự set camp, đọc chỉ số, tối ưu chi phí tin nhắn và tạo đơn hàng.",
-    points: ["Set camp đúng cấu trúc", "Đọc CPM, CTR, CPC, CPA", "Tối ưu giá mess", "Scale chiến dịch có dữ liệu"],
+    points: ["Set camp đúng cấu trúc", "Đọc CPM, CTR, CPC, CPA", "Scale chiến dịch thực chiến"],
   },
   {
-    title: "Google Ads",
+    title: "Google Ads & Map",
     desc: "Học cách kéo khách hàng có nhu cầu thật qua Search, Local Map và hệ thống đo lường hiệu quả theo doanh thu.",
-    points: ["Google Search Ads", "Local Map", "Tối ưu từ khóa", "Đo lường chuyển đổi"],
+    points: ["Google Search Ads", "Local Map & Google Maps", "Đo lường chuyển đổi"],
   },
   {
-    title: "TikTok Ads",
+    title: "TikTok Ads & Organic",
     desc: "Triển khai quảng cáo và nội dung ngắn theo hành vi người xem, phù hợp sản phẩm cần tăng nhận diện.",
-    points: ["Tư duy video ngắn", "Setup TikTok Ads", "Test hook & angle", "Tối ưu chi phí chuyển đổi"],
+    points: ["Tư duy video ngắn", "Setup TikTok Ads", "Tối ưu chi phí chuyển đổi"],
   },
   {
     title: "Shopee thực chiến",
     desc: "Xây dựng gian hàng, tối ưu sản phẩm, traffic và chuyển đổi trên sàn thương mại điện tử.",
-    points: ["Tối ưu gian hàng", "SEO tiêu đề sản phẩm", "Tối ưu hình ảnh", "Tăng tỷ lệ ra đơn"],
+    points: ["Tối ưu gian hàng", "SEO tiêu đề sản phẩm", "Tăng tỷ lệ ra đơn"],
   },
 ];
 
@@ -157,7 +151,7 @@ function Marquee() {
     "GOOGLE MAPS",
     "FACEBOOK ADS"
   ];
-  const combined = Array(5).fill(marqueeItems).flat();
+  const combined = Array(6).fill(marqueeItems).flat();
 
   return (
     <div className="marquee-container" aria-hidden="true">
@@ -262,35 +256,21 @@ export default function App() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F8FAF9] text-[#0A0F1C] font-sans">
+    <div className="min-h-screen bg-[#F8FAF9] text-[#0A0F1C] font-sans selection:bg-[#2563EB] selection:text-white">
       <div className="mesh-bg" aria-hidden="true" />
       
-      {/* Top bar - Phẳng tối giản */}
-      <div className="bg-[#0A0F1C] text-white text-xs tracking-wider uppercase py-3 border-b border-[#0A0F1C]">
-        <div className="section-container flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between font-bold">
-          <p className="flex items-center gap-2">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[#2563EB]" />
-            SERVICES: <a className="hover:text-[#2563EB] transition-colors" href="tel:0936643146">0936643146</a>
-          </p>
-          <p className="flex items-center gap-2">
-            TRAINING: <a className="hover:text-[#2563EB] transition-colors" href="tel:0936643146">0936643146</a>
-          </p>
-        </div>
-      </div>
-
-      {/* Header - Đường biên border-b tối giản */}
-      <header className="sticky top-0 z-30 border-b border-slate-200 bg-[#F8FAF9]/90 backdrop-blur-md">
-        <div className="section-container flex items-center justify-between py-5">
+      {/* 1. HEADER - Viền kẻ ngang dưới, phẳng tối giản */}
+      <header className="fixed top-0 w-full bg-[#F8FAF9]/90 backdrop-blur-md z-50 border-b border-[#0A0F1C]/10">
+        <div className="px-6 h-20 flex items-center justify-between uppercase tracking-widest text-xs font-bold">
           <div>
-            <p className="text-lg font-black tracking-tighter uppercase text-[#0A0F1C]">Minh Duc Global</p>
-            <p className="text-[10px] font-bold tracking-widest uppercase text-slate-400 mt-0.5">EST. 2026</p>
+            Minh Duc Global <span className="text-[#2563EB] ml-2">©2026</span>
           </div>
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden md:flex gap-12">
             {nav.map((item) => (
               <a 
                 key={item.id} 
                 href={`#${item.id}`} 
-                className="text-xs font-bold uppercase tracking-wider text-[#0A0F1C] hover:text-[#2563EB] transition-colors"
+                className="hover:text-[#2563EB] transition-colors"
               >
                 {item.label}
               </a>
@@ -300,126 +280,135 @@ export default function App() {
             <a
               href="#contact"
               onClick={() => { if (window.trackCTA) window.trackCTA("Header - Đặt lịch tư vấn (Desktop)"); }}
-              className="hidden btn-awwwards btn-awwwards-solid sm:inline-flex"
+              className="px-5 py-2.5 bg-[#0A0F1C] text-white rounded-full hover:bg-[#2563EB] transition-colors text-[10px] tracking-widest uppercase font-bold"
             >
-              Đặt lịch tư vấn
+              Contact
             </a>
             <button
               type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-[#0A0F1C] hover:border-[#0A0F1C] transition-colors lg:hidden"
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[#0A0F1C]/10 text-[#0A0F1C] md:hidden"
               onClick={() => setMobileMenuOpen((v) => !v)}
               aria-label="Mở menu"
               aria-expanded={mobileMenuOpen}
             >
-              <span className="text-lg leading-none font-bold">{mobileMenuOpen ? "×" : "≡"}</span>
+              <span className="text-base leading-none font-bold">{mobileMenuOpen ? "×" : "≡"}</span>
             </button>
           </div>
         </div>
         {mobileMenuOpen && (
-          <nav className="section-container pb-6 lg:hidden animate-slide-down">
-            <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-lg">
+          <nav className="px-6 pb-6 md:hidden animate-slide-down bg-[#F8FAF9] border-b border-[#0A0F1C]/10">
+            <div className="flex flex-col gap-4 pt-4">
               {nav.map((item) => (
                 <a
                   key={item.id}
                   href={`#${item.id}`}
-                  className="block rounded-lg px-3 py-2.5 text-xs font-bold uppercase tracking-wider text-[#0A0F1C] hover:bg-slate-50 hover:text-[#2563EB] transition-colors"
+                  className="block text-xs font-bold uppercase tracking-wider text-[#0A0F1C] hover:text-[#2563EB] transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
-              <a
-                href="#contact"
-                className="mt-3 block btn-awwwards btn-awwwards-solid text-center w-full"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  if (window.trackCTA) window.trackCTA("Header - Đặt lịch tư vấn (Mobile)");
-                }}
-              >
-                Đặt lịch tư vấn
-              </a>
             </div>
           </nav>
         )}
       </header>
 
-      {/* Hero Section - Căn trái, Typography Grotesque khổng lồ */}
-      <section className="section-container py-24 lg:py-40">
-        <div className="max-w-6xl">
-          <p className="mb-6 inline-flex rounded-full border border-[#2563EB]/25 bg-[#2563EB]/5 px-4 py-1.5 text-[10px] font-bold uppercase tracking-[0.15em] text-[#2563EB]">
-            Minh Duc Global • High-end Performance Agency
+      {/* 2. HERO SECTION - Typo khổng lồ, tràn viền, căn trái */}
+      <section className="pt-40 pb-16 px-6 border-b border-[#0A0F1C]/10">
+        <div className="max-w-[95vw] mx-auto">
+          <p className="uppercase tracking-widest text-xs font-bold text-[#2563EB] mb-8">
+            Performance Marketing Agency
           </p>
-          <h1 className="text-5xl font-black leading-[0.9] text-[#0A0F1C] sm:text-[6.5rem] lg:text-[8rem] tracking-tighter uppercase font-syne">
-            WE BUILD<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2563EB] to-indigo-600">TANGIBLE GROWTH</span>.
+          <h1 className="text-[13vw] leading-[0.85] font-black tracking-tighter uppercase text-[#0A0F1C] font-syne">
+            Tangible<br />
+            Growth.
           </h1>
-          <p className="mt-8 max-w-2xl text-base leading-relaxed text-slate-500 sm:text-lg font-medium">
-            Đinh Minh Đức — Founder/CEO Minh Duc Global. Sinh năm 2005 tại Hải Dương, xây dựng giải pháp tăng trưởng toàn phễu (Performance Marketing) phục vụ mục tiêu Lead, đơn hàng và tự động hóa vận hành cho các thương hiệu hàng đầu.
-          </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 items-end">
+            <div className="md:col-span-2 text-2xl md:text-4xl font-medium leading-none text-[#0A0F1C]/80 tracking-tight">
+              Đinh Minh Đức — Founder/CEO Minh Duc Global.<br />
+              Sinh năm 2005 tại Hải Dương, làm dịch vụ Facebook nổi tiếng tại Việt Nam, xây dựng giải pháp tăng trưởng toàn phễu (Performance Marketing).
+            </div>
+            <div className="flex flex-col gap-4 text-xs font-bold uppercase tracking-widest border-t border-[#0A0F1C]/10 pt-6">
+              <a 
+                href="#services" 
+                onClick={() => { if (window.trackCTA) window.trackCTA("Hero - Dành cho Doanh nghiệp B2B"); }}
+                className="flex justify-between items-center pb-3 border-b border-[#0A0F1C]/10 hover:text-[#2563EB] transition-colors"
+              >
+                Dành cho Doanh nghiệp B2B <span>→</span>
+              </a>
+              <a 
+                href="#courses" 
+                onClick={() => { if (window.trackCTA) window.trackCTA("Hero - Học viên thực chiến"); }}
+                className="flex justify-between items-center pb-3 border-b border-[#0A0F1C]/10 hover:text-[#2563EB] transition-colors"
+              >
+                Học viên thực chiến <span>→</span>
+              </a>
+            </div>
+          </div>
+          <div className="mt-12 flex flex-wrap gap-4">
             <a
-              href="#services"
-              onClick={() => { if (window.trackCTA) window.trackCTA("Hero - Doanh nghiệp cần tăng trưởng"); }}
+              href="#contact"
+              onClick={() => { if (window.trackCTA) window.trackCTA("Hero CTA - Doanh nghiệp cần tăng trưởng"); }}
               className="btn-awwwards btn-awwwards-solid"
             >
               Tôi là doanh nghiệp
             </a>
             <a
               href="#courses"
-              onClick={() => { if (window.trackCTA) window.trackCTA("Hero - Học marketing thực chiến"); }}
+              onClick={() => { if (window.trackCTA) window.trackCTA("Hero CTA - Học marketing thực chiến"); }}
               className="btn-awwwards btn-awwwards-outline"
             >
-              Tôi muốn học thực chiến
+              Học marketing thực chiến
             </a>
           </div>
         </div>
       </section>
 
-      {/* Infinite Marquee giữa Hero và Story */}
+      {/* 3. DẢI MARQUEE CHẠY NGANG */}
       <Marquee />
 
-      {/* Story Section - Cấu trúc phẳng, phân tách bằng border */}
-      <section id="story" className="border-b border-slate-200/80 py-24 lg:py-36">
+      {/* 4. STORY SECTION - Lưới Brutalist phẳng */}
+      <section id="story" className="border-b border-[#0A0F1C]/10 py-24 px-6">
         <div className="section-container">
-          <div className="story-hero p-6 sm:p-8 lg:p-12 border border-slate-200">
+          <div className="story-hero p-6 sm:p-8 lg:p-12 bento-card">
             <div className="story-grid gap-8 lg:gap-16">
               <aside className="story-sticky">
-                <p className="inline-block rounded-full border border-[#0A0F1C]/10 bg-slate-50 px-4 py-1 text-[10px] font-bold uppercase tracking-[0.16em] text-[#0A0F1C]">
+                <p className="inline-block border border-[#0A0F1C]/10 bg-slate-50 px-3 py-1 text-[9px] font-bold uppercase tracking-[0.16em] text-[#0A0F1C]">
                   Brand Story
                 </p>
-                <h2 className="mt-4 max-w-3xl text-3xl font-extrabold leading-tight text-[#0A0F1C] sm:text-4xl tracking-tight uppercase">
+                <h2 className="mt-6 max-w-3xl text-3xl font-black leading-tight text-[#0A0F1C] sm:text-4xl tracking-tight uppercase font-syne">
                   Từ Hải Dương ra thị trường toàn cầu.
                 </h2>
-                <p className="story-manifesto mt-5 max-w-2xl text-base leading-relaxed text-slate-500 sm:text-lg">
+                <p className="story-manifesto mt-5 max-w-2xl text-base leading-relaxed text-slate-500">
                   Đinh Minh Đức bắt đầu bằng việc mày mò cách Facebook và các nền tảng số vận hành. Từ những hỗ trợ nhỏ về fanpage, livestream, nội dung,
                   hành trình dần chuyển thành tư duy performance: mọi chiến dịch phải quy về lead, đơn hàng, chi phí và dòng tiền.
                 </p>
-                <blockquote className="story-quote mt-6 rounded-2xl p-5">
+                <blockquote className="story-quote mt-6 p-5">
                   “Làm marketing không chỉ để đẹp số tương tác, mà để tạo chuyển đổi thật, doanh thu thật và năng lực vận hành thật cho doanh nghiệp.”
                 </blockquote>
-                <div className="story-focus mt-6 rounded-2xl p-5">
-                  <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#2563EB]">Điểm nhấn hiện tại</p>
-                  <h3 className="mt-2 text-lg font-extrabold text-[#0A0F1C]">{storyPhases[activeStory].title}</h3>
+                <div className="story-focus mt-6 p-5">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.14em] text-[#2563EB]">Điểm nhấn hiện tại</p>
+                  <h3 className="mt-2 text-lg font-bold text-[#0A0F1C] uppercase">{storyPhases[activeStory].title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-slate-500">{storyPhases[activeStory].keyline}</p>
                   <p className="mt-3 text-sm leading-relaxed text-[#2563EB]">{storyPhases[activeStory].impact}</p>
                 </div>
                 <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                  <div className="story-pill reveal-on-scroll rounded-2xl px-4 py-3.5">
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Nền tảng</p>
-                    <p className="mt-1 text-xs sm:text-sm font-bold text-[#0A0F1C]">Đam mê + tự học</p>
+                  <div className="story-pill reveal-on-scroll px-4 py-3.5 border border-[#0A0F1C]/10">
+                    <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400">Nền tảng</p>
+                    <p className="mt-1 text-xs font-bold text-[#0A0F1C] uppercase">Đam mê + tự học</p>
                   </div>
-                  <div className="story-pill reveal-on-scroll rounded-2xl px-4 py-3.5">
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Chuyển hóa</p>
-                    <p className="mt-1 text-xs sm:text-sm font-bold text-[#0A0F1C]">Tương tác sang hiệu suất</p>
+                  <div className="story-pill reveal-on-scroll px-4 py-3.5 border border-[#0A0F1C]/10">
+                    <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400">Chuyển hóa</p>
+                    <p className="mt-1 text-xs font-bold text-[#0A0F1C] uppercase">Tương tác sang hiệu suất</p>
                   </div>
-                  <div className="story-pill reveal-on-scroll rounded-2xl px-4 py-3.5">
-                    <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">Cam kết</p>
-                    <p className="mt-1 text-xs sm:text-sm font-bold text-[#0A0F1C]">Dữ liệu & kết quả thật</p>
+                  <div className="story-pill reveal-on-scroll px-4 py-3.5 border border-[#0A0F1C]/10">
+                    <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400">Cam kết</p>
+                    <p className="mt-1 text-xs font-bold text-[#0A0F1C] uppercase">Dữ liệu & kết quả</p>
                   </div>
                 </div>
-                <div className="mt-6 flex flex-wrap gap-4 border-t border-slate-100 pt-5">
-                  <a className="text-xs font-bold text-[#2563EB] underline decoration-slate-200 underline-offset-4 hover:text-[#0A0F1C] hover:decoration-[#0A0F1C] transition-colors" href="https://nguoinoitieng.tv/nghe-nghiep/ho-tro-facebook/dinh-minh-duc/bgnj" target="_blank" rel="noreferrer">Hồ sơ cá nhân</a>
-                  <a className="text-xs font-bold text-[#2563EB] underline decoration-slate-200 underline-offset-4 hover:text-[#0A0F1C] hover:decoration-[#0A0F1C] transition-colors" href="https://www.facebook.com/business/success/bee-english-community" target="_blank" rel="noreferrer">Meta Success Story (Bee)</a>
+                <div className="mt-6 flex flex-wrap gap-4 border-t border-slate-100 pt-5 text-xs font-bold uppercase tracking-wider">
+                  <a className="text-[#2563EB] underline decoration-slate-200 underline-offset-4 hover:text-[#0A0F1C]" href="https://nguoinoitieng.tv/nghe-nghiep/ho-tro-facebook/dinh-minh-duc/bgnj" target="_blank" rel="noreferrer">Hồ sơ cá nhân</a>
+                  <a className="text-[#2563EB] underline decoration-slate-200 underline-offset-4 hover:text-[#0A0F1C]" href="https://www.facebook.com/business/success/bee-english-community" target="_blank" rel="noreferrer">Meta Success story</a>
                 </div>
               </aside>
               <div className="story-line story-scroll space-y-6">
@@ -427,96 +416,160 @@ export default function App() {
                   <article
                     key={phase.title}
                     data-story-index={i}
-                    className="story-node story-step reveal-on-scroll rounded-2xl p-6"
-                    style={{ transitionDelay: `${i * 120}ms` }}
+                    className="story-node story-step reveal-on-scroll p-6"
+                    style={{ transitionDelay: `${i * 100}ms` }}
                   >
-                    <p className="text-[10px] font-bold uppercase tracking-[0.13em] text-slate-400">Chặng {i + 1}</p>
-                    <h3 className="mt-2 text-lg font-extrabold text-[#0A0F1C]">{phase.title}</h3>
+                    <p className="text-[9px] font-bold uppercase tracking-[0.13em] text-slate-400">Chặng {i + 1}</p>
+                    <h3 className="mt-2 text-lg font-bold text-[#0A0F1C] uppercase">{phase.title}</h3>
                     <p className="mt-3 text-sm leading-relaxed text-slate-500">{phase.desc}</p>
                   </article>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section - Bento Grid bất đối xứng tối giản */}
-      <section id="services" className="border-b border-slate-200/80 py-24 lg:py-36">
-        <div className="section-container">
-          <div className="max-w-xl mb-12">
-            <p className="text-xs font-bold uppercase tracking-wider text-[#2563EB]">Dịch Vụ Tăng Trưởng</p>
-            <h2 className="text-3xl font-black tracking-tight text-[#0A0F1C] sm:text-4xl uppercase mt-2">Dịch vụ chính của Minh Duc Global</h2>
-            <p className="mt-3 text-slate-500 text-sm">Các giải pháp quảng cáo và tự động hóa chuyên biệt giúp thúc đẩy chuyển đổi thật và doanh số.</p>
-          </div>
-          
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {services.map((s) => (
-              <article 
-                key={s.id} 
-                className={`bento-card flex flex-col justify-between h-full group ${
-                  s.id === "perf" || s.id === "ai" ? "lg:col-span-2" : "lg:col-span-1"
-                }`}
+            {/* CTA ở cuối Story Section */}
+            <div className="mt-12 pt-8 border-t border-[#0A0F1C]/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+              <p className="text-sm font-medium text-slate-500">Bạn muốn tìm hiểu thêm về năng lực và hành trình triển khai của tôi?</p>
+              <a
+                href="#contact"
+                onClick={() => { if (window.trackCTA) window.trackCTA("Story Section - Tìm hiểu thêm"); }}
+                className="btn-awwwards btn-awwwards-solid"
               >
-                <div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold tracking-widest text-[#2563EB] uppercase border border-[#2563EB]/20 bg-[#2563EB]/5 px-2.5 py-1 rounded-md">
-                      {s.id.toUpperCase()}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-extrabold text-[#0A0F1C] tracking-tight mt-6 group-hover:text-[#2563EB] transition-colors">{s.title}</h3>
-                  <p className="mt-4 text-slate-500 text-sm leading-relaxed">{s.desc}</p>
-                </div>
-                <ul className="mt-8 space-y-2 text-xs font-bold text-slate-600 border-t border-slate-100 pt-5">
-                  {s.points.map((p) => (
-                    <li key={p} className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" />
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </article>
-            ))}
+                Nhận tư vấn ngay
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Marquee giữa Dịch vụ và Case Studies */}
-      <Marquee />
+      {/* 5. SERVICES BENTO GRID - Brutalist style (Chỉ dùng viền, không bo góc) */}
+      <section id="services" className="border-b border-[#0A0F1C]/10 bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-4">
+          
+          {/* Header Box (Chiếm 1 cột) */}
+          <div className="border-b md:border-b-0 md:border-r border-[#0A0F1C]/10 p-10 flex flex-col justify-between bg-[#F8FAF9]">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-[#2563EB]">Our Expertise</p>
+              <h2 className="text-3xl font-black tracking-tight text-[#0A0F1C] uppercase mt-4 font-syne">Dịch vụ chính</h2>
+              <p className="mt-4 text-slate-500 text-sm">Giải pháp Performance Marketing toàn diện giúp chuyển hóa lưu lượng thành doanh thu thật.</p>
+            </div>
+            <div className="mt-8">
+              <a
+                href="#contact"
+                onClick={() => { if (window.trackCTA) window.trackCTA("Services - Book Service Left Header"); }}
+                className="btn-awwwards btn-awwwards-outline w-full"
+              >
+                Book Service
+              </a>
+            </div>
+          </div>
 
-      {/* Cases Section - Bento Grid bất đối xứng phong cách Awwwards */}
-      <section id="cases" className="border-b border-slate-200/80 py-24 lg:py-36">
+          {/* Box 1 - Performance Marketing (Chiếm 2 cột) */}
+          <div className="md:col-span-2 border-b md:border-b-0 md:border-r border-[#0A0F1C]/10 p-10 hover:bg-[#F8FAF9]/50 transition-colors group flex flex-col justify-between">
+            <div>
+              <div className="text-3xl font-bold text-slate-300 mb-8">01</div>
+              <h3 className="text-3xl font-black uppercase tracking-tight mb-4 group-hover:text-[#2563EB] transition-colors">{services[0].title}</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">{services[0].desc}</p>
+            </div>
+            <ul className="mt-8 space-y-2 text-xs font-bold text-slate-600 border-t border-slate-100 pt-5">
+              {services[0].points.map((p) => (
+                <li key={p} className="flex items-center gap-2">
+                  <span className="h-1 w-1 bg-[#2563EB]" />
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Box 2 - Google Ads & Map (Chiếm 1 cột) */}
+          <div className="border-b md:border-b-0 border-[#0A0F1C]/10 p-10 hover:bg-[#F8FAF9]/50 transition-colors group flex flex-col justify-between">
+            <div>
+              <div className="text-3xl font-bold text-slate-300 mb-8">02</div>
+              <h3 className="text-xl font-black uppercase tracking-tight mb-4 group-hover:text-[#2563EB] transition-colors">{services[1].title}</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">{services[1].desc}</p>
+            </div>
+            <ul className="mt-8 space-y-2 text-xs font-bold text-slate-600 border-t border-slate-100 pt-5">
+              {services[1].points.map((p) => (
+                <li key={p} className="flex items-center gap-2">
+                  <span className="h-1 w-1 bg-[#2563EB]" />
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+        </div>
+
+        {/* Thêm hàng thứ 2 của Services bento grid cho AI & Content */}
+        <div className="grid grid-cols-1 md:grid-cols-4 border-t border-[#0A0F1C]/10">
+          {/* Box 3 - AI & Content (Chiếm 3 cột) */}
+          <div className="md:col-span-3 border-b md:border-b-0 md:border-r border-[#0A0F1C]/10 p-10 hover:bg-[#F8FAF9]/50 transition-colors group flex flex-col justify-between">
+            <div>
+              <div className="text-3xl font-bold text-slate-300 mb-8">03</div>
+              <h3 className="text-3xl font-black uppercase tracking-tight mb-4 group-hover:text-[#2563EB] transition-colors">{services[2].title}</h3>
+              <p className="text-sm text-slate-500 leading-relaxed">{services[2].desc}</p>
+            </div>
+            <ul className="mt-8 space-y-2 text-xs font-bold text-slate-600 border-t border-slate-100 pt-5">
+              {services[2].points.map((p) => (
+                <li key={p} className="flex items-center gap-2">
+                  <span className="h-1 w-1 bg-[#2563EB]" />
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Action Box ở góc dưới (Chiếm 1 cột) */}
+          <div className="p-10 flex flex-col justify-between bg-[#F8FAF9]">
+            <div>
+              <h4 className="text-sm font-bold uppercase tracking-wider text-[#0A0F1C]">Bắt đầu chuyển đổi ngay?</h4>
+              <p className="mt-3 text-xs text-slate-500">Đội ngũ Minh Duc Global sẵn sàng lên phương án kiểm toán phễu marketing miễn phí cho bạn.</p>
+            </div>
+            <div className="mt-8">
+              <a 
+                href="#contact"
+                onClick={() => { if (window.trackCTA) window.trackCTA("Services - Book Service Bottom Action"); }}
+                className="btn-awwwards btn-awwwards-solid w-full text-center"
+              >
+                Book Service →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. CASES SECTION - Bento Grid Brutalist (Không rounded, chỉ viền kẻ) */}
+      <section id="cases" className="border-b border-[#0A0F1C]/10 py-24 px-6">
         <div className="section-container">
-          <div className="cases-hero mb-12 rounded-3xl p-6 sm:p-8 lg:p-12">
+          <div className="cases-hero mb-12 p-6 sm:p-8 lg:p-12 border border-[#0A0F1C]/10 bg-[#0A0F1C]">
             <p className="text-xs font-bold uppercase tracking-[0.16em] text-[#2563EB]">Báo Cáo Hiệu Quả</p>
-            <h2 className="mt-2 text-3xl font-black text-white sm:text-4xl tracking-tight uppercase">Case Study thực chiến</h2>
-            <p className="mt-3 max-w-3xl text-slate-300 text-sm sm:text-base">
+            <h2 className="mt-2 text-3xl font-black text-white sm:text-4xl tracking-tight uppercase font-syne">Case Study thực chiến</h2>
+            <p className="mt-4 max-w-3xl text-slate-300 text-sm sm:text-base">
               Mỗi case đều được tối ưu theo mục tiêu kinh doanh thực tế: giảm chi phí, tăng lead chất lượng và đẩy doanh thu.
               Kết quả dưới đây thể hiện năng lực triển khai đa nền tảng của Đinh Minh Đức và Minh Duc Global.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              <div className="case-kpi rounded-2xl p-5 text-center">
+              <div className="case-kpi p-5 text-center">
                 <p className="text-[10px] uppercase tracking-wider font-bold text-[#2563EB]">Doanh thu nổi bật</p>
-                <p className="mt-2 text-3xl font-extrabold text-white">624.6M</p>
+                <p className="mt-2 text-3xl font-bold text-white">624.6M</p>
               </div>
-              <div className="case-kpi rounded-2xl p-5 text-center">
+              <div className="case-kpi p-5 text-center">
                 <p className="text-[10px] uppercase tracking-wider font-bold text-[#2563EB]">Hiệu suất cao nhất</p>
-                <p className="mt-2 text-3xl font-extrabold text-white">27X</p>
+                <p className="mt-2 text-3xl font-bold text-white">27X</p>
               </div>
-              <div className="case-kpi rounded-2xl p-5 text-center">
+              <div className="case-kpi p-5 text-center">
                 <p className="text-[10px] uppercase tracking-wider font-bold text-[#2563EB]">Lead/tháng</p>
-                <p className="mt-2 text-3xl font-extrabold text-white">350</p>
+                <p className="mt-2 text-3xl font-bold text-white">350</p>
               </div>
             </div>
           </div>
           
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between border-b border-slate-200/80 pb-6 mb-8">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between border-b border-[#0A0F1C]/10 pb-6 mb-8">
             <div>
-              <h3 className="text-xl font-black text-[#0A0F1C] sm:text-2xl tracking-tight uppercase">Dự án chọn lọc</h3>
-              <p className="text-slate-500 text-xs sm:text-sm mt-1">Các chiến dịch tối ưu hóa chuyển đổi thực tế.</p>
+              <h3 className="text-xl font-black text-[#0A0F1C] sm:text-2xl tracking-tight uppercase">Dự án tiêu biểu</h3>
+              <p className="text-slate-500 text-xs sm:text-sm mt-1">Lọc dự án để xem các case study theo danh mục.</p>
             </div>
             <select 
-              className="rounded-full border border-slate-200 bg-white px-5 py-2.5 text-xs font-bold text-slate-700 outline-none focus:ring-2 focus:ring-[#2563EB]/15 focus:border-[#2563EB] shadow-sm uppercase tracking-wider" 
+              className="border border-[#0A0F1C]/10 bg-white px-5 py-2.5 text-xs font-bold text-slate-700 outline-none focus:ring-2 focus:ring-[#2563EB]/15 focus:border-[#2563EB] shadow-sm uppercase tracking-wider rounded-none" 
               value={caseFilter} 
               onChange={(e) => setCaseFilter(e.target.value)}
             >
@@ -536,9 +589,9 @@ export default function App() {
                 }`}
               >
                 <div>
-                  <div className="mb-6 flex items-center justify-between gap-3 border-b border-slate-100 pb-4">
-                    <p className="rounded-full bg-[#2563EB]/5 border border-[#2563EB]/10 px-3 py-1 text-[10px] font-bold text-[#2563EB] uppercase tracking-wider">{c.category}</p>
-                    <p className="rounded-full bg-amber-500/10 border border-amber-500/20 px-3 py-1 text-[10px] font-extrabold text-amber-700 uppercase tracking-wider">{c.result}</p>
+                  <div className="mb-6 flex items-center justify-between gap-3 border-b border-[#0A0F1C]/10 pb-4">
+                    <p className="bg-[#2563EB]/5 border border-[#2563EB]/10 px-3 py-1 text-[9px] font-bold text-[#2563EB] uppercase tracking-wider">{c.category}</p>
+                    <p className="bg-amber-500/10 border border-amber-500/20 px-3 py-1 text-[9px] font-extrabold text-amber-700 uppercase tracking-wider">{c.result}</p>
                   </div>
                   <h3 className="text-2xl font-black text-[#0A0F1C] tracking-tight group-hover:text-[#2563EB] transition-colors">{c.name}</h3>
                   <p className="mt-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">{c.industry} • {c.role}</p>
@@ -552,14 +605,14 @@ export default function App() {
                       
                       if (value) {
                         return (
-                          <div key={m} className={`glass rounded-2xl p-4 transition-all duration-300 ${idx === 2 ? "metric-strong" : ""}`}>
+                          <div key={m} className={`glass rounded-none p-4 transition-all duration-300 ${idx === 2 ? "metric-strong" : ""}`}>
                             <p className="text-[8px] font-extrabold uppercase tracking-widest text-slate-400">{label}</p>
                             <p className={`text-base font-extrabold mt-1 leading-none ${idx === 2 ? "text-[#2563EB]" : "text-[#0A0F1C]"}`}>{value}</p>
                           </div>
                         );
                       }
                       return (
-                        <div key={m} className={`glass rounded-2xl p-4 transition-all duration-300 ${idx === 2 ? "metric-strong" : ""}`}>
+                        <div key={m} className={`glass rounded-none p-4 transition-all duration-300 ${idx === 2 ? "metric-strong" : ""}`}>
                           <p className="text-xs font-bold text-slate-700">{m}</p>
                         </div>
                       );
@@ -574,17 +627,17 @@ export default function App() {
                         <button 
                           key={p} 
                           onClick={() => setLightbox(p)} 
-                          className="group/proof relative overflow-hidden rounded-2xl border border-slate-100 text-left transition-all duration-300 hover:border-[#2563EB] hover:shadow-md h-32 w-full mt-4"
+                          className="group/proof relative overflow-hidden border border-slate-200 text-left transition-all duration-300 hover:border-[#2563EB] h-32 w-full mt-4 rounded-none"
                         >
                           <img src={p} alt={`Proof ${c.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover/proof:scale-105" loading="lazy" />
                           <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/proof:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <span className="rounded-full bg-white px-4 py-2 text-[10px] font-bold text-slate-800 flex items-center gap-1.5 shadow-sm transform translate-y-2 group-hover/proof:translate-y-0 transition-transform duration-300 uppercase tracking-wider">
+                            <span className="bg-white px-4 py-2 text-[9px] font-bold text-slate-800 flex items-center gap-1.5 shadow-sm transform translate-y-2 group-hover/proof:translate-y-0 transition-transform duration-300 uppercase tracking-wider rounded-none">
                               Xem minh chứng
                             </span>
                           </div>
                         </button>
                       ) : (
-                        <a key={p} href={p} target="_blank" rel="noreferrer" className="flex items-center justify-center rounded-2xl border border-dashed border-slate-200 p-4 text-[10px] font-bold text-[#2563EB] hover:bg-slate-50 hover:border-[#2563EB] transition-colors text-center h-32 mt-4 uppercase tracking-wider">
+                        <a key={p} href={p} target="_blank" rel="noreferrer" className="flex items-center justify-center border border-dashed border-slate-200 p-4 text-[9px] font-bold text-[#2563EB] hover:bg-slate-50 hover:border-[#2563EB] transition-colors text-center h-32 mt-4 uppercase tracking-wider rounded-none">
                           Xem nguồn Meta
                         </a>
                       )
@@ -594,20 +647,32 @@ export default function App() {
               </article>
             ))}
           </div>
+          
+          {/* CTA ở cuối Cases Section */}
+          <div className="mt-12 pt-8 border-t border-[#0A0F1C]/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p className="text-sm font-medium text-slate-500">Bạn muốn đạt được hiệu suất ROAS vượt trội như các case study trên?</p>
+            <a
+              href="#contact"
+              onClick={() => { if (window.trackCTA) window.trackCTA("Cases Section - Yêu cầu tư vấn"); }}
+              className="btn-awwwards btn-awwwards-solid"
+            >
+              Yêu cầu tư vấn ngay
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Courses Section - Nền sáng #F8FAF9 */}
-      <section id="courses" className="border-b border-slate-200/80 py-24 lg:py-36">
+      {/* 7. COURSES SECTION - Nền sáng #F8FAF9, viền kẻ */}
+      <section id="courses" className="border-b border-[#0A0F1C]/10 py-24 px-6">
         <div className="section-container">
           <div className="max-w-xl mb-12">
             <p className="text-xs font-bold uppercase tracking-wider text-[#2563EB]">Chương Trình Đào Tạo</p>
-            <h2 className="text-3xl font-black tracking-tight text-[#0A0F1C] sm:text-4xl uppercase mt-2">Khóa học marketing thực chiến</h2>
-            <p className="mt-3 text-slate-500 text-sm">Học đi đôi với hành, chuyển giao quy trình tối ưu thực tế từ con số 0.</p>
+            <h2 className="text-3xl font-black tracking-tight text-[#0A0F1C] sm:text-4xl uppercase mt-2 font-syne">Khóa học thực chiến</h2>
+            <p className="mt-3 text-slate-500 text-sm">Chuyển giao quy trình quảng cáo và vận hành kinh doanh thực chiến cho học viên.</p>
           </div>
           <div className="grid gap-6 md:grid-cols-2">
             {courses.map((c) => (
-              <article key={c.title} className="bento-card hover:border-brand-600 transition-colors flex flex-col justify-between">
+              <article key={c.title} className="bento-card hover:border-[#0A0F1C] flex flex-col justify-between">
                 <div>
                   <h3 className="text-xl font-bold text-[#0A0F1C] tracking-tight uppercase">{c.title}</h3>
                   <p className="mt-3 text-slate-500 text-sm leading-relaxed">{c.desc}</p>
@@ -615,7 +680,7 @@ export default function App() {
                 <ul className="mt-6 space-y-2 text-xs font-bold text-slate-600 border-t border-slate-100 pt-5">
                   {c.points.map((p) => (
                     <li key={p} className="flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" />
+                      <span className="h-1 w-1 bg-[#2563EB]" />
                       {p}
                     </li>
                   ))}
@@ -623,20 +688,31 @@ export default function App() {
               </article>
             ))}
           </div>
+          {/* CTA ở cuối Courses Section */}
+          <div className="mt-12 pt-8 border-t border-[#0A0F1C]/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p className="text-sm font-medium text-slate-500">Tìm kiếm khóa học phù hợp nhất với năng lực và mục tiêu của bạn?</p>
+            <a
+              href="#contact"
+              onClick={() => { if (window.trackCTA) window.trackCTA("Courses Section - Đăng ký học"); }}
+              className="btn-awwwards btn-awwwards-solid"
+            >
+              Đăng ký tư vấn khóa học
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Feedback Section - Nền xám cực nhạt #F8FAFC */}
-      <section id="feedback" className="w-full bg-[#F8FAFC] py-24 lg:py-36 border-b border-slate-200/80">
+      {/* 8. FEEDBACK SECTION - Nền xám cực nhạt #F8FAFC, viền kẻ */}
+      <section id="feedback" className="w-full bg-[#F8FAFC] py-24 px-6 border-b border-[#0A0F1C]/10">
         <div className="section-container">
           <div className="grid gap-6 lg:grid-cols-2">
             <article className="bento-card bg-white">
-              <h2 className="text-2xl font-black tracking-tight uppercase text-[#0A0F1C]">Feedback học viên</h2>
+              <h2 className="text-2xl font-black tracking-tight uppercase text-[#0A0F1C] font-syne">Feedback học viên</h2>
               <p className="mt-4 text-slate-700 text-sm leading-relaxed">
                 Học viên <b>Quyên</b> (kinh doanh xe điện) bắt đầu từ con số 0 về quảng cáo. Sau quá trình học,
                 Quyên đã tự chạy Facebook Ads ra đơn với chi phí tin nhắn khoảng <b>3.000-5.000đ/mess</b>.
               </p>
-              <div className="mt-6 aspect-video overflow-hidden rounded-2xl border border-slate-200">
+              <div className="mt-6 aspect-video overflow-hidden border border-slate-200">
                 <iframe
                   title="Feedback Quyên"
                   src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F18izSvaN8g%2F&show_text=false"
@@ -648,33 +724,44 @@ export default function App() {
             </article>
 
             <article className="bento-card bg-white">
-              <h2 className="text-2xl font-black tracking-tight uppercase text-[#0A0F1C]">Năng lực triển khai</h2>
-              <p className="mt-3 text-slate-500 text-sm leading-relaxed">Định hướng thực chiến lấy chuyển đổi và doanh thu làm thước đo hiệu quả.</p>
+              <h2 className="text-2xl font-black tracking-tight uppercase text-[#0A0F1C] font-syne">Năng lực triển khai</h2>
+              <p className="mt-3 text-slate-500 text-sm leading-relaxed">Giải pháp tập trung vào hiệu quả vận hành phễu marketing thực tế.</p>
               <div className="mt-6 grid gap-4 sm:grid-cols-2">
-                <div className="glass rounded-2xl p-5 border border-slate-100">
-                  <p className="text-[9px] uppercase font-bold tracking-wide text-slate-400">Mô hình vận hành</p>
-                  <p className="mt-2 text-base font-bold text-[#2563EB]">Ads + Content + Data</p>
+                <div className="glass p-5">
+                  <p className="text-[8px] uppercase font-bold tracking-wide text-slate-400">Mô hình vận hành</p>
+                  <p className="mt-2 text-base font-bold text-[#2563EB] uppercase">Ads + Content + Data</p>
                 </div>
-                <div className="glass rounded-2xl p-5 border border-slate-100">
-                  <p className="text-[9px] uppercase font-bold tracking-wide text-slate-400">Triển khai</p>
-                  <p className="mt-2 text-base font-bold text-[#2563EB]">Funnel theo mục tiêu</p>
+                <div className="glass p-5">
+                  <p className="text-[8px] uppercase font-bold tracking-wide text-slate-400">Triển khai</p>
+                  <p className="mt-2 text-base font-bold text-[#2563EB] uppercase">Funnel theo mục tiêu</p>
                 </div>
-                <div className="glass rounded-2xl p-5 border border-slate-100">
-                  <p className="text-[9px] uppercase font-bold tracking-wide text-slate-400">Theo dõi</p>
-                  <p className="mt-2 text-base font-bold text-[#2563EB]">Báo cáo theo doanh thu</p>
+                <div className="glass p-5">
+                  <p className="text-[8px] uppercase font-bold tracking-wide text-slate-400">Theo dõi</p>
+                  <p className="mt-2 text-base font-bold text-[#2563EB] uppercase">Báo cáo theo doanh thu</p>
                 </div>
-                <div className="glass rounded-2xl p-5 border border-slate-100">
-                  <p className="text-[9px] uppercase font-bold tracking-wide text-slate-400">Tối ưu</p>
-                  <p className="mt-2 text-base font-bold text-[#2563EB]">CPA, ROAS, Lead Quality</p>
+                <div className="glass p-5">
+                  <p className="text-[8px] uppercase font-bold tracking-wide text-slate-400">Tối ưu</p>
+                  <p className="mt-2 text-base font-bold text-[#2563EB] uppercase">CPA, ROAS, Lead Quality</p>
                 </div>
               </div>
             </article>
           </div>
+          {/* CTA ở cuối Feedback Section */}
+          <div className="mt-12 pt-8 border-t border-[#0A0F1C]/10 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <p className="text-sm font-medium text-slate-500">Sẵn sàng hợp tác cùng Founder Đinh Minh Đức và đội ngũ Minh Duc Global?</p>
+            <a
+              href="#contact"
+              onClick={() => { if (window.trackCTA) window.trackCTA("Feedback Section - Đặt lịch làm việc"); }}
+              className="btn-awwwards btn-awwwards-solid"
+            >
+              Đặt lịch làm việc ngay
+            </a>
+          </div>
         </div>
       </section>
 
-      {/* Contact Section - Form liên hệ 2 cột tối giản */}
-      <section id="contact" className="border-b border-slate-200/80 py-24 lg:py-36">
+      {/* 9. CONTACT SECTION - Form liên hệ 2 cột tối giản, viền kẻ */}
+      <section id="contact" className="border-b border-[#0A0F1C]/10 py-24 px-6">
         <div className="section-container">
           <div className="bento-card">
             {contactForm.success ? (
@@ -698,7 +785,7 @@ export default function App() {
               </div>
             ) : (
               <>
-                <h2 className="text-2xl font-black sm:text-3xl tracking-tight text-[#0A0F1C] uppercase">Nhận tư vấn tăng trưởng</h2>
+                <h2 className="text-2xl font-black sm:text-3xl tracking-tight text-[#0A0F1C] uppercase font-syne">Nhận tư vấn tăng trưởng</h2>
                 <p className="mt-2 text-slate-500 text-sm">Điền thông tin và nhu cầu của bạn để được kết nối và lên phương án nhanh chóng.</p>
                 
                 <form onSubmit={contactForm.handleSubmit} className="mt-10 flex flex-col gap-8">
@@ -801,10 +888,10 @@ export default function App() {
         </div>
       </section>
 
-      {/* Toolkit Section - Phẳng tối giản sẫm màu */}
-      <section id="toolkit" className="border-b border-slate-200/80 py-24 lg:py-36">
+      {/* 10. TOOLKIT SECTION - Quà tặng, viền kẻ */}
+      <section id="toolkit" className="border-b border-[#0A0F1C]/10 py-24 px-6 bg-white">
         <div className="section-container">
-          <div className="toolkit-hero rounded-3xl p-8 sm:p-10 lg:p-12">
+          <div className="toolkit-hero rounded-none p-8 sm:p-10 lg:p-12 border border-[#0A0F1C]/10">
             {toolkitForm.success ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-amber-400 text-slate-900 shadow-md animate-pulse">
@@ -827,19 +914,19 @@ export default function App() {
             ) : (
               <>
                 <p className="text-xs font-bold uppercase tracking-[0.16em] text-brand-200">Quà Tặng Đặc Biệt</p>
-                <h2 className="mt-3 text-3xl font-black leading-tight text-white sm:text-4xl tracking-tight uppercase">
+                <h2 className="mt-3 text-3xl font-black leading-tight text-white sm:text-4xl tracking-tight uppercase font-syne">
                   Nhận miễn phí bộ công cụ Marketing All-in-One
                 </h2>
                 <p className="mt-4 max-w-4xl text-slate-300 text-sm sm:text-base leading-relaxed">
                   Đăng ký form bên dưới để nhận ngay trọn bộ tài liệu thực chiến bao gồm kịch bản content, plan tuần/tháng, dashboard ads, checklist SEO và quy trình tối ưu dựa trên số liệu.
                 </p>
                 <div className="mt-8 grid gap-3 text-xs text-white sm:grid-cols-2 lg:grid-cols-4 font-bold uppercase tracking-wider">
-                  <div className="toolkit-pill rounded-full px-4 py-3.5 text-center">Kịch bản content chuyển đổi</div>
-                  <div className="toolkit-pill rounded-full px-4 py-3.5 text-center">Plan content theo tuần/tháng</div>
-                  <div className="toolkit-pill rounded-full px-4 py-3.5 text-center">Bảng phân tích chỉ số Ads</div>
-                  <div className="toolkit-pill rounded-full px-4 py-3.5 text-center">Template bài SEO chuẩn</div>
+                  <div className="toolkit-pill rounded-none px-4 py-3.5 text-center">Kịch bản content chuyển đổi</div>
+                  <div className="toolkit-pill rounded-none px-4 py-3.5 text-center">Plan content theo tuần/tháng</div>
+                  <div className="toolkit-pill rounded-none px-4 py-3.5 text-center">Bảng phân tích chỉ số Ads</div>
+                  <div className="toolkit-pill rounded-none px-4 py-3.5 text-center">Template bài SEO chuẩn</div>
                 </div>
-                <form onSubmit={toolkitForm.handleSubmit} className="mt-10 grid gap-4 rounded-2xl bg-white/5 p-5 sm:p-8 border border-white/10 md:grid-cols-2">
+                <form onSubmit={toolkitForm.handleSubmit} className="mt-10 grid gap-4 rounded-none bg-white/5 p-5 sm:p-8 border border-white/10 md:grid-cols-2">
                   <label className="text-[10px] font-bold uppercase tracking-widest text-brand-100">Họ và tên
                     <input
                       type="text"
@@ -847,7 +934,7 @@ export default function App() {
                       value={toolkitForm.values.name}
                       onChange={toolkitForm.handleChange}
                       placeholder="Nhập họ tên"
-                      className={`mt-2 w-full rounded-xl border px-4 py-3 text-slate-900 placeholder:text-slate-400 text-sm outline-none transition-all ${
+                      className={`mt-2 w-full rounded-none border px-4 py-3 text-slate-900 placeholder:text-slate-400 text-sm outline-none transition-all ${
                         toolkitForm.errors.name 
                           ? "border-red-400 bg-red-50/95" 
                           : "border-white/10 bg-white/95 focus:bg-white focus:border-white focus:ring-brand-200/20"
@@ -862,7 +949,7 @@ export default function App() {
                       value={toolkitForm.values.phone}
                       onChange={toolkitForm.handleChange}
                       placeholder="Nhập số điện thoại"
-                      className={`mt-2 w-full rounded-xl border px-4 py-3 text-slate-900 placeholder:text-slate-400 text-sm outline-none transition-all ${
+                      className={`mt-2 w-full rounded-none border px-4 py-3 text-slate-900 placeholder:text-slate-400 text-sm outline-none transition-all ${
                         toolkitForm.errors.phone 
                           ? "border-red-400 bg-red-50/95" 
                           : "border-white/10 bg-white/95 focus:bg-white focus:border-white focus:ring-brand-200/20"
@@ -877,7 +964,7 @@ export default function App() {
                       value={toolkitForm.values.requestedTool}
                       onChange={toolkitForm.handleChange}
                       placeholder="Ví dụ: Bảng chỉ số Ads, plan content, kịch bản video..."
-                      className={`mt-2 w-full rounded-xl border px-4 py-3 text-slate-900 placeholder:text-slate-400 text-sm outline-none transition-all ${
+                      className={`mt-2 w-full rounded-none border px-4 py-3 text-slate-900 placeholder:text-slate-400 text-sm outline-none transition-all ${
                         toolkitForm.errors.requestedTool 
                           ? "border-red-400 bg-red-50/95" 
                           : "border-white/10 bg-white/95 focus:bg-white focus:border-white focus:ring-brand-200/20"
@@ -886,13 +973,14 @@ export default function App() {
                     {toolkitForm.errors.requestedTool && <span className="mt-2 block text-xs text-red-200 font-semibold">{toolkitForm.errors.requestedTool}</span>}
                   </label>
                   {toolkitForm.submitError && (
-                    <div className="md:col-span-2 rounded-xl bg-red-900/40 border border-red-500/50 p-4 text-xs text-red-200 font-bold">
+                    <div className="md:col-span-2 rounded-none bg-red-900/40 border border-red-500/50 p-4 text-xs text-red-200 font-bold">
                       {toolkitForm.submitError}
                     </div>
                   )}
                   <button
                     type="submit"
                     disabled={toolkitForm.loading}
+                    onClick={() => { if (window.trackCTA) window.trackCTA("Toolkit Section - Submit Form"); }}
                     className="btn-awwwards btn-awwwards-accent md:col-span-2 w-full py-4 text-slate-950 font-extrabold"
                   >
                     {toolkitForm.loading ? "Đang xử lý..." : "Nhận bộ công cụ ngay"}
@@ -904,8 +992,9 @@ export default function App() {
         </div>
       </section>
 
-      <footer className="bg-white border-t border-slate-200/80">
-        <div className="section-container flex flex-col gap-3 py-10 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between font-bold uppercase tracking-wider">
+      {/* 11. FOOTER - Tối giản */}
+      <footer className="bg-white border-t border-[#0A0F1C]/10">
+        <div className="section-container flex flex-col gap-4 py-12 text-xs text-slate-400 sm:flex-row sm:items-center sm:justify-between font-bold uppercase tracking-widest">
           <p>© {new Date().getFullYear()} Minh Duc Global. All rights reserved.</p>
           <p>Đinh Minh Đức • Founder/CEO • Hải Dương</p>
         </div>
@@ -923,10 +1012,10 @@ export default function App() {
       {/* Lightbox mờ tối sang trọng Awwwards */}
       {lightbox && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4 animate-fade-in cursor-zoom-out"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 backdrop-blur-sm p-4 animate-fade-in cursor-zoom-out"
           onClick={() => setLightbox("")}
         >
-          <div className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl bg-white shadow-2xl border border-slate-100 flex items-center justify-center">
+          <div className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-none bg-white shadow-2xl border border-slate-100 flex items-center justify-center">
             <img src={lightbox} alt="Proof large" className="max-h-[85vh] max-w-[95vw] object-contain animate-scale-in" />
             <button
               onClick={() => setLightbox("")}
