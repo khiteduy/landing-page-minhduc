@@ -97,7 +97,7 @@ function MetricCard({ item, idx }) {
         <div className="mb-5">{item.icon}</div>
         <p
           className="text-4xl sm:text-5xl font-black tracking-tight text-[#0A0F1C] group-hover:text-[#2563EB] transition-colors duration-500 tabular-nums"
-          style={{ fontFamily: "Syne, sans-serif" }}
+          style={{ fontFamily: "'Syne', sans-serif" }}
         >
           {displayValue}
           <span className="text-[#2563EB]">{item.displaySuffix}</span>
@@ -137,7 +137,7 @@ export default function MetricsSection() {
           </p>
           <h2
             className="text-3xl sm:text-4xl font-black tracking-tight uppercase text-[#0A0F1C]"
-            style={{ fontFamily: "Syne, sans-serif" }}
+            style={{ fontFamily: "'Syne', sans-serif" }}
           >
             Kết quả bằng số liệu,{" "}
             <span className="text-[#2563EB]">không bằng lời hứa.</span>

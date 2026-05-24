@@ -16,7 +16,7 @@ function StatCard({ stat, idx }) {
     >
       <span
         className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-[#0A0F1C] group-hover:text-white transition-colors duration-500 tabular-nums"
-        style={{ fontFamily: "Syne, sans-serif" }}
+        style={{ fontFamily: "'Syne', sans-serif" }}
       >
         {count}
         <span className="text-[#2563EB] group-hover:text-white transition-colors duration-500">
@@ -81,7 +81,7 @@ export default function HeroSection() {
         <div className="max-w-5xl mb-12">
           <h1
             className="text-5xl sm:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[1.02] uppercase"
-            style={{ fontFamily: "Syne, sans-serif", fontWeight: 800 }}
+            style={{ fontFamily: "'Syne', sans-serif", fontWeight: 800 }}
           >
             <span className="block text-[#0A0F1C]">Hệ thống</span>
             <span className="block relative">

@@ -71,7 +71,7 @@ function KpiCounter({ value, label, color = "text-white" }) {
   return (
     <div ref={ref} className="case-kpi p-6 text-center">
       <p className="text-[9px] uppercase tracking-widest font-bold text-slate-400">{label}</p>
-      <p className={`mt-2 text-3xl font-extrabold ${color} tabular-nums`} style={{ fontFamily: "Syne, sans-serif" }}>
+      <p className={`mt-2 text-3xl font-extrabold ${color} tabular-nums`} style={{ fontFamily: "'Syne', sans-serif" }}>
         {isNumeric ? count : value}
       </p>
     </div>
@@ -107,7 +107,7 @@ export default function CaseStudiesSection({ setLightbox }) {
             </p>
             <h2
               className="text-3xl sm:text-4xl font-black tracking-tight uppercase text-white"
-              style={{ fontFamily: "Syne, sans-serif" }}
+              style={{ fontFamily: "'Syne', sans-serif" }}
             >
               Dự Án Tiêu Biểu &amp;{" "}
               <span className="text-[#2563EB]">Thực Chiến</span>
@@ -127,7 +127,7 @@ export default function CaseStudiesSection({ setLightbox }) {
         {/* Filter Bar */}
         <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between border-b border-[#0A0F1C]/5 pb-6 mb-12 gap-6">
           <div>
-            <h3 className="text-xl font-black text-[#0A0F1C] tracking-tight uppercase" style={{ fontFamily: "Syne, sans-serif" }}>
+            <h3 className="text-xl font-black text-[#0A0F1C] tracking-tight uppercase" style={{ fontFamily: "'Syne', sans-serif" }}>
               Chi tiết dự án
             </h3>
             <p className="text-slate-400 text-xs sm:text-sm mt-1">
@@ -170,7 +170,7 @@ export default function CaseStudiesSection({ setLightbox }) {
 
               <h3
                 className="text-2xl font-black text-[#0A0F1C] tracking-tight uppercase group-hover:text-[#2563EB] transition-colors duration-300"
-                style={{ fontFamily: "Syne, sans-serif" }}
+                style={{ fontFamily: "'Syne', sans-serif" }}
               >
                 {c.name}
               </h3>
