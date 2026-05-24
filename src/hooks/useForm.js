@@ -66,7 +66,11 @@ export default function useForm(initialValues, webhookUrl, validateFields, onSuc
 
     setLoading(true);
     try {
-      const response = await fetch(webhookUrl || "https://httpbin.org/post", {
+      if (!webhookUrl) {
+        throw new Error("Webhook URL is not configured");
+      }
+
+      const response = await fetch(webhookUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -88,7 +92,11 @@ export default function useForm(initialValues, webhookUrl, validateFields, onSuc
       return true;
     } catch (err) {
       console.error("Form submission error:", err);
-      setSubmitError("Đã xảy ra lỗi khi gửi thông tin. Vui lòng thử lại sau.");
+      if (err.message === "Webhook URL is not configured") {
+        setSubmitError("Form chưa được cấu hình webhook. Vui lòng liên hệ quản trị viên.");
+      } else {
+        setSubmitError("Đã xảy ra lỗi khi gửi thông tin. Vui lòng thử lại sau.");
+      }
       return false;
     } finally {
       setLoading(false);
