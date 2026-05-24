@@ -71,7 +71,7 @@ export default function ProcessSection() {
           </p>
           <h2
             className="text-3xl sm:text-4xl font-black tracking-tight uppercase text-[#0A0F1C]"
-            style={{ fontFamily: "'Syne', sans-serif" }}
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
           >
             Hệ Thống Tăng Trưởng{" "}
             <span className="text-[#2563EB]">Từng Bước</span>
@@ -107,7 +107,7 @@ export default function ProcessSection() {
                 <div className="flex items-baseline gap-2 mb-3">
                   <span
                     className="text-3xl font-black text-slate-100 group-hover:text-[#2563EB]/15 transition-colors duration-500"
-                    style={{ fontFamily: "'Syne', sans-serif" }}
+                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                   >
                     {step.num}
                   </span>

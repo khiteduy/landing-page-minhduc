@@ -24,12 +24,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Display / heading font (Syne) */
+/* Display / heading font (Plus Jakarta Sans — hỗ trợ tiếng Việt) */
 .font-display,
 h1.font-display,
 h2.font-display,
 h3.font-display {
-  font-family: "Syne", ui-sans-serif, sans-serif !important;
+  font-family: "Plus Jakarta Sans", ui-sans-serif, sans-serif !important;
 }
 
 .section-container {
@@ -383,10 +383,10 @@ textarea:focus {
 
 .section-title {
   @apply font-black tracking-tight text-[#0A0F1C];
-  font-family: "Syne", ui-sans-serif, sans-serif;
+  font-family: "Plus Jakarta Sans", ui-sans-serif, sans-serif;
 }
 
 .section-title-white {
   @apply font-black tracking-tight text-white;
-  font-family: "Syne", ui-sans-serif, sans-serif;
+  font-family: "Plus Jakarta Sans", ui-sans-serif, sans-serif;
 }

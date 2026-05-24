@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        // Be Vietnam Pro – thiết kế riêng cho tiếng Việt, dùng làm body font
+        // Body / UI — Be Vietnam Pro (hỗ trợ đầy đủ tiếng Việt)
         sans: ["Be Vietnam Pro", "ui-sans-serif", "system-ui", "sans-serif"],
-        // Syne – display/heading font, dùng cho H1, H2
-        display: ["Syne", "ui-sans-serif", "sans-serif"],
+        // Display / Heading — Plus Jakarta Sans (hỗ trợ tiếng Việt, bold sắc nét)
+        display: ["Plus Jakarta Sans", "ui-sans-serif", "sans-serif"],
       },
       colors: {
         brand: {

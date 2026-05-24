@@ -101,7 +101,7 @@ export default function ServicesSection() {
             </p>
             <h2
               className="text-3xl sm:text-4xl font-black tracking-tight uppercase text-[#0A0F1C]"
-              style={{ fontFamily: "'Syne', sans-serif" }}
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
               Dịch Vụ{" "}
               <span className="text-[#2563EB]">Của Chúng Tôi</span>
@@ -135,7 +135,7 @@ export default function ServicesSection() {
                   <div className="p-3 rounded-2xl bg-blue-50 border border-blue-50 group-hover:border-blue-100 transition-colors duration-300">
                     {icons[service.num]}
                   </div>
-                  <span className="text-xl font-black text-slate-100 group-hover:text-[#2563EB]/20 transition-colors duration-500 tabular-nums" style={{ fontFamily: "'Syne', sans-serif" }}>
+                  <span className="text-xl font-black text-slate-100 group-hover:text-[#2563EB]/20 transition-colors duration-500 tabular-nums" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     {service.num}
                   </span>
                 </div>
@@ -181,7 +181,7 @@ export default function ServicesSection() {
               </span>
               <h3
                 className="text-xl font-black tracking-tight uppercase mt-4"
-                style={{ fontFamily: "'Syne', sans-serif" }}
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
               >
                 Sẵn sàng tối ưu hệ thống tăng trưởng?
               </h3>
