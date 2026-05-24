@@ -3,8 +3,8 @@ import React, { useState } from "react";
 const nav = [
   { id: "cases", label: "Dự án" },
   { id: "services", label: "Dịch vụ" },
+  { id: "courses", label: "Khóa học" },
   { id: "process", label: "Quy trình" },
-  { id: "why-us", label: "Giới thiệu" },
   { id: "contact", label: "Liên hệ" },
 ];
 

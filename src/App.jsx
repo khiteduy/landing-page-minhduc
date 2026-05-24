@@ -5,6 +5,7 @@ import HeroSection from "./components/HeroSection";
 import MetricsSection from "./components/MetricsSection";
 import CaseStudiesSection from "./components/CaseStudiesSection";
 import ServicesSection from "./components/ServicesSection";
+import CoursesSection from "./components/CoursesSection";
 import ProcessSection from "./components/ProcessSection";
 import WhyUsSection from "./components/WhyUsSection";
 import AboutSection from "./components/AboutSection";
@@ -135,7 +136,12 @@ export default function App() {
         <ServicesSection />
       </div>
 
-      {/* 8. PROCESS SECTION */}
+      {/* 8. COURSES / TRAINING SECTION */}
+      <div className="reveal-on-scroll">
+        <CoursesSection />
+      </div>
+
+      {/* 9. PROCESS SECTION */}
       <div className="reveal-on-scroll">
         <ProcessSection />
       </div>
