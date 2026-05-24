@@ -72,8 +72,9 @@ export default function useForm(initialValues, webhookUrl, validateFields, onSuc
 
       const response = await fetch(webhookUrl, {
         method: "POST",
+        mode: "no-cors",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "text/plain;charset=utf-8",
         },
         body: JSON.stringify({
           ...values,
@@ -81,9 +82,9 @@ export default function useForm(initialValues, webhookUrl, validateFields, onSuc
         }),
       });
 
-      if (!response.ok) {
-        throw new Error(`Server returned status ${response.status}`);
-      }
+      // mode:no-cors tra ve opaque response, khong doc duoc status.
+      // Neu fetch khong throw, coi nhu da gui request thanh cong.
+      void response;
 
       setSuccess(true);
       if (onSuccessCallback) {
