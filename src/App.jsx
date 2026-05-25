@@ -65,10 +65,10 @@ export default function App() {
 
   const toolkitForm = useForm(
     {
-      formType: "nhan_bo_sieu_target",
+      formType: "nhan_bo_target_da_nganh_hang",
       leadSource: "website_toolkit_form",
       leadCategory: "resource_download",
-      requestedTool: "Bộ siêu Target tổng hợp ngành hàng sau hơn 5 năm kinh nghiệm",
+      requestedTool: "Bộ Target đa ngành hàng sau hơn 5 năm kinh nghiệm",
       name: "",
       phone: "",
     },
