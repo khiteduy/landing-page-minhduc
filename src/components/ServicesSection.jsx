@@ -164,7 +164,7 @@ export default function ServicesSection() {
           ))}
 
           {/* Action CTA Card */}
-          <div className="bento-card bg-[#0A0F1C] text-white flex flex-col justify-between min-h-[340px] border-none shadow-[0_20px_60px_rgba(10,15,28,0.15)] relative overflow-hidden">
+          <div className="bento-card gravity-blue-card text-white flex flex-col justify-between min-h-[340px] border-none shadow-[0_20px_60px_rgba(7,82,184,0.18)] relative overflow-hidden">
             {/* BG pattern */}
             <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)", backgroundSize: "20px 20px" }} aria-hidden="true"/>
             <div className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full border border-white/10" aria-hidden="true"/>

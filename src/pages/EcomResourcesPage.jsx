@@ -34,11 +34,11 @@ export default function EcomResourcesPage({ toolkitForm }) {
       <Header />
 
       <main>
-        <section className="pt-36 pb-20 bg-[#0A0F1C] text-white">
-          <div className="section-container grid gap-12 lg:grid-cols-12 lg:items-end">
+        <section className="gravity-blue-surface pt-36 pb-20 text-white">
+          <div className="section-container relative z-10 grid gap-12 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#93C5FD]">Ads Resource Store</p>
-              <h1 className="mt-5 max-w-5xl font-display text-4xl font-black uppercase leading-[1.16] tracking-[-0.045em] sm:text-6xl sm:leading-[1.12]">
+              <h1 className="mt-5 max-w-5xl font-display text-4xl font-black uppercase leading-[1.24] tracking-[-0.025em] sm:text-6xl sm:leading-[1.2]">
                 Kho tài nguyên chạy quảng cáo cho Facebook, TikTok, Google.
               </h1>
               <p className="mt-8 max-w-3xl text-base leading-[1.9] text-slate-300">

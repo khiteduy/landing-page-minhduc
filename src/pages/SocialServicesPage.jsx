@@ -34,7 +34,7 @@ export default function SocialServicesPage({ contactForm }) {
           <div className="section-container grid gap-12 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
               <p className="section-eyebrow">Dịch vụ mạng xã hội đa nền tảng</p>
-              <h1 className="max-w-5xl font-display text-4xl font-black uppercase leading-[1.16] tracking-[-0.045em] sm:text-6xl sm:leading-[1.12]">
+              <h1 className="max-w-5xl font-display text-4xl font-black uppercase leading-[1.24] tracking-[-0.025em] sm:text-6xl sm:leading-[1.2]">
                 Tăng tương tác và xử lý lỗi mạng xã hội cho Facebook, TikTok, Instagram.
               </h1>
               <p className="mt-8 max-w-3xl text-base leading-[1.9] text-slate-500">
@@ -70,8 +70,8 @@ export default function SocialServicesPage({ contactForm }) {
           </div>
         </section>
 
-        <section className="bg-[#0A0F1C] py-20 text-white">
-          <div className="section-container grid gap-10 lg:grid-cols-12 lg:items-center">
+        <section className="gravity-blue-surface py-20 text-white">
+          <div className="section-container relative z-10 grid gap-10 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-5">
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#93C5FD]">Kết quả kỳ vọng</p>
               <h2 className="mt-4 font-display text-3xl font-black uppercase leading-[1.22] tracking-[-0.035em]">

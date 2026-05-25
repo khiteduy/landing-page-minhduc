@@ -22,18 +22,18 @@ export default function AboutSection() {
   const [activeStory, setActiveStory] = useState(0);
 
   return (
-    <section id="about" className="py-28 bg-[#0A0F1C] text-white border-b border-slate-800 relative overflow-hidden">
+    <section id="about" className="gravity-blue-surface py-28 text-white border-b border-blue-200/10 relative overflow-hidden">
       {/* Background radial gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(37,99,235,0.06),transparent_50%)] -z-10" />
 
-      <div className="section-container">
+      <div className="section-container relative z-10">
         
         {/* Title */}
         <div className="max-w-3xl mb-20">
           <p className="uppercase tracking-[0.2em] text-[10px] font-bold text-[#2563EB] mb-4">
             Người Sáng Lập
           </p>
-          <h2 className="text-3xl sm:text-4xl font-black tracking-tight uppercase text-white font-display">
+          <h2 className="text-3xl sm:text-4xl font-black tracking-[-0.025em] uppercase text-white font-display leading-[1.22]">
             Người Vận Hành Hệ Thống
           </h2>
         </div>
@@ -60,12 +60,12 @@ export default function AboutSection() {
 
             {/* Profile Info Cards */}
             <div className="mt-12 grid grid-cols-2 gap-4">
-              <div className="p-5 border border-slate-800 bg-white/5 rounded-xl">
+              <div className="p-5 border border-blue-200/10 bg-white/[0.08] rounded-xl">
                 <span className="text-[9px] font-bold uppercase text-slate-500 tracking-wider">Người sáng lập</span>
                 <p className="text-sm font-bold text-white mt-1">Đinh Minh Đức</p>
                 <span className="text-[10px] text-[#2563EB] font-bold uppercase block mt-1">Founder / CEO</span>
               </div>
-              <div className="p-5 border border-slate-800 bg-white/5 rounded-xl">
+              <div className="p-5 border border-blue-200/10 bg-white/[0.08] rounded-xl">
                 <span className="text-[9px] font-bold uppercase text-slate-500 tracking-wider">Khu vực làm việc</span>
                 <p className="text-sm font-bold text-white mt-1">Hải Dương / Toàn quốc</p>
                 <span className="text-[10px] text-slate-400 block mt-1">Trực tiếp & Online</span>
@@ -74,7 +74,7 @@ export default function AboutSection() {
           </div>
 
           {/* Cột phải: Story Timeline */}
-          <div className="lg:col-span-6 p-8 border border-slate-800 bg-white/5 rounded-3xl backdrop-blur-sm">
+          <div className="lg:col-span-6 p-8 border border-blue-200/10 bg-white/[0.08] rounded-3xl backdrop-blur-sm">
             <h3 className="text-xl font-black text-white uppercase tracking-tight mb-2">
               Hành trình phát triển
             </h3>
@@ -90,7 +90,7 @@ export default function AboutSection() {
                   className={`text-left p-6 rounded-2xl transition-all duration-300 border ${
                     activeStory === idx
                       ? "bg-[#2563EB]/10 border-[#2563EB] shadow-md shadow-blue-500/5"
-                      : "bg-white/5 border-slate-800 hover:border-slate-700"
+                      : "bg-white/[0.06] border-blue-200/10 hover:border-blue-200/25"
                   }`}
                 >
                   <div className="flex items-center justify-between">
@@ -100,7 +100,7 @@ export default function AboutSection() {
                       {phase.title}
                     </h4>
                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                      activeStory === idx ? "bg-[#2563EB] text-white" : "bg-slate-800 text-slate-400"
+                      activeStory === idx ? "bg-[#2563EB] text-white" : "bg-[#063A7A] text-blue-100"
                     }`}>
                       Giai đoạn 0{idx + 1}
                     </span>
@@ -109,7 +109,7 @@ export default function AboutSection() {
                     {phase.desc}
                   </p>
                   {activeStory === idx && (
-                    <div className="mt-4 pt-3 border-t border-slate-800/80 text-xs font-bold text-slate-300 flex items-center gap-1.5 animate-fade-in">
+                    <div className="mt-4 pt-3 border-t border-blue-200/10 text-xs font-bold text-slate-300 flex items-center gap-1.5 animate-fade-in">
                       <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" />
                       {phase.keyline}
                     </div>

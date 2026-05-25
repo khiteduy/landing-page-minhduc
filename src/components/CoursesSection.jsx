@@ -176,7 +176,7 @@ export default function CoursesSection() {
         </div>
 
         {/* Bottom CTA strip */}
-        <div className="mt-16 p-8 sm:p-10 rounded-2xl bg-[#0A0F1C] flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
+        <div className="gravity-blue-card mt-16 p-8 sm:p-10 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden">
           {/* Dot pattern */}
           <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "20px 20px" }} aria-hidden="true"/>
 

@@ -80,7 +80,7 @@ export default function HeroSection() {
         {/* Main headline */}
         <div className="max-w-5xl mb-12">
           <h1
-            className="text-5xl sm:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[1.02] uppercase"
+            className="text-5xl sm:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[1.2] uppercase tracking-[-0.025em]"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800 }}
           >
             <span className="block text-[#0A0F1C]">Hệ thống</span>

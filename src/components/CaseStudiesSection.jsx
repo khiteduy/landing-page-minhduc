@@ -116,7 +116,7 @@ export default function CaseStudiesSection({ setLightbox }) {
               Mỗi dự án đều vận hành dựa trên số liệu thực tế, đo lường sát sao chi phí cơ hội và tập trung thúc đẩy doanh thu, lead chất lượng.
             </p>
 
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-slate-800 pt-8">
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-blue-200/10 pt-8">
               <KpiCounter value="624" label="Doanh thu lớn nhất (triệu VND)" color="text-white" />
               <KpiCounter value="27" label="Hiệu suất lớn nhất (ROAS)" color="text-[#2563EB]" />
               <KpiCounter value="350" label="Lead/tháng tối đa" color="text-white" />

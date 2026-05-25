@@ -12,7 +12,7 @@ export default function ContactSection({ contactForm }) {
               <p className="uppercase tracking-[0.2em] text-[10px] font-bold text-[#2563EB] mb-4">
                 Đăng Ký Tư Vấn
               </p>
-              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.1] font-black tracking-tight uppercase text-[#0A0F1C] font-display mb-6">
+              <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem] leading-[1.22] font-black tracking-[-0.025em] uppercase text-[#0A0F1C] font-display mb-6">
                 Bạn muốn bứt phá doanh số? <br />
                 <span className="text-[#2563EB]">Hãy cùng xây dựng hệ thống.</span>
               </h2>

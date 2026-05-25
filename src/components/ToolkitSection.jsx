@@ -5,7 +5,7 @@ export default function ToolkitSection({ toolkitForm }) {
     <section id="toolkit" className="py-28 bg-[#F8FAF9] border-b border-[#0A0F1C]/5">
       <div className="section-container">
         
-        <div className="toolkit-hero p-8 sm:p-12 lg:p-16 rounded-3xl bg-[#0A0F1C] text-white relative overflow-hidden border border-[#2563EB]/20 shadow-[0_25px_80px_rgba(37,99,235,0.12)]">
+        <div className="toolkit-hero gravity-blue-surface p-8 sm:p-12 lg:p-16 rounded-3xl text-white relative overflow-hidden border border-[#2563EB]/20 shadow-[0_25px_80px_rgba(37,99,235,0.16)]">
           <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(37,99,235,0.22),transparent_42%),radial-gradient(circle_at_top_right,rgba(37,99,235,0.22),transparent_48%)] pointer-events-none" />
           
           {toolkitForm.success ? (
@@ -30,13 +30,13 @@ export default function ToolkitSection({ toolkitForm }) {
               </button>
             </div>
           ) : (
-            <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               {/* Bên trái: Lời mời và các pill */}
               <div className="lg:col-span-6">
                 <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#93C5FD]">
                   Cảm ơn bạn đã xem tới đây
                 </p>
-                <h2 className="mt-3 text-3xl sm:text-4xl font-black leading-tight text-white uppercase tracking-tight font-display">
+                <h2 className="mt-3 text-3xl sm:text-4xl font-black leading-[1.22] text-white uppercase tracking-[-0.025em] font-display">
                   Minh Duc Global gửi tặng bạn <br />Bộ Target đa ngành hàng.
                 </h2>
                 <p className="mt-4 text-blue-50/90 text-sm sm:text-base leading-relaxed">
