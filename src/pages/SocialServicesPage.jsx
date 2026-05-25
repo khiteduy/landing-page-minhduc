@@ -5,24 +5,24 @@ import Header from "../components/Header";
 
 const serviceBlocks = [
   {
-    title: "Tối ưu Fanpage & hiện diện thương hiệu",
-    desc: "Rà soát fanpage, thông tin doanh nghiệp, nội dung ghim, hình ảnh đại diện và luồng inbox để khách hàng hiểu đúng về thương hiệu trước khi để lại nhu cầu.",
+    title: "Tăng tương tác đa nền tảng",
+    desc: "Hỗ trợ tăng like, bình luận, follow, view, share và tín hiệu tương tác cho Facebook, TikTok, Instagram theo mục tiêu xây uy tín, tạo đà nội dung và tăng độ phủ ban đầu.",
   },
   {
-    title: "Nội dung social phục vụ chuyển đổi",
-    desc: "Xây trụ cột nội dung, kịch bản bài viết/video ngắn, lịch đăng và format test để nội dung không chỉ có tương tác mà còn dẫn về tư vấn, tin nhắn hoặc đơn hàng.",
+    title: "Xử lý khóa & hạn chế Facebook",
+    desc: "Rà soát và hỗ trợ xử lý các tình trạng thường gặp như khóa 956, 2FA, checkpoint, hạn chế tài khoản, fanpage, quyền quản trị, bảo mật và các lỗi phát sinh khi sử dụng Facebook.",
   },
   {
-    title: "Livestream, cộng đồng & chăm sóc tương tác",
-    desc: "Thiết kế kịch bản livestream, nhịp seeding nội dung, quản trị bình luận/inbox và quy trình chăm sóc khách hàng sau tương tác.",
+    title: "Hỗ trợ lỗi TikTok & livestream",
+    desc: "Hỗ trợ kiểm tra tình trạng khóa live TikTok, hạn chế tính năng, cảnh báo nội dung, lỗi tài khoản/kênh và các vấn đề ảnh hưởng đến khả năng phân phối hoặc vận hành nội dung.",
   },
   {
-    title: "Hỗ trợ vận hành nền tảng",
-    desc: "Tư vấn xử lý các điểm nghẽn thường gặp trên fanpage, tài khoản quảng cáo, quyền quản trị, bảo mật và cấu trúc tài sản số cho doanh nghiệp.",
+    title: "Kháng vô hiệu hóa IG/FB",
+    desc: "Hỗ trợ chuẩn bị thông tin, kiểm tra nguyên nhân và định hướng xử lý các trường hợp vô hiệu hóa 180 ngày Instagram/Facebook, lỗi đăng nhập, xác minh, bảo mật và quyền truy cập.",
   },
 ];
 
-const outcomes = ["Fanpage rõ định vị", "Nội dung đều và có hệ thống", "Inbox có quy trình xử lý", "Dễ mở rộng sang quảng cáo"];
+const outcomes = ["Tăng tương tác đúng mục tiêu", "Hỗ trợ Facebook, TikTok, Instagram", "Rà soát lỗi và tình trạng khóa", "Quy trình xử lý rõ ràng"];
 
 export default function SocialServicesPage({ contactForm }) {
   return (
@@ -33,17 +33,20 @@ export default function SocialServicesPage({ contactForm }) {
         <section className="pt-36 pb-20 border-b border-[#0A0F1C]/5 bg-white">
           <div className="section-container grid gap-12 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
-              <p className="section-eyebrow">Dịch vụ mạng xã hội</p>
+              <p className="section-eyebrow">Dịch vụ mạng xã hội đa nền tảng</p>
               <h1 className="font-display text-4xl font-black uppercase leading-tight tracking-tight sm:text-6xl">
-                Xây nền tảng social trước khi đổ tiền vào quảng cáo.
+                Tăng tương tác và xử lý lỗi mạng xã hội cho Facebook, TikTok, Instagram.
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-500">
-                Minh Duc Global hỗ trợ doanh nghiệp tối ưu fanpage, nội dung, livestream, inbox và hệ thống tài sản mạng xã hội để khách hàng thấy đáng tin trước khi chuyển đổi.
+                Minh Duc Global hỗ trợ người dùng và doanh nghiệp xử lý các nhu cầu thực tế khi vận hành mạng xã hội: tăng tương tác, mở rộng độ phủ, rà soát lỗi tài khoản, khóa tính năng, khóa live và các tình trạng hạn chế trên nền tảng.
+              </p>
+              <p className="mt-4 max-w-2xl rounded-2xl border border-blue-100 bg-blue-50 px-5 py-4 text-sm font-semibold leading-relaxed text-[#0B4EA2]">
+                Lưu ý: kết quả xử lý phụ thuộc tình trạng tài khoản, bằng chứng cung cấp và chính sách nền tảng tại thời điểm kiểm tra. Minh Duc Global tư vấn theo hướng minh bạch, an toàn và có quy trình.
               </p>
             </div>
             <div className="lg:col-span-4">
               <a href="#contact" className="btn-awwwards btn-awwwards-solid w-full">
-                Nhận tư vấn social
+                Gửi tình trạng cần xử lý
               </a>
             </div>
           </div>
@@ -72,8 +75,11 @@ export default function SocialServicesPage({ contactForm }) {
             <div className="lg:col-span-5">
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#93C5FD]">Kết quả kỳ vọng</p>
               <h2 className="mt-4 font-display text-3xl font-black uppercase leading-tight">
-                Social không đứng riêng. Nó phải phục vụ doanh thu.
+                Không chỉ tăng số. Phải xử lý đúng tình trạng nền tảng.
               </h2>
+              <p className="mt-4 text-sm leading-relaxed text-slate-300">
+                Mỗi lỗi tài khoản có nguyên nhân khác nhau. Cách làm tốt là kiểm tra hiện trạng, phân loại lỗi, chuẩn bị thông tin đúng và chọn phương án xử lý phù hợp thay vì làm mò.
+              </p>
             </div>
             <div className="lg:col-span-7 grid gap-3 sm:grid-cols-2">
               {outcomes.map((item) => (

@@ -5,28 +5,28 @@ import ToolkitSection from "../components/ToolkitSection";
 
 const resources = [
   {
-    name: "Bộ Target đa ngành hàng",
-    price: "Miễn phí",
-    desc: "Danh sách gợi ý nhóm target, chân dung khách hàng và hướng test ban đầu cho nhiều nhóm ngành phổ biến.",
+    name: "TKQC Facebook",
+    price: "Trả trước / trả sau",
+    desc: "Tài khoản quảng cáo Facebook theo nhu cầu vận hành, được tư vấn theo trạng thái sử dụng, phương án thanh toán và cấu trúc chạy phù hợp từng mô hình.",
   },
   {
-    name: "Bảng đọc chỉ số Ads",
-    price: "Sắp mở bán",
-    desc: "Template theo dõi CPM, CTR, CPC, CPA, lead quality và đề xuất hành động tối ưu theo từng ngưỡng chỉ số.",
+    name: "BM / Business Manager",
+    price: "Theo nhu cầu",
+    desc: "Tài nguyên BM, quyền quản trị, cấu trúc tài sản quảng cáo và phương án phân quyền để đội vận hành ads làm việc rõ ràng, hạn chế rủi ro nhầm quyền.",
   },
   {
-    name: "Bộ Hook & Angle quảng cáo",
-    price: "Sắp mở bán",
-    desc: "Thư viện góc bán hàng, hook video ngắn, headline và cấu trúc content dùng cho Facebook/TikTok Ads.",
+    name: "TKQC TikTok",
+    price: "Trả trước / trả sau",
+    desc: "Tài khoản quảng cáo TikTok phục vụ test creative, scale video ngắn và vận hành chiến dịch theo ngành hàng phù hợp với chính sách nền tảng.",
   },
   {
-    name: "Template SEO sản phẩm",
-    price: "Sắp mở bán",
-    desc: "Khung tối ưu tiêu đề, mô tả, USP, hình ảnh và nội dung sản phẩm cho sàn thương mại điện tử.",
+    name: "TKQC Google Ads",
+    price: "Trả trước / trả sau",
+    desc: "Tài khoản Google Ads cho Search, Local, YouTube hoặc Display tùy mục tiêu, có tư vấn thiết lập thanh toán, đo lường và cấu trúc chiến dịch ban đầu.",
   },
 ];
 
-const stacks = ["Facebook Ads", "TikTok Ads", "Google Search", "Shopee/Lazada", "Content SEO", "Báo cáo KPI"];
+const stacks = ["TKQC Facebook", "BM", "TKQC TikTok", "TKQC Google", "Trả trước", "Trả sau"];
 
 export default function EcomResourcesPage({ toolkitForm }) {
   return (
@@ -37,17 +37,20 @@ export default function EcomResourcesPage({ toolkitForm }) {
         <section className="pt-36 pb-20 bg-[#0A0F1C] text-white">
           <div className="section-container grid gap-12 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
-              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#93C5FD]">Ecom Resource Store</p>
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#93C5FD]">Ads Resource Store</p>
               <h1 className="mt-5 font-display text-4xl font-black uppercase leading-tight tracking-tight sm:text-6xl">
-                Tài nguyên chạy quảng cáo cho người làm ecom.
+                Kho tài nguyên chạy quảng cáo cho Facebook, TikTok, Google.
               </h1>
               <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300">
-                Các bộ tài liệu được đóng gói từ kinh nghiệm triển khai thực chiến: target, angle, bảng đọc chỉ số, template SEO sản phẩm và checklist tối ưu chuyển đổi.
+                Minh Duc Global hỗ trợ tài nguyên vận hành quảng cáo gồm TKQC Facebook, TikTok, Google, BM và các lựa chọn trả trước/trả sau. Phù hợp đội chạy ads cần tài sản ổn định, rõ tình trạng và có người tư vấn cách sử dụng.
+              </p>
+              <p className="mt-4 max-w-2xl rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm font-semibold leading-relaxed text-blue-50">
+                Tài nguyên được tư vấn theo nhu cầu vận hành hợp lệ. Website không khuyến nghị hành vi vi phạm chính sách nền tảng hoặc lách quy định quảng cáo.
               </p>
             </div>
             <div className="lg:col-span-4">
               <a href="#toolkit" className="btn-awwwards btn-awwwards-solid w-full">
-                Nhận tài nguyên đầu tiên
+                Yêu cầu báo giá tài nguyên
               </a>
             </div>
           </div>
@@ -59,7 +62,7 @@ export default function EcomResourcesPage({ toolkitForm }) {
               <div>
                 <p className="section-eyebrow">Catalog tài nguyên</p>
                 <h2 className="font-display text-3xl font-black uppercase tracking-tight">
-                  Từ target đến tối ưu chỉ số.
+                  TKQC, BM và tài nguyên vận hành ads.
                 </h2>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -84,10 +87,14 @@ export default function EcomResourcesPage({ toolkitForm }) {
                     <p className="mt-5 text-sm leading-relaxed text-slate-500">{item.desc}</p>
                   </div>
                   <a href="#toolkit" className="mt-8 text-[10px] font-black uppercase tracking-[0.2em] text-[#2563EB]">
-                    Đăng ký nhận / cập nhật →
+                    Yêu cầu báo giá / kiểm tra tồn →
                   </a>
                 </article>
               ))}
+            </div>
+
+            <div className="mt-10 rounded-[2rem] border border-blue-100 bg-blue-50 p-6 text-sm font-semibold leading-relaxed text-[#0B4EA2]">
+              Khi gửi yêu cầu, hãy ghi rõ nền tảng cần dùng, ngân sách dự kiến, loại trả trước/trả sau và mục tiêu chạy ads. Đội Minh Duc Global sẽ phản hồi theo tình trạng tài nguyên phù hợp nhất.
             </div>
           </div>
         </section>
