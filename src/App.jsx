@@ -45,6 +45,9 @@ export default function App() {
 
   const contactForm = useForm(
     {
+      formType: "dang_ky_tu_van_tang_truong",
+      leadSource: "website_contact_form",
+      leadCategory: "consulting",
       needGroup: "Tôi là doanh nghiệp",
       name: "",
       phone: "",
@@ -62,9 +65,12 @@ export default function App() {
 
   const toolkitForm = useForm(
     {
+      formType: "nhan_bo_sieu_target",
+      leadSource: "website_toolkit_form",
+      leadCategory: "resource_download",
+      requestedTool: "Bộ siêu Target tổng hợp ngành hàng sau hơn 5 năm kinh nghiệm",
       name: "",
       phone: "",
-      requestedTool: "",
     },
     toolkitWebhook,
     null,

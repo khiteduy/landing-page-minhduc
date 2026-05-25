@@ -35,6 +35,10 @@ export default function useForm(initialValues, webhookUrl, validateFields, onSuc
   const validate = () => {
     const newErrors = {};
     Object.keys(initialValues).forEach((key) => {
+      if (["formType", "leadSource", "leadCategory"].includes(key)) {
+        return;
+      }
+
       const val = values[key]?.toString().trim();
       if (!val) {
         newErrors[key] = "Trường này không được để trống";
