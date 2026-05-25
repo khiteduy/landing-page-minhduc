@@ -30,7 +30,7 @@ export default function AboutSection() {
         
         {/* Title */}
         <div className="max-w-3xl mb-20">
-          <p className="uppercase tracking-[0.2em] text-[10px] font-bold text-[#2563EB] mb-4">
+          <p className="uppercase tracking-[0.2em] text-[10px] font-bold text-white/75 mb-4">
             Người Sáng Lập
           </p>
           <h2 className="text-3xl sm:text-4xl font-black tracking-[-0.025em] uppercase text-white font-display leading-[1.22]">
@@ -44,41 +44,41 @@ export default function AboutSection() {
           {/* Cột trái: Văn bản giới thiệu */}
           <div className="lg:col-span-6 flex flex-col justify-between">
             <div className="space-y-6">
-              <p className="text-xs text-[#2563EB] font-bold uppercase tracking-widest">
+              <p className="text-xs text-cyan-100 font-bold uppercase tracking-widest">
                 Tầm Nhìn & Cam Kết Hiệu Quả
               </p>
               
               {/* Main Description */}
-              <p className="text-lg sm:text-xl text-slate-300 font-medium leading-relaxed italic border-l-2 border-[#2563EB] pl-6">
+              <p className="text-lg sm:text-xl text-white/90 font-medium leading-[1.9] italic border-l-2 border-cyan-200 pl-6">
                 "Minh Đức Global được sáng lập và điều hành bởi Đinh Minh Đức — chuyên gia marketing tập trung vào hiệu suất (performance), hoạt động chuyên sâu trong mảng F&B, giáo dục, thương mại điện tử và tối ưu điểm bán địa phương."
               </p>
               
-              <p className="text-sm sm:text-base text-slate-400 leading-relaxed pt-4">
+              <p className="text-sm sm:text-base text-blue-50/85 leading-[1.9] pt-4">
                 Công việc của chúng tôi kết hợp chặt chẽ giữa thực thi quảng cáo kỹ thuật số, lập chiến lược nội dung video ngắn/hình ảnh và tối ưu hóa dựa trên dữ liệu thật. Mục tiêu tối thượng là giúp doanh nghiệp chuyển đổi các kênh digital thành kết quả kinh doanh đo lường được bằng doanh thu, dòng tiền và tệp khách hàng.
               </p>
             </div>
 
             {/* Profile Info Cards */}
             <div className="mt-12 grid grid-cols-2 gap-4">
-              <div className="p-5 border border-blue-200/10 bg-white/[0.08] rounded-xl">
-                <span className="text-[9px] font-bold uppercase text-slate-500 tracking-wider">Người sáng lập</span>
+              <div className="p-5 border border-white/20 bg-white/[0.14] rounded-xl">
+                <span className="text-[9px] font-bold uppercase text-blue-50/70 tracking-wider">Người sáng lập</span>
                 <p className="text-sm font-bold text-white mt-1">Đinh Minh Đức</p>
-                <span className="text-[10px] text-[#2563EB] font-bold uppercase block mt-1">Founder / CEO</span>
+                <span className="text-[10px] text-cyan-100 font-bold uppercase block mt-1">Founder / CEO</span>
               </div>
-              <div className="p-5 border border-blue-200/10 bg-white/[0.08] rounded-xl">
-                <span className="text-[9px] font-bold uppercase text-slate-500 tracking-wider">Khu vực làm việc</span>
+              <div className="p-5 border border-white/20 bg-white/[0.14] rounded-xl">
+                <span className="text-[9px] font-bold uppercase text-blue-50/70 tracking-wider">Khu vực làm việc</span>
                 <p className="text-sm font-bold text-white mt-1">Hải Dương / Toàn quốc</p>
-                <span className="text-[10px] text-slate-400 block mt-1">Trực tiếp & Online</span>
+                <span className="text-[10px] text-blue-50/80 block mt-1">Trực tiếp & Online</span>
               </div>
             </div>
           </div>
 
           {/* Cột phải: Story Timeline */}
-          <div className="lg:col-span-6 p-8 border border-blue-200/10 bg-white/[0.08] rounded-3xl backdrop-blur-sm">
+          <div className="lg:col-span-6 p-8 border border-white/20 bg-white/[0.14] rounded-3xl backdrop-blur-sm">
             <h3 className="text-xl font-black text-white uppercase tracking-tight mb-2">
               Hành trình phát triển
             </h3>
-            <p className="text-xs text-slate-400 mb-8">
+            <p className="text-xs text-blue-50/75 mb-8 leading-[1.8]">
               Bấm vào các cột mốc bên dưới để xem tóm tắt chặng phát triển năng lực của Đinh Minh Đức.
             </p>
 
@@ -89,13 +89,13 @@ export default function AboutSection() {
                   onClick={() => setActiveStory(idx)}
                   className={`text-left p-6 rounded-2xl transition-all duration-300 border ${
                     activeStory === idx
-                      ? "bg-[#2563EB]/10 border-[#2563EB] shadow-md shadow-blue-500/5"
-                      : "bg-white/[0.06] border-blue-200/10 hover:border-blue-200/25"
+                      ? "bg-white/[0.22] border-white/50 shadow-md shadow-blue-500/5"
+                      : "bg-white/[0.08] border-white/15 hover:border-white/35"
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <h4 className={`text-sm font-black uppercase tracking-wider ${
-                      activeStory === idx ? "text-[#2563EB]" : "text-white"
+                      activeStory === idx ? "text-white" : "text-white"
                     }`}>
                       {phase.title}
                     </h4>
@@ -105,12 +105,12 @@ export default function AboutSection() {
                       Giai đoạn 0{idx + 1}
                     </span>
                   </div>
-                  <p className="text-xs text-slate-400 leading-relaxed mt-3">
+                  <p className="text-xs text-blue-50/80 leading-[1.85] mt-3">
                     {phase.desc}
                   </p>
                   {activeStory === idx && (
-                    <div className="mt-4 pt-3 border-t border-blue-200/10 text-xs font-bold text-slate-300 flex items-center gap-1.5 animate-fade-in">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#2563EB]" />
+                    <div className="mt-4 pt-3 border-t border-white/20 text-xs font-bold text-white flex items-center gap-1.5 animate-fade-in">
+                      <span className="h-1.5 w-1.5 rounded-full bg-cyan-200" />
                       {phase.keyline}
                     </div>
                   )}

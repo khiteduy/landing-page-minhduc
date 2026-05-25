@@ -187,7 +187,7 @@ export default function ServicesSection() {
                   <path d="M13 10V3L4 14h7v7l9-11h-7z" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round"/>
                 </svg>
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#2563EB]">
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-100">
                 Hợp Tác Tăng Trưởng
               </span>
               <h3
@@ -196,7 +196,7 @@ export default function ServicesSection() {
               >
                 Sẵn sàng tối ưu hệ thống tăng trưởng?
               </h3>
-              <p className="mt-4 text-sm text-slate-400 leading-relaxed">
+              <p className="mt-4 text-sm text-blue-50/80 leading-[1.85]">
                 Đội ngũ Minh Duc Global phân tích và đề xuất phương án cải thiện tài khoản ads hiện tại của bạn hoàn toàn miễn phí.
               </p>
             </div>

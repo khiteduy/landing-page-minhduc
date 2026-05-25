@@ -74,7 +74,7 @@ function KpiCounter({ value, label, color = "text-white" }) {
   );
   return (
     <div ref={ref} className="case-kpi p-6 text-center">
-      <p className="text-[9px] uppercase tracking-widest font-bold text-slate-400">{label}</p>
+      <p className="text-[9px] uppercase tracking-widest font-bold text-blue-50/75">{label}</p>
       <p className={`mt-2 text-3xl font-extrabold ${color} tabular-nums`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
         {isNumeric ? count : value}
       </p>
@@ -105,8 +105,8 @@ export default function CaseStudiesSection({ setLightbox }) {
           <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "24px 24px" }} aria-hidden="true"/>
 
           <div className="relative z-10">
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#2563EB] flex items-center gap-2 mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse"/>
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/75 flex items-center gap-2 mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-100 animate-pulse"/>
               Báo Cáo Hiệu Quả Chiến Dịch
             </p>
             <h2
@@ -114,15 +114,15 @@ export default function CaseStudiesSection({ setLightbox }) {
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
               Dự Án Tiêu Biểu &amp;{" "}
-              <span className="text-[#2563EB]">Thực Chiến</span>
+              <span className="text-cyan-100">Thực Chiến</span>
             </h2>
-            <p className="mt-4 max-w-3xl text-slate-400 text-sm sm:text-base leading-relaxed">
+            <p className="mt-4 max-w-3xl text-blue-50/85 text-sm sm:text-base leading-[1.9]">
               Mỗi dự án đều vận hành dựa trên số liệu thực tế, đo lường sát sao chi phí cơ hội và tập trung thúc đẩy doanh thu, lead chất lượng.
             </p>
 
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-6 border-t border-blue-200/10 pt-8">
               <KpiCounter value="624" label="Doanh thu lớn nhất (triệu VND)" color="text-white" />
-              <KpiCounter value="27" label="Hiệu suất lớn nhất (ROAS)" color="text-[#2563EB]" />
+              <KpiCounter value="27" label="Hiệu suất lớn nhất (ROAS)" color="text-cyan-100" />
               <KpiCounter value="350" label="Lead/tháng tối đa" color="text-white" />
             </div>
           </div>

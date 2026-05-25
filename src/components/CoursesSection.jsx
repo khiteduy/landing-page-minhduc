@@ -71,6 +71,69 @@ const courses = [
   },
 ];
 
+const fbRoadmap = [
+  {
+    step: "01",
+    title: "Thuật ngữ quảng cáo nền tảng",
+    desc: "Hiểu các khái niệm quan trọng trong quảng cáo như tài khoản quảng cáo, VIA, BM, Page, camp, ad set, ads và luồng vận hành cơ bản.",
+    tag: "VIA, BM, Page",
+  },
+  {
+    step: "02",
+    title: "Setup Page chuẩn chuyên nghiệp",
+    desc: "Xây dựng nền tảng fanpage đủ tin cậy trước khi chạy ads: thông tin, hình ảnh, nội dung ghim, inbox và các điểm chạm giúp khách hàng tin tưởng.",
+    tag: "A-Z Setup",
+  },
+  {
+    step: "03",
+    title: "Cấu trúc Camp Ads từ A-Z",
+    desc: "Nắm cấu trúc chiến dịch, nhóm quảng cáo, mẫu quảng cáo và cách setup một camp cơ bản theo mục tiêu tin nhắn, lead hoặc đơn hàng.",
+    tag: "Camp Structure",
+  },
+  {
+    step: "04",
+    title: "Đọc chỉ số và tối ưu ngân sách",
+    desc: "Biết cách đọc CPM, CTR, CPC, CPA, giá tin nhắn, tỷ lệ chuyển đổi; hiểu khi nào cần tắt, nhân bản, tăng ngân sách hoặc đổi creative.",
+    tag: "Analytics & Scaling",
+  },
+  {
+    step: "05",
+    title: "AI Content & kịch bản bán hàng",
+    desc: "Kết hợp AI để nghiên cứu khách hàng, viết nội dung, tạo hook, angle và kịch bản tư vấn/chốt sale phục vụ quảng cáo.",
+    tag: "AI Scripts",
+  },
+  {
+    step: "06",
+    title: "Q&A và hỗ trợ sau khóa",
+    desc: "Giải đáp lỗi triển khai, tổng kết kiến thức, định hướng cách tự vận hành và hỗ trợ sau khóa để học viên áp dụng vào công việc thật.",
+    tag: "Q&A Wrap-up",
+  },
+];
+
+const fbPackages = [
+  {
+    name: "Khóa cơ bản",
+    price: "6.525K",
+    desc: "Dành cho người mới bắt đầu, chưa có kinh nghiệm chạy quảng cáo.",
+  },
+  {
+    name: "Khóa nâng cao",
+    price: "8.888K",
+    desc: "Dành cho người muốn tối ưu vận hành, đọc chỉ số và tăng hiệu quả quảng cáo.",
+  },
+  {
+    name: "CSKH & Chốt Sale",
+    price: "9.990K",
+    desc: "Bổ sung tư duy chăm sóc khách hàng, kịch bản tư vấn và chốt đơn sau khi có lead.",
+  },
+  {
+    name: "Gói tối ưu",
+    price: "14.999K",
+    desc: "Combo Cơ bản + Nâng cao + CSKH & Chốt Sale, phù hợp người muốn đi trọn lộ trình.",
+    highlight: true,
+  },
+];
+
 export default function CoursesSection() {
   return (
     <section id="courses" className="py-28 bg-white border-b border-[#0A0F1C]/5 relative overflow-hidden">
@@ -117,6 +180,132 @@ export default function CoursesSection() {
               </svg>
               Đăng ký học ngay
             </a>
+          </div>
+        </div>
+
+        {/* Featured Facebook Ads course */}
+        <div className="mb-16 overflow-hidden rounded-[2rem] border border-blue-100 bg-gradient-to-br from-white via-sky-50 to-blue-50 p-6 shadow-[0_24px_80px_rgba(14,116,232,0.10)] sm:p-8 lg:p-10">
+          <div className="grid gap-10 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-6">
+              <p className="text-[10px] font-black uppercase tracking-[0.24em] text-[#0B74E8]">
+                Khóa trọng tâm: Facebook Ads thực chiến
+              </p>
+              <h3 className="mt-4 font-display text-3xl font-black uppercase leading-[1.18] tracking-[-0.035em] text-[#0A0F1C] sm:text-5xl">
+                Từ chưa biết gì đến tự set camp, đọc số và tối ưu ra đơn.
+              </h3>
+              <p className="mt-5 max-w-xl text-sm leading-[1.9] text-slate-600 sm:text-base">
+                Lộ trình được thiết kế cho người muốn làm được việc thật: hiểu nền tảng, setup page, dựng camp, đọc chỉ số, tối ưu chi phí và dùng AI để làm nội dung/kịch bản bán hàng.
+              </p>
+
+              <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                {["Học thực chiến dễ hiểu", "Áp dụng ngay vào công việc", "Tối ưu chi phí tăng hiệu quả", "Hỗ trợ sau khóa học trọn đời"].map((item) => (
+                  <div key={item} className="rounded-2xl border border-blue-100 bg-white/80 p-4 text-xs font-bold uppercase tracking-wider text-[#0758B8]">
+                    {item}
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href="#contact" className="btn-awwwards btn-awwwards-solid">
+                  Tư vấn lộ trình học
+                </a>
+                <a href="#fb-roadmap" className="btn-awwwards btn-awwwards-outline">
+                  Xem chi tiết khóa học
+                </a>
+              </div>
+            </div>
+
+            <div className="lg:col-span-6">
+              <div className="rounded-[1.75rem] border border-white bg-white p-3 shadow-[0_20px_70px_rgba(15,23,42,0.12)]">
+                <img
+                  src="/course-assets/ads-roadmap.png"
+                  alt="Lộ trình học Ads toàn diện Minh Duc Global"
+                  className="w-full rounded-[1.35rem] object-cover"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Facebook Ads roadmap */}
+        <div id="fb-roadmap" className="mb-16">
+          <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="section-eyebrow">Lộ trình Facebook Ads</p>
+              <h3 className="font-display text-3xl font-black uppercase leading-[1.2] tracking-[-0.035em] text-[#0A0F1C]">
+                6 bước học để tự vận hành quảng cáo.
+              </h3>
+            </div>
+            <p className="max-w-md text-sm leading-[1.8] text-slate-500">
+              Mỗi buổi học đi từ nền tảng đến triển khai, tránh học lan man và tập trung vào thao tác có thể dùng ngay.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {fbRoadmap.map((item) => (
+              <article key={item.step} className="rounded-[1.5rem] border border-blue-100 bg-white p-6 shadow-[0_12px_45px_rgba(14,116,232,0.06)]">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#0B74E8] text-sm font-black text-white">
+                    {item.step}
+                  </span>
+                  <span className="rounded-full bg-sky-50 px-3 py-1 text-[9px] font-black uppercase tracking-wider text-[#0758B8]">
+                    {item.tag}
+                  </span>
+                </div>
+                <h4 className="mt-5 font-display text-lg font-black uppercase leading-[1.25] tracking-[-0.02em] text-[#0A0F1C]">
+                  {item.title}
+                </h4>
+                <p className="mt-3 text-sm leading-[1.85] text-slate-500">{item.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* Course pricing packages */}
+        <div className="mb-16 grid gap-8 lg:grid-cols-12 lg:items-start">
+          <div className="lg:col-span-5">
+            <div className="sticky top-28 rounded-[1.75rem] border border-blue-100 bg-white p-3 shadow-[0_20px_70px_rgba(15,23,42,0.10)]">
+              <img
+                src="/course-assets/ads-pricing.png"
+                alt="Bảng giá khóa học chạy quảng cáo Minh Duc Global"
+                className="w-full rounded-[1.35rem] object-cover"
+                loading="lazy"
+              />
+            </div>
+          </div>
+
+          <div className="lg:col-span-7">
+            <p className="section-eyebrow">Gói học & quyền lợi</p>
+            <h3 className="font-display text-3xl font-black uppercase leading-[1.2] tracking-[-0.035em] text-[#0A0F1C]">
+              Chọn lộ trình phù hợp với trình độ hiện tại.
+            </h3>
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {fbPackages.map((pkg) => (
+                <article
+                  key={pkg.name}
+                  className={`rounded-[1.5rem] border p-6 ${
+                    pkg.highlight
+                      ? "border-[#0B74E8] bg-[#0B74E8] text-white shadow-[0_18px_55px_rgba(14,116,232,0.22)]"
+                      : "border-blue-100 bg-white"
+                  }`}
+                >
+                  <p className={`text-[10px] font-black uppercase tracking-[0.2em] ${pkg.highlight ? "text-blue-100" : "text-[#0B74E8]"}`}>
+                    {pkg.name}
+                  </p>
+                  <p className={`mt-3 font-display text-4xl font-black tracking-[-0.04em] ${pkg.highlight ? "text-white" : "text-[#0A0F1C]"}`}>
+                    {pkg.price}
+                  </p>
+                  <p className={`mt-4 text-sm leading-[1.85] ${pkg.highlight ? "text-blue-50" : "text-slate-500"}`}>
+                    {pkg.desc}
+                  </p>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-6 rounded-[1.5rem] border border-amber-200 bg-amber-50 p-6 text-sm font-semibold leading-[1.9] text-amber-900">
+              Tặng kèm tài nguyên và nguyên liệu TKQC để chạy thị trường trị giá 1-2 triệu VND. Vào khóa không phát sinh thêm chi phí ẩn.
+            </div>
           </div>
         </div>
 
@@ -184,7 +373,7 @@ export default function CoursesSection() {
             <p className="text-white font-black text-lg sm:text-xl uppercase tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
               Học 1-1 cùng Đinh Minh Đức.
             </p>
-            <p className="text-slate-400 text-sm mt-1">
+            <p className="text-blue-50/80 text-sm mt-1">
               Được hướng dẫn trực tiếp từ người đã triển khai chiến dịch ROAS 27x thực tế.
             </p>
           </div>
