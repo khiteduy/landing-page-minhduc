@@ -38,13 +38,13 @@ export default function EcomResourcesPage({ toolkitForm }) {
           <div className="section-container grid gap-12 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#93C5FD]">Ads Resource Store</p>
-              <h1 className="mt-5 font-display text-4xl font-black uppercase leading-tight tracking-tight sm:text-6xl">
+              <h1 className="mt-5 max-w-5xl font-display text-4xl font-black uppercase leading-[1.16] tracking-[-0.045em] sm:text-6xl sm:leading-[1.12]">
                 Kho tài nguyên chạy quảng cáo cho Facebook, TikTok, Google.
               </h1>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300">
+              <p className="mt-8 max-w-3xl text-base leading-[1.9] text-slate-300">
                 Minh Duc Global hỗ trợ tài nguyên vận hành quảng cáo gồm TKQC Facebook, TikTok, Google, BM và các lựa chọn trả trước/trả sau. Phù hợp đội chạy ads cần tài sản ổn định, rõ tình trạng và có người tư vấn cách sử dụng.
               </p>
-              <p className="mt-4 max-w-2xl rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm font-semibold leading-relaxed text-blue-50">
+              <p className="mt-5 max-w-3xl rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-sm font-semibold leading-[1.9] text-blue-50">
                 Tài nguyên được tư vấn theo nhu cầu vận hành hợp lệ. Website không khuyến nghị hành vi vi phạm chính sách nền tảng hoặc lách quy định quảng cáo.
               </p>
             </div>
@@ -61,7 +61,7 @@ export default function EcomResourcesPage({ toolkitForm }) {
             <div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="section-eyebrow">Catalog tài nguyên</p>
-                <h2 className="font-display text-3xl font-black uppercase tracking-tight">
+                <h2 className="font-display text-3xl font-black uppercase leading-[1.22] tracking-[-0.035em]">
                   TKQC, BM và tài nguyên vận hành ads.
                 </h2>
               </div>
@@ -79,12 +79,12 @@ export default function EcomResourcesPage({ toolkitForm }) {
                 <article key={item.name} className="bento-card flex min-h-[260px] flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between gap-4">
-                      <h3 className="font-display text-2xl font-black uppercase tracking-tight">{item.name}</h3>
+                      <h3 className="font-display text-2xl font-black uppercase leading-[1.25] tracking-[-0.025em]">{item.name}</h3>
                       <span className="rounded-full bg-blue-50 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#2563EB]">
                         {item.price}
                       </span>
                     </div>
-                    <p className="mt-5 text-sm leading-relaxed text-slate-500">{item.desc}</p>
+                    <p className="mt-5 text-sm leading-[1.85] text-slate-500">{item.desc}</p>
                   </div>
                   <a href="#toolkit" className="mt-8 text-[10px] font-black uppercase tracking-[0.2em] text-[#2563EB]">
                     Yêu cầu báo giá / kiểm tra tồn →
@@ -93,7 +93,7 @@ export default function EcomResourcesPage({ toolkitForm }) {
               ))}
             </div>
 
-            <div className="mt-10 rounded-[2rem] border border-blue-100 bg-blue-50 p-6 text-sm font-semibold leading-relaxed text-[#0B4EA2]">
+            <div className="mt-10 rounded-[2rem] border border-blue-100 bg-blue-50 p-6 text-sm font-semibold leading-[1.9] text-[#0B4EA2]">
               Khi gửi yêu cầu, hãy ghi rõ nền tảng cần dùng, ngân sách dự kiến, loại trả trước/trả sau và mục tiêu chạy ads. Đội Minh Duc Global sẽ phản hồi theo tình trạng tài nguyên phù hợp nhất.
             </div>
           </div>

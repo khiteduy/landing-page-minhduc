@@ -19,6 +19,7 @@ body {
   color: var(--text);
   font-family: "Be Vietnam Pro", ui-sans-serif, system-ui, sans-serif;
   font-weight: 400;
+  line-height: 1.65;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,6 +31,21 @@ h1.font-display,
 h2.font-display,
 h3.font-display {
   font-family: "Plus Jakarta Sans", ui-sans-serif, sans-serif !important;
+  letter-spacing: -0.035em;
+}
+
+h1.font-display {
+  line-height: 1.12;
+}
+
+h2.font-display,
+h3.font-display {
+  line-height: 1.2;
+}
+
+p,
+li {
+  line-height: 1.8;
 }
 
 .section-container {

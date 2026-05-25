@@ -34,13 +34,13 @@ export default function SocialServicesPage({ contactForm }) {
           <div className="section-container grid gap-12 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-8">
               <p className="section-eyebrow">Dịch vụ mạng xã hội đa nền tảng</p>
-              <h1 className="font-display text-4xl font-black uppercase leading-tight tracking-tight sm:text-6xl">
+              <h1 className="max-w-5xl font-display text-4xl font-black uppercase leading-[1.16] tracking-[-0.045em] sm:text-6xl sm:leading-[1.12]">
                 Tăng tương tác và xử lý lỗi mạng xã hội cho Facebook, TikTok, Instagram.
               </h1>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-500">
+              <p className="mt-8 max-w-3xl text-base leading-[1.9] text-slate-500">
                 Minh Duc Global hỗ trợ người dùng và doanh nghiệp xử lý các nhu cầu thực tế khi vận hành mạng xã hội: tăng tương tác, mở rộng độ phủ, rà soát lỗi tài khoản, khóa tính năng, khóa live và các tình trạng hạn chế trên nền tảng.
               </p>
-              <p className="mt-4 max-w-2xl rounded-2xl border border-blue-100 bg-blue-50 px-5 py-4 text-sm font-semibold leading-relaxed text-[#0B4EA2]">
+              <p className="mt-5 max-w-3xl rounded-2xl border border-blue-100 bg-blue-50 px-6 py-5 text-sm font-semibold leading-[1.9] text-[#0B4EA2]">
                 Lưu ý: kết quả xử lý phụ thuộc tình trạng tài khoản, bằng chứng cung cấp và chính sách nền tảng tại thời điểm kiểm tra. Minh Duc Global tư vấn theo hướng minh bạch, an toàn và có quy trình.
               </p>
             </div>
@@ -60,10 +60,10 @@ export default function SocialServicesPage({ contactForm }) {
                   <p className="text-[10px] font-black uppercase tracking-[0.24em] text-[#2563EB]">
                     0{index + 1}
                   </p>
-                  <h2 className="mt-5 font-display text-2xl font-black uppercase tracking-tight">
+                  <h2 className="mt-5 font-display text-2xl font-black uppercase leading-[1.25] tracking-[-0.025em]">
                     {item.title}
                   </h2>
-                  <p className="mt-4 text-sm leading-relaxed text-slate-500">{item.desc}</p>
+                  <p className="mt-4 text-sm leading-[1.85] text-slate-500">{item.desc}</p>
                 </article>
               ))}
             </div>
@@ -74,10 +74,10 @@ export default function SocialServicesPage({ contactForm }) {
           <div className="section-container grid gap-10 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-5">
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#93C5FD]">Kết quả kỳ vọng</p>
-              <h2 className="mt-4 font-display text-3xl font-black uppercase leading-tight">
+              <h2 className="mt-4 font-display text-3xl font-black uppercase leading-[1.22] tracking-[-0.035em]">
                 Không chỉ tăng số. Phải xử lý đúng tình trạng nền tảng.
               </h2>
-              <p className="mt-4 text-sm leading-relaxed text-slate-300">
+              <p className="mt-5 text-sm leading-[1.9] text-slate-300">
                 Mỗi lỗi tài khoản có nguyên nhân khác nhau. Cách làm tốt là kiểm tra hiện trạng, phân loại lỗi, chuẩn bị thông tin đúng và chọn phương án xử lý phù hợp thay vì làm mò.
               </p>
             </div>
