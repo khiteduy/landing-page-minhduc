@@ -10,6 +10,7 @@ const cases = [
     result: "ROAS 26.25x",
     resultColor: "text-emerald-600",
     metrics: ["Ngân sách: 23,791,158đ", "Doanh thu: 624,600,000đ", "ROAS: 26.25x"],
+    cover: "https://i.ibb.co/gMJvsvm9/camp-gg-1.jpg",
     proof: [
       "https://i.ibb.co/F41NH6Vy/daonh-thu.jpg",
       "https://i.ibb.co/gMJvsvm9/camp-gg-1.jpg",
@@ -26,6 +27,7 @@ const cases = [
     result: "300-350 Lead/tháng",
     resultColor: "text-blue-600",
     metrics: ["Ngân sách: 1.6Mđ/ngày", "Lead/tháng: 300-350", "Doanh thu: 200-250Mđ/tháng"],
+    cover: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
     proof: ["https://www.facebook.com/business/success/bee-english-community"],
     short: "Tối ưu ngân sách quảng cáo đa kênh, đào tạo nhân sự và điều phối đội ngũ sáng tạo nâng cao tỷ lệ chuyển đổi.",
     tag: "Giáo Dục",
@@ -39,6 +41,7 @@ const cases = [
     result: "ROAS 27X",
     resultColor: "text-emerald-600",
     metrics: ["Ngân sách: 20,000,000đ", "Doanh thu: 540,000,000đ", "ROAS: 27X"],
+    cover: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
     proof: [],
     short: "Triển khai chiến dịch tối ưu chuyển đổi và quản trị phễu khách hàng, tập trung đẩy doanh số trong mùa cao điểm.",
     tag: "F&B",
@@ -52,6 +55,7 @@ const cases = [
     result: "Đang hoạt động",
     resultColor: "text-slate-600",
     metrics: ["Ngành: F&B", "Thị trường: Đà Nẵng", "Trạng thái: Hoạt động"],
+    cover: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=80",
     proof: [],
     short: "Tối ưu Google Maps/GBP và xây dựng chiến lược truyền thông thu hút khách hàng nội vùng Đà Nẵng.",
     tag: "Local",
@@ -158,6 +162,13 @@ export default function CaseStudiesSection({ setLightbox }) {
               key={c.name}
               className="bento-card flex flex-col justify-between group h-full relative"
             >
+              <div className="image-reveal-card mb-6 h-48 border border-blue-100">
+                <img src={c.cover} alt={`Minh họa case study ${c.name}`} loading="lazy" />
+                <span className="absolute bottom-4 left-4 z-10 rounded-full bg-white/90 px-3 py-1.5 text-[9px] font-black uppercase tracking-wider text-[#0758B8]">
+                  {c.category}
+                </span>
+              </div>
+
               {/* Top row */}
               <div className="mb-6 flex items-center justify-between gap-3 border-b border-[#0A0F1C]/5 pb-4">
                 <span className={`px-3 py-1 text-[9px] font-bold uppercase tracking-wider rounded-full border ${c.tagColor}`}>

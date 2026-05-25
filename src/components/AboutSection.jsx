@@ -100,7 +100,7 @@ export default function AboutSection() {
                       {phase.title}
                     </h4>
                     <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                      activeStory === idx ? "bg-[#2563EB] text-white" : "bg-[#063A7A] text-blue-100"
+                      activeStory === idx ? "bg-[#2563EB] text-white" : "bg-[#0B74E8] text-blue-50"
                     }`}>
                       Giai đoạn 0{idx + 1}
                     </span>

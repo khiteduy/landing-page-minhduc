@@ -7,21 +7,25 @@ const resources = [
   {
     name: "TKQC Facebook",
     price: "Trả trước / trả sau",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
     desc: "Tài khoản quảng cáo Facebook theo nhu cầu vận hành, được tư vấn theo trạng thái sử dụng, phương án thanh toán và cấu trúc chạy phù hợp từng mô hình.",
   },
   {
     name: "BM / Business Manager",
     price: "Theo nhu cầu",
+    image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
     desc: "Tài nguyên BM, quyền quản trị, cấu trúc tài sản quảng cáo và phương án phân quyền để đội vận hành ads làm việc rõ ràng, hạn chế rủi ro nhầm quyền.",
   },
   {
     name: "TKQC TikTok",
     price: "Trả trước / trả sau",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=900&q=80",
     desc: "Tài khoản quảng cáo TikTok phục vụ test creative, scale video ngắn và vận hành chiến dịch theo ngành hàng phù hợp với chính sách nền tảng.",
   },
   {
     name: "TKQC Google Ads",
     price: "Trả trước / trả sau",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
     desc: "Tài khoản Google Ads cho Search, Local, YouTube hoặc Display tùy mục tiêu, có tư vấn thiết lập thanh toán, đo lường và cấu trúc chiến dịch ban đầu.",
   },
 ];
@@ -35,8 +39,8 @@ export default function EcomResourcesPage({ toolkitForm }) {
 
       <main>
         <section className="gravity-blue-surface pt-36 pb-20 text-white">
-          <div className="section-container relative z-10 grid gap-12 lg:grid-cols-12 lg:items-end">
-            <div className="lg:col-span-8">
+          <div className="section-container relative z-10 grid gap-12 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-7">
               <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#93C5FD]">Ads Resource Store</p>
               <h1 className="mt-5 max-w-5xl font-display text-4xl font-black uppercase leading-[1.24] tracking-[-0.025em] sm:text-6xl sm:leading-[1.2]">
                 Kho tài nguyên chạy quảng cáo cho Facebook, TikTok, Google.
@@ -48,8 +52,27 @@ export default function EcomResourcesPage({ toolkitForm }) {
                 Tài nguyên được tư vấn theo nhu cầu vận hành hợp lệ. Website không khuyến nghị hành vi vi phạm chính sách nền tảng hoặc lách quy định quảng cáo.
               </p>
             </div>
-            <div className="lg:col-span-4">
-              <a href="#toolkit" className="btn-awwwards btn-awwwards-solid w-full">
+            <div className="lg:col-span-5">
+              <div className="image-reveal-card h-[420px] border border-white/15 shadow-[0_30px_90px_rgba(8,47,73,0.22)]">
+                <img
+                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1100&q=82"
+                  alt="Minh họa hệ thống tài nguyên quảng cáo và dashboard vận hành"
+                  loading="eager"
+                />
+                <div className="absolute inset-x-6 bottom-6 z-10 rounded-2xl border border-white/20 bg-white/15 p-5 backdrop-blur-md">
+                  <p className="text-[10px] font-black uppercase tracking-[0.22em] text-blue-50">
+                    Resource Control
+                  </p>
+                  <div className="mt-3 grid grid-cols-3 gap-3 text-center">
+                    {["FB Ads", "TikTok", "Google"].map((item) => (
+                      <div key={item} className="rounded-xl bg-white/15 px-3 py-3 text-[10px] font-black uppercase tracking-wider text-white">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <a href="#toolkit" className="btn-awwwards btn-awwwards-solid mt-6 w-full">
                 Yêu cầu báo giá tài nguyên
               </a>
             </div>
@@ -78,6 +101,12 @@ export default function EcomResourcesPage({ toolkitForm }) {
               {resources.map((item) => (
                 <article key={item.name} className="bento-card flex min-h-[260px] flex-col justify-between">
                   <div>
+                    <div className="image-reveal-card mb-7 h-44 border border-blue-100">
+                      <img src={item.image} alt={`Minh họa ${item.name}`} loading="lazy" />
+                      <span className="absolute bottom-4 left-4 z-10 rounded-full bg-white/90 px-3 py-1.5 text-[9px] font-black uppercase tracking-wider text-[#0758B8]">
+                        {item.name}
+                      </span>
+                    </div>
                     <div className="flex items-center justify-between gap-4">
                       <h3 className="font-display text-2xl font-black uppercase leading-[1.25] tracking-[-0.025em]">{item.name}</h3>
                       <span className="rounded-full bg-blue-50 px-3 py-1 text-[10px] font-black uppercase tracking-wider text-[#2563EB]">

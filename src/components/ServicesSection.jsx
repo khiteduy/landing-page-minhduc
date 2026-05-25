@@ -47,6 +47,7 @@ const servicesList = [
   {
     num: "01",
     title: "Performance Marketing",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
     desc: "Vận hành và tối ưu hóa chiến dịch quảng cáo trả phí (Paid Ads) đa nền tảng.",
     detail: "Thiết lập phễu quảng cáo chuyển đổi trên Facebook, Google, TikTok theo chỉ số CPA/ROAS thực tế.",
     points: ["Tư duy phễu chuyển đổi", "Tối ưu CPA & ROAS", "Báo cáo dữ liệu trực quan"],
@@ -54,6 +55,7 @@ const servicesList = [
   {
     num: "02",
     title: "Social Media Growth",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=900&q=80",
     desc: "Xây dựng định hướng nội dung và phân phối đa kênh để tối ưu traffic tự nhiên.",
     detail: "Lên chiến lược sáng tạo, kịch bản video ngắn và quản trị hình ảnh thương hiệu.",
     points: ["Định hướng nội dung", "Chiến dịch sáng tạo", "Video ngắn viral"],
@@ -61,6 +63,7 @@ const servicesList = [
   {
     num: "03",
     title: "E-commerce Growth",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80",
     desc: "Tối ưu điểm chạm và tỷ lệ chuyển đổi trên các sàn thương mại điện tử.",
     detail: "SEO sản phẩm, trang trí gian hàng, kéo traffic ngoại sàn và tối ưu phễu trên Shopee/Lazada.",
     points: ["SEO sản phẩm sàn TMĐT", "Thiết lập phễu mua hàng", "Vận hành Mega Sale"],
@@ -68,6 +71,7 @@ const servicesList = [
   {
     num: "04",
     title: "Local Business Growth",
+    image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
     desc: "Tăng độ phủ tìm kiếm khu vực địa lý để thúc đẩy khách hàng đến điểm bán.",
     detail: "Tối ưu hóa Google Maps, SEO GBP địa phương và thu hút khách vãng lai ghé cửa hàng.",
     points: ["Tối ưu Google Maps/GBP", "Local SEO phủ điểm bán", "Kéo khách hàng địa phương"],
@@ -75,6 +79,7 @@ const servicesList = [
   {
     num: "05",
     title: "Education Marketing",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
     desc: "Xây dựng phễu tuyển sinh và hệ thống nội dung chuyển đổi cho mảng giáo dục.",
     detail: "Thiết kế phễu nội dung tuyển sinh, phát triển cộng đồng học viên và đào tạo đội ngũ in-house.",
     points: ["Phễu tuyển sinh trung tâm", "Phát triển cộng đồng học thuật", "Chuyển giao quy trình Ads"],
@@ -143,6 +148,12 @@ export default function ServicesSection() {
                 <h3 className="text-xl font-black text-[#0A0F1C] tracking-tight uppercase mb-3 group-hover:text-[#2563EB] transition-colors duration-300">
                   {service.title}
                 </h3>
+                <div className={`image-reveal-card mb-5 border border-blue-100 ${idx === 0 ? "h-48" : "h-36"}`}>
+                  <img src={service.image} alt={`Minh họa ${service.title}`} loading="lazy" />
+                  <span className="absolute bottom-4 left-4 z-10 rounded-full bg-white/90 px-3 py-1.5 text-[9px] font-black uppercase tracking-wider text-[#0758B8]">
+                    {service.title}
+                  </span>
+                </div>
                 <p className="text-xs text-slate-400 italic mb-3 leading-relaxed">{service.desc}</p>
                 <p className="text-sm text-slate-500 leading-relaxed">{service.detail}</p>
               </div>
