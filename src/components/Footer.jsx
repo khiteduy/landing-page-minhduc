@@ -22,8 +22,8 @@ export default function Footer() {
               <p className="text-[#0A0F1C] mb-3 text-[11px] font-black tracking-widest">Dịch vụ</p>
               <ul className="space-y-2">
                 <li>Performance Marketing</li>
-                <li>Social Media Services</li>
-                <li>E-commerce Growth</li>
+                <li><a href="/dich-vu-mang-xa-hoi" className="hover:text-[#2563EB]">Social Media Services</a></li>
+                <li><a href="/tai-nguyen-quang-cao-ecom" className="hover:text-[#2563EB]">E-commerce Resources</a></li>
                 <li>Local Business Growth</li>
                 <li>Academic Marketing</li>
               </ul>

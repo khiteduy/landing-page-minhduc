@@ -12,6 +12,8 @@ import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
 import ToolkitSection from "./components/ToolkitSection";
 import Footer from "./components/Footer";
+import SocialServicesPage from "./pages/SocialServicesPage";
+import EcomResourcesPage from "./pages/EcomResourcesPage";
 
 function Marquee() {
   const marqueeItems = [
@@ -39,6 +41,7 @@ function Marquee() {
 
 export default function App() {
   const [lightbox, setLightbox] = useState("");
+  const pagePath = window.location.pathname;
 
   const contactWebhook = import.meta.env.VITE_CONTACT_WEBHOOK_URL || "";
   const toolkitWebhook = import.meta.env.VITE_TOOLKIT_WEBHOOK_URL || "";
@@ -107,6 +110,14 @@ export default function App() {
       revealObserver.disconnect();
     };
   }, []);
+
+  if (pagePath === "/dich-vu-mang-xa-hoi") {
+    return <SocialServicesPage contactForm={contactForm} />;
+  }
+
+  if (pagePath === "/tai-nguyen-quang-cao-ecom") {
+    return <EcomResourcesPage toolkitForm={toolkitForm} />;
+  }
 
   return (
     <div className="min-h-screen bg-[#F8FAF9] text-[#0A0F1C] selection:bg-[#2563EB] selection:text-white relative">
