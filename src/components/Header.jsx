@@ -33,7 +33,7 @@ export default function Header() {
           <a
             href="/#contact"
             onClick={() => { if (window.trackCTA) window.trackCTA("Header - Hợp tác ngay (Desktop)"); }}
-            className="px-6 py-3 bg-[#063A7A] text-white rounded-full hover:bg-[#2563EB] transition-all duration-300 text-[10px] tracking-widest uppercase font-bold shadow-sm hover:shadow-md"
+            className="px-6 py-3 bg-[#192841] text-white rounded-full hover:bg-[#2563EB] transition-all duration-300 text-[10px] tracking-widest uppercase font-bold shadow-sm hover:shadow-md"
           >
             Hợp tác ngay
           </a>

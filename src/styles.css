@@ -6,9 +6,9 @@
   --bg: #F8FAF9;
   --text: #0A0F1C;
   --accent: #2563EB;
-  --ocean: #0752B8;
-  --ocean-deep: #041B44;
-  --ocean-mid: #063A7A;
+  --ocean: #2F6FE8;
+  --ocean-deep: #192841;
+  --ocean-mid: #203B61;
   --border: rgba(10, 15, 28, 0.06);
 }
 
@@ -82,8 +82,8 @@ li {
   overflow: hidden;
   white-space: nowrap;
   display: flex;
-  @apply py-5 border-y border-[#0752B8]/20 text-[#F8FAF9];
-  background: linear-gradient(90deg, #041B44 0%, #063A7A 48%, #0752B8 100%);
+  @apply py-5 border-y border-[#2F6FE8]/20 text-[#F8FAF9];
+  background: linear-gradient(90deg, #192841 0%, #203B61 58%, #2F6FE8 100%);
 }
 
 .marquee-track {
@@ -129,13 +129,13 @@ li {
   position: absolute;
   bottom: 0; left: 0;
   width: 100%; height: 0;
-  background-color: #063A7A;
+  background-color: #192841;
   transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: -1;
 }
 
 .btn-awwwards-solid:hover {
-  border-color: #063A7A;
+  border-color: #192841;
   color: #ffffff;
   box-shadow: 0 6px 20px rgba(10, 15, 28, 0.15);
   transform: translateY(-1px);
@@ -154,14 +154,14 @@ li {
   position: absolute;
   bottom: 0; left: 0;
   width: 100%; height: 0;
-  background-color: #063A7A;
+  background-color: #192841;
   transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: -1;
 }
 
 .btn-awwwards-outline:hover {
   color: #ffffff;
-  border-color: #063A7A;
+  border-color: #192841;
   transform: translateY(-1px);
 }
 
@@ -179,14 +179,14 @@ li {
   position: absolute;
   bottom: 0; left: 0;
   width: 100%; height: 0;
-  background-color: #063A7A;
+  background-color: #192841;
   transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: -1;
 }
 
 .btn-awwwards-accent:hover {
   color: #ffffff;
-  border-color: #063A7A;
+  border-color: #192841;
   transform: translateY(-1px);
 }
 
@@ -208,10 +208,10 @@ li {
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(circle at 16% 12%, rgba(56, 189, 248, 0.28) 0%, transparent 32%),
-    radial-gradient(circle at 84% 18%, rgba(37, 99, 235, 0.24) 0%, transparent 34%),
-    radial-gradient(circle at 50% 115%, rgba(14, 165, 233, 0.20) 0%, transparent 42%),
-    linear-gradient(135deg, #041B44 0%, #063A7A 48%, #0752B8 100%) !important;
+    radial-gradient(circle at 16% 12%, rgba(56, 189, 248, 0.18) 0%, transparent 30%),
+    radial-gradient(circle at 84% 18%, rgba(47, 111, 232, 0.22) 0%, transparent 34%),
+    radial-gradient(circle at 50% 115%, rgba(14, 165, 233, 0.14) 0%, transparent 42%),
+    linear-gradient(135deg, #192841 0%, #203B61 56%, #265B9A 100%) !important;
 }
 
 .gravity-blue-surface::before,
@@ -295,11 +295,11 @@ li {
 ────────────────────────────────────────── */
 .cases-hero {
   background:
-    radial-gradient(circle at 16% 12%, rgba(56, 189, 248, 0.28) 0%, transparent 32%),
-    radial-gradient(circle at 84% 18%, rgba(37, 99, 235, 0.24) 0%, transparent 34%),
-    linear-gradient(135deg, #041B44 0%, #063A7A 48%, #0752B8 100%);
+    radial-gradient(circle at 16% 12%, rgba(56, 189, 248, 0.18) 0%, transparent 30%),
+    radial-gradient(circle at 84% 18%, rgba(47, 111, 232, 0.22) 0%, transparent 34%),
+    linear-gradient(135deg, #192841 0%, #203B61 56%, #265B9A 100%);
   border-radius: 2rem !important;
-  @apply border border-[#0752B8]/20;
+  @apply border border-[#2F6FE8]/20;
 }
 
 .case-kpi {
