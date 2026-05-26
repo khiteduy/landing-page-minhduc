@@ -3,6 +3,7 @@ import useForm from "./hooks/useForm";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
 import AudiencePathSection from "./components/AudiencePathSection";
+import SocialProofStrip from "./components/SocialProofStrip";
 import MetricsSection from "./components/MetricsSection";
 import CaseStudiesSection from "./components/CaseStudiesSection";
 import ServicesSection from "./components/ServicesSection";
@@ -153,15 +154,18 @@ export default function App() {
       {/* 2. HERO SECTION */}
       <HeroSection />
 
-      {/* 3. AUDIENCE PATH */}
+      {/* 3. SOCIAL PROOF STRIP */}
+      <SocialProofStrip />
+
+      {/* 4. AUDIENCE PATH */}
       <div className="reveal-on-scroll">
         <AudiencePathSection />
       </div>
 
-      {/* 4. MARQUEE RUNNING */}
+      {/* 5. MARQUEE RUNNING */}
       <Marquee />
 
-      {/* 5. ABOUT FOUNDER — đưa lên đầu theo yêu cầu */}
+      {/* 6. ABOUT FOUNDER — đưa lên đầu theo yêu cầu */}
       <div className="reveal-on-scroll">
         <AboutSection />
       </div>
@@ -213,7 +217,7 @@ export default function App() {
       <a
         href="#contact"
         onClick={() => { if (window.trackCTA) window.trackCTA("Floating - Tư vấn ngay"); }}
-        className="fixed bottom-6 right-6 btn-awwwards btn-awwwards-solid shadow-lg shadow-[#2563EB]/25 z-40"
+        className="fixed bottom-6 right-6 hidden sm:inline-flex btn-awwwards btn-awwwards-solid shadow-lg shadow-[#2563EB]/25 z-40"
       >
         Tư vấn ngay
       </a>

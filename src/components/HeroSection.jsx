@@ -109,7 +109,7 @@ export default function HeroSection() {
           {/* Left: description + CTAs */}
           <div className="lg:col-span-6 flex flex-col gap-8">
             <p className="text-base sm:text-lg text-[#0A0F1C]/65 leading-relaxed max-w-xl">
-              Minh Duc Global giúp doanh nghiệp tối ưu quảng cáo đa nền tảng và đào tạo học viên triển khai marketing thực chiến dựa trên số liệu thật, case thật và kinh nghiệm trực tiếp vận hành.
+              Minh Duc Global giúp doanh nghiệp tăng trưởng bằng Performance Marketing, Google Ads, Facebook Ads, TikTok Ads và hệ thống content có dữ liệu. Đồng thời đào tạo học viên triển khai quảng cáo thực chiến, đọc số liệu và tối ưu ra kết quả thật.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -125,7 +125,7 @@ export default function HeroSection() {
                   <svg className="w-3.5 h-3.5 mr-2 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 16 16">
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  Tư vấn tăng trưởng
+                  Tư vấn tăng trưởng cho doanh nghiệp
                 </a>
                 <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider text-center">
                   Dành cho Doanh nghiệp B2B
