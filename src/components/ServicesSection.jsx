@@ -210,6 +210,73 @@ export default function ServicesSection() {
             </div>
           </div>
         </div>
+
+        {/* Doanh nghiệp phản hồi */}
+        <div className="mt-20 pt-16 border-t border-[#0A0F1C]/5">
+          <div className="text-center mb-10">
+            <p className="section-eyebrow justify-center">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+              Hiệu Quả Thực Tế Từ Doanh Nghiệp
+            </p>
+            <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#0A0F1C] mt-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              Đánh giá từ các thương hiệu đồng hành
+            </h3>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Lúa Việt */}
+            <div className="bg-white rounded-2xl border border-slate-100 p-6 sm:p-8 flex flex-col justify-between hover:border-[#2563EB]/20 transition-all duration-300">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider rounded-full bg-emerald-100 text-emerald-700">
+                    Performance Marketing
+                  </span>
+                  <span className="text-sm font-black text-emerald-600" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    ROAS 27.0x
+                  </span>
+                </div>
+                <blockquote className="text-sm text-slate-600 leading-relaxed italic mb-6">
+                  "Đội ngũ của Đức triển khai chiến dịch quảng cáo vô cùng chuyên nghiệp. Tối ưu hóa chuyển đổi từ phễu trang đích giúp tỷ lệ chốt đơn của chúng tôi tăng vượt bậc trong mùa cao điểm."
+                </blockquote>
+              </div>
+              <div className="flex items-center gap-3 pt-4 border-t border-slate-50">
+                <div className="w-10 h-10 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-black text-sm shrink-0">
+                  LV
+                </div>
+                <div>
+                  <p className="font-black text-sm text-[#0A0F1C]">Đại diện Lúa Việt</p>
+                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Chuỗi Nhà hàng F&B</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Bee English */}
+            <div className="bg-white rounded-2xl border border-slate-100 p-6 sm:p-8 flex flex-col justify-between hover:border-[#2563EB]/20 transition-all duration-300">
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider rounded-full bg-violet-100 text-violet-700">
+                    Social & Lead Generation
+                  </span>
+                  <span className="text-sm font-black text-violet-600" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    300-350 Lead/Tháng
+                  </span>
+                </div>
+                <blockquote className="text-sm text-slate-600 leading-relaxed italic mb-6">
+                  "Không chỉ chạy Ads đơn thuần, Minh Đức đồng hành tư vấn xây dựng lại kịch bản tuyển sinh và phễu nội dung. Lượng học viên đăng ký mới tăng trưởng ổn định qua từng tháng."
+                </blockquote>
+              </div>
+              <div className="flex items-center gap-3 pt-4 border-t border-slate-50">
+                <div className="w-10 h-10 rounded-full bg-violet-50 text-violet-700 flex items-center justify-center font-black text-sm shrink-0">
+                  BE
+                </div>
+                <div>
+                  <p className="font-black text-sm text-[#0A0F1C]">Đại diện Bee English</p>
+                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Hệ thống giáo dục & cộng đồng</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

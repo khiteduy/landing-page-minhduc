@@ -1,72 +1,108 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const paths = [
   {
-    label: "Dành cho doanh nghiệp",
-    title: "Tăng lead, doanh thu và hiệu suất quảng cáo",
-    desc: "Phù hợp với chủ doanh nghiệp, cửa hàng, trung tâm giáo dục hoặc thương hiệu cần tối ưu Facebook Ads, Google Ads, TikTok Ads, Local Map và content chuyển đổi.",
-    href: "#services",
-    cta: "Xem giải pháp doanh nghiệp",
-    tone: "bg-[#0B74E8] text-white border-[#0B74E8]",
-    note: "Performance Marketing · Google Map · AI Automation",
+    type: "business",
+    tag: "Doanh Nghiệp",
+    tagColor: "bg-[#2563EB] text-white",
+    headline: "Cần dịch vụ Performance Marketing?",
+    sub: "Chúng tôi vận hành chiến dịch Ads đa nền tảng, tối ưu doanh thu thực tế đo lường bằng ROAS.",
+    cta: "Nhận kiểm toán miễn phí",
+    ctaHref: "#contact",
+    ctaStyle: "btn-awwwards btn-awwwards-solid",
+    pills: ["Google Ads", "Meta Ads", "TikTok Ads", "Local Map"],
+    stat: { value: "27x", label: "ROAS cao nhất" },
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <rect x="4" y="28" width="8" height="16" rx="2" fill="#2563EB" opacity="0.3"/>
+        <rect x="16" y="18" width="8" height="26" rx="2" fill="#2563EB" opacity="0.55"/>
+        <rect x="28" y="8" width="8" height="36" rx="2" fill="#2563EB"/>
+        <path d="M6 36 L20 22 L28 28 L44 10" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.4"/>
+      </svg>
+    ),
   },
   {
-    label: "Dành cho học viên",
-    title: "Học Ads để tự triển khai ra kết quả thật",
-    desc: "Phù hợp với người mới, chủ shop, nhân sự marketing junior hoặc người muốn học Facebook Ads, Google Ads, TikTok Ads và Shopee theo lộ trình thực chiến.",
-    href: "#courses",
+    type: "student",
+    tag: "Học Viên",
+    tagColor: "bg-amber-400 text-[#0A0F1C]",
+    headline: "Muốn tự chạy Ads ra đơn?",
+    sub: "Học trực tiếp từ Đinh Minh Đức — người đã triển khai thực chiến, không học lý thuyết suông.",
     cta: "Xem khóa học thực chiến",
-    tone: "bg-white text-[#0A0F1C] border-blue-100",
-    note: "Facebook Ads · Google Ads · TikTok Ads · Shopee",
+    ctaHref: "#courses",
+    ctaStyle: "btn-awwwards btn-awwwards-outline",
+    pills: ["Facebook Ads", "Google Ads", "TikTok Ads", "Shopee"],
+    stat: { value: "3k-5k", label: "đ/mess sau học" },
+    icon: (
+      <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
+        <path d="M24 8 L44 18 L24 28 L4 18 Z" stroke="#0A0F1C" strokeWidth="2" fill="#0A0F1C" fillOpacity="0.08" strokeLinejoin="round"/>
+        <path d="M44 18 L44 30" stroke="#0A0F1C" strokeWidth="2" strokeLinecap="round"/>
+        <path d="M10 22 L10 34 C10 38 16 42 24 42 C32 42 38 38 38 34 L38 22" stroke="#0A0F1C" strokeWidth="1.8" strokeLinecap="round"/>
+      </svg>
+    ),
   },
 ];
 
 export default function AudiencePathSection() {
   return (
-    <section className="bg-white py-16 border-b border-[#0A0F1C]/5">
+    <section className="py-16 bg-[#F8FAF9] border-b border-[#0A0F1C]/5">
       <div className="section-container">
-        <div className="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <p className="section-eyebrow">Chọn đúng lộ trình</p>
-            <h2 className="font-display text-3xl font-black uppercase leading-[1.2] text-[#0A0F1C] sm:text-4xl">
-              Bạn đang cần gì?
-            </h2>
-          </div>
-          <p className="max-w-xl text-sm leading-[1.8] text-slate-500">
-            Website được tách thành 2 luồng rõ ràng để bạn không phải đọc mọi thứ cùng lúc.
-          </p>
-        </div>
-
-        <div className="grid gap-5 lg:grid-cols-2">
-          {paths.map((path) => (
-            <article
-              key={path.label}
-              className={`rounded-[1.5rem] border p-7 shadow-[0_18px_60px_rgba(15,23,42,0.06)] ${path.tone}`}
+        <p className="text-center text-[10px] font-bold uppercase tracking-[0.25em] text-[#0A0F1C]/40 mb-8">
+          Bạn là ai? — Chọn lộ trình phù hợp
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          {paths.map((p) => (
+            <div
+              key={p.type}
+              className={`relative rounded-2xl p-7 sm:p-9 border flex flex-col gap-6 transition-all duration-300 group ${
+                p.type === "business"
+                  ? "bg-white border-slate-100 hover:border-[#2563EB]/25 hover:shadow-[0_12px_40px_rgba(37,99,235,0.06)]"
+                  : "bg-amber-50/50 border-amber-100 hover:border-amber-200 hover:shadow-[0_12px_40px_rgba(251,191,36,0.08)]"
+              }`}
             >
-              <p className={`text-[10px] font-black uppercase tracking-[0.22em] ${path.tone.includes("bg-white") ? "text-[#0B74E8]" : "text-blue-100"}`}>
-                {path.label}
-              </p>
-              <h3 className="mt-4 font-display text-2xl font-black uppercase leading-[1.22] sm:text-3xl">
-                {path.title}
-              </h3>
-              <p className={`mt-4 text-sm leading-[1.9] ${path.tone.includes("bg-white") ? "text-slate-500" : "text-blue-50/90"}`}>
-                {path.desc}
-              </p>
-              <div className="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <span className={`text-[10px] font-bold uppercase tracking-wider ${path.tone.includes("bg-white") ? "text-slate-400" : "text-blue-100"}`}>
-                  {path.note}
+              {/* Tag + Icon row */}
+              <div className="flex items-center justify-between">
+                <span className={`px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-wider ${p.tagColor}`}>
+                  {p.tag}
                 </span>
-                <a
-                  href={path.href}
-                  onClick={() => {
-                    if (window.trackCTA) window.trackCTA(`Audience Path - ${path.label}`);
-                  }}
-                  className={path.tone.includes("bg-white") ? "btn-awwwards btn-awwwards-solid" : "btn-awwwards btn-awwwards-accent"}
+                <div className={`p-3 rounded-xl ${p.type === "business" ? "bg-blue-50" : "bg-amber-100/60"}`}>
+                  {p.icon}
+                </div>
+              </div>
+
+              {/* Text */}
+              <div>
+                <h3
+                  className="text-xl sm:text-2xl font-black text-[#0A0F1C] uppercase tracking-tight leading-tight mb-2"
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
                 >
-                  {path.cta}
+                  {p.headline}
+                </h3>
+                <p className="text-sm text-slate-500 leading-relaxed">{p.sub}</p>
+              </div>
+
+              {/* Pills */}
+              <div className="flex flex-wrap gap-2">
+                {p.pills.map((pill) => (
+                  <span key={pill} className="px-2.5 py-1 text-[10px] font-bold uppercase tracking-wider rounded-full bg-white border border-[#0A0F1C]/8 text-[#0A0F1C]/50">
+                    {pill}
+                  </span>
+                ))}
+              </div>
+
+              {/* Stat + CTA */}
+              <div className="flex items-center justify-between pt-4 border-t border-[#0A0F1C]/5 gap-4 flex-wrap">
+                <div>
+                  <p className="text-2xl font-black text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    {p.stat.value}
+                  </p>
+                  <p className="text-[9px] font-bold uppercase tracking-widest text-[#0A0F1C]/40">{p.stat.label}</p>
+                </div>
+                <a href={p.ctaHref} className={`${p.ctaStyle} shrink-0`}>
+                  {p.cta} →
                 </a>
               </div>
-            </article>
+            </div>
           ))}
         </div>
       </div>

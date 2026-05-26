@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import useForm from "./hooks/useForm";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
-import AudiencePathSection from "./components/AudiencePathSection";
 import SocialProofStrip from "./components/SocialProofStrip";
+import AudiencePathSection from "./components/AudiencePathSection";
+import LogoMarqueeSection from "./components/LogoMarqueeSection";
 import MetricsSection from "./components/MetricsSection";
+import BrandTrustSection from "./components/BrandTrustSection";
 import CaseStudiesSection from "./components/CaseStudiesSection";
 import ServicesSection from "./components/ServicesSection";
 import CoursesSection from "./components/CoursesSection";
@@ -22,18 +24,18 @@ function Marquee() {
     "PERFORMANCE MARKETING",
     "HỆ THỐNG PHỄU TĂNG TRƯỞNG",
     "TỐI ƯU GOOGLE MAPS",
-    "DỊCH VỤ FACEBOOK ADS",
-    "TỐI ƯU DOANH THU & ROAS"
+    "FACEBOOK ADS",
+    "TỐI ƯU ROAS",
+    "KHÓA HỌC THỰC CHIẾN",
   ];
-  const combined = Array(6).fill(marqueeItems).flat();
-
+  const combined = Array(5).fill(marqueeItems).flat();
   return (
     <div className="marquee-container" aria-hidden="true">
       <div className="marquee-track">
         {combined.map((item, idx) => (
           <div key={idx} className="marquee-item">
             <span>{item}</span>
-            <span className="text-[#2563EB] font-sans">•</span>
+            <span className="text-[#2563EB]">•</span>
           </div>
         ))}
       </div>
@@ -43,6 +45,7 @@ function Marquee() {
 
 export default function App() {
   const [lightbox, setLightbox] = useState("");
+  const [showFloat, setShowFloat] = useState(false);
   const pagePath = window.location.pathname;
 
   const contactWebhook = import.meta.env.VITE_CONTACT_WEBHOOK_URL || "";
@@ -109,30 +112,24 @@ export default function App() {
   );
 
   useEffect(() => {
+    // Reveal on scroll
     const elements = document.querySelectorAll(".reveal-on-scroll");
-
     const isMobile = window.innerWidth < 768;
-    const revealThreshold = isMobile ? 0.05 : 0.12;
-
     const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-          }
-        });
-      },
-      { 
-        threshold: revealThreshold, 
-        rootMargin: isMobile ? "0px 0px -5% 0px" : "0px 0px -8% 0px" 
-      }
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("is-visible"); }),
+      { threshold: isMobile ? 0.04 : 0.1, rootMargin: isMobile ? "0px 0px -4% 0px" : "0px 0px -8% 0px" }
     );
-
     elements.forEach((el) => revealObserver.observe(el));
 
-    return () => {
-      revealObserver.disconnect();
+    // Float CTA: chỉ hiện sau khi cuộn qua Hero, ẩn khi đến form liên hệ
+    const handleScroll = () => {
+      const heroH = document.querySelector("section")?.offsetHeight || 500;
+      const contactEl = document.getElementById("contact");
+      const contactBottom = contactEl ? contactEl.getBoundingClientRect().bottom : Infinity;
+      setShowFloat(window.scrollY > heroH && contactBottom > 0);
     };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => { revealObserver.disconnect(); window.removeEventListener("scroll", handleScroll); };
   }, []);
 
   if (pagePath === "/dich-vu-mang-xa-hoi") {
@@ -145,87 +142,96 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#F8FAF9] text-[#0A0F1C] selection:bg-[#2563EB] selection:text-white relative">
-      {/* Background decoration */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(37,99,235,0.02),transparent_45%)] pointer-events-none" aria-hidden="true" />
-      
+
       {/* 1. HEADER */}
       <Header />
 
-      {/* 2. HERO SECTION */}
+      {/* 2. HERO */}
       <HeroSection />
 
       {/* 3. SOCIAL PROOF STRIP */}
       <SocialProofStrip />
 
-      {/* 4. AUDIENCE PATH */}
+      {/* 4. AUDIENCE PATH — tách 2 luồng ngay sau hero */}
       <div className="reveal-on-scroll">
         <AudiencePathSection />
       </div>
 
-      {/* 5. MARQUEE RUNNING */}
+      {/* 5. MARQUEE */}
       <Marquee />
 
-      {/* 6. ABOUT FOUNDER — đưa lên đầu theo yêu cầu */}
+      {/* 6. ABOUT FOUNDER */}
       <div className="reveal-on-scroll">
         <AboutSection />
       </div>
 
-      {/* 6. METRICS SECTION */}
+      {/* 6.5. METRICS */}
       <div className="reveal-on-scroll">
         <MetricsSection />
       </div>
 
-      {/* 6. FEATURED CASE STUDIES */}
+      {/* 7. BRAND TRUST */}
+      <div className="reveal-on-scroll">
+        <BrandTrustSection />
+      </div>
+
+      {/* 7.5. LOGO MARQUEE */}
+      <LogoMarqueeSection />
+
+      {/* 8. CASE STUDIES */}
       <div className="reveal-on-scroll">
         <CaseStudiesSection setLightbox={setLightbox} />
       </div>
 
-      {/* 7. SERVICES SECTION */}
+      {/* 9. SERVICES */}
       <div className="reveal-on-scroll">
         <ServicesSection />
       </div>
 
-      {/* 8. COURSES / TRAINING SECTION */}
+      {/* 10. COURSES / TRAINING */}
       <div className="reveal-on-scroll">
         <CoursesSection />
       </div>
 
-      {/* 9. PROCESS SECTION */}
+      {/* 11. PROCESS */}
       <div className="reveal-on-scroll">
         <ProcessSection />
       </div>
 
-      {/* 9. WHY US & FEEDBACK */}
+      {/* 12. WHY US */}
       <div className="reveal-on-scroll">
         <WhyUsSection />
       </div>
 
-      {/* 10. CONTACT FORM */}
+      {/* 13. CONTACT FORM */}
       <div className="reveal-on-scroll">
         <ContactSection contactForm={contactForm} />
       </div>
 
-      {/* 11. TOOLKIT RESOURCE REGISTRATION */}
+      {/* 14. TOOLKIT */}
       <div className="reveal-on-scroll">
         <ToolkitSection toolkitForm={toolkitForm} />
       </div>
 
-      {/* 12. FOOTER */}
+      {/* 15. FOOTER */}
       <Footer />
 
-      {/* Floating CTA viên thuốc chuẩn Awwwards */}
-      <a
-        href="#contact"
-        onClick={() => { if (window.trackCTA) window.trackCTA("Floating - Tư vấn ngay"); }}
-        className="fixed bottom-6 right-6 hidden sm:inline-flex btn-awwwards btn-awwwards-solid shadow-lg shadow-[#2563EB]/25 z-40"
-      >
-        Tư vấn ngay
-      </a>
+      {/* Floating CTA — chỉ hiện sau Hero, ẩn khi đến form */}
+      {showFloat && (
+        <a
+          href="#contact"
+          onClick={() => { if (window.trackCTA) window.trackCTA("Floating - Tư vấn ngay"); }}
+          className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 btn-awwwards btn-awwwards-solid shadow-lg shadow-[#2563EB]/25 z-40 text-xs sm:text-sm px-4 sm:px-6 py-2.5 sm:py-3 animate-fade-in"
+        >
+          Tư vấn ngay →
+        </a>
+      )}
 
-      {/* Lightbox mờ tối sang trọng Awwwards */}
+      {/* Lightbox */}
       {lightbox && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 backdrop-blur-sm p-4 animate-fade-in cursor-zoom-out"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 backdrop-blur-sm p-4 cursor-zoom-out"
           onClick={() => setLightbox("")}
         >
           <div
@@ -244,7 +250,7 @@ export default function App() {
             )}
             <button
               onClick={() => setLightbox("")}
-              className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/60 text-white hover:bg-slate-900/80 transition-colors shadow-md"
+              className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/60 text-white hover:bg-slate-900/80 transition-colors"
               aria-label="Đóng"
             >
               <span className="text-xl leading-none font-bold">×</span>

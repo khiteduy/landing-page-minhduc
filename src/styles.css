@@ -480,3 +480,33 @@ textarea:focus {
   @apply font-black tracking-tight text-white;
   font-family: "Plus Jakarta Sans", ui-sans-serif, sans-serif;
 }
+
+/* ──────────────────────────────────────────
+   Logo Marquee
+   ────────────────────────────────────────── */
+.logo-marquee-container {
+  overflow: hidden;
+  user-select: none;
+  display: flex;
+  width: 100%;
+}
+
+.logo-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: logo-marquee-scroll 30s linear infinite;
+  will-change: transform;
+}
+
+.logo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes logo-marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
