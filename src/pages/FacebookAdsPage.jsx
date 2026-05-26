@@ -217,8 +217,8 @@ export default function FacebookAdsPage() {
             Đinh Minh Đức sẽ tư vấn trực tiếp lộ trình học phù hợp với mục tiêu và ngành nghề của bạn.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <a href="tel:0966442654" className="btn-awwwards btn-awwwards-solid">📞 0966.442.654</a>
-            <a href="https://facebook.com/minhduc.profile" target="_blank" rel="noreferrer" className="btn-awwwards btn-awwwards-outline border-white/20 text-white hover:border-white">Facebook ↗</a>
+            <a href="tel:0936643146" className="btn-awwwards btn-awwwards-solid">📞 0936.643.146</a>
+            <a href="https://www.facebook.com/minhhduc.media" target="_blank" rel="noreferrer" className="btn-awwwards btn-awwwards-outline border-white/20 text-white hover:border-white">Facebook ↗</a>
           </div>
         </div>
       </section>

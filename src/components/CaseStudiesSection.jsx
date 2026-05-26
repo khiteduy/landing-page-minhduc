@@ -55,22 +55,50 @@ const cases = [
     tagColor: "bg-blue-50 text-blue-700 border-blue-100",
   },
   {
-    name: "Nhà hàng Lúa Việt",
+    name: "Lua Viet Restaurant",
     category: "Tăng trưởng nhà hàng F&B",
     industry: "F&B / Nhà hàng",
     role: "Marketing Lead",
-    result: "ROAS 27X",
+    result: "ROAS 27x",
     resultColor: "text-emerald-600 bg-emerald-50 border-emerald-100",
     metrics: [
       { label: "Ngân sách", value: "20M VND" },
       { label: "Doanh thu", value: "540M VND" },
       { label: "ROAS", value: "27x", accent: true },
     ],
-    proof: [],
-    cover: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
+    proof: [
+      {
+        src: "/course-assets/lua-viet.jpg",
+        caption: "Đo lường & Vận hành hiệu suất quảng cáo cho Lua Viet Restaurant."
+      }
+    ],
+    cover: "/course-assets/lua-viet.jpg",
     short: "Triển khai chiến dịch tối ưu chuyển đổi và quản trị phễu khách hàng, tập trung đẩy doanh số trong mùa cao điểm.",
     tag: "F&B",
     tagColor: "bg-orange-50 text-orange-700 border-orange-100",
+  },
+  {
+    name: "Chạn Niêu Đà Nẵng",
+    category: "Tối ưu Google Maps & TripAdvisor",
+    industry: "F&B / Nhà hàng",
+    role: "Truyền thông & Maps",
+    result: "Đã xác minh",
+    resultColor: "text-emerald-600 bg-emerald-50 border-emerald-100",
+    metrics: [
+      { label: "Đánh giá Maps", value: "4.8★ (677)" },
+      { label: "TripAdvisor", value: "5.0★ (25)" },
+      { label: "Thứ hạng", value: "163/1652", accent: true },
+    ],
+    proof: [
+      {
+        src: "/course-assets/chan-nieu.jpg",
+        caption: "Báo cáo bàn giao kết quả tối ưu Google Maps & TripAdvisor cho Chạn Niêu Đà Nẵng."
+      }
+    ],
+    cover: "/course-assets/chan-nieu.jpg",
+    short: "Tối ưu hóa SEO Google Maps và đồng bộ kênh TripAdvisor giúp nâng tầm thương hiệu, tăng lượng tiếp cận tự nhiên.",
+    tag: "Local",
+    tagColor: "bg-violet-50 text-violet-700 border-violet-100",
   },
   {
     name: "Bánh gà Phan Văn Trường",
@@ -92,25 +120,7 @@ const cases = [
   },
 ];
 
-const updatingCases = [
-  {
-    name: "Chạn Đà Nẵng",
-    category: "Nhận diện & Local Map GBP",
-    industry: "F&B / Nhà hàng",
-    role: "Truyền thông & Maps",
-    result: "Đang hoạt động",
-    resultColor: "text-slate-500 bg-slate-50 border-slate-100",
-    metrics: [
-      { label: "Ngành", value: "F&B" },
-      { label: "Thị trường", value: "Đà Nẵng" },
-      { label: "Trạng thái", value: "Hoạt động" },
-    ],
-    proof: [],
-    short: "Tối ưu Google Maps/GBP và xây dựng chiến lược truyền thông thu hút khách hàng nội vùng Đà Nẵng.",
-    tag: "Local",
-    tagColor: "bg-violet-50 text-violet-700 border-violet-100",
-  },
-];
+const updatingCases = [];
 
 /* ── KPI counter ─────────────────────── */
 function KpiCounter({ value, label, color = "text-white" }) {
@@ -199,7 +209,7 @@ function CaseCard({ c, setLightbox }) {
               const src = typeof p === "string" ? p : p.src;
               const caption = typeof p === "string" ? "" : p.caption;
 
-              return src.startsWith("http") && !src.includes("facebook.com/business") ? (
+              return src.startsWith("http") || src.startsWith("/course-assets/") ? (
                 <button
                   key={src}
                   onClick={() => setLightbox({ src, caption })}
@@ -303,44 +313,46 @@ export default function CaseStudiesSection({ setLightbox }) {
           ))}
         </div>
 
-        {/* Updating projects */}
-        <div className="mt-10 rounded-[1.5rem] border border-dashed border-slate-200 bg-slate-50/70 p-6">
-          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">
-                Dự án đang cập nhật số liệu
-              </p>
-              <h3 className="mt-2 font-display text-xl font-black uppercase leading-[1.25] text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                Đang chuẩn bị bổ sung số liệu
-              </h3>
-            </div>
-            <p className="max-w-md text-sm leading-[1.8] text-slate-500">
-              Các dự án này vẫn nằm trong danh sách năng lực, nhưng sẽ được nâng lên case chính khi có proof và số liệu đủ rõ.
-            </p>
-          </div>
-
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            {updatingCases.map((c) => (
-              <article key={c.name} className="rounded-2xl border border-slate-200 bg-white p-5">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className={`px-3 py-1 text-[9px] font-bold uppercase tracking-wider rounded-full border ${c.tagColor}`}>
-                    {c.tag}
-                  </span>
-                  <span className="rounded-full bg-slate-100 px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-slate-500">
-                    Đang bổ sung proof
-                  </span>
-                </div>
-                <h4 className="mt-4 font-display text-lg font-black uppercase leading-[1.25] text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                  {c.name}
-                </h4>
-                <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                  {c.industry} · {c.role}
+        {/* Updating projects (only render if there are any) */}
+        {updatingCases.length > 0 && (
+          <div className="mt-10 rounded-[1.5rem] border border-dashed border-slate-200 bg-slate-50/70 p-6">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">
+                  Dự án đang cập nhật số liệu
                 </p>
-                <p className="mt-3 text-sm leading-[1.8] text-slate-500">{c.short}</p>
-              </article>
-            ))}
+                <h3 className="mt-2 font-display text-xl font-black uppercase leading-[1.25] text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  Đang chuẩn bị bổ sung số liệu
+                </h3>
+              </div>
+              <p className="max-w-md text-sm leading-[1.8] text-slate-500">
+                Các dự án này vẫn nằm trong danh sách năng lực, nhưng sẽ được nâng lên case chính khi có proof và số liệu đủ rõ.
+              </p>
+            </div>
+
+            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              {updatingCases.map((c) => (
+                <article key={c.name} className="rounded-2xl border border-slate-200 bg-white p-5">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className={`px-3 py-1 text-[9px] font-bold uppercase tracking-wider rounded-full border ${c.tagColor}`}>
+                      {c.tag}
+                    </span>
+                    <span className="rounded-full bg-slate-100 px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-slate-500">
+                      Đang bổ sung proof
+                    </span>
+                  </div>
+                  <h4 className="mt-4 font-display text-lg font-black uppercase leading-[1.25] text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    {c.name}
+                  </h4>
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                    {c.industry} · {c.role}
+                  </p>
+                  <p className="mt-3 text-sm leading-[1.8] text-slate-500">{c.short}</p>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
+        )}
 
         {/* Bottom CTA */}
         <div className="mt-14 pt-8 border-t border-[#0A0F1C]/5 flex flex-col sm:flex-row items-center justify-between gap-5">

@@ -34,8 +34,8 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>Người sáng lập: Đinh Minh Đức</li>
                 <li>Hải Dương, Việt Nam</li>
-                <li><a href="mailto:contact@minhduc.global" className="hover:text-[#2563EB]">contact@minhduc.global</a></li>
-                <li><a href="tel:0966442654" className="hover:text-[#2563EB]">0966.442.654</a></li>
+                <li><a href="mailto:minhhduc.forwork@gmail.com" className="hover:text-[#2563EB]">minhhduc.forwork@gmail.com</a></li>
+                <li><a href="tel:0936643146" className="hover:text-[#2563EB]">0936.643.146</a></li>
               </ul>
             </div>
           </div>
@@ -45,7 +45,7 @@ export default function Footer() {
         <div className="border-t border-[#0A0F1C]/5 pt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between text-[10px] text-slate-400 font-bold uppercase tracking-widest">
           <p>© {new Date().getFullYear()} Minh Duc Global. Bảo lưu mọi quyền.</p>
           <div className="flex gap-4">
-            <a href="https://facebook.com/minhduc.profile" target="_blank" rel="noreferrer" className="hover:text-[#2563EB]">Facebook</a>
+            <a href="https://www.facebook.com/minhhduc.media" target="_blank" rel="noreferrer" className="hover:text-[#2563EB]">Facebook</a>
             <span>•</span>
             <a href="https://nguoinoitieng.tv/nghe-nghiep/ho-tro-facebook/dinh-minh-duc/bgnj" target="_blank" rel="noreferrer" className="hover:text-[#2563EB]">Tiểu sử</a>
           </div>

@@ -62,15 +62,15 @@ export default function ContactSection({ contactForm }) {
             <div className="border-t border-[#0A0F1C]/5 pt-6 space-y-3 text-xs font-bold">
               <p className="text-[10px] text-slate-400 font-extrabold uppercase tracking-widest">Liên hệ trực tiếp</p>
               <div className="flex flex-col gap-2">
-                <a href="tel:0966442654" className="flex items-center gap-2 text-[#2563EB] hover:underline">
+                <a href="tel:0936643146" className="flex items-center gap-2 text-[#2563EB] hover:underline">
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 16 16"><path d="M3 3a1 1 0 011-1h2.5a1 1 0 01.97.757l.5 2a1 1 0 01-.297 1.017l-.8.7c.53.97 1.153 1.594 2.123 2.123l.7-.8A1 1 0 0110.743 8l2 .5A1 1 0 0113.757 9.5V12a1 1 0 01-1 1C6.373 13 3 9.627 3 5V3z" stroke="currentColor" strokeWidth="1.2"/></svg>
-                  0966.442.654
+                  0936.643.146
                 </a>
-                <a href="mailto:contact@minhduc.global" className="flex items-center gap-2 text-[#2563EB] hover:underline">
+                <a href="mailto:minhhduc.forwork@gmail.com" className="flex items-center gap-2 text-[#2563EB] hover:underline">
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 16 16"><path d="M2 4l6 5 6-5M2 4h12v9H2z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round"/></svg>
-                  contact@minhduc.global
+                  minhhduc.forwork@gmail.com
                 </a>
-                <a href="https://facebook.com/minhduc.profile" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[#2563EB] hover:underline">
+                <a href="https://www.facebook.com/minhhduc.media" target="_blank" rel="noreferrer" className="flex items-center gap-2 text-[#2563EB] hover:underline">
                   <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 16 16"><path d="M14 8A6 6 0 112 8a6 6 0 0112 0zm-5.5 0h1.5v4h-2V8H7V6h1V5a2 2 0 012-2h1.5v2H11a.5.5 0 00-.5.5V6H12l-.5 2H10.5z" stroke="currentColor" strokeWidth="1" fill="none"/></svg>
                   Đinh Minh Đức ↗
                 </a>

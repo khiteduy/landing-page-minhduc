@@ -49,24 +49,27 @@ export default function WhyUsSection() {
             </div>
 
             {/* Feedback Đối Tác Doanh Nghiệp */}
-            <div className="p-6 border border-slate-100 bg-slate-50/40 rounded-2xl shadow-[0_10px_30px_rgba(10,15,28,0.01)] relative overflow-hidden">
-              <span className="absolute top-2 right-4 text-[5rem] font-black text-[#2563EB]/5 leading-none select-none pointer-events-none" aria-hidden="true">"</span>
-              <h4 className="text-xs font-extrabold text-[#2563EB] uppercase tracking-wider mb-2">
+            <div className="p-8 border border-blue-100/50 bg-gradient-to-br from-white to-blue-50/20 rounded-2xl shadow-[0_15px_40px_rgba(37,99,235,0.02)] relative overflow-hidden">
+              <span className="absolute top-4 right-6 text-[8rem] font-black text-[#2563EB]/5 leading-none select-none pointer-events-none" aria-hidden="true">"</span>
+              
+              <p className="uppercase tracking-[0.2em] text-[9px] font-bold text-[#2563EB] mb-1">
                 Ý kiến từ đối tác doanh nghiệp
-              </h4>
-              <p className="text-sm font-black text-[#0A0F1C] uppercase tracking-tight mb-2">
-                Cardi Pizzeria (ROAS 26.25x)
               </p>
-              <blockquote className="text-xs text-slate-600 leading-relaxed mb-4 italic border-l-2 border-[#2563EB] pl-3">
+              <h4 className="text-base sm:text-lg font-black text-[#0A0F1C] uppercase tracking-tight mb-4">
+                Chị An (ROAS 26.25x)
+              </h4>
+              
+              <blockquote className="text-sm text-slate-700 leading-relaxed italic mb-6 border-l-2 border-[#2563EB] pl-4 font-medium relative z-10">
                 "Hệ thống Google Ads & Maps của Minh Duc Global đã giúp chúng tôi tiếp cận đúng tệp khách hàng có nhu cầu thật tại khu vực. Chiến dịch đạt hiệu quả chuyển đổi vượt mong đợi, doanh thu tăng trưởng ổn định mà không bị phụ thuộc vào giảm giá."
               </blockquote>
-              <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
-                <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-black text-xs">
-                  CP
+              
+              <div className="flex items-center gap-3 pt-4 border-t border-slate-100 relative z-10">
+                <div className="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-black text-sm shrink-0">
+                  CA
                 </div>
                 <div>
-                  <p className="text-[11px] font-bold text-[#0A0F1C]">Anh Khánh</p>
-                  <p className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Founder / Chủ chuỗi nhà hàng</p>
+                  <p className="font-black text-sm text-[#0A0F1C]">Chị An</p>
+                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Đại diện chuỗi nhà hàng Cardi Pizzeria</p>
                 </div>
               </div>
             </div>
