@@ -23,7 +23,7 @@ export default function Header() {
             <a 
               key={item.id} 
               href={`#${item.id}`} 
-              className="hover:text-[#2563EB] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:height-[2px] after:bg-[#2563EB] hover:after:w-full after:transition-all after:duration-300"
+              className="hover:text-[#2563EB] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-[#2563EB] hover:after:w-full after:transition-all after:duration-300"
             >
               {item.label}
             </a>
