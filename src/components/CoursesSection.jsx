@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 /* ── Icons ─────────────────────────────────────── */
 const IconFacebook = () => (
@@ -41,6 +42,7 @@ const courses = [
     desc: "Từ người mới đến người có thể tự set camp, đọc chỉ số, tối ưu chi phí tin nhắn và tạo đơn hàng.",
     points: ["Set camp đúng cấu trúc", "Đọc CPM, CTR, CPC, CPA", "Scale chiến dịch thực chiến"],
     accent: "hover:border-blue-200",
+    detailLink: "/khoa-hoc-facebook-ads",
   },
   {
     icon: <IconGoogle />,
@@ -157,7 +159,7 @@ export default function CoursesSection() {
                 </p>
               </div>
 
-              {/* Points */}
+              {/* Points + optional detail link */}
               <div className="relative z-10 mt-6 pt-5 border-t border-slate-50">
                 <ul className="space-y-2">
                   {course.points.map((pt, i) => (
@@ -167,6 +169,14 @@ export default function CoursesSection() {
                     </li>
                   ))}
                 </ul>
+                {course.detailLink && (
+                  <Link
+                    to={course.detailLink}
+                    className="mt-4 inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider text-[#2563EB] hover:underline"
+                  >
+                    Xem lộ trình chi tiết →
+                  </Link>
+                )}
               </div>
 
               {/* Hover bottom bar */}
