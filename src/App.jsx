@@ -5,6 +5,7 @@ import HeroSection from "./components/HeroSection";
 import AudiencePathSection from "./components/AudiencePathSection";
 import MetricsSection from "./components/MetricsSection";
 import BrandTrustSection from "./components/BrandTrustSection";
+import LogoMarqueeSection from "./components/LogoMarqueeSection";
 import CaseStudiesSection from "./components/CaseStudiesSection";
 import ServicesSection from "./components/ServicesSection";
 import CoursesSection from "./components/CoursesSection";
@@ -111,6 +112,9 @@ export default function App() {
       <div className="reveal-on-scroll">
         <BrandTrustSection />
       </div>
+
+      {/* 7.5. LOGO MARQUEE */}
+      <LogoMarqueeSection />
 
       {/* 8. CASE STUDIES */}
       <div className="reveal-on-scroll">

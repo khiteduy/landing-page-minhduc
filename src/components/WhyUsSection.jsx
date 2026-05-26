@@ -48,33 +48,26 @@ export default function WhyUsSection() {
               </p>
             </div>
 
-            {/* Video Feedback học viên */}
-            <div className="p-6 border border-slate-100 bg-slate-50/40 rounded-2xl shadow-[0_10px_30px_rgba(10,15,28,0.01)]">
-              <h4 className="text-sm font-extrabold text-[#0A0F1C] uppercase tracking-tight mb-2">
-                Học viên thực chiến tiêu biểu
+            {/* Feedback Đối Tác Doanh Nghiệp */}
+            <div className="p-6 border border-slate-100 bg-slate-50/40 rounded-2xl shadow-[0_10px_30px_rgba(10,15,28,0.01)] relative overflow-hidden">
+              <span className="absolute top-2 right-4 text-[5rem] font-black text-[#2563EB]/5 leading-none select-none pointer-events-none" aria-hidden="true">"</span>
+              <h4 className="text-xs font-extrabold text-[#2563EB] uppercase tracking-wider mb-2">
+                Ý kiến từ đối tác doanh nghiệp
               </h4>
-              <p className="text-xs text-slate-500 leading-relaxed mb-4">
-                Học viên <b>Quyên</b> (Kinh doanh xe điện) bắt đầu từ số 0, sau khóa học đã tự vận hành Facebook Ads ra đơn với chi phí chỉ <b>3,000đ - 5,000đ/mess</b>.
+              <p className="text-sm font-black text-[#0A0F1C] uppercase tracking-tight mb-2">
+                Cardi Pizzeria (ROAS 26.25x)
               </p>
-              
-              <div className="aspect-video overflow-hidden rounded-xl border border-slate-200 bg-black">
-                <iframe
-                  title="Feedback Quyên"
-                  src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F18izSvaN8g%2F&show_text=false"
-                  className="h-full w-full border-none"
-                  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                />
-              </div>
-              <div className="mt-3 flex justify-between items-center">
-                <a 
-                  className="text-[10px] font-bold text-[#2563EB] hover:underline uppercase tracking-wider" 
-                  href="https://www.facebook.com/share/v/18izSvaN8g/" 
-                  target="_blank" 
-                  rel="noreferrer"
-                >
-                  Xem trên Facebook ↗
-                </a>
-                <span className="text-[10px] font-bold text-slate-400 uppercase">Học viên Quyên</span>
+              <blockquote className="text-xs text-slate-600 leading-relaxed mb-4 italic border-l-2 border-[#2563EB] pl-3">
+                "Hệ thống Google Ads & Maps của Minh Duc Global đã giúp chúng tôi tiếp cận đúng tệp khách hàng có nhu cầu thật tại khu vực. Chiến dịch đạt hiệu quả chuyển đổi vượt mong đợi, doanh thu tăng trưởng ổn định mà không bị phụ thuộc vào giảm giá."
+              </blockquote>
+              <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
+                <div className="w-8 h-8 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-black text-xs">
+                  CP
+                </div>
+                <div>
+                  <p className="text-[11px] font-bold text-[#0A0F1C]">Anh Khánh</p>
+                  <p className="text-[9px] text-slate-400 font-bold uppercase tracking-wider">Founder / Chủ chuỗi nhà hàng</p>
+                </div>
               </div>
             </div>
           </div>
