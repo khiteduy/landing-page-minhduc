@@ -17,6 +17,10 @@ const cases = [
     ],
     proof: [
       {
+        src: "/course-assets/cardi-pizzeria.jpg",
+        caption: "Hình ảnh thực tế cửa hàng Cardi Pizzeria Võ Văn Kiệt tại TP.HCM.",
+      },
+      {
         src: "https://i.ibb.co/F41NH6Vy/daonh-thu.jpg",
         caption: "Doanh thu ghi nhận: 624.600.000đ trong kỳ 01/04-01/05/2026.",
       },
@@ -25,7 +29,7 @@ const cases = [
         caption: "Chi phí Google Ads cùng kỳ: 23.791.158đ, tương đương hiệu suất doanh thu/ngân sách khoảng 26,25X.",
       },
     ],
-    cover: "https://i.ibb.co/gMJvsvm9/camp-gg-1.jpg",
+    cover: "/course-assets/cardi-pizzeria.jpg",
     short: "Vận hành Google Ads kết hợp tối ưu Local Map để phủ sóng điểm bán và tối đa hóa doanh thu thực tế tại cửa hàng.",
     tag: "F&B",
     tagColor: "bg-orange-50 text-orange-700 border-orange-100",
@@ -48,6 +52,10 @@ const cases = [
         src: "https://www.facebook.com/business/success/bee-english-community",
         caption: "Bee English Community là case xuất hiện trong thư viện Meta/Facebook Business Success, liên quan đến click-to-Messenger và tối ưu lead.",
       },
+      {
+        src: "/course-assets/qr-bee-english.png",
+        caption: "Quét mã QR để xem chi tiết Kịch bản video Bee English Community do Đinh Minh Đức duyệt và cố vấn.",
+      },
     ],
     cover: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
     short: "Tối ưu ngân sách quảng cáo đa kênh, đào tạo nhân sự và điều phối đội ngũ sáng tạo nâng cao tỷ lệ chuyển đổi.",
@@ -68,9 +76,17 @@ const cases = [
     ],
     proof: [
       {
+        src: "/course-assets/lua-viet-revenue.png",
+        caption: "Báo cáo doanh thu thực tế 540,179,400đ được ghi nhận qua hệ thống POS KiotViet.",
+      },
+      {
+        src: "/course-assets/lua-viet-ads.png",
+        caption: "Dashboard Google Ads - Ngân sách chi tiêu 20M VND đạt hiệu quả chiến dịch vượt trội.",
+      },
+      {
         src: "/course-assets/lua-viet.jpg",
-        caption: "Đo lường & Vận hành hiệu suất quảng cáo cho Lua Viet Restaurant."
-      }
+        caption: "Hình ảnh thực tế nhà hàng Lua Viet Restaurant.",
+      },
     ],
     cover: "/course-assets/lua-viet.jpg",
     short: "Triển khai chiến dịch tối ưu chuyển đổi và quản trị phễu khách hàng, tập trung đẩy doanh số trong mùa cao điểm.",
@@ -91,11 +107,15 @@ const cases = [
     ],
     proof: [
       {
+        src: "/course-assets/chan-nieu-store.jpg",
+        caption: "Mặt tiền thực tế nhà hàng Chạn Niêu Đà Nẵng.",
+      },
+      {
         src: "/course-assets/chan-nieu.jpg",
-        caption: "Báo cáo bàn giao kết quả tối ưu Google Maps & TripAdvisor cho Chạn Niêu Đà Nẵng."
-      }
+        caption: "Báo cáo bàn giao kết quả tối ưu Google Maps & TripAdvisor cho Chạn Niêu Đà Nẵng.",
+      },
     ],
-    cover: "/course-assets/chan-nieu.jpg",
+    cover: "/course-assets/chan-nieu-store.jpg",
     short: "Tối ưu hóa SEO Google Maps và đồng bộ kênh TripAdvisor giúp nâng tầm thương hiệu, tăng lượng tiếp cận tự nhiên.",
     tag: "Local",
     tagColor: "bg-violet-50 text-violet-700 border-violet-100",
@@ -110,10 +130,19 @@ const cases = [
     metrics: [
       { label: "Followers", value: "4,000+" },
       { label: "Thời gian", value: "3 tháng" },
-      { label: "Lượt thích", value: "13.3K", accent: true },
+      { label: "Lượt thích", value: "13.4K", accent: true },
     ],
-    proof: [],
-    cover: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=900&q=80",
+    proof: [
+      {
+        src: "/course-assets/banh-ga-tiktok.jpg",
+        caption: "Kênh TikTok Bánh Gà Phan Văn Trường đạt hơn 4.000 followers và 13.4K lượt thích.",
+      },
+      {
+        src: "/course-assets/qr-banh-ga.png",
+        caption: "Quét mã QR để xem chi tiết Kịch bản video của kênh Bánh gà Phan Văn Trường.",
+      },
+    ],
+    cover: "/course-assets/banh-ga-tiktok.jpg",
     short: "Hoạch định nội dung TikTok, đào tạo nhân sự content và xây format video phù hợp sản phẩm ăn vặt địa phương.",
     tag: "TikTok",
     tagColor: "bg-rose-50 text-rose-700 border-rose-100",

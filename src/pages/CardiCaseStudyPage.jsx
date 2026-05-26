@@ -9,6 +9,7 @@ const timeline = [
 ];
 
 const proofImages = [
+  { src: "/course-assets/cardi-pizzeria.jpg", caption: "Hình ảnh mặt tiền nhà hàng Cardi Pizzeria Võ Văn Kiệt tại TP.HCM" },
   { src: "https://i.ibb.co/F41NH6Vy/daonh-thu.jpg", caption: "Doanh thu 624,600,000đ được ghi nhận qua hệ thống POS" },
   { src: "https://i.ibb.co/gMJvsvm9/camp-gg-1.jpg", caption: "Dashboard Google Ads — Ngân sách: 23,791,158đ" },
 ];
