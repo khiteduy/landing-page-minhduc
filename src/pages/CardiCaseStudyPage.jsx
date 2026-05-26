@@ -134,10 +134,32 @@ export default function CardiCaseStudyPage() {
 
       {/* Lightbox */}
       {lightbox && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4 cursor-zoom-out" onClick={() => setLightbox("")}>
-          <div className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl bg-white shadow-2xl">
-            <img src={lightbox} alt="Proof" className="max-h-[85vh] max-w-[90vw] object-contain" />
-            <button onClick={() => setLightbox("")} className="absolute top-3 right-3 w-9 h-9 rounded-full bg-slate-900/70 text-white flex items-center justify-center hover:bg-slate-900">✕</button>
+        <div
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 cursor-zoom-out"
+          onClick={() => setLightbox("")}
+        >
+          {/* Close button on fixed backdrop */}
+          <button
+            onClick={() => setLightbox("")}
+            className="fixed top-6 right-6 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 active:scale-95 transition-all duration-300 border border-white/10 z-50 shadow-lg"
+            aria-label="Đóng"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
+          <div
+            className="relative flex flex-col items-center max-w-[90vw] max-h-[80vh] overflow-hidden"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="bg-white p-2 rounded-2xl shadow-2xl border border-slate-100/50 flex items-center justify-center">
+              <img
+                src={lightbox}
+                alt="Proof detail"
+                className="max-h-[70vh] max-w-[85vw] object-contain rounded-xl"
+              />
+            </div>
           </div>
         </div>
       )}

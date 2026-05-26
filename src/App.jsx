@@ -231,30 +231,48 @@ export default function App() {
       {/* Lightbox */}
       {lightbox && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 backdrop-blur-sm p-4 cursor-zoom-out"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 cursor-zoom-out"
           onClick={() => setLightbox("")}
         >
+          {/* Close button on fixed backdrop (never overlaps content) */}
+          <button
+            onClick={() => setLightbox("")}
+            className="fixed top-6 right-6 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 active:scale-95 transition-all duration-300 border border-white/10 z-50 shadow-lg"
+            aria-label="Đóng"
+          >
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+
           <div
-            className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl bg-white shadow-2xl border border-slate-100/50 flex items-center justify-center p-2"
+            className="relative flex flex-col items-center max-w-[90vw] max-h-[80vh] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <img 
-              src={typeof lightbox === "string" ? lightbox : lightbox.src}
-              alt="Proof detail" 
-              className="max-h-[85vh] max-w-[90vw] object-contain animate-scale-in rounded-xl" 
-            />
+            {lightbox.type === "youtube" ? (
+              <div className="bg-[#0A0F1C] p-2 rounded-3xl shadow-2xl border border-white/5">
+                <iframe
+                  className="w-[85vw] h-[48vw] max-w-[800px] max-h-[450px] rounded-2xl border-0"
+                  src={`https://www.youtube.com/embed/${lightbox.videoId}?autoplay=1`}
+                  title="YouTube video player"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+            ) : (
+              <div className="bg-white p-2 rounded-2xl shadow-2xl border border-slate-100/50 flex items-center justify-center">
+                <img
+                  src={typeof lightbox === "string" ? lightbox : lightbox.src}
+                  alt="Proof detail"
+                  className="max-h-[70vh] max-w-[85vw] object-contain rounded-xl"
+                />
+              </div>
+            )}
             {typeof lightbox === "object" && lightbox.caption && (
-              <p className="absolute bottom-4 left-4 right-16 rounded-xl bg-slate-950/75 px-4 py-3 text-xs font-semibold leading-relaxed text-white shadow-lg">
+              <p className="mt-4 max-w-xl text-center text-[11px] sm:text-xs font-semibold leading-relaxed text-slate-200 bg-slate-900/60 backdrop-blur-md py-2.5 px-5 rounded-full border border-white/5 shadow-lg">
                 {lightbox.caption}
               </p>
             )}
-            <button
-              onClick={() => setLightbox("")}
-              className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/60 text-white hover:bg-slate-900/80 transition-colors"
-              aria-label="Đóng"
-            >
-              <span className="text-xl leading-none font-bold">×</span>
-            </button>
           </div>
         </div>
       )}

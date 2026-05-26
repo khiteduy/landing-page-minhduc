@@ -49,15 +49,25 @@ const cases = [
     ],
     proof: [
       {
+        src: "/course-assets/bee-logo.jpg",
+        caption: "Logo chính thức của Bee English Community (Bee Language Community).",
+      },
+      {
+        type: "youtube",
+        videoId: "zkMI-I86O6w",
+        src: "https://img.youtube.com/vi/zkMI-I86O6w/0.jpg",
+        caption: "Video giới thiệu và hoạt động học tập, câu lạc bộ thực tế tại Bee English Community.",
+      },
+      {
         src: "https://www.facebook.com/business/success/bee-english-community",
-        caption: "Bee English Community là case xuất hiện trong thư viện Meta/Facebook Business Success, liên quan đến click-to-Messenger và tối ưu lead.",
+        caption: "Bài viết Case Study chính thức của Bee English Community trên thư viện Meta/Facebook Business Success.",
       },
       {
         src: "/course-assets/qr-bee-english.png",
         caption: "Quét mã QR để xem chi tiết Kịch bản video Bee English Community do Đinh Minh Đức duyệt và cố vấn.",
       },
     ],
-    cover: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
+    cover: "/course-assets/bee-logo.jpg",
     short: "Tối ưu ngân sách quảng cáo đa kênh, đào tạo nhân sự và điều phối đội ngũ sáng tạo nâng cao tỷ lệ chuyển đổi.",
     tag: "Giáo Dục",
     tagColor: "bg-blue-50 text-blue-700 border-blue-100",
@@ -241,7 +251,7 @@ function CaseCard({ c, setLightbox }) {
               return src.startsWith("http") || src.startsWith("/course-assets/") ? (
                 <button
                   key={src}
-                  onClick={() => setLightbox({ src, caption })}
+                  onClick={() => setLightbox(typeof p === "string" ? { src: p, caption: "" } : p)}
                   className="group/proof relative overflow-hidden border border-slate-200 hover:border-[#2563EB] h-28 w-full rounded-xl transition-all duration-300 text-left"
                   type="button"
                 >
