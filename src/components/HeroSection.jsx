@@ -83,13 +83,13 @@ export default function HeroSection() {
             className="text-5xl sm:text-6xl lg:text-[5.5rem] xl:text-[6.5rem] leading-[1.2] uppercase tracking-[-0.025em]"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontWeight: 800 }}
           >
-            <span className="block text-[#0A0F1C]">Hệ thống</span>
+            <span className="block text-[#0A0F1C]">Tăng trưởng</span>
             <span className="block relative">
-              <span className="text-[#0A0F1C]">marketing </span>
+              <span className="text-[#0A0F1C]">doanh thu </span>
               <span
                 className="relative inline-block text-[#2563EB]"
               >
-                thực chiến
+                bằng Ads
                 {/* Animated underline */}
                 <span
                   ref={lineRef}
@@ -99,7 +99,7 @@ export default function HeroSection() {
               </span>
             </span>
             <span className="block text-[#0A0F1C]/25 text-4xl sm:text-5xl lg:text-[3.8rem] xl:text-[4.5rem] mt-2">
-              cho thương hiệu Việt.
+              content và dữ liệu.
             </span>
           </h1>
         </div>
@@ -109,8 +109,7 @@ export default function HeroSection() {
           {/* Left: description + CTAs */}
           <div className="lg:col-span-6 flex flex-col gap-8">
             <p className="text-base sm:text-lg text-[#0A0F1C]/65 leading-relaxed max-w-xl">
-              Minh Duc Global giúp doanh nghiệp F&amp;B, giáo dục và thương mại
-              điện tử chuyển hóa quảng cáo thành doanh thu thực tế đo lường được.
+              Minh Duc Global giúp doanh nghiệp tối ưu quảng cáo đa nền tảng và đào tạo học viên triển khai marketing thực chiến dựa trên số liệu thật, case thật và kinh nghiệm trực tiếp vận hành.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -126,7 +125,7 @@ export default function HeroSection() {
                   <svg className="w-3.5 h-3.5 mr-2 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 16 16">
                     <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
-                  Nhận kiểm toán miễn phí
+                  Tư vấn tăng trưởng
                 </a>
                 <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider text-center">
                   Dành cho Doanh nghiệp B2B
@@ -142,7 +141,7 @@ export default function HeroSection() {
                   }}
                   className="btn-awwwards btn-awwwards-outline"
                 >
-                  Khóa học thực chiến ↗
+                  Xem khóa học thực chiến
                 </a>
                 <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider text-center">
                   Dành cho Học viên

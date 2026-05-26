@@ -12,8 +12,14 @@ const cases = [
     metrics: ["Ngân sách: 23,791,158đ", "Doanh thu: 624,600,000đ", "ROAS: 26.25x"],
     cover: "https://i.ibb.co/gMJvsvm9/camp-gg-1.jpg",
     proof: [
-      "https://i.ibb.co/F41NH6Vy/daonh-thu.jpg",
-      "https://i.ibb.co/gMJvsvm9/camp-gg-1.jpg",
+      {
+        src: "https://i.ibb.co/F41NH6Vy/daonh-thu.jpg",
+        caption: "Doanh thu ghi nhận: 624.600.000đ trong kỳ 01/04-01/05/2026.",
+      },
+      {
+        src: "https://i.ibb.co/gMJvsvm9/camp-gg-1.jpg",
+        caption: "Chi phí Google Ads cùng kỳ: 23.791.158đ, tương đương hiệu suất doanh thu/ngân sách khoảng 26,25X.",
+      },
     ],
     short: "Vận hành Google Ads kết hợp tối ưu Local Map để phủ sóng điểm bán và tối đa hóa doanh thu thực tế tại cửa hàng.",
     tag: "F&B",
@@ -28,8 +34,13 @@ const cases = [
     resultColor: "text-blue-600",
     metrics: ["Ngân sách: 1.6Mđ/ngày", "Lead/tháng: 300-350", "Doanh thu: 200-250Mđ/tháng"],
     cover: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
-    proof: ["https://www.facebook.com/business/success/bee-english-community"],
-    short: "Tối ưu ngân sách quảng cáo đa kênh, đào tạo nhân sự và điều phối đội ngũ sáng tạo nâng cao tỷ lệ chuyển đổi.",
+    proof: [
+      {
+        src: "https://www.facebook.com/business/success/bee-english-community",
+        caption: "Bee English Community là case xuất hiện trong thư viện Meta/Facebook Business Success, liên quan đến click-to-Messenger và tối ưu lead.",
+      },
+    ],
+    short: "Tối ưu ngân sách Performance, đào tạo nhân sự và điều phối content team để nâng cao hiệu suất quảng cáo cho mô hình giáo dục.",
     tag: "Giáo Dục",
     tagColor: "bg-blue-50 text-blue-700 border-blue-100",
   },
@@ -47,6 +58,23 @@ const cases = [
     tag: "F&B",
     tagColor: "bg-orange-50 text-orange-700 border-orange-100",
   },
+  {
+    name: "Bánh gà Phan Văn Trường",
+    category: "TikTok Organic Growth",
+    industry: "F&B / Ăn vặt / TikTok Local Brand",
+    role: "Marketing Lead",
+    result: "4.000+ followers",
+    resultColor: "text-blue-600",
+    metrics: ["Followers: 4,000+", "Thời gian: 3 tháng", "Lượt thích: 13.3K"],
+    cover: "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=900&q=80",
+    proof: [],
+    short: "Hoạch định nội dung TikTok, đào tạo nhân sự content và xây format video phù hợp sản phẩm ăn vặt địa phương.",
+    tag: "TikTok",
+    tagColor: "bg-rose-50 text-rose-700 border-rose-100",
+  },
+];
+
+const updatingCases = [
   {
     name: "Chạn Đà Nẵng",
     category: "Nhận diện & Local Map GBP",
@@ -212,14 +240,17 @@ export default function CaseStudiesSection({ setLightbox }) {
               {/* Proof images */}
               {c.proof.length > 0 && (
                 <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  {c.proof.map((p) =>
-                    p.startsWith("http") && !p.includes("facebook.com/business") ? (
+                  {c.proof.map((proofItem) => {
+                    const src = typeof proofItem === "string" ? proofItem : proofItem.src;
+                    const caption = typeof proofItem === "string" ? "" : proofItem.caption;
+
+                    return src.startsWith("http") && !src.includes("facebook.com/business") ? (
                       <button
-                        key={p}
-                        onClick={() => setLightbox(p)}
+                        key={src}
+                        onClick={() => setLightbox({ src, caption })}
                         className="group/proof relative overflow-hidden border border-slate-200 text-left transition-all duration-300 hover:border-[#2563EB] h-32 w-full rounded-xl"
                       >
-                        <img src={p} alt={`Proof ${c.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover/proof:scale-105" loading="lazy" />
+                        <img src={src} alt={`Proof ${c.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover/proof:scale-105" loading="lazy" />
                         <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/proof:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                           <span className="bg-white px-4 py-2 text-[9px] font-bold text-slate-800 flex items-center gap-1.5 shadow-sm rounded-full uppercase tracking-wider transform translate-y-2 group-hover/proof:translate-y-0 transition-transform duration-300">
                             <svg className="w-3 h-3" fill="none" viewBox="0 0 12 12"><path d="M1 6C1 6 3 2 6 2s5 4 5 4-2 4-5 4S1 6 1 6z" stroke="currentColor" strokeWidth="1.2"/><circle cx="6" cy="6" r="1.5" fill="currentColor"/></svg>
@@ -228,16 +259,55 @@ export default function CaseStudiesSection({ setLightbox }) {
                         </div>
                       </button>
                     ) : (
-                      <a key={p} href={p} target="_blank" rel="noreferrer" className="flex items-center justify-center border border-dashed border-slate-200 p-4 text-[9px] font-bold text-[#2563EB] hover:bg-slate-50 hover:border-[#2563EB] transition-all text-center h-32 rounded-xl uppercase tracking-wider gap-2">
+                      <a key={src} href={src} target="_blank" rel="noreferrer" className="flex items-center justify-center border border-dashed border-slate-200 p-4 text-[9px] font-bold text-[#2563EB] hover:bg-slate-50 hover:border-[#2563EB] transition-all text-center h-32 rounded-xl uppercase tracking-wider gap-2">
                         <svg className="w-4 h-4" fill="none" viewBox="0 0 16 16"><path d="M13 8v5a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1h5M10 2h4v4M6 10l6-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
                         Xem nguồn Meta
                       </a>
-                    )
-                  )}
+                    );
+                  })}
                 </div>
               )}
             </article>
           ))}
+        </div>
+
+        {/* Updating projects */}
+        <div className="mt-10 rounded-[1.5rem] border border-dashed border-slate-200 bg-slate-50/70 p-6">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">
+                Dự án đang cập nhật số liệu
+              </p>
+              <h3 className="mt-2 font-display text-xl font-black uppercase leading-[1.25] text-[#0A0F1C]">
+                Không đặt ngang hàng với case đã có số liệu đầy đủ.
+              </h3>
+            </div>
+            <p className="max-w-md text-sm leading-[1.8] text-slate-500">
+              Các dự án này vẫn nằm trong danh sách năng lực, nhưng sẽ được nâng lên case chính khi có proof và số liệu đủ rõ.
+            </p>
+          </div>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            {updatingCases.map((c) => (
+              <article key={c.name} className="rounded-2xl border border-slate-200 bg-white p-5">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className={`px-3 py-1 text-[9px] font-bold uppercase tracking-wider rounded-full border ${c.tagColor}`}>
+                    {c.tag}
+                  </span>
+                  <span className="rounded-full bg-slate-100 px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-slate-500">
+                    Đang bổ sung proof
+                  </span>
+                </div>
+                <h4 className="mt-4 font-display text-lg font-black uppercase leading-[1.25] text-[#0A0F1C]">
+                  {c.name}
+                </h4>
+                <p className="mt-2 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                  {c.industry} · {c.role}
+                </p>
+                <p className="mt-3 text-sm leading-[1.8] text-slate-500">{c.short}</p>
+              </article>
+            ))}
+          </div>
         </div>
 
         {/* Cases CTA */}

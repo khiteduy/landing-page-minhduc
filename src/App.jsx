@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import useForm from "./hooks/useForm";
 import Header from "./components/Header";
 import HeroSection from "./components/HeroSection";
+import AudiencePathSection from "./components/AudiencePathSection";
 import MetricsSection from "./components/MetricsSection";
 import CaseStudiesSection from "./components/CaseStudiesSection";
 import ServicesSection from "./components/ServicesSection";
@@ -50,15 +51,37 @@ export default function App() {
     {
       formType: "dang_ky_tu_van_tang_truong",
       leadSource: "website_contact_form",
-      leadCategory: "consulting",
+      leadCategory: "business_growth",
       needGroup: "Tôi là doanh nghiệp",
       name: "",
       phone: "",
       mainNeed: "",
       description: "",
+      industry: "",
+      monthlyBudget: "",
+      primaryGoal: "",
+      websiteOrFanpage: "",
+      courseInterest: "",
+      currentLevel: "",
+      learningGoal: "",
+      businessField: "",
     },
     contactWebhook,
-    null,
+    (values) => {
+      const errors = {};
+      const isStudent = values.needGroup === "Tôi là học viên";
+      const requiredFields = isStudent
+        ? ["courseInterest", "currentLevel", "learningGoal"]
+        : ["industry", "monthlyBudget", "primaryGoal"];
+
+      requiredFields.forEach((field) => {
+        if (!values[field]?.toString().trim()) {
+          errors[field] = "Trường này không được để trống";
+        }
+      });
+
+      return errors;
+    },
     (data) => {
       if (window.trackFormSubmit) {
         window.trackFormSubmit("contact", data);
@@ -130,15 +153,20 @@ export default function App() {
       {/* 2. HERO SECTION */}
       <HeroSection />
 
-      {/* 3. MARQUEE RUNNING */}
+      {/* 3. AUDIENCE PATH */}
+      <div className="reveal-on-scroll">
+        <AudiencePathSection />
+      </div>
+
+      {/* 4. MARQUEE RUNNING */}
       <Marquee />
 
-      {/* 4. ABOUT FOUNDER — đưa lên đầu theo yêu cầu */}
+      {/* 5. ABOUT FOUNDER — đưa lên đầu theo yêu cầu */}
       <div className="reveal-on-scroll">
         <AboutSection />
       </div>
 
-      {/* 5. METRICS SECTION */}
+      {/* 6. METRICS SECTION */}
       <div className="reveal-on-scroll">
         <MetricsSection />
       </div>
@@ -196,12 +224,20 @@ export default function App() {
           className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/75 backdrop-blur-sm p-4 animate-fade-in cursor-zoom-out"
           onClick={() => setLightbox("")}
         >
-          <div className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl bg-white shadow-2xl border border-slate-100/50 flex items-center justify-center p-2">
+          <div
+            className="relative max-h-[90vh] max-w-[90vw] overflow-hidden rounded-2xl bg-white shadow-2xl border border-slate-100/50 flex items-center justify-center p-2"
+            onClick={(e) => e.stopPropagation()}
+          >
             <img 
-              src={lightbox} 
+              src={typeof lightbox === "string" ? lightbox : lightbox.src}
               alt="Proof detail" 
               className="max-h-[85vh] max-w-[90vw] object-contain animate-scale-in rounded-xl" 
             />
+            {typeof lightbox === "object" && lightbox.caption && (
+              <p className="absolute bottom-4 left-4 right-16 rounded-xl bg-slate-950/75 px-4 py-3 text-xs font-semibold leading-relaxed text-white shadow-lg">
+                {lightbox.caption}
+              </p>
+            )}
             <button
               onClick={() => setLightbox("")}
               className="absolute top-4 right-4 flex h-10 w-10 items-center justify-center rounded-full bg-slate-900/60 text-white hover:bg-slate-900/80 transition-colors shadow-md"

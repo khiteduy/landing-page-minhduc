@@ -1,6 +1,18 @@
 import { useState } from "react";
 
 const PHONE_REGEX = /^(?:\+84|0)[35789]\d{8}$/;
+const OPTIONAL_FIELDS = new Set([
+  "requestedTool",
+  "mainNeed",
+  "industry",
+  "monthlyBudget",
+  "primaryGoal",
+  "websiteOrFanpage",
+  "courseInterest",
+  "currentLevel",
+  "learningGoal",
+  "businessField",
+]);
 
 export default function useForm(initialValues, webhookUrl, validateFields, onSuccessCallback) {
   const [values, setValues] = useState(initialValues);
@@ -35,7 +47,7 @@ export default function useForm(initialValues, webhookUrl, validateFields, onSuc
   const validate = () => {
     const newErrors = {};
     Object.keys(initialValues).forEach((key) => {
-      if (["formType", "leadSource", "leadCategory"].includes(key)) {
+      if (["formType", "leadSource", "leadCategory"].includes(key) || OPTIONAL_FIELDS.has(key)) {
         return;
       }
 

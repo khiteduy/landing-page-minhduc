@@ -309,6 +309,33 @@ export default function CoursesSection() {
           </div>
         </div>
 
+        {/* Student proof near the Facebook Ads offer */}
+        <div className="mb-16 rounded-[1.75rem] border border-emerald-100 bg-emerald-50/70 p-6 sm:p-8">
+          <div className="grid gap-6 lg:grid-cols-12 lg:items-center">
+            <div className="lg:col-span-8">
+              <p className="text-[10px] font-black uppercase tracking-[0.22em] text-emerald-700">
+                Case học viên Facebook Ads
+              </p>
+              <h3 className="mt-3 font-display text-2xl font-black uppercase leading-[1.25] text-[#0A0F1C]">
+                Quyên - kinh doanh xe điện: từ chưa biết gì đến tự chạy quảng cáo ra đơn.
+              </h3>
+              <p className="mt-4 text-sm leading-[1.9] text-slate-600">
+                Sau quá trình học, Quyên có thể tự triển khai Facebook Ads, đọc chỉ số cơ bản và tối ưu chi phí tin nhắn về khoảng 3.000-5.000đ/mess.
+              </p>
+            </div>
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <a
+                href="https://www.facebook.com/share/v/18izSvaN8g/"
+                target="_blank"
+                rel="noreferrer"
+                className="btn-awwwards btn-awwwards-solid"
+              >
+                Xem feedback của Quyên
+              </a>
+            </div>
+          </div>
+        </div>
+
         {/* Course Cards Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {courses.map((course, idx) => (
