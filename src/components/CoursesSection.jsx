@@ -146,8 +146,8 @@ const studentFeedbacks = [
     quote: "Bắt đầu từ số 0, sau khóa học em đã tự vận hành Facebook Ads ra đơn với chi phí chỉ 3,000đ – 5,000đ/mess. Thầy dạy thực tế, không có lý thuyết dài dòng.",
     result: "3k–5k đ/mess",
     resultLabel: "Chi phí tin nhắn",
-    videoSrc: "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F18izSvaN8g%2F&show_text=false",
-    videoLink: "https://www.facebook.com/share/v/18izSvaN8g/",
+    videoSrc: "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F596909413412164&show_text=false",
+    videoLink: "https://www.facebook.com/reel/596909413412164",
     course: "Facebook Ads",
   },
   {
@@ -421,7 +421,7 @@ export default function CoursesSection() {
                   <svg className="w-3 h-3" fill="none" viewBox="0 0 12 12"><path d="M2 6l2.5 2.5 5.5-5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                   Đã ra đơn thực tế sau học
                 </span>
-                <a href="https://www.facebook.com/share/v/18izSvaN8g/" target="_blank" rel="noreferrer" className="text-[10px] font-black text-[#2563EB] hover:underline uppercase tracking-wider ml-auto">
+                <a href="https://www.facebook.com/reel/596909413412164" target="_blank" rel="noreferrer" className="text-[10px] font-black text-[#2563EB] hover:underline uppercase tracking-wider ml-auto">
                   Xem trên Facebook ↗
                 </a>
               </div>
@@ -431,7 +431,7 @@ export default function CoursesSection() {
             <div className="aspect-video rounded-2xl overflow-hidden border border-slate-200 bg-[#0A0F1C] shadow-[0_20px_60px_rgba(10,15,28,0.1)]">
               <iframe
                 title="Feedback học viên Quyên — Facebook Ads"
-                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F18izSvaN8g%2F&show_text=false"
+                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F596909413412164&show_text=false"
                 className="h-full w-full border-none"
                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
               />

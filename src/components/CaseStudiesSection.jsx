@@ -18,7 +18,7 @@ const cases = [
     proof: [
       {
         src: "/course-assets/cardi-pizzeria.jpg",
-        caption: "Hình ảnh thực tế cửa hàng Cardi Pizzeria Võ Văn Kiệt tại TP.HCM.",
+        caption: "Hình ảnh thực tế cửa hàng Cardi Pizzeria Võ Văn Kiệt tại Đà Nẵng.",
       },
       {
         src: "https://i.ibb.co/F41NH6Vy/daonh-thu.jpg",
@@ -53,10 +53,14 @@ const cases = [
         caption: "Logo chính thức của Bee English Community (Bee Language Community).",
       },
       {
-        type: "youtube",
-        videoId: "zkMI-I86O6w",
-        src: "https://img.youtube.com/vi/zkMI-I86O6w/0.jpg",
-        caption: "Video giới thiệu và hoạt động học tập, câu lạc bộ thực tế tại Bee English Community.",
+        type: "video",
+        src: "https://static.xx.fbcdn.net/mci_ab/public/cms/?ab_b=v&ab_page=CMS&ab_entry=621482010276285&version=621481686942984",
+        caption: "Video quảng cáo A/B Test - Tối ưu hóa tin nhắn Messenger (Facebook Ad Video 1).",
+      },
+      {
+        type: "video",
+        src: "https://static.xx.fbcdn.net/mci_ab/public/cms/?ab_b=v&ab_page=CMS&ab_entry=621481686942984&version=621482010276285",
+        caption: "Video quảng cáo A/B Test - Tối ưu hóa thu hút Lead chất lượng (Facebook Ad Video 2).",
       },
       {
         src: "https://www.facebook.com/business/success/bee-english-community",
@@ -68,7 +72,7 @@ const cases = [
       },
     ],
     cover: "/course-assets/bee-logo.jpg",
-    short: "Tối ưu ngân sách quảng cáo đa kênh, đào tạo nhân sự và điều phối đội ngũ sáng tạo nâng cao tỷ lệ chuyển đổi.",
+    short: "Bee English Community là case xuất hiện trong thư viện Meta/Facebook Business Success. Phần triển khai tập trung vào tối ưu ngân sách quảng cáo, đào tạo đội ngũ in-house và sản xuất kịch bản video phục vụ chuyển đổi.",
     tag: "Giáo Dục",
     tagColor: "bg-blue-50 text-blue-700 border-blue-100",
   },
@@ -104,33 +108,6 @@ const cases = [
     tagColor: "bg-orange-50 text-orange-700 border-orange-100",
   },
   {
-    name: "Chạn Niêu Đà Nẵng",
-    category: "Tối ưu Google Maps & TripAdvisor",
-    industry: "F&B / Nhà hàng",
-    role: "Truyền thông & Maps",
-    result: "Đã xác minh",
-    resultColor: "text-emerald-600 bg-emerald-50 border-emerald-100",
-    metrics: [
-      { label: "Đánh giá Maps", value: "4.8★ (677)" },
-      { label: "TripAdvisor", value: "5.0★ (25)" },
-      { label: "Thứ hạng", value: "163/1652", accent: true },
-    ],
-    proof: [
-      {
-        src: "/course-assets/chan-nieu-store.jpg",
-        caption: "Mặt tiền thực tế nhà hàng Chạn Niêu Đà Nẵng.",
-      },
-      {
-        src: "/course-assets/chan-nieu.jpg",
-        caption: "Báo cáo bàn giao kết quả tối ưu Google Maps & TripAdvisor cho Chạn Niêu Đà Nẵng.",
-      },
-    ],
-    cover: "/course-assets/chan-nieu-store.jpg",
-    short: "Tối ưu hóa SEO Google Maps và đồng bộ kênh TripAdvisor giúp nâng tầm thương hiệu, tăng lượng tiếp cận tự nhiên.",
-    tag: "Local",
-    tagColor: "bg-violet-50 text-violet-700 border-violet-100",
-  },
-  {
     name: "Bánh gà Phan Văn Trường",
     category: "TikTok Organic Growth",
     industry: "F&B / Ăn vặt / TikTok Local Brand",
@@ -159,7 +136,16 @@ const cases = [
   },
 ];
 
-const updatingCases = [];
+const updatingCases = [
+  {
+    name: "Chạn Niêu Đà Nẵng",
+    industry: "F&B / Nhà hàng",
+    role: "Listing & cập nhật chuẩn SEO",
+    short: "Thực hiện listing thông tin doanh nghiệp và cập nhật hồ sơ Google Maps/GBP theo hướng chuẩn SEO địa phương, giúp thông tin hiển thị rõ ràng, nhất quán và dễ được khách hàng tìm thấy.",
+    tag: "Listing SEO",
+    tagColor: "bg-sky-50 text-sky-700 border-sky-100",
+  }
+];
 
 /* ── KPI counter ─────────────────────── */
 function KpiCounter({ value, label, color = "text-white" }) {
@@ -169,7 +155,7 @@ function KpiCounter({ value, label, color = "text-white" }) {
   const { count, ref } = useCountUp(numVal, 2000, isNumeric);
   return (
     <div ref={ref} className="case-kpi p-5 sm:p-6 text-center">
-      <p className="text-[9px] uppercase tracking-widest font-bold text-slate-400 mb-1">{label}</p>
+      <p className="text-[9px] uppercase tracking-widest font-bold text-blue-100/90 mb-1">{label}</p>
       <p className={`text-2xl sm:text-3xl font-extrabold tabular-nums ${color}`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
         {isNumeric ? count : value}
       </p>
@@ -247,24 +233,41 @@ function CaseCard({ c, setLightbox }) {
             {c.proof.map((p) => {
               const src = typeof p === "string" ? p : p.src;
               const caption = typeof p === "string" ? "" : p.caption;
+              const isVideo = typeof p === "object" && p.type === "video";
+              const isYoutube = typeof p === "object" && p.type === "youtube";
+              const thumbnailSrc = isYoutube ? p.src : (isVideo ? "/course-assets/bee-logo.jpg" : src);
 
-              return src.startsWith("http") || src.startsWith("/course-assets/") ? (
+              return (src.startsWith("http") && !src.includes("facebook.com/business/success")) || src.startsWith("/course-assets/") ? (
                 <button
                   key={src}
                   onClick={() => setLightbox(typeof p === "string" ? { src: p, caption: "" } : p)}
                   className="group/proof relative overflow-hidden border border-slate-200 hover:border-[#2563EB] h-28 w-full rounded-xl transition-all duration-300 text-left"
                   type="button"
                 >
-                  <img src={src} alt={`Proof ${c.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover/proof:scale-105" loading="lazy" />
+                  <img src={thumbnailSrc} alt={`Proof ${c.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover/proof:scale-105" loading="lazy" />
+
+                  {/* Play Overlay for Videos */}
+                  {isVideo && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-slate-950/20">
+                      <div className="bg-[#2563EB] text-white p-2.5 rounded-full shadow-lg border border-white/20 active:scale-95 transition-transform duration-300">
+                        <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                  )}
+
                   <div className="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/proof:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="bg-white px-3 py-1.5 text-[9px] font-black text-slate-800 rounded-full uppercase tracking-wider">Xem minh chứng</span>
+                    <span className="bg-white px-3 py-1.5 text-[9px] font-black text-slate-800 rounded-full uppercase tracking-wider">
+                      {isVideo ? "Phát video quảng cáo" : "Xem minh chứng"}
+                    </span>
                   </div>
                 </button>
               ) : (
                 <a key={src} href={src} target="_blank" rel="noreferrer"
-                  className="flex items-center justify-center gap-2 border border-dashed border-slate-200 hover:border-[#2563EB] hover:bg-slate-50 h-28 rounded-xl transition-all text-[9px] font-black text-[#2563EB] uppercase tracking-wider text-center px-4">
+                  className="flex flex-col items-center justify-center gap-1.5 border border-dashed border-slate-200 hover:border-[#2563EB] hover:bg-slate-50 h-28 rounded-xl transition-all text-[9px] font-black text-[#2563EB] uppercase tracking-wider text-center px-4">
                   <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 16 16"><path d="M13 8v5a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1h5M10 2h4v4M6 10l6-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  Xem nguồn Meta
+                  <span>{caption || "Xem nguồn Meta"}</span>
                 </a>
               );
             })}
@@ -314,7 +317,7 @@ export default function CaseStudiesSection({ setLightbox }) {
             </p>
             <div className="mt-8 grid grid-cols-3 gap-4 border-t border-slate-800 pt-6">
               <KpiCounter value="624" label="Doanh thu lớn nhất (triệu VND)" color="text-white" />
-              <KpiCounter value="27" label="ROAS cao nhất" color="text-[#2563EB]" />
+              <KpiCounter value="27" label="ROAS cao nhất" color="text-sky-300" />
               <KpiCounter value="350" label="Lead/tháng tối đa" color="text-white" />
             </div>
           </div>

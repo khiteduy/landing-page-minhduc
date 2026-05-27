@@ -25,24 +25,27 @@ const proofItems = [
 
 export default function SocialProofStrip() {
   return (
-    <section className="bg-white border-b border-[#0A0F1C]/5 py-8">
+    <section className="bg-white border-b border-[#0A0F1C]/5 py-12">
       <div className="section-container">
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6 lg:gap-x-0 divide-slate-100 lg:divide-x">
           {proofItems.map((item) => (
-            <article
+            <div
               key={item.project}
-              className="rounded-2xl border border-blue-100 bg-gradient-to-br from-white to-blue-50/60 p-5 shadow-[0_14px_40px_rgba(14,116,232,0.05)]"
+              className="flex flex-col items-center justify-center text-center px-4"
             >
-              <p className="font-display text-3xl font-black leading-none text-[#0B74E8]">
+              <p
+                className="font-display text-3xl sm:text-4xl font-black tracking-tight text-[#2563EB]"
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+              >
                 {item.value}
               </p>
-              <p className="mt-2 text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">
+              <p className="text-[9px] font-extrabold uppercase tracking-[0.2em] text-[#0A0F1C]/40 mt-2">
                 {item.label}
               </p>
-              <p className="mt-3 text-sm font-extrabold uppercase leading-[1.35] text-[#0A0F1C]">
+              <p className="text-xs font-extrabold uppercase tracking-widest text-[#0A0F1C] mt-1">
                 {item.project}
               </p>
-            </article>
+            </div>
           ))}
         </div>
       </div>

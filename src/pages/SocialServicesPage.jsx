@@ -11,12 +11,12 @@ const serviceBlocks = [
   },
   {
     title: "Xử lý khóa & hạn chế Facebook",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
+    image: "/course-assets/facebook-checkpoint.png",
     desc: "Rà soát và hỗ trợ xử lý các tình trạng thường gặp như khóa 956, 2FA, checkpoint, hạn chế tài khoản, fanpage, quyền quản trị, bảo mật và các lỗi phát sinh khi sử dụng Facebook.",
   },
   {
     title: "Hỗ trợ lỗi TikTok & livestream",
-    image: "https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=900&q=80",
+    image: "/course-assets/tiktok-live-violation.png",
     desc: "Hỗ trợ kiểm tra tình trạng khóa live TikTok, hạn chế tính năng, cảnh báo nội dung, lỗi tài khoản/kênh và các vấn đề ảnh hưởng đến khả năng phân phối hoặc vận hành nội dung.",
   },
   {
@@ -52,7 +52,7 @@ export default function SocialServicesPage({ contactForm }) {
               <div className="grid gap-4 sm:grid-cols-5">
                 <div className="image-reveal-card h-72 border border-blue-100 sm:col-span-3">
                   <img
-                    src="https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?auto=format&fit=crop&w=1000&q=82"
+                    src="/course-assets/facebook-checkpoint.png"
                     alt="Minh họa vận hành mạng xã hội đa nền tảng"
                     loading="eager"
                   />
@@ -67,7 +67,7 @@ export default function SocialServicesPage({ contactForm }) {
                   </div>
                   <div className="image-reveal-card h-36 border border-blue-100">
                     <img
-                      src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80"
+                      src="/course-assets/tiktok-live-violation.png"
                       alt="Minh họa hỗ trợ tài khoản và bảo mật"
                       loading="lazy"
                     />

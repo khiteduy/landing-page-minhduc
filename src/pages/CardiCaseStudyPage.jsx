@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const timeline = [
-  { phase: "Bối cảnh", icon: "📍", content: "Cardi Pizzeria Võ Văn Kiệt là chuỗi pizza tại TP.HCM. Trước khi hợp tác, tài khoản Google Ads chưa được thiết lập bài bản, không có đo lường chuyển đổi, ngân sách bị lãng phí vào các từ khóa không liên quan." },
+  { phase: "Bối cảnh", icon: "📍", content: "Cardi Pizzeria Võ Văn Kiệt là một chi nhánh của chuỗi Cardi Pizzeria tại Đà Nẵng. Trước khi hợp tác, tài khoản Google Ads chưa được thiết lập bài bản, không có đo lường chuyển đổi, ngân sách bị lãng phí vào các từ khóa không liên quan." },
   { phase: "Mục tiêu", icon: "🎯", content: "Tăng doanh thu thực tế tại cửa hàng thông qua Google Search Ads và Local Map Ads, với ngân sách kiểm soát chặt. Mục tiêu: ROAS ≥ 10x trong 30 ngày đầu." },
   { phase: "Triển khai", icon: "⚙️", content: "Thiết lập lại cấu trúc tài khoản từ đầu. Nghiên cứu từ khóa theo intent mua hàng thực tế. Cài đặt đo lường chuyển đổi (call tracking, direction click). Tối ưu Google Business Profile + Local Map để phủ điểm bán. A/B test copy quảng cáo theo thời điểm trong ngày." },
   { phase: "Kết quả", icon: "📈", content: "Sau chiến dịch: ROAS đạt 26.25x — chi 23,791,158đ — thu về 624,600,000đ doanh thu trực tiếp. Lượng khách đến từ Google Maps tăng đáng kể trong giờ cao điểm." },
 ];
 
 const proofImages = [
-  { src: "/course-assets/cardi-pizzeria.jpg", caption: "Hình ảnh mặt tiền nhà hàng Cardi Pizzeria Võ Văn Kiệt tại TP.HCM" },
+  { src: "/course-assets/cardi-pizzeria.jpg", caption: "Hình ảnh mặt tiền nhà hàng Cardi Pizzeria Võ Văn Kiệt tại Đà Nẵng" },
   { src: "https://i.ibb.co/F41NH6Vy/daonh-thu.jpg", caption: "Doanh thu 624,600,000đ được ghi nhận qua hệ thống POS" },
   { src: "https://i.ibb.co/gMJvsvm9/camp-gg-1.jpg", caption: "Dashboard Google Ads — Ngân sách: 23,791,158đ" },
 ];

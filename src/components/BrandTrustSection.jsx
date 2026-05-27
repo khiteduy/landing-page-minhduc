@@ -43,10 +43,10 @@ const brands = [
     text: "text-orange-700",
   },
   {
-    name: "Chạn Đà Nẵng",
+    name: "Chạn Niêu Đà Nẵng",
     industry: "F&B / Nhà hàng",
-    highlight: "Local Map GBP",
-    desc: "Tối ưu Google Maps & GBP khu vực Đà Nẵng.",
+    highlight: "Listing chuẩn SEO",
+    desc: "Listing và cập nhật hồ sơ Google Maps/GBP theo chuẩn SEO địa phương.",
     color: "border-l-rose-400",
     initial: "CN",
     bg: "bg-rose-50",

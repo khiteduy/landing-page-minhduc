@@ -46,7 +46,13 @@ function Marquee() {
 export default function App() {
   const [lightbox, setLightbox] = useState("");
   const [showFloat, setShowFloat] = useState(false);
+  const [videoError, setVideoError] = useState(false);
   const pagePath = window.location.pathname;
+
+  const closeLightbox = () => {
+    setLightbox("");
+    setVideoError(false);
+  };
 
   const contactWebhook = import.meta.env.VITE_CONTACT_WEBHOOK_URL || "";
   const toolkitWebhook = import.meta.env.VITE_TOOLKIT_WEBHOOK_URL || "";
@@ -125,9 +131,15 @@ export default function App() {
     const handleScroll = () => {
       const heroH = document.querySelector("section")?.offsetHeight || 500;
       const contactEl = document.getElementById("contact");
-      const contactBottom = contactEl ? contactEl.getBoundingClientRect().bottom : Infinity;
-      setShowFloat(window.scrollY > heroH && contactBottom > 0);
+      if (contactEl) {
+        const rect = contactEl.getBoundingClientRect();
+        const isNearContact = rect.top < window.innerHeight - 80;
+        setShowFloat(window.scrollY > heroH && !isNearContact);
+      } else {
+        setShowFloat(window.scrollY > heroH);
+      }
     };
+    handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => { revealObserver.disconnect(); window.removeEventListener("scroll", handleScroll); };
   }, []);
@@ -232,11 +244,11 @@ export default function App() {
       {lightbox && (
         <div
           className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-950/85 backdrop-blur-md p-4 cursor-zoom-out"
-          onClick={() => setLightbox("")}
+          onClick={closeLightbox}
         >
           {/* Close button on fixed backdrop (never overlaps content) */}
           <button
-            onClick={() => setLightbox("")}
+            onClick={closeLightbox}
             className="fixed top-6 right-6 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 active:scale-95 transition-all duration-300 border border-white/10 z-50 shadow-lg"
             aria-label="Đóng"
           >
@@ -246,7 +258,7 @@ export default function App() {
           </button>
 
           <div
-            className="relative flex flex-col items-center max-w-[90vw] max-h-[80vh] overflow-hidden"
+            className="relative flex flex-col items-center max-w-[90vw] max-h-[80vh] overflow-hidden animate-scale-in"
             onClick={(e) => e.stopPropagation()}
           >
             {lightbox.type === "youtube" ? (
@@ -258,6 +270,39 @@ export default function App() {
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
+              </div>
+            ) : lightbox.type === "video" ? (
+              <div className="bg-[#0A0F1C] p-2 rounded-3xl shadow-2xl border border-white/5 flex items-center justify-center">
+                {!videoError ? (
+                  <video
+                    src={lightbox.src}
+                    controls
+                    autoPlay
+                    onError={() => setVideoError(true)}
+                    className="max-h-[70vh] max-w-[85vw] rounded-2xl"
+                  ></video>
+                ) : (
+                  <div className="text-center p-8 bg-slate-900 rounded-2xl border border-slate-800 max-w-sm">
+                    <svg className="w-12 h-12 text-amber-500 mx-auto mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <p className="text-sm font-bold text-white mb-2">Không thể tải trực tiếp video từ máy chủ Meta</p>
+                    <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+                      Do cơ chế bảo mật của Facebook, link CDN tạm thời bị giới hạn. Bạn có thể xem trực tiếp case study chính thức tại cổng thư viện Meta.
+                    </p>
+                    <a
+                      href="https://www.facebook.com/business/success/bee-english-community"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#2563EB] hover:bg-blue-600 active:scale-95 text-[10px] font-black uppercase tracking-wider text-white rounded-full transition-all"
+                    >
+                      <span>Xem nguồn trên Meta Success</span>
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 16 16">
+                        <path d="M13 8v5a1 1 0 01-1 1H4a1 1 0 01-1-1V4a1 1 0 011-1h5M10 2h4v4M6 10l6-6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    </a>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="bg-white p-2 rounded-2xl shadow-2xl border border-slate-100/50 flex items-center justify-center">

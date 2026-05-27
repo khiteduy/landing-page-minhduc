@@ -11,7 +11,7 @@ Các thay đổi đã có:
 
 - Đã thêm section `AudiencePathSection` ngay sau Hero để tách 2 luồng doanh nghiệp/học viên.
 - Contact form đã phân nhánh theo `needGroup`.
-- Case study đã có filter thật, lightbox proof và Chạn Đà Nẵng được đưa xuống nhóm đang cập nhật.
+- Case study đã có filter thật, lightbox proof và Chạn Niêu Đà Nẵng được đưa xuống nhóm đang cập nhật.
 - Phần khóa học Facebook Ads đã có lộ trình, gói học và case học viên Quyên.
 
 Hãy làm tiếp các việc sau, giữ nguyên brand màu xanh/trắng hiện tại và không tạo project Vercel mới:
@@ -33,7 +33,7 @@ Hãy làm tiếp các việc sau, giữ nguyên brand màu xanh/trắng hiện t
 
 4. Thêm brand trust section:
    - Tiêu đề: `Dự án và lĩnh vực đã triển khai`
-   - Hiển thị Lua Viet, Cardi Pizzeria, Bee English Community, Bánh gà Phan Văn Trường, Chạn Đà Nẵng.
+   - Hiển thị Lúa Việt, Cardi Pizzeria, Bee English Community, Bánh gà Phan Văn Trường, Chạn Niêu Đà Nẵng.
    - Nếu chưa có logo thật, dùng typography card sạch, không dùng logo giả.
 
 5. Tối ưu visual:

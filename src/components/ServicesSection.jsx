@@ -47,7 +47,7 @@ const servicesList = [
   {
     num: "01",
     title: "Performance Marketing",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+    image: "/course-assets/pinterest-1.png",
     desc: "Khi ads có tiền chạy nhưng chưa ra lead/doanh thu ổn định, vấn đề thường nằm ở phễu, dữ liệu và creative.",
     detail: "Minh Duc Global thiết lập Facebook, Google, TikTok theo mục tiêu CPA/ROAS, theo dõi từng điểm chạm để biết nên tắt, scale hay đổi thông điệp.",
     points: ["Tư duy phễu chuyển đổi", "Tối ưu CPA & ROAS", "Báo cáo dữ liệu trực quan"],
@@ -55,7 +55,7 @@ const servicesList = [
   {
     num: "02",
     title: "Social Media Growth",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=900&q=80",
+    image: "/course-assets/pinterest-2.png",
     desc: "Khi kênh social đăng đều nhưng thiếu tương tác chất lượng, cần đổi từ đăng nội dung sang vận hành format có mục tiêu.",
     detail: "Định hướng concept, hook, angle, lịch đăng và cách test video ngắn để kéo quan tâm thật về sản phẩm hoặc dịch vụ.",
     points: ["Định hướng nội dung", "Chiến dịch sáng tạo", "Video ngắn viral"],
@@ -63,7 +63,7 @@ const servicesList = [
   {
     num: "03",
     title: "E-commerce Growth",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=900&q=80",
+    image: "/course-assets/pinterest-3.png",
     desc: "Khi gian hàng có sản phẩm nhưng traffic và tỷ lệ ra đơn thấp, cần tối ưu lại cách khách nhìn, tìm và quyết định mua.",
     detail: "Tối ưu tiêu đề, hình ảnh, gian hàng, traffic ngoại sàn và phễu mua hàng trên Shopee/Lazada theo hành vi khách thật.",
     points: ["SEO sản phẩm sàn TMĐT", "Thiết lập phễu mua hàng", "Vận hành Mega Sale"],
@@ -244,7 +244,7 @@ export default function ServicesSection() {
                   LV
                 </div>
                 <div>
-                  <p className="font-black text-sm text-[#0A0F1C]">Đại diện Lúa Việt</p>
+                  <p className="font-black text-sm text-[#0A0F1C]">Đại diện Lua Viet</p>
                   <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Chuỗi Nhà hàng F&B</p>
                 </div>
               </div>

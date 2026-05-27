@@ -7,13 +7,13 @@ const resources = [
   {
     name: "TKQC Facebook",
     price: "Trả trước / trả sau",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+    image: "/course-assets/facebook-bm-dashboard.png",
     desc: "Tài khoản quảng cáo Facebook theo nhu cầu vận hành, được tư vấn theo trạng thái sử dụng, phương án thanh toán và cấu trúc chạy phù hợp từng mô hình.",
   },
   {
     name: "BM / Business Manager",
     price: "Theo nhu cầu",
-    image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
+    image: "/course-assets/facebook-bm-dashboard.png",
     desc: "Tài nguyên BM, quyền quản trị, cấu trúc tài sản quảng cáo và phương án phân quyền để đội vận hành ads làm việc rõ ràng, hạn chế rủi ro nhầm quyền.",
   },
   {
@@ -25,7 +25,7 @@ const resources = [
   {
     name: "TKQC Google Ads",
     price: "Trả trước / trả sau",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
+    image: "/course-assets/google-ads-dashboard.png",
     desc: "Tài khoản Google Ads cho Search, Local, YouTube hoặc Display tùy mục tiêu, có tư vấn thiết lập thanh toán, đo lường và cấu trúc chiến dịch ban đầu.",
   },
 ];
@@ -55,7 +55,7 @@ export default function EcomResourcesPage({ toolkitForm }) {
             <div className="lg:col-span-5">
               <div className="image-reveal-card h-[420px] border border-white/15 shadow-[0_30px_90px_rgba(8,47,73,0.22)]">
                 <img
-                  src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1100&q=82"
+                  src="/course-assets/facebook-bm-dashboard.png"
                   alt="Minh họa hệ thống tài nguyên quảng cáo và dashboard vận hành"
                   loading="eager"
                 />

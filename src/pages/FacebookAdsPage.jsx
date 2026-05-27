@@ -162,7 +162,7 @@ export default function FacebookAdsPage() {
             <div className="aspect-video overflow-hidden rounded-2xl border border-slate-200 bg-black">
               <iframe
                 title="Feedback Quyên"
-                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fshare%2Fv%2F18izSvaN8g%2F&show_text=false"
+                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F596909413412164&show_text=false"
                 className="h-full w-full border-none"
                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
               />
