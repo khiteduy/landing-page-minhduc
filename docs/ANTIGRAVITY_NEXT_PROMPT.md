@@ -33,7 +33,7 @@ Hãy làm tiếp các việc sau, giữ nguyên brand màu xanh/trắng hiện t
 
 4. Thêm brand trust section:
    - Tiêu đề: `Dự án và lĩnh vực đã triển khai`
-   - Hiển thị Lúa Việt, Cardi Pizzeria, Bee English Community, Bánh gà Phan Văn Trường, Chạn Niêu Đà Nẵng.
+   - Hiển thị Lua Viet, Cardi Pizzeria, Bee English Community, Bánh gà Phan Văn Trường, Chạn Niêu Đà Nẵng.
    - Nếu chưa có logo thật, dùng typography card sạch, không dùng logo giả.
 
 5. Tối ưu visual:

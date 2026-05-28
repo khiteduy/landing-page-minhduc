@@ -26,7 +26,7 @@ Nhiệm vụ của bạn: tối ưu trải nghiệm người dùng và cảm gi�
 
 3. Visual hierarchy:
    - Dải số liệu gần Hero phải dễ scan, không quá giống card trang trí.
-   - Case chính cần ưu tiên Cardi, Lúa Việt, Bee, Bánh gà.
+   - Case chính cần ưu tiên Cardi, Lua Viet, Bee, Bánh gà.
    - Chạn chỉ giữ ngang hàng nếu proof Maps/TripAdvisor thật sự rõ; nếu không chắc thì chuyển xuống nhóm "đang cập nhật thêm dữ liệu".
 
 4. Performance:

@@ -77,7 +77,7 @@ const cases = [
     tagColor: "bg-blue-50 text-blue-700 border-blue-100",
   },
   {
-    name: "Lua Viet Restaurant",
+    name: "Lua Viet",
     category: "Tăng trưởng nhà hàng F&B",
     industry: "F&B / Nhà hàng",
     role: "Marketing Lead",
@@ -99,7 +99,7 @@ const cases = [
       },
       {
         src: "/course-assets/lua-viet.jpg",
-        caption: "Hình ảnh thực tế nhà hàng Lua Viet Restaurant.",
+        caption: "Hình ảnh thực tế nhà hàng Lua Viet.",
       },
     ],
     cover: "/course-assets/lua-viet.jpg",

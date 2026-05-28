@@ -51,29 +51,17 @@ const ServiceIcon = ({ id }) => {
   return paths[id] ?? null;
 };
 
-/* ── Visual block: real asset image ── */
+/* ── Visual block: generated service image ── */
 function AssetVisual({ src, alt, tall }) {
   return (
-    <div className={`relative overflow-hidden rounded-xl border border-slate-100 bg-slate-50 ${tall ? "h-52" : "h-40"}`}>
+    <div className={`relative overflow-hidden rounded-[1.25rem] border border-blue-100 bg-slate-50 shadow-[0_14px_40px_rgba(37,99,235,0.08)] ${tall ? "h-56" : "h-44"}`}>
       <img
         src={src}
         alt={alt}
-        className="h-full w-full object-contain object-top transition-transform duration-500 group-hover:scale-[1.03]"
+        className="h-full w-full object-cover object-center transition-transform duration-500 group-hover:scale-[1.04]"
         loading="lazy"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/10 to-transparent pointer-events-none" />
-    </div>
-  );
-}
-
-/* ── Visual block: icon-only placeholder (no fake numbers) ── */
-function IconVisual({ children, label, tall }) {
-  return (
-    <div className={`relative overflow-hidden rounded-xl border border-blue-50 bg-gradient-to-br from-blue-50/60 to-slate-50 flex flex-col items-center justify-center gap-3 ${tall ? "h-52" : "h-40"}`}>
-      <div className="p-4 rounded-2xl bg-white border border-blue-100 shadow-sm">
-        {children}
-      </div>
-      <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-slate-400">{label}</span>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0758B8]/18 via-transparent to-white/10 pointer-events-none" />
     </div>
   );
 }
@@ -84,9 +72,8 @@ const servicesList = [
     num: "01",
     title: "Performance Marketing",
     visual: "asset",
-    image: "/course-assets/facebook-bm-dashboard.png",
-    imageAlt: "Dashboard Facebook Business Manager — minh họa thiết lập và vận hành tài khoản quảng cáo",
-    iconLabel: null,
+    image: "/course-assets/service-performance.jpg",
+    imageAlt: "Ảnh minh họa 3D hệ thống Performance Marketing với dashboard quảng cáo, phễu chuyển đổi và báo cáo tăng trưởng",
     desc: "Ads đang chạy nhưng chưa ra lead hay doanh thu ổn định? Vấn đề thường nằm ở phễu, dữ liệu và creative — không phải ngân sách.",
     detail: "Thiết lập và tối ưu Facebook Ads, Google Ads, TikTok Ads theo mục tiêu CPA/ROAS thực tế. Theo dõi từng điểm chạm để quyết định tắt, giữ hay scale đúng thời điểm.",
     points: ["Facebook · Google · TikTok Ads", "Tối ưu CPA & ROAS", "Báo cáo số liệu thực tế"],
@@ -96,9 +83,8 @@ const servicesList = [
     num: "02",
     title: "Dịch vụ mạng xã hội & xử lý lỗi",
     visual: "asset",
-    image: "/course-assets/facebook-checkpoint.png",
-    imageAlt: "Minh họa xử lý lỗi checkpoint, khóa tài khoản Facebook — Social Media Support",
-    iconLabel: null,
+    image: "/course-assets/service-social.jpg",
+    imageAlt: "Ảnh minh họa 3D dịch vụ hỗ trợ tài khoản mạng xã hội, bảo mật, tương tác và xử lý lỗi nền tảng",
     desc: "Tài khoản bị khóa, hạn chế, checkpoint 2FA hay mất quyền fanpage? Cần tăng tương tác đúng đối tượng trên Facebook, TikTok, Instagram?",
     detail: "Hỗ trợ xử lý lỗi tài khoản (checkpoint, khóa live TikTok, vô hiệu hóa IG/FB, mất 2FA). Đồng thời tư vấn tăng tương tác và độ phủ có mục tiêu trên đa nền tảng.",
     points: ["Xử lý lỗi tài khoản & fanpage", "Khóa live · checkpoint · 2FA", "Tăng tương tác đa nền tảng"],
@@ -108,9 +94,8 @@ const servicesList = [
     num: "03",
     title: "Google Ads & Local Map",
     visual: "asset",
-    image: "/course-assets/google-ads-dashboard.png",
-    imageAlt: "Dashboard Google Ads — minh họa chiến dịch Search và Local Map Ads",
-    iconLabel: null,
+    image: "/course-assets/service-local-map.jpg",
+    imageAlt: "Ảnh minh họa 3D Google Ads và Local Map với bản đồ, ghim địa điểm, tìm kiếm và chuyển đổi địa phương",
     desc: "Khách hàng đang tìm kiếm sản phẩm/dịch vụ của bạn trên Google nhưng đối thủ đang hiện trước. Đây là bài toán cần giải đúng.",
     detail: "Vận hành Google Search Ads, Local Map Ads và tối ưu Google Business Profile để phủ điểm bán, tăng cuộc gọi, chỉ đường và lượt đặt chỗ tại cửa hàng.",
     points: ["Google Search & Local Ads", "Tối ưu Google Maps / GBP", "Local SEO phủ điểm bán"],
@@ -120,9 +105,8 @@ const servicesList = [
     num: "04",
     title: "Content Growth",
     visual: "asset",
-    image: "/course-assets/banh-ga-tiktok.jpg",
-    imageAlt: "Kênh TikTok Bánh gà Phan Văn Trường — minh họa triển khai format nội dung video ngắn thực tế",
-    iconLabel: null,
+    image: "/course-assets/service-content-growth.jpg",
+    imageAlt: "Ảnh minh họa 3D quy trình Content Growth với storyboard, video ngắn, lịch đăng và creative testing",
     desc: "Đăng đều nhưng thiếu tương tác, video không lên xu hướng? Nội dung cần được vận hành như một hệ thống, không chỉ là lịch đăng bài.",
     detail: "Lên kế hoạch nội dung theo phễu, định hướng hook/angle/format, test creative video ngắn và xây dựng quy trình sản xuất nội dung tái sử dụng cho nhiều nền tảng.",
     points: ["Kế hoạch nội dung có mục tiêu", "Creative testing & video ngắn", "Quy trình sản xuất chuẩn hóa"],
@@ -132,9 +116,8 @@ const servicesList = [
     num: "05",
     title: "AI & Automation",
     visual: "asset",
-    image: "/course-assets/ads-roadmap.png",
-    imageAlt: "Lộ trình Ads toàn diện có bước ứng dụng AI vào content và kịch bản bán hàng",
-    iconLabel: null,
+    image: "/course-assets/service-ai-automation.jpg",
+    imageAlt: "Ảnh minh họa 3D AI Automation với workflow tự động hóa marketing, dữ liệu, lead và báo cáo",
     desc: "Đội nhỏ nhưng cần xử lý khối lượng công việc lớn? Các tác vụ lặp lại trong marketing có thể được tự động hóa và tối ưu bằng AI.",
     detail: "Thiết kế workflow AI hỗ trợ xử lý data, tự động hóa báo cáo, phân loại lead và tối ưu hóa quy trình vận hành marketing giúp đội nhỏ làm được việc của đội lớn.",
     points: ["Workflow AI & tự động hóa", "Xử lý data & báo cáo tự động", "Tối ưu quy trình vận hành"],
@@ -210,17 +193,11 @@ export default function ServicesSection() {
                 </h3>
 
                 {/* Visual block */}
-                {service.visual === "asset" ? (
-                  <AssetVisual
-                    src={service.image}
-                    alt={service.imageAlt}
-                    tall={service.wide}
-                  />
-                ) : (
-                  <IconVisual label={service.iconLabel} tall={false}>
-                    <ServiceIcon id={service.num} />
-                  </IconVisual>
-                )}
+                <AssetVisual
+                  src={service.image}
+                  alt={service.imageAlt}
+                  tall={service.wide}
+                />
 
                 <p className="text-xs text-slate-400 italic mt-5 mb-3 leading-relaxed">{service.desc}</p>
                 <p className="text-sm text-slate-500 leading-relaxed">{service.detail}</p>

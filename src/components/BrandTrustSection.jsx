@@ -2,10 +2,12 @@ import React from "react";
 
 const brands = [
   {
-    name: "Lúa Việt",
+    name: "Lua Viet",
     industry: "F&B / Nhà hàng",
     highlight: "ROAS 27x",
     desc: "Chiến dịch Google Ads + phễu chuyển đổi mùa cao điểm.",
+    image: "/course-assets/lua-viet.jpg",
+    imageAlt: "Hình ảnh thực tế nhà hàng Lua Viet",
     color: "border-l-emerald-400",
     initial: "LV",
     bg: "bg-emerald-50",
@@ -16,6 +18,8 @@ const brands = [
     industry: "F&B / Pizza Restaurant",
     highlight: "ROAS 26.25x",
     desc: "Google Ads & Local Map — doanh thu 624.6M VND.",
+    image: "/course-assets/cardi-pizzeria.jpg",
+    imageAlt: "Hình ảnh thực tế cửa hàng Cardi Pizzeria",
     color: "border-l-blue-400",
     initial: "CP",
     bg: "bg-blue-50",
@@ -27,6 +31,8 @@ const brands = [
     industry: "Giáo dục / Cộng đồng Tiếng Anh",
     highlight: "300–350 Lead/tháng",
     desc: "Performance & Content đa kênh — 200–250M/tháng.",
+    image: "/course-assets/bee-logo.jpg",
+    imageAlt: "Logo Bee English Community",
     color: "border-l-violet-400",
     initial: "BE",
     bg: "bg-violet-50",
@@ -37,6 +43,8 @@ const brands = [
     industry: "F&B / Đặc sản",
     highlight: "Đang hoạt động",
     desc: "Định vị thương hiệu địa phương & tăng nhận diện.",
+    image: "/course-assets/banh-ga-tiktok.jpg",
+    imageAlt: "Ảnh kênh TikTok Bánh gà Phan Văn Trường",
     color: "border-l-orange-400",
     initial: "BG",
     bg: "bg-orange-50",
@@ -47,6 +55,8 @@ const brands = [
     industry: "F&B / Nhà hàng",
     highlight: "Listing chuẩn SEO",
     desc: "Listing và cập nhật hồ sơ Google Maps/GBP theo chuẩn SEO địa phương.",
+    image: "/course-assets/chan-nieu-store.jpg",
+    imageAlt: "Hình ảnh thực tế nhà hàng Chạn Niêu Đà Nẵng",
     color: "border-l-rose-400",
     initial: "CN",
     bg: "bg-rose-50",
@@ -82,17 +92,25 @@ export default function BrandTrustSection() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {brands.map((b, i) => (
-            <div
-              key={i}
-              className={`bg-white rounded-2xl border border-slate-100 border-l-4 ${b.color} p-6 flex gap-4 items-start group hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(10,15,28,0.06)] transition-all duration-300`}
+          {brands.map((b) => (
+            <article
+              key={b.name}
+              className={`bg-white rounded-2xl border border-slate-100 border-l-4 ${b.color} overflow-hidden group hover:-translate-y-1 hover:shadow-[0_16px_42px_rgba(10,15,28,0.08)] transition-all duration-300`}
             >
-              {/* Initial avatar */}
-              <div className={`shrink-0 w-12 h-12 rounded-xl flex items-center justify-center font-black text-sm ${b.bg} ${b.text}`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                {b.initial}
+              <div className="relative h-40 overflow-hidden bg-slate-50">
+                <img
+                  src={b.image}
+                  alt={b.imageAlt}
+                  className={`h-full w-full transition-transform duration-500 group-hover:scale-105 ${b.name === "Bee English Community" ? "object-contain p-5" : "object-cover"}`}
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F1C]/35 via-transparent to-transparent" />
+                <div className={`absolute bottom-3 left-3 h-10 w-10 rounded-xl flex items-center justify-center font-black text-xs ${b.bg} ${b.text} shadow-sm`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  {b.initial}
+                </div>
               </div>
 
-              <div className="min-w-0">
+              <div className="min-w-0 p-5">
                 <div className="flex items-center gap-2 flex-wrap">
                   <h3 className="font-black text-[#0A0F1C] text-sm uppercase tracking-tight">
                     {b.name}
@@ -107,7 +125,7 @@ export default function BrandTrustSection() {
                 <p className={`text-[11px] font-black mt-2 ${b.text}`}>{b.highlight}</p>
                 <p className="text-xs text-slate-500 mt-1 leading-relaxed">{b.desc}</p>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

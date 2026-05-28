@@ -384,7 +384,7 @@ export default function CoursesSection() {
 
         {/* Course Cards Grid */}
         <div className="mb-20">
-          <p className="section-eyebrow">Danh sách khóa học khác</p>
+          <p className="section-eyebrow">Danh sách khóa học</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {courses.map((course, idx) => (
               <div
