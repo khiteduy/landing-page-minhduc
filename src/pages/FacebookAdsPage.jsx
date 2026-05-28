@@ -10,8 +10,27 @@ const curriculum = [
 ];
 
 const packages = [
-  { name: "Cơ Bản", price: "Liên hệ", desc: "Phù hợp người mới bắt đầu từ 0.", features: ["4 buổi học online/offline", "Tài liệu thực chiến", "Nhóm hỗ trợ 30 ngày"], highlight: false },
-  { name: "Thực Chiến", price: "Liên hệ", desc: "Học kèm thực hành trực tiếp trên tài khoản thật.", features: ["4 buổi + 1 buổi thực hành", "Review tài khoản ads của bạn", "Hỗ trợ 1-1 sau học 60 ngày", "Tài liệu & template độc quyền"], highlight: true },
+  { name: "Cơ Bản", price: "Liên hệ", desc: "Phù hợp người mới bắt đầu từ 0.", features: ["Học 1-1 theo năng lực hiện tại", "Tài liệu và checklist thực chiến", "Tặng tài nguyên triển khai miễn phí", "Hỗ trợ trọn đời sau khóa"], highlight: false },
+  { name: "Thực Chiến", price: "Liên hệ", desc: "Học kèm thực hành trực tiếp trên tài khoản thật.", features: ["Cầm tay chỉ việc đến khi chạy được ra đơn", "Review tài khoản ads và chiến dịch thật", "Tặng toàn bộ tài nguyên, nguyên liệu chạy ads", "Không phát sinh thêm chi phí ẩn"], highlight: true },
+];
+
+const benefits = [
+  {
+    title: "Học 1-1 cầm tay chỉ việc",
+    desc: "Được hướng dẫn trực tiếp từng thao tác: setup nền tảng, dựng camp, đọc số, sửa lỗi và tối ưu trên tình huống thật của học viên.",
+  },
+  {
+    title: "Đồng hành đến khi chạy được ra đơn",
+    desc: "Không dừng ở việc học xong bài. Trọng tâm là giúp học viên biết tự triển khai chiến dịch có lead, có tin nhắn và có đơn hàng thực tế.",
+  },
+  {
+    title: "Hỗ trợ trọn đời sau khóa học",
+    desc: "Sau khóa vẫn có thể hỏi khi gặp lỗi tài khoản, camp không hiệu quả, chi phí tăng hoặc cần định hướng tối ưu chiến dịch.",
+  },
+  {
+    title: "Tặng toàn bộ tài nguyên chạy ads",
+    desc: "Template, checklist, prompt AI, nguyên liệu triển khai, cấu trúc camp mẫu và tài nguyên hỗ trợ chạy quảng cáo đều được tặng miễn phí, không phát sinh chi phí ẩn.",
+  },
 ];
 
 export default function FacebookAdsPage() {
@@ -135,6 +154,30 @@ export default function FacebookAdsPage() {
         </div>
       </section>
 
+      {/* Quyền lợi học viên */}
+      <section className="py-20 px-6 bg-white border-b border-[#0A0F1C]/5">
+        <div className="max-w-4xl mx-auto">
+          <p className="section-eyebrow">Quyền Lợi Học Viên</p>
+          <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#0A0F1C] mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            Học để tự chạy được, không chỉ học lý thuyết.
+          </h2>
+          <p className="max-w-2xl text-sm leading-[1.9] text-slate-500 mb-8">
+            Khóa Facebook Ads được thiết kế theo hướng kèm trực tiếp. Mục tiêu là học viên có thể tự triển khai chiến dịch, đọc số và tối ưu để tạo đơn hàng thật.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            {benefits.map((item, i) => (
+              <article key={item.title} className="rounded-2xl border border-blue-100 bg-gradient-to-br from-blue-50/80 to-white p-6 shadow-[0_12px_38px_rgba(37,99,235,0.06)]">
+                <span className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#2563EB] text-xs font-black text-white">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <h3 className="mt-5 font-black text-[#0A0F1C] uppercase tracking-tight leading-[1.25]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-[1.85] text-slate-600">{item.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Feedback Quyên */}
       <section className="py-20 px-6 bg-[#F8FAF9] border-b border-[#0A0F1C]/5">
         <div className="max-w-4xl mx-auto">
@@ -202,6 +245,9 @@ export default function FacebookAdsPage() {
                 </a>
               </div>
             ))}
+          </div>
+          <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm font-semibold leading-[1.9] text-amber-900">
+            Cam kết: học viên được học 1-1 cầm tay chỉ việc đến khi tự chạy được ra đơn, được hỗ trợ trọn đời sau khóa học và được tặng toàn bộ tài nguyên/nguyên liệu triển khai mà không phát sinh thêm chi phí.
           </div>
         </div>
       </section>

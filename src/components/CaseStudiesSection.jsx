@@ -136,15 +136,25 @@ const cases = [
   },
 ];
 
-const updatingCases = [
+const listingCases = [
   {
     name: "Chạn Niêu Đà Nẵng",
     industry: "F&B / Nhà hàng",
     role: "Listing & cập nhật chuẩn SEO",
-    short: "Thực hiện listing thông tin doanh nghiệp và cập nhật hồ sơ Google Maps/GBP theo hướng chuẩn SEO địa phương, giúp thông tin hiển thị rõ ràng, nhất quán và dễ được khách hàng tìm thấy.",
+    short: "Thực hiện listing thông tin doanh nghiệp, cập nhật hình ảnh và tối ưu hồ sơ Google Maps/GBP theo hướng chuẩn SEO địa phương. Case này không dùng số liệu ROAS/doanh thu, mà tập trung vào độ đầy đủ, nhất quán và khả năng được khách hàng tìm thấy khi tìm kiếm nhà hàng tại Đà Nẵng.",
     tag: "Listing SEO",
     tagColor: "bg-sky-50 text-sky-700 border-sky-100",
-  }
+    proof: [
+      {
+        src: "/course-assets/chan-nieu-store.jpg",
+        caption: "Hình ảnh thực tế nhà hàng Chạn Niêu Đà Nẵng dùng để bổ sung nhận diện hồ sơ listing.",
+      },
+      {
+        src: "/course-assets/chan-nieu.jpg",
+        caption: "Ảnh minh chứng quá trình cập nhật hồ sơ/listing cho Chạn Niêu Đà Nẵng.",
+      },
+    ],
+  },
 ];
 
 /* ── KPI counter ─────────────────────── */
@@ -302,20 +312,20 @@ export default function CaseStudiesSection({ setLightbox }) {
         <div className="mb-16 p-7 sm:p-10 cases-hero rounded-2xl sm:rounded-3xl text-white relative overflow-hidden">
           <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "24px 24px" }} aria-hidden="true"/>
           <div className="relative z-10">
-            <p className="section-eyebrow" style={{ color: "#2563EB" }}>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#2563EB] animate-pulse"/>
+            <p className="section-eyebrow text-white/80">
+              <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse"/>
               Báo Cáo Hiệu Quả
             </p>
             <h2
               className="text-2xl sm:text-3xl font-black tracking-tight uppercase text-white mt-2"
               style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
             >
-              Dự Án Tiêu Biểu &amp; <span className="text-[#2563EB]">Thực Chiến</span>
+              Dự Án Tiêu Biểu &amp; <span className="text-sky-100">Thực Chiến</span>
             </h2>
-            <p className="mt-3 text-slate-400 text-sm leading-relaxed max-w-2xl">
+            <p className="mt-3 text-blue-50/90 text-sm leading-relaxed max-w-2xl">
               Số liệu được xác thực từ các chiến dịch thực tế — đo lường chặt chẽ theo doanh thu và lead chất lượng.
             </p>
-            <div className="mt-8 grid grid-cols-3 gap-4 border-t border-slate-800 pt-6">
+            <div className="mt-8 grid grid-cols-3 gap-4 border-t border-white/20 pt-6">
               <KpiCounter value="624" label="Doanh thu lớn nhất (triệu VND)" color="text-white" />
               <KpiCounter value="27" label="ROAS cao nhất" color="text-sky-300" />
               <KpiCounter value="350" label="Lead/tháng tối đa" color="text-white" />
@@ -355,41 +365,72 @@ export default function CaseStudiesSection({ setLightbox }) {
           ))}
         </div>
 
-        {/* Updating projects (only render if there are any) */}
-        {updatingCases.length > 0 && (
-          <div className="mt-10 rounded-[1.5rem] border border-dashed border-slate-200 bg-slate-50/70 p-6">
+        {/* Listing projects without performance metrics */}
+        {listingCases.length > 0 && (
+          <div className="mt-10 rounded-[1.75rem] border border-sky-100 bg-gradient-to-br from-sky-50 via-white to-white p-6 sm:p-7">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">
-                  Dự án đang cập nhật số liệu
+                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-sky-700">
+                  Dự án Listing & SEO địa phương
                 </p>
                 <h3 className="mt-2 font-display text-xl font-black uppercase leading-[1.25] text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                  Đang chuẩn bị bổ sung số liệu
+                  Case không đo bằng ROAS, tập trung vào hồ sơ hiển thị chuẩn.
                 </h3>
               </div>
-              <p className="max-w-md text-sm leading-[1.8] text-slate-500">
-                Các dự án này vẫn nằm trong danh sách năng lực, nhưng sẽ được nâng lên case chính khi có proof và số liệu đủ rõ.
+              <p className="max-w-md text-sm leading-[1.8] text-slate-600">
+                Với nhóm việc listing, mục tiêu là cập nhật thông tin, hình ảnh, danh mục và mô tả để hồ sơ địa phương đầy đủ, rõ ràng và dễ được khách hàng tìm thấy.
               </p>
             </div>
 
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              {updatingCases.map((c) => (
-                <article key={c.name} className="rounded-2xl border border-slate-200 bg-white p-5">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <span className={`px-3 py-1 text-[9px] font-bold uppercase tracking-wider rounded-full border ${c.tagColor}`}>
-                      {c.tag}
-                    </span>
-                    <span className="rounded-full bg-slate-100 px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-slate-500">
-                      Đang bổ sung proof
-                    </span>
+            <div className="mt-6 grid gap-5">
+              {listingCases.map((c) => (
+                <article key={c.name} className="overflow-hidden rounded-2xl border border-sky-100 bg-white shadow-[0_18px_50px_rgba(14,116,232,0.08)]">
+                  <div className="grid gap-0 lg:grid-cols-12">
+                    <div className="grid grid-cols-2 gap-2 p-3 lg:col-span-5">
+                      {c.proof.map((p) => (
+                        <button
+                          key={p.src}
+                          type="button"
+                          onClick={() => setLightbox(p)}
+                          className="group/proof relative h-40 overflow-hidden rounded-xl border border-slate-100 text-left sm:h-52 lg:h-full"
+                        >
+                          <img
+                            src={p.src}
+                            alt={p.caption}
+                            className="h-full w-full object-cover transition-transform duration-500 group-hover/proof:scale-105"
+                            loading="lazy"
+                          />
+                          <span className="absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[9px] font-black uppercase tracking-wider text-sky-700 shadow-sm">
+                            Xem ảnh
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                    <div className="p-6 sm:p-7 lg:col-span-7">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className={`px-3 py-1 text-[9px] font-bold uppercase tracking-wider rounded-full border ${c.tagColor}`}>
+                          {c.tag}
+                        </span>
+                        <span className="rounded-full bg-blue-50 px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-blue-700">
+                          Không dùng số liệu
+                        </span>
+                      </div>
+                      <h4 className="mt-4 font-display text-2xl font-black uppercase leading-[1.18] text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                        {c.name}
+                      </h4>
+                      <p className="mt-1 text-[10px] font-bold uppercase tracking-widest text-slate-400">
+                        {c.industry} · {c.role}
+                      </p>
+                      <p className="mt-4 text-sm leading-[1.9] text-slate-600">{c.short}</p>
+                      <div className="mt-5 grid gap-2 sm:grid-cols-3">
+                        {["Listing thông tin", "Cập nhật hình ảnh", "Tối ưu SEO local"].map((item) => (
+                          <div key={item} className="rounded-xl border border-sky-100 bg-sky-50/60 px-3 py-3 text-[10px] font-black uppercase tracking-wider text-sky-800">
+                            {item}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <h4 className="mt-4 font-display text-lg font-black uppercase leading-[1.25] text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                    {c.name}
-                  </h4>
-                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
-                    {c.industry} · {c.role}
-                  </p>
-                  <p className="mt-3 text-sm leading-[1.8] text-slate-500">{c.short}</p>
                 </article>
               ))}
             </div>

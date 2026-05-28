@@ -136,6 +136,24 @@ const fbPackages = [
   },
 ];
 
+const studentBenefits = [
+  {
+    label: "Cầm tay chỉ việc 1-1",
+    title: "Học trực tiếp đến khi tự chạy được ra đơn",
+    desc: "Không học theo kiểu xem video rồi tự bơi. Học viên được hướng dẫn từng bước từ setup nền tảng, dựng camp, đọc chỉ số đến tối ưu chiến dịch thật cho sản phẩm hoặc ngành hàng của mình.",
+  },
+  {
+    label: "Hỗ trợ trọn đời",
+    title: "Sau khóa vẫn được hỏi và được gỡ lỗi",
+    desc: "Khi gặp lỗi tài khoản, camp không ra lead, chi phí tăng, nội dung kém hiệu quả hoặc chưa biết nên scale thế nào, học viên vẫn có thể gửi tình huống để được định hướng xử lý.",
+  },
+  {
+    label: "Không phát sinh chi phí ẩn",
+    title: "Tặng toàn bộ tài nguyên và nguyên liệu chạy ads",
+    desc: "Tài nguyên, template, nguyên liệu triển khai, cấu trúc camp mẫu, prompt AI, checklist đọc số và bộ công cụ hỗ trợ chạy quảng cáo đều được tặng miễn phí trong khóa học.",
+  },
+];
+
 /* ── Feedback học viên ────────────────────────── */
 const studentFeedbacks = [
   {
@@ -281,6 +299,42 @@ export default function CoursesSection() {
           </div>
         </div>
 
+        {/* Student benefits */}
+        <div className="mb-16 overflow-hidden rounded-[2rem] border border-[#0B74E8]/15 bg-[#0A2F6B] p-6 text-white shadow-[0_28px_90px_rgba(14,116,232,0.18)] sm:p-8 lg:p-10">
+          <div className="grid gap-8 lg:grid-cols-12 lg:items-start">
+            <div className="lg:col-span-4">
+              <p className="text-[10px] font-black uppercase tracking-[0.24em] text-sky-200">
+                Quyền lợi học viên
+              </p>
+              <h3 className="mt-4 font-display text-3xl font-black uppercase leading-[1.16] tracking-[-0.035em] sm:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                Học để chạy được, không học để biết cho vui.
+              </h3>
+              <p className="mt-4 text-sm leading-[1.9] text-blue-50/85">
+                Trọng tâm khóa học là đưa học viên từ chưa biết hoặc chạy chưa hiệu quả đến mức có thể tự triển khai, tự đọc số và tự tối ưu chiến dịch thật.
+              </p>
+            </div>
+
+            <div className="grid gap-4 lg:col-span-8">
+              {studentBenefits.map((item, index) => (
+                <article key={item.title} className="rounded-[1.35rem] border border-white/15 bg-white/10 p-5 backdrop-blur-md">
+                  <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white text-sm font-black text-[#0B74E8]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <p className="text-[10px] font-black uppercase tracking-[0.22em] text-sky-200">{item.label}</p>
+                      <h4 className="mt-2 text-lg font-black uppercase leading-[1.25] tracking-[-0.02em] text-white">
+                        {item.title}
+                      </h4>
+                      <p className="mt-2 text-sm leading-[1.85] text-blue-50/80">{item.desc}</p>
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+
         {/* Course pricing packages */}
         <div className="mb-16 grid gap-8 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-5">
@@ -323,7 +377,7 @@ export default function CoursesSection() {
             </div>
 
             <div className="mt-6 rounded-[1.5rem] border border-amber-200 bg-amber-50 p-6 text-sm font-semibold leading-[1.9] text-amber-900">
-              Tặng kèm tài nguyên và nguyên liệu TKQC để chạy thị trường trị giá 1-2 triệu VND. Vào khóa không phát sinh thêm chi phí ẩn.
+              Cam kết rõ: học 1-1 cầm tay chỉ việc đến khi học viên tự chạy được ra đơn. Sau khóa được hỗ trợ trọn đời, toàn bộ tài nguyên và nguyên liệu chạy quảng cáo được tặng miễn phí, không phát sinh thêm bất kỳ chi phí ẩn nào.
             </div>
           </div>
         </div>
@@ -469,9 +523,9 @@ export default function CoursesSection() {
           <div className="absolute inset-0 opacity-5" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "20px 20px" }} aria-hidden="true"/>
           <div className="relative z-10 text-center sm:text-left">
             <p className="text-white font-black text-lg sm:text-xl uppercase tracking-tight" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              Học 1-1 cùng Đinh Minh Đức.
+              Học 1-1 cầm tay chỉ việc đến khi chạy được ra đơn.
             </p>
-            <p className="text-slate-400 text-sm mt-1">Được hướng dẫn trực tiếp từ người đã triển khai ROAS 27x thực tế.</p>
+            <p className="text-slate-400 text-sm mt-1">Hỗ trợ trọn đời sau khóa và tặng toàn bộ tài nguyên triển khai, không phát sinh chi phí ẩn.</p>
           </div>
           <a href="#contact" onClick={() => { if (window.trackCTA) window.trackCTA("Courses CTA Bottom"); }} className="btn-awwwards btn-awwwards-accent shrink-0 relative z-10">
             Đăng ký tư vấn khóa học →
