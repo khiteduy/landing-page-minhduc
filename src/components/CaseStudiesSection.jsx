@@ -165,7 +165,7 @@ function KpiCounter({ value, label, color = "text-white" }) {
   const { count, ref } = useCountUp(numVal, 2000, isNumeric);
   return (
     <div ref={ref} className="case-kpi p-5 sm:p-6 text-center">
-      <p className="text-[9px] uppercase tracking-widest font-bold text-blue-100/90 mb-1">{label}</p>
+      <p className="text-[9px] uppercase tracking-widest font-bold text-white/75 mb-2 leading-tight">{label}</p>
       <p className={`text-2xl sm:text-3xl font-extrabold tabular-nums ${color}`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
         {isNumeric ? count : value}
       </p>

@@ -323,23 +323,23 @@ li {
 ────────────────────────────────────────── */
 .cases-hero {
   background:
-    radial-gradient(circle at 16% 12%, rgba(255, 255, 255, 0.22) 0%, transparent 30%),
-    radial-gradient(circle at 84% 18%, rgba(186, 230, 253, 0.34) 0%, transparent 34%),
-    linear-gradient(135deg, #0758B8 0%, #0B74E8 48%, #38BDF8 100%);
+    radial-gradient(ellipse at 20% 0%, rgba(255, 255, 255, 0.10) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(56, 189, 248, 0.12) 0%, transparent 50%),
+    linear-gradient(145deg, #061E4A 0%, #0A2F6E 45%, #0B4EA2 100%);
   border-radius: 2rem !important;
-  @apply border border-[#38BDF8]/20;
+  @apply border border-white/10;
 }
 
 .case-kpi {
   border-radius: 1rem !important;
-  @apply border border-white/20 bg-white/15;
-  backdrop-filter: blur(8px);
+  @apply border border-white/25 bg-white/10;
+  backdrop-filter: blur(10px);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .case-kpi:hover {
   transform: translateY(-3px);
-  @apply border-slate-600 bg-white/10;
+  @apply border-white/40 bg-white/[0.16];
 }
 
 .case-card {
