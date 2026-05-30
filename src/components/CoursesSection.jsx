@@ -162,12 +162,12 @@ const fbPackages = [
   {
     name: "CSKH & Chốt Sale",
     price: "9.990K",
-    desc: "Bổ sung tư duy chăm sóc khách hàng, kịch bản tư vấn và chốt đơn sau khi có lead.",
-    learner: "Người cần hoàn thiện quy trình",
-    support: "Tối ưu từ lead đến chốt đơn",
-    bonus: "Tặng script CSKH & chốt sale",
-    fit: "Muốn tăng tỷ lệ chuyển đổi sau khi đã có inbox/lead",
-    features: ["Script inbox & follow-up", "Kịch bản chốt sale", "Quy trình CSKH", "Tối ưu tỷ lệ chốt đơn"],
+    desc: "Bao gồm toàn bộ Khóa cơ bản và tặng kèm thêm phần CSKH & Chốt Sale để học viên biết xử lý lead và chốt đơn hiệu quả.",
+    learner: "Người mới nhưng muốn học thêm phần chốt sale",
+    support: "Học nền tảng + tối ưu khâu inbox và follow-up",
+    bonus: "Tặng script CSKH & kịch bản chốt sale",
+    fit: "Muốn vừa biết chạy camp cơ bản vừa biết chuyển lead thành đơn",
+    features: ["Toàn bộ Khóa cơ bản", "Script inbox & follow-up", "Kịch bản chốt sale", "Tối ưu tỷ lệ chuyển đổi sau lead"],
   },
   {
     name: "Gói tối ưu",
@@ -461,11 +461,11 @@ export default function CoursesSection() {
                   }`}
                 >
                   <div className="flex items-center justify-between gap-3">
-                    <p className={`text-[10px] font-black uppercase tracking-[0.22em] ${pkg.highlight ? "text-blue-100" : "text-[#0B74E8]"}`}>
+                    <p className={`text-[10px] font-black uppercase tracking-[0.22em] ${pkg.highlight ? "text-white" : "text-[#0B74E8]"}`}>
                       {pkg.name}
                     </p>
                     {pkg.highlight && (
-                      <span className="rounded-full bg-white/16 px-3 py-1 text-[9px] font-black uppercase tracking-wider text-white">
+                      <span className="rounded-full bg-white px-3 py-1 text-[9px] font-black uppercase tracking-wider text-[#0B74E8] shadow-sm">
                         Gói tối ưu
                       </span>
                     )}
@@ -473,7 +473,7 @@ export default function CoursesSection() {
                   <p className={`mt-4 font-display text-4xl font-black tracking-[-0.04em] ${pkg.highlight ? "text-white" : "text-[#0A0F1C]"}`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
                     {pkg.price}
                   </p>
-                  <p className={`mt-3 text-sm leading-[1.8] ${pkg.highlight ? "text-blue-50" : "text-slate-500"}`}>
+                  <p className={`mt-3 text-sm leading-[1.8] ${pkg.highlight ? "text-white/95" : "text-slate-500"}`}>
                     {pkg.desc}
                   </p>
                   <a href="#contact" className={`mt-5 inline-flex rounded-full px-4 py-2 text-[10px] font-black uppercase tracking-wider ${pkg.highlight ? "bg-white text-[#0B74E8]" : "bg-[#0B74E8] text-white"}`}>
@@ -505,7 +505,7 @@ export default function CoursesSection() {
                     <p className="text-sm font-black uppercase leading-[1.4] tracking-[0.12em] text-[#0A0F1C]">{row.label}</p>
                   </div>
                   {fbPackages.map((pkg) => (
-                    <div key={`${pkg.name}-${row.key}`} className={`border-b border-r p-5 text-sm leading-[1.8] ${pkg.highlight ? "border-white/10 bg-[#0A63CC]/92 text-blue-50" : "border-slate-100 text-slate-600"}`}>
+                    <div key={`${pkg.name}-${row.key}`} className={`border-b border-r p-5 text-sm leading-[1.8] ${pkg.highlight ? "border-white/10 bg-[#0A63CC]/92 text-white" : "border-slate-100 text-slate-600"}`}>
                       {pkg[row.key]}
                     </div>
                   ))}
@@ -519,8 +519,8 @@ export default function CoursesSection() {
                 <div key={`${pkg.name}-features`} className={`border-r p-5 ${pkg.highlight ? "border-white/10 bg-[#0A63CC]/92" : "border-slate-100 bg-white"}`}>
                   <ul className="space-y-2">
                     {pkg.features.map((feature) => (
-                      <li key={feature} className={`flex items-start gap-2 text-sm leading-[1.75] ${pkg.highlight ? "text-blue-50" : "text-slate-600"}`}>
-                        <span className={`mt-1.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${pkg.highlight ? "bg-white/16 text-white" : "bg-blue-50 text-[#0B74E8]"}`}>
+                      <li key={feature} className={`flex items-start gap-2 text-sm leading-[1.75] ${pkg.highlight ? "text-white" : "text-slate-600"}`}>
+                        <span className={`mt-1.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${pkg.highlight ? "bg-white text-[#0B74E8]" : "bg-blue-50 text-[#0B74E8]"}`}>
                           <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 12 12">
                             <path d="M2 6.2l2.2 2.2L10 2.7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                           </svg>
