@@ -33,6 +33,8 @@ const cases = [
     short: "Vận hành Google Ads kết hợp tối ưu Local Map để phủ sóng điểm bán và tối đa hóa doanh thu thực tế tại cửa hàng.",
     tag: "F&B",
     tagColor: "bg-orange-50 text-orange-700 border-orange-100",
+    surface: "from-orange-50 via-white to-white",
+    metricSurface: "from-emerald-500 to-emerald-600",
     detailLink: "/case-study/cardi-pizzeria",
   },
   {
@@ -75,6 +77,8 @@ const cases = [
     short: "Bee English Community là case xuất hiện trong thư viện Meta/Facebook Business Success. Phần triển khai tập trung vào tối ưu ngân sách quảng cáo, đào tạo đội ngũ in-house và sản xuất kịch bản video phục vụ chuyển đổi.",
     tag: "Giáo Dục",
     tagColor: "bg-blue-50 text-blue-700 border-blue-100",
+    surface: "from-blue-50 via-white to-white",
+    metricSurface: "from-blue-500 to-blue-600",
   },
   {
     name: "Lua Viet",
@@ -106,6 +110,8 @@ const cases = [
     short: "Triển khai chiến dịch tối ưu chuyển đổi và quản trị phễu khách hàng, tập trung đẩy doanh số trong mùa cao điểm.",
     tag: "F&B",
     tagColor: "bg-orange-50 text-orange-700 border-orange-100",
+    surface: "from-emerald-50 via-white to-white",
+    metricSurface: "from-emerald-500 to-emerald-600",
   },
   {
     name: "Bánh gà Phan Văn Trường",
@@ -133,6 +139,8 @@ const cases = [
     short: "Hoạch định nội dung TikTok, đào tạo nhân sự content và xây format video phù hợp sản phẩm ăn vặt địa phương.",
     tag: "TikTok",
     tagColor: "bg-rose-50 text-rose-700 border-rose-100",
+    surface: "from-rose-50 via-white to-white",
+    metricSurface: "from-rose-500 to-rose-600",
   },
 ];
 
@@ -176,12 +184,15 @@ function KpiCounter({ value, label, color = "text-white" }) {
 /* ── Case Card — mobile collapsible ─── */
 function CaseCard({ c, setLightbox }) {
   const [expanded, setExpanded] = useState(false);
+  const primaryMetric = c.metrics[1];
+  const secondaryMetric = c.metrics[2];
+  const supportMetric = c.metrics[0];
 
   return (
-    <article className="bento-card flex flex-col gap-5 group relative">
+    <article className={`bento-card flex flex-col gap-5 group relative border border-slate-100 bg-gradient-to-br ${c.surface}`}>
       {/* Cover image if available */}
       {c.cover && (
-        <div className="relative h-44 sm:h-48 overflow-hidden rounded-xl border border-slate-100">
+        <div className="relative h-44 sm:h-48 overflow-hidden rounded-xl border border-white/70 shadow-[0_14px_38px_rgba(15,23,42,0.06)]">
           <img src={c.cover} alt={`Cover for ${c.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
           <span className="absolute bottom-3 left-3 z-10 rounded-full bg-white/90 px-3 py-1 text-[9px] font-black uppercase tracking-wider text-[#2563EB]">
             {c.category}
@@ -211,14 +222,32 @@ function CaseCard({ c, setLightbox }) {
         </p>
       </div>
 
-      {/* 3 Metric chips — always visible */}
-      <div className="grid grid-cols-3 gap-2">
-        {c.metrics.map((m, i) => (
-          <div key={i} className={`p-3 rounded-xl text-center ${m.accent ? "bg-blue-50 border border-blue-100" : "bg-slate-50/60 border border-slate-100"}`}>
-            <p className="text-[8px] font-extrabold uppercase tracking-widest text-slate-400 truncate">{m.label}</p>
-            <p className={`text-sm font-extrabold mt-0.5 ${m.accent ? "text-[#2563EB]" : "text-[#0A0F1C]"}`}>{m.value}</p>
-          </div>
-        ))}
+      {/* Primary metrics */}
+      <div className="grid gap-3 sm:grid-cols-[1.2fr_0.8fr]">
+        <div className="rounded-[1.35rem] border border-white/70 bg-white/88 p-4 shadow-[0_12px_34px_rgba(15,23,42,0.05)]">
+          <p className="text-[9px] font-black uppercase tracking-[0.22em] text-slate-400">{primaryMetric.label}</p>
+          <p className="mt-2 font-black text-[#0A0F1C] text-3xl sm:text-4xl tracking-[-0.04em]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            {primaryMetric.value}
+          </p>
+        </div>
+        <div className={`rounded-[1.35rem] border border-transparent bg-gradient-to-br ${c.metricSurface} p-4 text-white shadow-[0_16px_42px_rgba(37,99,235,0.18)]`}>
+          <p className="text-[9px] font-black uppercase tracking-[0.22em] text-white/75">{secondaryMetric.label}</p>
+          <p className="mt-2 font-black text-3xl sm:text-4xl tracking-[-0.04em]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            {secondaryMetric.value}
+          </p>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between gap-3 rounded-[1.15rem] border border-slate-100 bg-white/88 px-4 py-3 shadow-[0_10px_28px_rgba(15,23,42,0.04)]">
+        <div>
+          <p className="text-[9px] font-black uppercase tracking-[0.22em] text-slate-400">{supportMetric.label}</p>
+          <p className="mt-1 text-lg font-black text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+            {supportMetric.value}
+          </p>
+        </div>
+        <span className={`text-[10px] font-extrabold px-3 py-1.5 rounded-full border ${c.resultColor}`}>
+          {c.result}
+        </span>
       </div>
 
       {/* Collapse toggle mobile */}
@@ -285,9 +314,14 @@ function CaseCard({ c, setLightbox }) {
         )}
 
         {c.detailLink && (
-          <Link to={c.detailLink} className="inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider text-[#2563EB] hover:underline">
-            Xem chi tiết case study →
-          </Link>
+          <div className="flex flex-col gap-3 pt-1 sm:flex-row sm:items-center">
+            <Link to={c.detailLink} className="btn-awwwards btn-awwwards-outline !px-4 !py-2.5 text-[10px]">
+              Xem chi tiết case
+            </Link>
+            <a href="#contact" className="btn-awwwards btn-awwwards-solid !px-4 !py-2.5 text-[10px]">
+              Muốn kết quả tương tự
+            </a>
+          </div>
         )}
       </div>
     </article>
@@ -330,6 +364,14 @@ export default function CaseStudiesSection({ setLightbox }) {
               <KpiCounter value="27" label="ROAS cao nhất" color="text-sky-300" />
               <KpiCounter value="350" label="Lead/tháng tối đa" color="text-white" />
             </div>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a href="#cases-grid" className="btn-awwwards btn-awwwards-solid">
+                Xem case nổi bật
+              </a>
+              <a href="#contact" className="btn-awwwards btn-awwwards-outline border-white/20 text-white hover:border-white">
+                Tư vấn 1-1 theo ngành hàng
+              </a>
+            </div>
           </div>
         </div>
 
@@ -359,7 +401,7 @@ export default function CaseStudiesSection({ setLightbox }) {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid gap-6 lg:grid-cols-2">
+        <div id="cases-grid" className="grid gap-6 lg:grid-cols-2">
           {visibleCases.map((c) => (
             <CaseCard key={c.name} c={c} setLightbox={setLightbox} />
           ))}

@@ -33,6 +33,32 @@ const IconShopee = () => (
   </svg>
 );
 
+const IconCheckShield = () => (
+  <svg viewBox="0 0 44 44" fill="none" className="w-9 h-9">
+    <rect x="4" y="4" width="36" height="36" rx="10" stroke="#ffffff" strokeWidth="1.2" fill="rgba(255,255,255,0.12)" />
+    <path d="M22 11l8 3v6c0 5.2-3.6 10.1-8 11.3C17.6 30.1 14 25.2 14 20v-6l8-3z" stroke="#ffffff" strokeWidth="1.8" strokeLinejoin="round" />
+    <path d="M18.4 20.6l2.3 2.3 4.9-5" stroke="#7DD3FC" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const IconLifetimeSupport = () => (
+  <svg viewBox="0 0 44 44" fill="none" className="w-9 h-9">
+    <rect x="4" y="4" width="36" height="36" rx="10" stroke="#ffffff" strokeWidth="1.2" fill="rgba(255,255,255,0.12)" />
+    <path d="M22 31a9 9 0 100-18 9 9 0 000 18z" stroke="#ffffff" strokeWidth="1.8" />
+    <path d="M18.5 22a3.5 3.5 0 017 0c0 1.5-.8 2.4-1.9 3.2-.9.7-1.3 1.1-1.3 1.8" stroke="#7DD3FC" strokeWidth="1.8" strokeLinecap="round" />
+    <circle cx="22" cy="28" r="1.1" fill="#7DD3FC" />
+  </svg>
+);
+
+const IconGiftStack = () => (
+  <svg viewBox="0 0 44 44" fill="none" className="w-9 h-9">
+    <rect x="4" y="4" width="36" height="36" rx="10" stroke="#ffffff" strokeWidth="1.2" fill="rgba(255,255,255,0.12)" />
+    <path d="M14 19h16v12H14V19z" stroke="#ffffff" strokeWidth="1.8" strokeLinejoin="round" />
+    <path d="M22 19v12M14 23h16" stroke="#ffffff" strokeWidth="1.8" strokeLinecap="round" />
+    <path d="M19.2 19c-1.6 0-2.7-.9-2.7-2.2 0-1.2.8-2 2-2 1.8 0 3.1 2.1 3.5 4.2h-2.8zM24.8 19c1.6 0 2.7-.9 2.7-2.2 0-1.2-.8-2-2-2-1.8 0-3.1 2.1-3.5 4.2h2.8z" stroke="#7DD3FC" strokeWidth="1.5" strokeLinejoin="round" />
+  </svg>
+);
+
 const courses = [
   {
     icon: <IconFacebook />,
@@ -117,40 +143,80 @@ const fbPackages = [
     name: "Khóa cơ bản",
     price: "6.525K",
     desc: "Dành cho người mới bắt đầu, chưa có kinh nghiệm chạy quảng cáo.",
+    learner: "Người mới bắt đầu",
+    support: "Học 1-1, bám sát nền tảng",
+    bonus: "Tặng setup mẫu cơ bản",
+    fit: "Muốn hiểu nền tảng và tự setup camp đầu tiên",
+    features: ["Thuật ngữ quảng cáo", "Setup Page chuẩn", "Cấu trúc camp cơ bản", "Checklist setup ban đầu"],
   },
   {
     name: "Khóa nâng cao",
     price: "8.888K",
     desc: "Dành cho người muốn tối ưu vận hành, đọc chỉ số và tăng hiệu quả quảng cáo.",
+    learner: "Người đã chạy thử",
+    support: "Gỡ lỗi theo dữ liệu thực tế",
+    bonus: "Tặng template đọc số",
+    fit: "Muốn đọc chỉ số, scale camp và tối ưu chi phí",
+    features: ["Đọc CPM, CTR, CPC, CPA", "Phân tích lỗi chiến dịch", "Scale ngân sách", "Tối ưu creative theo số liệu"],
   },
   {
     name: "CSKH & Chốt Sale",
     price: "9.990K",
     desc: "Bổ sung tư duy chăm sóc khách hàng, kịch bản tư vấn và chốt đơn sau khi có lead.",
+    learner: "Người cần hoàn thiện quy trình",
+    support: "Tối ưu từ lead đến chốt đơn",
+    bonus: "Tặng script CSKH & chốt sale",
+    fit: "Muốn tăng tỷ lệ chuyển đổi sau khi đã có inbox/lead",
+    features: ["Script inbox & follow-up", "Kịch bản chốt sale", "Quy trình CSKH", "Tối ưu tỷ lệ chốt đơn"],
   },
   {
     name: "Gói tối ưu",
     price: "14.999K",
     desc: "Combo Cơ bản + Nâng cao + CSKH & Chốt Sale, phù hợp người muốn đi trọn lộ trình.",
+    learner: "Người muốn đi trọn lộ trình",
+    support: "Tư vấn 1-1 toàn bộ phễu",
+    bonus: "Tặng full tài nguyên + template + prompt",
+    fit: "Muốn học từ nền tảng đến ra đơn và có bộ công cụ đầy đủ",
     highlight: true,
+    features: ["Trọn bộ 3 khóa", "Kèm reading dashboard", "Kịch bản AI content & sale", "Hỗ trợ tối ưu đến khi tự chạy được"],
   },
 ];
 
 const studentBenefits = [
   {
+    icon: <IconCheckShield />,
     label: "Cầm tay chỉ việc 1-1",
     title: "Học trực tiếp đến khi tự chạy được ra đơn",
     desc: "Không học theo kiểu xem video rồi tự bơi. Học viên được hướng dẫn từng bước từ setup nền tảng, dựng camp, đọc chỉ số đến tối ưu chiến dịch thật cho sản phẩm hoặc ngành hàng của mình.",
   },
   {
+    icon: <IconLifetimeSupport />,
     label: "Hỗ trợ trọn đời",
     title: "Sau khóa vẫn được hỏi và được gỡ lỗi",
     desc: "Khi gặp lỗi tài khoản, camp không ra lead, chi phí tăng, nội dung kém hiệu quả hoặc chưa biết nên scale thế nào, học viên vẫn có thể gửi tình huống để được định hướng xử lý.",
   },
   {
+    icon: <IconGiftStack />,
     label: "Không phát sinh chi phí ẩn",
     title: "Tặng toàn bộ tài nguyên và nguyên liệu chạy ads",
     desc: "Tài nguyên, template, nguyên liệu triển khai, cấu trúc camp mẫu, prompt AI, checklist đọc số và bộ công cụ hỗ trợ chạy quảng cáo đều được tặng miễn phí trong khóa học.",
+  },
+];
+
+const fbProofShots = [
+  {
+    title: "Cấu trúc camp thực tế",
+    desc: "Ảnh minh họa cách bố trí chiến dịch, nhóm quảng cáo và mẫu quảng cáo để học viên dễ hiểu mạch setup từ đầu.",
+    image: "/course-assets/facebook-bm-dashboard.png",
+    alt: "Ảnh chụp màn hình Facebook Business Manager dùng để minh họa cấu trúc camp thực tế",
+    label: "Camp Structure",
+  },
+  {
+    title: "Đọc chỉ số và ra quyết định",
+    desc: "Ảnh chụp chiến dịch thật đã che bớt phần nhạy cảm, dùng để hướng dẫn cách đọc CPM, CTR, CPC và đánh giá hiệu suất.",
+    image: "/course-assets/google-ads-dashboard.png",
+    alt: "Ảnh chụp dashboard quảng cáo thật dùng để minh họa cách đọc chỉ số và tối ưu ngân sách",
+    label: "Analytics",
   },
 ];
 
@@ -297,6 +363,34 @@ export default function CoursesSection() {
               </article>
             ))}
           </div>
+
+          <div className="mt-8 grid gap-5 lg:grid-cols-2">
+            {fbProofShots.map((shot) => (
+              <article key={shot.title} className="overflow-hidden rounded-[1.5rem] border border-blue-100 bg-white shadow-[0_16px_48px_rgba(14,116,232,0.08)]">
+                <div className="relative h-56 overflow-hidden border-b border-slate-100 bg-slate-50">
+                  <img src={shot.image} alt={shot.alt} className="h-full w-full object-cover object-top" loading="lazy" />
+                  <span className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-[9px] font-black uppercase tracking-[0.2em] text-[#0B74E8] shadow-sm">
+                    {shot.label}
+                  </span>
+                </div>
+                <div className="p-6">
+                  <h4 className="font-display text-xl font-black uppercase leading-[1.22] tracking-[-0.02em] text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    {shot.title}
+                  </h4>
+                  <p className="mt-3 text-sm leading-[1.85] text-slate-500">{shot.desc}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#pricing-table" className="btn-awwwards btn-awwwards-solid">
+              Xem bảng giá khóa học
+            </a>
+            <a href="#contact" className="btn-awwwards btn-awwwards-outline">
+              Tư vấn 1-1 miễn phí
+            </a>
+          </div>
         </div>
 
         {/* Student benefits */}
@@ -315,11 +409,11 @@ export default function CoursesSection() {
             </div>
 
             <div className="grid gap-4 lg:col-span-8">
-              {studentBenefits.map((item, index) => (
+              {studentBenefits.map((item) => (
                 <article key={item.title} className="rounded-[1.35rem] border border-white/15 bg-white/10 p-5 backdrop-blur-md">
                   <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
-                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-white text-sm font-black text-[#0B74E8]">
-                      {String(index + 1).padStart(2, "0")}
+                    <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[1.25rem] bg-white/14">
+                      {item.icon}
                     </span>
                     <div>
                       <p className="text-[10px] font-black uppercase tracking-[0.22em] text-sky-200">{item.label}</p>
@@ -336,49 +430,134 @@ export default function CoursesSection() {
         </div>
 
         {/* Course pricing packages */}
-        <div className="mb-16 grid gap-8 lg:grid-cols-12 lg:items-start">
-          <div className="lg:col-span-5">
-            <div className="sticky top-28 rounded-[1.75rem] border border-blue-100 bg-white p-3 shadow-[0_20px_70px_rgba(15,23,42,0.10)]">
-              <img
-                src="/course-assets/ads-pricing.png"
-                alt="Bảng giá khóa học chạy quảng cáo Minh Duc Global"
-                className="w-full rounded-[1.35rem] object-cover"
-                loading="lazy"
-              />
+        <div id="pricing-table" className="mb-16">
+          <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="section-eyebrow">Bảng giá & so sánh gói học</p>
+              <h3 className="font-display text-3xl font-black uppercase leading-[1.2] tracking-[-0.035em] text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                Chọn gói phù hợp và so sánh rõ từng quyền lợi.
+              </h3>
+            </div>
+            <p className="max-w-md text-sm leading-[1.8] text-slate-500">
+              Desktop hiển thị theo bảng so sánh để dễ quyết định. Mobile vẫn ưu tiên đọc nhanh bằng từng cột gói tách biệt.
+            </p>
+          </div>
+
+          <div className="mt-8 overflow-x-auto rounded-[1.75rem] border border-blue-100 bg-white shadow-[0_22px_70px_rgba(14,116,232,0.10)]">
+            <div className="grid min-w-[980px] grid-cols-[220px_repeat(4,minmax(180px,1fr))]">
+              <div className="border-b border-r border-slate-100 bg-slate-50/80 p-5">
+                <p className="text-[10px] font-black uppercase tracking-[0.22em] text-slate-400">Tiêu chí</p>
+                <h4 className="mt-3 font-display text-xl font-black uppercase leading-[1.2] text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                  So sánh nhanh
+                </h4>
+              </div>
+              {fbPackages.map((pkg) => (
+                <div
+                  key={pkg.name}
+                  className={`border-b border-r p-5 ${
+                    pkg.highlight
+                      ? "bg-gradient-to-b from-[#0B74E8] to-[#0758B8] text-white border-white/10"
+                      : "bg-white border-slate-100"
+                  }`}
+                >
+                  <div className="flex items-center justify-between gap-3">
+                    <p className={`text-[10px] font-black uppercase tracking-[0.22em] ${pkg.highlight ? "text-blue-100" : "text-[#0B74E8]"}`}>
+                      {pkg.name}
+                    </p>
+                    {pkg.highlight && (
+                      <span className="rounded-full bg-white/16 px-3 py-1 text-[9px] font-black uppercase tracking-wider text-white">
+                        Gói tối ưu
+                      </span>
+                    )}
+                  </div>
+                  <p className={`mt-4 font-display text-4xl font-black tracking-[-0.04em] ${pkg.highlight ? "text-white" : "text-[#0A0F1C]"}`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    {pkg.price}
+                  </p>
+                  <p className={`mt-3 text-sm leading-[1.8] ${pkg.highlight ? "text-blue-50" : "text-slate-500"}`}>
+                    {pkg.desc}
+                  </p>
+                  <a href="#contact" className={`mt-5 inline-flex rounded-full px-4 py-2 text-[10px] font-black uppercase tracking-wider ${pkg.highlight ? "bg-white text-[#0B74E8]" : "bg-[#0B74E8] text-white"}`}>
+                    {pkg.highlight ? "Đăng ký combo" : "Chọn gói này"}
+                  </a>
+                </div>
+              ))}
+
+              {[
+                {
+                  label: "Phù hợp với",
+                  key: "learner",
+                },
+                {
+                  label: "Hình thức hỗ trợ",
+                  key: "support",
+                },
+                {
+                  label: "Tài nguyên tặng kèm",
+                  key: "bonus",
+                },
+                {
+                  label: "Mục tiêu phù hợp",
+                  key: "fit",
+                },
+              ].map((row) => (
+                <React.Fragment key={row.key}>
+                  <div className="border-b border-r border-slate-100 bg-slate-50/80 p-5">
+                    <p className="text-sm font-black uppercase leading-[1.4] tracking-[0.12em] text-[#0A0F1C]">{row.label}</p>
+                  </div>
+                  {fbPackages.map((pkg) => (
+                    <div key={`${pkg.name}-${row.key}`} className={`border-b border-r p-5 text-sm leading-[1.8] ${pkg.highlight ? "border-white/10 bg-[#0A63CC]/92 text-blue-50" : "border-slate-100 text-slate-600"}`}>
+                      {pkg[row.key]}
+                    </div>
+                  ))}
+                </React.Fragment>
+              ))}
+
+              <div className="border-r border-slate-100 bg-slate-50/80 p-5">
+                <p className="text-sm font-black uppercase leading-[1.4] tracking-[0.12em] text-[#0A0F1C]">Nội dung nổi bật</p>
+              </div>
+              {fbPackages.map((pkg) => (
+                <div key={`${pkg.name}-features`} className={`border-r p-5 ${pkg.highlight ? "border-white/10 bg-[#0A63CC]/92" : "border-slate-100 bg-white"}`}>
+                  <ul className="space-y-2">
+                    {pkg.features.map((feature) => (
+                      <li key={feature} className={`flex items-start gap-2 text-sm leading-[1.75] ${pkg.highlight ? "text-blue-50" : "text-slate-600"}`}>
+                        <span className={`mt-1.5 inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full ${pkg.highlight ? "bg-white/16 text-white" : "bg-blue-50 text-[#0B74E8]"}`}>
+                          <svg className="h-2.5 w-2.5" fill="none" viewBox="0 0 12 12">
+                            <path d="M2 6.2l2.2 2.2L10 2.7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
+                        </span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="lg:col-span-7">
-            <p className="section-eyebrow">Gói học & quyền lợi</p>
-            <h3 className="font-display text-3xl font-black uppercase leading-[1.2] tracking-[-0.035em] text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              Chọn lộ trình phù hợp với trình độ hiện tại.
-            </h3>
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              {fbPackages.map((pkg) => (
-                <article
-                  key={pkg.name}
-                  className={`rounded-[1.5rem] border p-6 ${
-                    pkg.highlight
-                      ? "border-[#0B74E8] bg-[#0B74E8] text-white shadow-[0_18px_55px_rgba(14,116,232,0.22)]"
-                      : "border-blue-100 bg-white"
-                  }`}
-                >
-                  <p className={`text-[10px] font-black uppercase tracking-[0.2em] ${pkg.highlight ? "text-blue-100" : "text-[#0B74E8]"}`}>
-                    {pkg.name}
-                  </p>
-                  <p className={`mt-3 font-display text-4xl font-black tracking-[-0.04em] ${pkg.highlight ? "text-white" : "text-[#0A0F1C]"}`} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-                    {pkg.price}
-                  </p>
-                  <p className={`mt-4 text-sm leading-[1.85] ${pkg.highlight ? "text-blue-50" : "text-slate-500"}`}>
-                    {pkg.desc}
-                  </p>
-                </article>
-              ))}
-            </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-3">
+            {[
+              "Học 1-1 đến khi tự chạy được ra đơn",
+              "Hỗ trợ trọn đời sau khóa học",
+              "Tặng miễn phí toàn bộ tài nguyên, không phí ẩn",
+            ].map((item) => (
+              <div key={item} className="rounded-[1.35rem] border border-emerald-100 bg-emerald-50/70 px-5 py-4 text-sm font-black leading-[1.7] text-emerald-900">
+                <span className="mr-2 inline-flex h-6 w-6 items-center justify-center rounded-full bg-emerald-600 align-middle text-white">
+                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 12 12">
+                    <path d="M2 6.2l2.2 2.2L10 2.7" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                {item}
+              </div>
+            ))}
+          </div>
 
-            <div className="mt-6 rounded-[1.5rem] border border-amber-200 bg-amber-50 p-6 text-sm font-semibold leading-[1.9] text-amber-900">
-              Cam kết rõ: học 1-1 cầm tay chỉ việc đến khi học viên tự chạy được ra đơn. Sau khóa được hỗ trợ trọn đời, toàn bộ tài nguyên và nguyên liệu chạy quảng cáo được tặng miễn phí, không phát sinh thêm bất kỳ chi phí ẩn nào.
-            </div>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href="#contact" className="btn-awwwards btn-awwwards-solid">
+              Đăng ký ngay
+            </a>
+            <a href="#contact" className="btn-awwwards btn-awwwards-outline">
+              Tư vấn 1-1
+            </a>
           </div>
         </div>
 
