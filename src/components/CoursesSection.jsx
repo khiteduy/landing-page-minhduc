@@ -505,7 +505,14 @@ export default function CoursesSection() {
                     <p className="text-sm font-black uppercase leading-[1.4] tracking-[0.12em] text-[#0A0F1C]">{row.label}</p>
                   </div>
                   {fbPackages.map((pkg) => (
-                    <div key={`${pkg.name}-${row.key}`} className={`border-b border-r p-5 text-sm leading-[1.8] ${pkg.highlight ? "border-white/10 bg-[#0A63CC]/92 text-white" : "border-slate-100 text-slate-600"}`}>
+                    <div
+                      key={`${pkg.name}-${row.key}`}
+                      className={`border-b border-r p-5 text-sm leading-[1.8] ${
+                        pkg.highlight
+                          ? "border-white/20 bg-[#0A63CC] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                          : "border-slate-100 text-slate-600"
+                      }`}
+                    >
                       {pkg[row.key]}
                     </div>
                   ))}
@@ -516,7 +523,14 @@ export default function CoursesSection() {
                 <p className="text-sm font-black uppercase leading-[1.4] tracking-[0.12em] text-[#0A0F1C]">Nội dung nổi bật</p>
               </div>
               {fbPackages.map((pkg) => (
-                <div key={`${pkg.name}-features`} className={`border-r p-5 ${pkg.highlight ? "border-white/10 bg-[#0A63CC]/92" : "border-slate-100 bg-white"}`}>
+                <div
+                  key={`${pkg.name}-features`}
+                  className={`border-r p-5 ${
+                    pkg.highlight
+                      ? "border-white/20 bg-[#0A58B5] shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]"
+                      : "border-slate-100 bg-white"
+                  }`}
+                >
                   <ul className="space-y-2">
                     {pkg.features.map((feature) => (
                       <li key={feature} className={`flex items-start gap-2 text-sm leading-[1.75] ${pkg.highlight ? "text-white" : "text-slate-600"}`}>
