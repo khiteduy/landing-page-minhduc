@@ -202,10 +202,10 @@ function CaseCard({ c, setLightbox }) {
 
       {/* Header row — always visible */}
       <div className="flex items-center justify-between gap-3 flex-wrap">
-        <span className={`px-3 py-1 text-[9px] font-bold uppercase tracking-wider rounded-full border ${c.tagColor}`}>
+        <span className={`px-3 py-1 text-[9px] font-bold uppercase tracking-wider rounded-full border lg:px-2.5 lg:py-0.5 lg:text-[8px] ${c.tagColor}`}>
           {c.tag}
         </span>
-        <span className={`text-[10px] font-extrabold px-3 py-1 rounded-full border ${c.resultColor}`}>
+        <span className={`text-[10px] font-extrabold px-3 py-1 rounded-full border lg:px-2.5 lg:py-0.5 lg:text-[8px] ${c.resultColor}`}>
           {c.result}
         </span>
       </div>
@@ -245,7 +245,7 @@ function CaseCard({ c, setLightbox }) {
             {supportMetric.value}
           </p>
         </div>
-        <span className={`text-[10px] font-extrabold px-3 py-1.5 rounded-full border ${c.resultColor}`}>
+        <span className={`text-[10px] font-extrabold px-3 py-1.5 rounded-full border lg:px-2.5 lg:py-1 lg:text-[8px] ${c.resultColor}`}>
           {c.result}
         </span>
       </div>
