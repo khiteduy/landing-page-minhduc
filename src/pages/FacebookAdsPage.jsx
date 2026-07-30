@@ -33,6 +33,31 @@ const benefits = [
   },
 ];
 
+const studentVideoStories = [
+  {
+    name: "Học viên Quyên",
+    job: "Kinh doanh xe điện",
+    initial: "Q",
+    title: "Từ số 0 đến tự chạy chiến dịch ra tin nhắn thật",
+    summary: "Video nhấn vào kết quả sau khi được kèm trực tiếp: học viên tự setup, đọc số và tối ưu để đạt chi phí tin nhắn 3,000đ - 5,000đ.",
+    quote: "Bắt đầu từ số 0, sau khóa học em đã tự vận hành Facebook Ads ra đơn với chi phí chỉ 3,000đ - 5,000đ/mess. Thầy dạy rất thực tế, không có lý thuyết dài dòng.",
+    result: "3k-5k đ/mess",
+    videoSrc: "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F596909413412164&show_text=false",
+    videoLink: "https://www.facebook.com/reel/596909413412164",
+  },
+  {
+    name: "Học viên mới",
+    job: "Facebook Ads thực chiến",
+    initial: "N",
+    title: "Thêm một phản hồi thực tế sau khóa học",
+    summary: "Video mới được đặt thành một case riêng để người xem thấy thêm bằng chứng xã hội mới nhất về cách học 1-1, triển khai thật và áp dụng vào công việc.",
+    quote: "Phản hồi mới từ học viên sau quá trình được hướng dẫn trực tiếp, tập trung vào việc hiểu cách triển khai và tự tin áp dụng Facebook Ads thực tế.",
+    result: "Kèm 1-1",
+    videoSrc: "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1022703816902704&show_text=false",
+    videoLink: "https://www.facebook.com/reel/1022703816902704",
+  },
+];
+
 export default function FacebookAdsPage() {
   return (
     <div className="min-h-screen bg-[#F8FAF9] text-[#0A0F1C]">
@@ -178,38 +203,48 @@ export default function FacebookAdsPage() {
         </div>
       </section>
 
-      {/* Feedback Quyên */}
+      {/* Feedback học viên */}
       <section className="py-20 px-6 bg-[#F8FAF9] border-b border-[#0A0F1C]/5">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <p className="section-eyebrow">Học Viên Thực Chiến</p>
           <h2 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#0A0F1C] mb-8" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
             Học viên nói gì sau khóa học?
           </h2>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-            <div className="bento-card bg-white p-8 border border-slate-100">
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-black text-[#2563EB] text-sm">Q</div>
-                <div>
-                  <p className="font-black text-sm text-[#0A0F1C]">Học viên Quyên</p>
-                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Kinh doanh xe điện</p>
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+            {studentVideoStories.map((story) => (
+              <article key={story.videoLink} className="overflow-hidden rounded-2xl border border-slate-100 bg-white shadow-[0_16px_50px_rgba(15,23,42,0.06)]">
+                <div className="aspect-video overflow-hidden bg-black">
+                  <iframe
+                    title={story.title}
+                    src={story.videoSrc}
+                    className="h-full w-full border-none"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  />
                 </div>
-              </div>
-              <blockquote className="text-sm text-slate-600 leading-relaxed italic border-l-2 border-[#2563EB] pl-4">
-                "Bắt đầu từ số 0, sau khóa học em đã tự vận hành Facebook Ads ra đơn với chi phí chỉ 3,000đ – 5,000đ/mess. Thầy dạy rất thực tế, không có lý thuyết dài dòng."
-              </blockquote>
-              <div className="mt-5 flex items-center gap-2 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-3 py-2 rounded-lg w-fit">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 14 14"><path d="M2 7l3 3 7-7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                Đã ra đơn thực tế sau học
-              </div>
-            </div>
-            <div className="aspect-video overflow-hidden rounded-2xl border border-slate-200 bg-black">
-              <iframe
-                title="Feedback Quyên"
-                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F596909413412164&show_text=false"
-                className="h-full w-full border-none"
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              />
-            </div>
+                <div className="p-7">
+                  <div className="mb-5 flex items-center gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-blue-100 text-sm font-black text-[#2563EB]">{story.initial}</div>
+                    <div>
+                      <p className="font-black text-sm text-[#0A0F1C]">{story.name}</p>
+                      <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">{story.job}</p>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-black uppercase leading-[1.2] tracking-tight text-[#0A0F1C]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    {story.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{story.summary}</p>
+                  <blockquote className="mt-5 border-l-2 border-[#2563EB] pl-4 text-sm italic leading-relaxed text-slate-600">
+                    "{story.quote}"
+                  </blockquote>
+                  <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-5">
+                    <div className="text-lg font-black text-[#2563EB]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{story.result}</div>
+                    <a href={story.videoLink} target="_blank" rel="noreferrer" className="text-[10px] font-black uppercase tracking-wider text-[#2563EB] hover:underline">
+                      Xem video gốc
+                    </a>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>

@@ -221,17 +221,39 @@ const fbProofShots = [
 ];
 
 /* ── Feedback học viên ────────────────────────── */
-const studentFeedbacks = [
+const studentStories = [
   {
     name: "Học viên Quyên",
     job: "Kinh doanh xe điện",
     avatar: "Q",
     avatarColor: "bg-blue-100 text-blue-700",
+    badge: "Video feedback",
+    title: "Từ số 0 đến tự chạy chiến dịch ra tin nhắn thật",
     quote: "Bắt đầu từ số 0, sau khóa học em đã tự vận hành Facebook Ads ra đơn với chi phí chỉ 3,000đ – 5,000đ/mess. Thầy dạy thực tế, không có lý thuyết dài dòng.",
+    summary: "Khung video này nhấn vào hành trình học thực chiến: học viên bắt đầu từ nền tảng rất mới, sau đó tự setup, đọc số và tối ưu để ra tin nhắn với chi phí thấp.",
     result: "3k–5k đ/mess",
     resultLabel: "Chi phí tin nhắn",
-    videoSrc: "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F596909413412164&show_text=false",
+    mediaType: "video",
+    mediaTitle: "Feedback học viên Quyên - Facebook Ads",
+    mediaSrc: "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F596909413412164&show_text=false",
     videoLink: "https://www.facebook.com/reel/596909413412164",
+    course: "Facebook Ads",
+  },
+  {
+    name: "Học viên khóa Facebook Ads",
+    job: "Học 1-1 thực chiến",
+    avatar: "N",
+    avatarColor: "bg-emerald-100 text-emerald-700",
+    badge: "Feedback mới",
+    title: "Hiểu cách chạy, biết đọc số và chủ động tối ưu",
+    quote: "Không còn học theo kiểu nhớ từng nút bấm. Sau khi được hướng dẫn trực tiếp, em đã hiểu tư duy triển khai, biết đọc chỉ số và chủ động điều chỉnh chiến dịch theo tình hình thực tế.",
+    summary: "Chia sẻ của học viên sau quá trình học 1-1 và trực tiếp thực hành cách triển khai, đọc số, tối ưu Facebook Ads.",
+    result: "1-1",
+    resultLabel: "Kèm trực tiếp",
+    mediaType: "video",
+    mediaTitle: "Feedback học viên mới - Facebook Ads",
+    mediaSrc: "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1022703816902704&show_text=false",
+    videoLink: "https://www.facebook.com/reel/1022703816902704",
     course: "Facebook Ads",
   },
   {
@@ -239,9 +261,15 @@ const studentFeedbacks = [
     job: "Chủ shop thời trang online",
     avatar: "M",
     avatarColor: "bg-violet-100 text-violet-700",
+    badge: "Ảnh minh họa",
+    title: "Tự kiểm soát quảng cáo thay vì phụ thuộc thuê ngoài",
     quote: "Trước đây tôi phải thuê người chạy ads 3-4 triệu/tháng nhưng không kiểm soát được. Sau khóa học tôi tự chạy, ROAS tăng hơn gấp đôi.",
+    summary: "Ảnh minh họa mô phỏng bối cảnh chủ shop theo dõi đơn hàng, chi phí quảng cáo và ROAS sau khi tự vận hành chiến dịch.",
     result: "2x ROAS",
     resultLabel: "Tăng so với trước",
+    mediaType: "image",
+    mediaSrc: "/course-assets/student-minh-ads.svg",
+    mediaAlt: "Minh họa học viên Minh tự theo dõi quảng cáo cho shop thời trang",
     course: "Facebook Ads",
   },
   {
@@ -249,9 +277,15 @@ const studentFeedbacks = [
     job: "Spa & Làm đẹp",
     avatar: "T",
     avatarColor: "bg-rose-100 text-rose-700",
+    badge: "Ảnh minh họa",
+    title: "Tăng khách đặt lịch nhờ Google Ads và Local Map",
     quote: "Google Ads khó hơn Facebook nhiều nhưng thầy hướng dẫn rất chi tiết. Tháng đầu đã có khách đặt lịch qua Google Maps tăng rõ rệt.",
+    summary: "Ảnh minh họa tập trung vào ngữ cảnh spa/làm đẹp, nơi học viên theo dõi lịch hẹn và nguồn khách từ Google Maps.",
     result: "+40%",
     resultLabel: "Khách qua Google Maps",
+    mediaType: "image",
+    mediaSrc: "/course-assets/student-thao-spa.svg",
+    mediaAlt: "Minh họa học viên Thảo tăng khách đặt lịch qua Google Maps",
     course: "Google Ads & Map",
   },
 ];
@@ -617,98 +651,111 @@ export default function CoursesSection() {
         </div>
 
         {/* ── HỌC VIÊN TIÊU BIỂU ─────────────────────── */}
-        <div className="mt-20 pt-16 border-t border-[#0A0F1C]/5">
-          <div className="text-center mb-10">
-            <p className="section-eyebrow justify-center">
-              <span className="w-1.5 h-1.5 rounded-full bg-amber-400" />
-              <span>Học Viên Tiêu Biểu</span>
-            </p>
-            <h3 className="text-2xl sm:text-3xl font-black uppercase tracking-tight text-[#0A0F1C] mt-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-              Kết quả thực tế từ học viên của chúng tôi
-            </h3>
+        <div className="relative mt-20 overflow-hidden rounded-[2rem] border border-blue-100 bg-gradient-to-br from-[#EAF4FF] via-[#F7FBFF] to-[#DDEEFF] px-5 py-10 shadow-[0_24px_80px_rgba(37,99,235,0.10)] sm:px-8 sm:py-12 lg:px-12 lg:py-14">
+          <div className="pointer-events-none absolute -right-24 -top-32 h-80 w-80 rounded-full bg-[#60A5FA]/30 blur-[90px]" aria-hidden="true" />
+          <div className="pointer-events-none absolute -bottom-40 -left-24 h-80 w-80 rounded-full bg-cyan-300/25 blur-[100px]" aria-hidden="true" />
+          <div className="pointer-events-none absolute inset-0 opacity-[0.13]" style={{ backgroundImage: "radial-gradient(circle, #2563EB 1px, transparent 1px)", backgroundSize: "22px 22px" }} aria-hidden="true" />
+
+          <div className="relative mb-10 grid items-end gap-7 lg:grid-cols-[1fr_auto]">
+            <div className="max-w-2xl">
+              <p className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.22em] text-[#2563EB]">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#2563EB] opacity-40" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[#2563EB]" />
+                </span>
+                Học viên nói về trải nghiệm thật
+              </p>
+              <h3 className="mt-4 text-3xl font-black leading-[1.08] tracking-[-0.04em] text-[#0A0F1C] sm:text-4xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                Học để tự chạy.<br />
+                <span className="text-[#2563EB]">Kết quả để tự nói.</span>
+              </h3>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-slate-600">
+                Những chia sẻ sau quá trình học và thực hành trực tiếp trên chiến dịch thật — từ lúc chưa biết bắt đầu đến khi tự đọc số, tối ưu và ra kết quả.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 sm:flex">
+              <div className="rounded-2xl border border-blue-100 bg-white/80 px-4 py-3 shadow-sm backdrop-blur-sm">
+                <p className="text-xl font-black text-[#2563EB]">1-1</p>
+                <p className="mt-0.5 text-[9px] font-bold uppercase tracking-wider text-slate-500">Kèm trực tiếp</p>
+              </div>
+              <div className="rounded-2xl border border-blue-100 bg-white/80 px-4 py-3 shadow-sm backdrop-blur-sm">
+                <p className="text-xl font-black text-[#2563EB]">Trọn đời</p>
+                <p className="mt-0.5 text-[9px] font-bold uppercase tracking-wider text-slate-500">Hỗ trợ sau học</p>
+              </div>
+            </div>
           </div>
 
-          {/* Featured: Quyên with video */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8 items-center">
-            {/* Quote card */}
-            <div className="bg-[#F8FAF9] rounded-2xl border border-slate-100 p-7 sm:p-9 flex flex-col gap-5 relative overflow-hidden">
-              {/* Watermark " */}
-              <span className="absolute top-4 right-5 text-[7rem] font-black text-[#2563EB]/5 leading-none select-none pointer-events-none" aria-hidden="true">"</span>
-              
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center font-black text-blue-700 text-base shrink-0">Q</div>
-                <div>
-                  <p className="font-black text-sm text-[#0A0F1C]">Học viên Quyên</p>
-                  <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Kinh doanh xe điện · Facebook Ads</p>
-                </div>
-                <div className="ml-auto">
-                  <span className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-amber-50 border border-amber-100 text-[9px] font-black text-amber-700 uppercase tracking-wider">
-                    ⭐ Học viên nổi bật
+          <div className="relative grid grid-cols-1 gap-5 lg:grid-cols-12">
+            {studentStories.map((story, index) => (
+              <article
+                key={story.name}
+                className={`group overflow-hidden rounded-[1.5rem] border border-blue-100 bg-white shadow-[0_18px_55px_rgba(37,99,235,0.10)] transition duration-300 hover:-translate-y-1 hover:border-blue-300 hover:shadow-[0_22px_65px_rgba(37,99,235,0.16)] ${index === 0 ? "lg:col-span-7" : index === 1 ? "lg:col-span-5" : "lg:col-span-6"}`}
+              >
+                <div className="relative aspect-[16/10] overflow-hidden bg-[#050A12]">
+                  {story.mediaType === "video" ? (
+                    <iframe
+                      title={story.mediaTitle}
+                      src={story.mediaSrc}
+                      className="h-full w-full border-none"
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                      allowFullScreen
+                      loading="lazy"
+                    />
+                  ) : (
+                    <img
+                      src={story.mediaSrc}
+                      alt={story.mediaAlt}
+                      className="h-full w-full object-cover transition duration-700 group-hover:scale-[1.03]"
+                      loading="lazy"
+                    />
+                  )}
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#050A12]/90 to-transparent" aria-hidden="true" />
+                  <div className="pointer-events-none absolute bottom-4 left-4 flex items-center gap-2.5">
+                    <div className="rounded-xl border border-white/15 bg-[#081120]/80 px-3.5 py-2 shadow-xl backdrop-blur-md">
+                      <p className="text-lg font-black leading-none text-white">{story.result}</p>
+                      <p className="mt-1 text-[8px] font-black uppercase tracking-[0.14em] text-blue-300">{story.resultLabel}</p>
+                    </div>
+                  </div>
+                  <span className="pointer-events-none absolute right-4 top-4 rounded-full border border-white/15 bg-[#081120]/75 px-3 py-1.5 text-[8px] font-black uppercase tracking-[0.16em] text-white backdrop-blur-md">
+                    {story.badge}
                   </span>
                 </div>
-              </div>
 
-              <blockquote className="text-sm sm:text-base text-[#0A0F1C]/75 leading-relaxed italic border-l-2 border-[#2563EB] pl-4">
-                "Bắt đầu từ số 0, sau khóa học em đã tự vận hành Facebook Ads ra đơn với chi phí chỉ <strong className="text-[#0A0F1C] not-italic">3,000đ – 5,000đ/mess</strong>. Thầy dạy rất thực tế, không có lý thuyết dài dòng."
-              </blockquote>
-
-              <div className="grid grid-cols-2 gap-3 pt-2">
-                <div className="p-4 rounded-xl bg-white border border-slate-100 text-center">
-                  <p className="text-2xl font-black text-[#2563EB]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>3k–5k đ</p>
-                  <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400 mt-1">Chi phí/mess</p>
-                </div>
-                <div className="p-4 rounded-xl bg-white border border-slate-100 text-center">
-                  <p className="text-2xl font-black text-emerald-600" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Từ số 0</p>
-                  <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400 mt-1">Xuất phát điểm</p>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-3 pt-2 border-t border-slate-100">
-                <span className="flex items-center gap-1.5 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full border border-emerald-100">
-                  <svg className="w-3 h-3" fill="none" viewBox="0 0 12 12"><path d="M2 6l2.5 2.5 5.5-5.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  Đã ra đơn thực tế sau học
-                </span>
-                <a href="https://www.facebook.com/reel/596909413412164" target="_blank" rel="noreferrer" className="text-[10px] font-black text-[#2563EB] hover:underline uppercase tracking-wider ml-auto">
-                  Xem trên Facebook ↗
-                </a>
-              </div>
-            </div>
-
-            {/* Video embed */}
-            <div className="aspect-video rounded-2xl overflow-hidden border border-slate-200 bg-[#0A0F1C] shadow-[0_20px_60px_rgba(10,15,28,0.1)]">
-              <iframe
-                title="Feedback học viên Quyên — Facebook Ads"
-                src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F596909413412164&show_text=false"
-                className="h-full w-full border-none"
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-              />
-            </div>
-          </div>
-
-          {/* Other student feedbacks */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            {studentFeedbacks.slice(1).map((fb, i) => (
-              <div key={i} className="bg-white rounded-2xl border border-slate-100 p-6 flex flex-col gap-4 hover:border-[#2563EB]/20 hover:shadow-[0_8px_30px_rgba(37,99,235,0.06)] transition-all duration-300">
-                <div className="flex items-center gap-3">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-black text-sm shrink-0 ${fb.avatarColor}`}>{fb.avatar}</div>
-                  <div>
-                    <p className="font-black text-sm text-[#0A0F1C]">{fb.name}</p>
-                    <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">{fb.job}</p>
+                <div className="flex flex-col p-5 sm:p-6">
+                  <div className="flex items-center gap-3">
+                    <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-black ring-4 ring-slate-50 ${story.avatarColor}`}>{story.avatar}</div>
+                    <div className="min-w-0">
+                      <p className="text-sm font-black text-[#0A0F1C]">{story.name}</p>
+                      <p className="mt-0.5 truncate text-[9px] font-bold uppercase tracking-[0.12em] text-slate-400">{story.job}</p>
+                    </div>
+                    <span className="ml-auto rounded-full bg-blue-50 px-2.5 py-1 text-[8px] font-black uppercase tracking-wider text-blue-700">{story.course}</span>
                   </div>
-                  <span className="ml-auto text-[9px] font-bold px-2 py-1 bg-blue-50 text-blue-700 rounded-full border border-blue-100">{fb.course}</span>
+
+                  <h4 className="mt-5 text-lg font-black leading-[1.25] tracking-[-0.02em] text-[#0A0F1C] sm:text-xl" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+                    {story.title}
+                  </h4>
+                  <blockquote className="relative mt-4 flex-1 rounded-2xl bg-slate-50 px-4 pb-4 pt-7 text-[13px] italic leading-6 text-slate-600">
+                    <svg className="absolute left-4 top-3 h-3.5 w-3.5 text-[#2563EB]" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M7.2 17H3.5l2.4-10h5.5L7.2 17Zm9.1 0h-3.7L15 7h5.5l-4.2 10Z" />
+                    </svg>
+                    {story.quote}
+                  </blockquote>
+
+                  {story.videoLink && (
+                    <a href={story.videoLink} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 self-start text-[9px] font-black uppercase tracking-[0.16em] text-[#2563EB] transition hover:gap-3">
+                      Xem video gốc <span aria-hidden="true">↗</span>
+                    </a>
+                  )}
                 </div>
-                <blockquote className="text-sm text-slate-600 leading-relaxed italic border-l-2 border-slate-200 pl-3">
-                  "{fb.quote}"
-                </blockquote>
-                <div className="pt-3 border-t border-slate-50 flex items-center gap-3">
-                  <div>
-                    <p className="text-lg font-black text-[#2563EB]" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}>{fb.result}</p>
-                    <p className="text-[9px] font-bold uppercase tracking-wider text-slate-400">{fb.resultLabel}</p>
-                  </div>
-                </div>
-              </div>
+              </article>
             ))}
           </div>
+
+          <p className="relative mt-7 flex items-start justify-center gap-2 text-center text-[10px] leading-5 text-slate-500">
+            <svg className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#2563EB]" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16Zm3.7-9.7a1 1 0 00-1.4-1.4L9 10.2 7.7 8.9a1 1 0 00-1.4 1.4l2 2a1 1 0 001.4 0l4-4Z" clipRule="evenodd" /></svg>
+            Kết quả phụ thuộc vào ngành hàng, ngân sách và mức độ thực hành của từng học viên. Video được dẫn về nguồn Facebook gốc để bạn có thể kiểm chứng.
+          </p>
         </div>
 
         {/* Bottom CTA strip */}
